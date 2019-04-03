@@ -1,0 +1,2479 @@
+<html>
+<head>
+
+<style type="text/css"> 
+
+  div{
+    font-size:24pt;
+    font-family:標楷體;
+  }
+  .smallfont { 
+    font-family:標楷體;
+    font-size: 13pt; 
+  }
+  #smallVer1 { 
+    font-family:標楷體;
+    font-size: 13pt; 
+  }
+  #smallVer2 { 
+    font-family:標楷體;
+    font-size: 13pt; 
+  }
+  #smallVer3 { 
+    font-family:標楷體;
+    font-size: 13pt; 
+  }
+  #smallVer4 { 
+    font-family:標楷體;
+    font-size: 13pt; 
+  }
+  #bookmark1 { 
+    font-family:標楷體;
+    font-size: 13pt; 
+    color:darkblue;
+  }
+  #bookmark2 { 
+    font-family:標楷體;
+    font-size: 13pt; 
+    color:darkblue;
+  }
+  #bookmark3 { 
+    font-family:標楷體;
+    font-size: 13pt; 
+    color:darkblue;
+  }
+  #bookmark4 { 
+    font-family:標楷體;
+    font-size: 13pt; 
+    color:darkblue;
+  }
+  #bookmark5 { 
+    font-family:標楷體;
+    font-size: 13pt; 
+    color:darkblue;
+  }
+  #bookmark6 { 
+    font-family:標楷體;
+    font-size: 13pt; 
+    color:darkblue;
+  }
+  #bookmark7 { 
+    font-family:標楷體;
+    font-size: 13pt; 
+    color:darkblue;
+  }
+  #bookmark8 { 
+    font-family:標楷體;
+    font-size: 13pt; 
+    color:darkblue;
+  }
+  #bookmark9 { 
+    font-family:標楷體;
+    font-size: 13pt; 
+    color:darkblue;
+  }
+  #bookmark10 { 
+    font-family:標楷體;
+    font-size: 13pt; 
+    color:darkblue;
+  }
+  #bookmark11 { 
+    font-family:標楷體;
+    font-size: 13pt; 
+    color:darkblue;
+  }
+  #bookmark12 { 
+    font-family:標楷體;
+    font-size: 13pt; 
+    color:darkblue;
+  }
+  #bookmark13 { 
+    font-family:標楷體;
+    font-size: 13pt; 
+    color:darkblue;
+  }
+  #bookmark14 { 
+    font-family:標楷體;
+    font-size: 13pt; 
+    color:darkblue;
+  }
+
+</style> 
+
+
+
+<SCRIPT LANGUAGE="JavaScript" SRC="KeyFunction2.js"></SCRIPT>
+
+
+
+<script Language="JavaScript">
+
+
+//font-family:arial; 
+
+// Define global variables
+
+
+// For Keyboard Test
+   var B_book_int = 0;
+   var B_chap_int = 0;
+   var B_verse_int = 1;
+   var B_to_verse_int = 1;
+   var H_book_int = 0;
+   var now_B_verse_int = 0;
+   var now_B_to_verse_int = 0;
+   var B_book;
+   var B_chap;
+   var B_verse;
+   var B_to_verse;
+   var H_book;
+   var B_book1;
+   var B_chap1;
+   var B_verse1;
+   var B_to_verse1;
+   var H_book1;
+   var B_book2;
+   var B_chap2;
+   var B_verse2;
+   var B_to_verse2;
+   var H_book2;
+   var B_book3;
+   var B_chap3;
+   var B_verse3;
+   var B_to_verse3;
+   var H_book3;
+   var H_book4;
+   var B_book_text="";
+   var B_chap_text="";
+   var B_verse_text="";
+   var B_to_verse_text="";
+   var H_book_text="";
+   var B_book_F = 0;
+   var B_chap_F = 0;
+   var B_verse_F  = 0;
+   var B_to_verse_F  = 0;
+   var H_book_F = 0;
+   var B_book_1F = 0;
+   var B_chap_1F = 0;
+   var B_verse_1F  = 0;
+   var B_to_verse_1F  = 0;
+   var H_book_1F = 0;
+   var B_book_2F = 0;
+   var B_chap_2F = 0;
+   var B_verse_2F  = 0;
+   var B_to_verse_2F  = 0;
+   var H_book_2F = 0;
+   var B_book_3F = 0;
+   var B_chap_3F = 0;
+   var B_verse_3F  = 0;
+   var B_to_verse_3F  = 0;
+   var H_book_3F = 0;
+   var H_book_4F = 0;
+   var B_book_seq = 0;
+   var S_anno;
+   var S_anno1;
+   var S_anno2;
+   var S_anno_F = 0;
+   var S_anno_1F = 0;
+   var S_anno_2F = 0;
+   var S_anno_int;
+
+   var all_key_enable=0; // 0 表 disable partial key, 1 表 enable all key
+   var AB_key_enable=0; // 0 表 disable A,B key, 1 表 enable A,B key
+
+   var Bible_F = 0;        // 為 1 時，按 Enter 會 送出 所選 經文內容
+   var Hymn_F = 0;         // 為 1 時，按 Enter 會 送出 所選 Hymn
+   var Static_Anno_F = 0;  // 為 1 時，按 Enter 會 送出 所選 Static Announcement
+   var Dyna_Anno_F = 0;    // 為 1 時，按 Enter 會 送出 所選 Dynamic Announcement , 目前尚未用到
+
+   var maxchap = 0;
+   var maxverse = 0;
+
+
+// For Select Book, Chap, Verse... from Screen
+
+   var Book_F=0;
+   var Chap_F=0;
+   var Vers_F=0;
+   var ToVers_F=0;
+
+   var Book_seq=0;
+   var Book_Num;
+   var Book_Num1;
+   var Book_Num2;
+
+   var Chap_seq=0;
+   var Chap_Num;
+   var Chap_Num1;
+   var Chap_Num2;
+   var Chap_Num3;
+
+   var Vers_seq=0;
+   var Vers_Num;
+   var Vers_Num1;
+   var Vers_Num2;
+   var Vers_Num3;
+
+   var ToVers_seq=0;
+   var ToVers_Num;
+   var ToVers_Num1;
+   var ToVers_Num2;
+   var ToVers_Num3;
+
+   var ANNO_S1="";
+   var ANNO_S2="";
+   var ANNO_S3="";
+   var ANNO_S4="";
+
+//<tr><td><p style="font-size:18pt" >&nbsp</p></td>
+
+</script>
+
+
+<title>Count People</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=big5">
+
+</head>
+<body onload="Show_Total_Mode(); return false;" text="#000000" link="#0000ff" alink="#ffffff" vlink="#0000ff" background="back5.jpg">
+
+</tr><tr><td>&nbsp</td></tr>
+
+
+<center>
+<table>
+
+<tr>
+
+<td>
+<input style="font-size:18pt;color:blue" type="button" name="M222" id="Bro_Member" value="B.M." onclick="Input_BroMember_Mode();; return false;">
+</td>
+
+<td>
+<input style="font-size:18pt;color:blue" type="button" name="M222" id="Bro_TruSeeker" value="B.Ts." onclick="Input_BroTruSeeker_Mode();; return false;">
+</td>
+
+
+<td></td><td></td><td></td><td></td>
+
+<td>
+<input style="font-size:18pt;color:red" type="button" name="M222" id="Sis_Member" value="S.M." onclick="Input_SisMember_Mode();; return false;">
+</td>
+
+<td>
+<input style="font-size:18pt;color:red" type="button" name="M222" id="Sis_TruSeeker" value="S.Ts." onclick="Input_SisTruSeeker_Mode();; return false;">
+</td>
+
+<td>
+<input class="topfont2" type="button" id="etest" value="e" onclick="return false;">
+</td>
+
+</tr>
+
+<tr><td>&nbsp</td></tr>
+
+</table>
+</center>
+
+
+<center>
+<table>
+<table border=1 width=100% text=white>
+
+<tr>
+<td align=center>
+<input style="font-size:18pt" type="button" name="M222" id="Reset_Button" value="Reset" onclick="Reset_All();; return false;">
+</td>
+
+<td>
+<p align=center style="font-size:18pt;"><b>M</b>ember</p>
+</td>
+
+<td>
+<p align=center style="font-size:18pt;"><b>T</b>.<b>S</b>.</p>
+</td>
+
+<td>
+<p align=center style="font-size:18pt;">Total</p>
+</td>
+</tr>
+
+
+<tr>
+<td><p align=center style="font-size:18pt;color:blue"><b>B</b>rother</p></td>
+
+<td>
+<p align=center id="BroM" style="font-size:18pt;"></p>
+</td>
+
+<td>
+<p align=center id="BroTrs" style="font-size:18pt;"></p>
+</td>
+
+<td>
+<p align=center id="BroTotal" style="font-size:18pt;"></p>
+</td>
+</tr>
+
+
+<tr>
+<td><p align=center style="font-size:18pt;color:red"><b>S</b>ister</p></td>
+
+<td>
+<p align=center id="SisM" style="font-size:18pt;"></p>
+</td>
+
+<td>
+<p align=center id="SisTrs" style="font-size:18pt;"></p>
+</td>
+
+<td>
+<p align=center id="SisTotal" style="font-size:18pt;"></p>
+</td>
+</tr>
+
+
+<tr>
+<td><p align=center style="font-size:18pt;">Total</p></td>
+
+<td>
+<p align=center id="MemTotal" style="font-size:18pt;"></p>
+</td>
+
+<td>
+<p align=center id="TrsTotal" style="font-size:18pt;"></p>
+</td>
+
+<td>
+<p align=center id="AllTotal" style="font-size:18pt;"></p>
+</td>
+</tr>
+
+
+</table>
+</center>
+
+
+
+<script>
+
+
+//<div id="tool_area" style="height:0px;">
+</script>
+
+<div id="tool_area_1" style="height:0px;visibility:hidden">
+
+<table><tr><td>
+<a href="" onClick="readchapter(nowbook,nowchapter,--nowsection);Send_to_win34(11,0,0,0,0,0,0); return false;">前一節</a>
+</td><td>
+<form method="POST" name="Reading" onsubmit="readchapter(document.Reading.na.selectedIndex,document.Reading.chap.selectedIndex , document.Reading.sec.selectedIndex+1);Send_to_win34(11,0,0,0,0,0,0); return false;">
+<SELECT NAME="na" OnChange="setchap(Reading, this.selectedIndex, this.selectedIndex)">
+  <OPTION  VALUE="0">Genesis
+  <OPTION  VALUE="1">Exodus
+  <OPTION  VALUE="2">Leviticus
+  <OPTION  VALUE="3">Numbers
+  <OPTION  VALUE="4">Deuteronomy
+  <OPTION  VALUE="5">Joshua
+  <OPTION  VALUE="6">Judges
+  <OPTION  VALUE="7">Ruth
+  <OPTION  VALUE="8">1 Samuel
+  <OPTION  VALUE="9">2 Samuel
+  <OPTION  VALUE="10">1 Kings
+  <OPTION  VALUE="11">2 Kings
+  <OPTION  VALUE="12">1 Chronicles
+  <OPTION  VALUE="13">2 Chronicles
+  <OPTION  VALUE="14">Ezra
+  <OPTION  VALUE="15">Nehemiah
+  <OPTION  VALUE="16">Esther
+  <OPTION  VALUE="17">Job
+  <OPTION  VALUE="18">Psalms
+  <OPTION  VALUE="19">Proverbs
+  <OPTION  VALUE="20">Ecclesiastes
+  <OPTION  VALUE="21">Song of Solomon
+  <OPTION  VALUE="22">Isaiah
+  <OPTION  VALUE="23">Jeremiah
+  <OPTION  VALUE="24">Lamentations
+  <OPTION  VALUE="25">Ezekiel
+  <OPTION  VALUE="26">Daniel
+  <OPTION  VALUE="27">Hosea
+  <OPTION  VALUE="28">Joel
+  <OPTION  VALUE="29">Amos
+  <OPTION  VALUE="30">Obadiah
+  <OPTION  VALUE="31">Jonah
+  <OPTION  VALUE="32">Micah
+  <OPTION  VALUE="33">Nahum
+  <OPTION  VALUE="34">Habakkuk
+  <OPTION  VALUE="35">Zephaniah
+  <OPTION  VALUE="36">Haggai
+  <OPTION  VALUE="37">Zechariah
+  <OPTION  VALUE="38">Malachi 
+</SELECT> 
+<SELECT NAME="chap" OnChange="setsec(Reading, this.selectedIndex, this.selectedIndex)">                                                                                                                                                                     
+<OPTION  VALUE="001">第 1 章
+<OPTION  VALUE="002">第 2 章
+<OPTION  VALUE="003">第 3 章
+<OPTION  VALUE="004">第 4 章
+<OPTION  VALUE="005">第 5 章
+<OPTION  VALUE="006">第 6 章
+<OPTION  VALUE="007">第 7 章
+<OPTION  VALUE="008">第 8 章
+<OPTION  VALUE="009">第 9 章
+<OPTION  VALUE="010">第 10 章
+<OPTION  VALUE="011">第 11 章
+<OPTION  VALUE="012">第 12 章
+<OPTION  VALUE="013">第 13 章
+<OPTION  VALUE="014">第 14 章
+<OPTION  VALUE="015">第 15 章
+<OPTION  VALUE="016">第 16 章
+<OPTION  VALUE="017">第 17 章
+<OPTION  VALUE="018">第 18 章
+<OPTION  VALUE="019">第 19 章
+<OPTION  VALUE="020">第 20 章
+<OPTION  VALUE="021">第 21 章
+<OPTION  VALUE="022">第 22 章
+<OPTION  VALUE="023">第 23 章
+<OPTION  VALUE="024">第 24 章
+<OPTION  VALUE="025">第 25 章
+<OPTION  VALUE="026">第 26 章
+<OPTION  VALUE="027">第 27 章
+<OPTION  VALUE="028">第 28 章
+<OPTION  VALUE="029">第 29 章
+<OPTION  VALUE="030">第 30 章
+<OPTION  VALUE="031">第 31 章
+<OPTION  VALUE="032">第 32 章
+<OPTION  VALUE="033">第 33 章
+<OPTION  VALUE="034">第 34 章
+<OPTION  VALUE="035">第 35 章
+<OPTION  VALUE="036">第 36 章
+<OPTION  VALUE="037">第 37 章
+<OPTION  VALUE="038">第 38 章
+<OPTION  VALUE="039">第 39 章
+<OPTION  VALUE="040">第 40 章
+<OPTION  VALUE="041">第 41 章
+<OPTION  VALUE="042">第 42 章
+<OPTION  VALUE="043">第 43 章
+<OPTION  VALUE="044">第 44 章
+<OPTION  VALUE="045">第 45 章
+<OPTION  VALUE="046">第 46 章
+<OPTION  VALUE="047">第 47 章
+<OPTION  VALUE="048">第 48 章
+<OPTION  VALUE="049">第 49 章
+<OPTION  VALUE="050">第 50 章
+</SELECT>  
+<SELECT NAME="sec" >                                                                                                                                                                   
+<OPTION  VALUE="1">第 1 節
+<OPTION  VALUE="2">第 2 節
+<OPTION  VALUE="3">第 3 節
+<OPTION  VALUE="4">第 4 節
+<OPTION  VALUE="5">第 5 節
+<OPTION  VALUE="6">第 6 節
+<OPTION  VALUE="7">第 7 節
+<OPTION  VALUE="008">第 8 節
+<OPTION  VALUE="009">第 9 節
+<OPTION  VALUE="010">第 10 節
+<OPTION  VALUE="011">第 11 節
+<OPTION  VALUE="012">第 12 節
+<OPTION  VALUE="013">第 13 節
+<OPTION  VALUE="014">第 14 節
+<OPTION  VALUE="015">第 15 節
+<OPTION  VALUE="016">第 16 節
+<OPTION  VALUE="017">第 17 節
+<OPTION  VALUE="018">第 18 節
+<OPTION  VALUE="019">第 19 節
+<OPTION  VALUE="020">第 20 節
+<OPTION  VALUE="021">第 21 節
+<OPTION  VALUE="022">第 22 節
+<OPTION  VALUE="023">第 23 節
+<OPTION  VALUE="024">第 24 節
+<OPTION  VALUE="025">第 25 節
+<OPTION  VALUE="026">第 26 節
+<OPTION  VALUE="027">第 27 節
+<OPTION  VALUE="028">第 28 節
+<OPTION  VALUE="029">第 29 節
+<OPTION  VALUE="030">第 30 節
+<OPTION  VALUE="031">第 31 節
+<OPTION  VALUE="032">第 32 節
+<OPTION  VALUE="033">第 33 節
+<OPTION  VALUE="034">第 34 節
+<OPTION  VALUE="035">第 35 節
+<OPTION  VALUE="036">第 36 節
+<OPTION  VALUE="037">第 37 節
+<OPTION  VALUE="038">第 38 節
+<OPTION  VALUE="039">第 39 節
+<OPTION  VALUE="040">第 40 節
+<OPTION  VALUE="041">第 41 節
+<OPTION  VALUE="042">第 42 節
+<OPTION  VALUE="043">第 43 節
+<OPTION  VALUE="044">第 44 節
+<OPTION  VALUE="045">第 45 節
+<OPTION  VALUE="046">第 46 節
+<OPTION  VALUE="047">第 47 節
+<OPTION  VALUE="048">第 48 節
+</SELECT>  
+<input type="submit" name="submit1" value="閱讀">                                                                                                                                                                     
+</form>
+</td><td>
+<form method="POST" name="Reading2" onsubmit="readchapter(document.Reading2.na.selectedIndex+39, document.Reading2.chap.selectedIndex, document.Reading2.sec.selectedIndex+1);Send_to_win34(11,0,0,0,0,0,0); return false;">
+<SELECT NAME="na" OnChange="setchap2(Reading2, this.selectedIndex+39, this.selectedIndex)">
+  <OPTION  VALUE="39">Matthew
+  <OPTION  VALUE="40">Mark
+  <OPTION  VALUE="41">Luke
+  <OPTION  VALUE="42">John
+  <OPTION  VALUE="43">Acts
+  <OPTION  VALUE="44">Romans
+  <OPTION  VALUE="45">1 Corinthians
+  <OPTION  VALUE="46">2 Corinthians
+  <OPTION  VALUE="47">Galatians
+  <OPTION  VALUE="48">Ephesians
+  <OPTION  VALUE="49">Philippians
+  <OPTION  VALUE="50">Colossians
+  <OPTION  VALUE="51">1 Thessalonians
+  <OPTION  VALUE="52">2 Thessalonians
+  <OPTION  VALUE="53">1 Timothy
+  <OPTION  VALUE="54">2 Timothy
+  <OPTION  VALUE="55">Titus
+  <OPTION  VALUE="56">Philemon
+  <OPTION  VALUE="57">Hebrews
+  <OPTION  VALUE="58">James
+  <OPTION  VALUE="59">1 Peter
+  <OPTION  VALUE="60">2 Peter
+  <OPTION  VALUE="61">1 John
+  <OPTION  VALUE="62">2 John
+  <OPTION  VALUE="63">3 John
+  <OPTION  VALUE="64">Jude
+  <OPTION  VALUE="65">Revelation
+</SELECT> 
+<SELECT NAME="chap" OnChange="setsec2(Reading2, this.selectedIndex, this.selectedIndex)">                                                                                                                                                                     
+<OPTION  VALUE="001" SELECTED>第 1 章
+<OPTION  VALUE="002">第 2 章
+<OPTION  VALUE="003">第 3 章
+<OPTION  VALUE="004">第 4 章
+<OPTION  VALUE="005">第 5 章
+<OPTION  VALUE="006">第 6 章
+<OPTION  VALUE="007">第 7 章
+<OPTION  VALUE="008">第 8 章
+<OPTION  VALUE="009">第 9 章
+<OPTION  VALUE="010">第 10 章
+<OPTION  VALUE="011">第 11 章
+<OPTION  VALUE="012">第 12 章
+<OPTION  VALUE="013">第 13 章
+<OPTION  VALUE="014">第 14 章
+<OPTION  VALUE="015">第 15 章
+<OPTION  VALUE="016">第 16 章
+<OPTION  VALUE="017">第 17 章
+<OPTION  VALUE="018">第 18 章
+<OPTION  VALUE="019">第 19 章
+<OPTION  VALUE="020">第 20 章
+<OPTION  VALUE="021">第 21 章
+<OPTION  VALUE="022">第 22 章
+<OPTION  VALUE="023">第 23 章
+<OPTION  VALUE="024">第 24 章
+<OPTION  VALUE="025">第 25 章
+<OPTION  VALUE="026">第 26 章
+<OPTION  VALUE="027">第 27 章
+<OPTION  VALUE="028">第 28 章
+</SELECT>  
+<SELECT NAME="sec" >                                                                                                                                                                     
+<OPTION  VALUE="1">第 1 節
+<OPTION  VALUE="2">第 2 節
+<OPTION  VALUE="3">第 3 節
+<OPTION  VALUE="4">第 4 節
+<OPTION  VALUE="5">第 5 節
+<OPTION  VALUE="6">第 6 節
+<OPTION  VALUE="7">第 7 節
+<OPTION  VALUE="008">第 8 節
+<OPTION  VALUE="009">第 9 節
+<OPTION  VALUE="010">第 10 節
+<OPTION  VALUE="011">第 11 節
+<OPTION  VALUE="012">第 12 節
+<OPTION  VALUE="013">第 13 節
+<OPTION  VALUE="014">第 14 節
+<OPTION  VALUE="015">第 15 節
+<OPTION  VALUE="016">第 16 節
+<OPTION  VALUE="017">第 17 節
+<OPTION  VALUE="018">第 18 節
+<OPTION  VALUE="019">第 19 節
+<OPTION  VALUE="020">第 20 節
+<OPTION  VALUE="021">第 21 節
+<OPTION  VALUE="022">第 22 節
+<OPTION  VALUE="023">第 23 節
+<OPTION  VALUE="024">第 24 節
+<OPTION  VALUE="025">第 25 節
+<OPTION  VALUE="026">第 26 節
+<OPTION  VALUE="027">第 27 節
+<OPTION  VALUE="028">第 28 節
+<OPTION  VALUE="029">第 29 節
+<OPTION  VALUE="030">第 30 節
+<OPTION  VALUE="031">第 31 節
+<OPTION  VALUE="032">第 32 節
+<OPTION  VALUE="033">第 33 節
+<OPTION  VALUE="034">第 34 節
+<OPTION  VALUE="035">第 35 節
+<OPTION  VALUE="036">第 36 節
+<OPTION  VALUE="037">第 37 節
+<OPTION  VALUE="038">第 38 節
+<OPTION  VALUE="039">第 39 節
+<OPTION  VALUE="040">第 40 節
+<OPTION  VALUE="041">第 41 節
+<OPTION  VALUE="042">第 42 節
+<OPTION  VALUE="043">第 43 節
+<OPTION  VALUE="044">第 44 節
+<OPTION  VALUE="045">第 45 節
+<OPTION  VALUE="046">第 46 節
+<OPTION  VALUE="047">第 47 節
+<OPTION  VALUE="048">第 48 節
+<OPTION  VALUE="049">第 49 節
+<OPTION  VALUE="050">第 50 節
+<OPTION  VALUE="051">第 51 節
+<OPTION  VALUE="052">第 52 節
+<OPTION  VALUE="053">第 53 節
+<OPTION  VALUE="054">第 54 節
+<OPTION  VALUE="055">第 55 節
+<OPTION  VALUE="056">第 56 節
+<OPTION  VALUE="057">第 57 節
+<OPTION  VALUE="058">第 58 節
+</SELECT>   
+<input type="submit" name="submit1" value="閱讀">                                                                                                                                                                     
+</form>
+</td><td>
+<a href="" onClick="readchapter(nowbook,nowchapter,++nowsection);Send_to_win34(11,0,0,0,0,0,0); return false;">後一節</a>
+</td>
+
+
+
+<td></td><td></td>
+<td>
+<a id="a1" href="javascript:;" onclick="change()">顯示書籤</a>
+</td>
+
+
+
+<td>
+<form method="POST" name="ClearBookmark" onsubmit="clear_bookmark(); return false;">
+<SELECT id="CBookmark" >
+  <OPTION  VALUE="1">書籤1</OPTION>
+  <OPTION  VALUE="2">書籤2</OPTION>
+  <OPTION  VALUE="3">書籤3</OPTION>
+  <OPTION  VALUE="4">書籤4</OPTION>
+  <OPTION  VALUE="5">書籤5</OPTION>
+  <OPTION  VALUE="6">書籤6</OPTION>
+  <OPTION  VALUE="7">書籤7</OPTION>
+  <OPTION  VALUE="8">書籤8</OPTION>
+  <OPTION  VALUE="9">書籤9</OPTION>
+  <OPTION  VALUE="10">書籤10</OPTION>
+  <OPTION  VALUE="11">書籤11</OPTION>
+  <OPTION  VALUE="12">書籤12</OPTION>
+  <OPTION  VALUE="13">書籤13</OPTION>
+  <OPTION  VALUE="14">書籤14</OPTION>
+  <OPTION  VALUE="15">全部書籤</OPTION>
+</SELECT> 
+<input type="submit" name="submit1" value="清除">                                                                          
+                                                                                          
+</form>
+</td>
+
+<td></td><td></td><td></td><td></td>
+
+<td>
+<a href="" onClick="Send_to_win34(3,0,0,0,0,0,0); return false;">Help</a>
+</td>
+</tr></table>
+
+</div>
+
+<div id="tool_area_2" style="height:0px;visibility:hidden">
+
+<table>
+<tr><th colspan="2"><div id="bookmark1"></div></th><th colspan="2"><div id="bookmark2"></div></th><th colspan="2"><div id="bookmark3"></div></th><th colspan="2"><div id="bookmark4"></div></th><th colspan="2"><div id="bookmark5"></div></th><th colspan="2"><div id="bookmark6"></div></th><th colspan="2"><div id="bookmark7"></div></th></tr>
+<tr>
+<form name="WR_TO_TXT_1">
+<td>
+<input type="button" name="B11" value="存書籤1" onclick="write_to_json_1(nowbook,nowchapter,nowsection, nowtosection); return false;">
+</td>
+</form>
+<form name="RD_FROM_TXT_1">
+<td>
+<input type="button" name="B11" value="讀書籤1" onclick="read_from_json_1();Send_to_win34(11,0,0,0,0,0,0); return false;">
+</td>
+</form>
+<form name="WR_TO_TXT_2">
+<td>
+<input type="button" name="B11" value="存書籤2" onclick="write_to_json_2(nowbook,nowchapter,nowsection, nowtosection); return false;">
+</td>
+</form>
+<form name="RD_FROM_TXT_2">
+<td>
+<input type="button" name="B11" value="讀書籤2" onclick="read_from_json_2();Send_to_win34(11,0,0,0,0,0,0); return false;">
+</td>
+</form>
+<form name="WR_TO_TXT_2">
+<td>
+<input type="button" name="B11" value="存書籤3" onclick="write_to_json_3(nowbook,nowchapter,nowsection, nowtosection); return false;">
+</td>
+</form>
+<form name="RD_FROM_TXT_2">
+<td>
+<input type="button" name="B11" value="讀書籤3" onclick="read_from_json_3();Send_to_win34(11,0,0,0,0,0,0); return false;">
+</td>
+</form>
+<form name="WR_TO_TXT_1">
+<td>
+<input type="button" name="B11" value="存書籤4" onclick="write_to_json_4(nowbook,nowchapter,nowsection, nowtosection); return false;">
+</td>
+</form>
+<form name="RD_FROM_TXT_1">
+<td>
+<input type="button" name="B11" value="讀書籤4" onclick="read_from_json_4();Send_to_win34(11,0,0,0,0,0,0); return false;">
+</td>
+</form>
+<form name="WR_TO_TXT_2">
+<td>
+<input type="button" name="B11" value="存書籤5" onclick="write_to_json_5(nowbook,nowchapter,nowsection, nowtosection); return false;">
+</td>
+</form>
+<form name="RD_FROM_TXT_2">
+<td>
+<input type="button" name="B11" value="讀書籤5" onclick="read_from_json_5();Send_to_win34(11,0,0,0,0,0,0); return false;">
+</td>
+</form>
+<form name="WR_TO_TXT_2">
+<td>
+<input type="button" name="B11" value="存書籤6" onclick="write_to_json_6(nowbook,nowchapter,nowsection, nowtosection); return false;">
+</td>
+</form>
+<form name="RD_FROM_TXT_2">
+<td>
+<input type="button" name="B11" value="讀書籤6" onclick="read_from_json_6();Send_to_win34(11,0,0,0,0,0,0); return false;">
+</td>
+</form>
+<form name="WR_TO_TXT_2">
+<td>
+<input type="button" name="B11" value="存書籤7" onclick="write_to_json_7(nowbook,nowchapter,nowsection, nowtosection); return false;">
+</td>
+</form>
+<form name="RD_FROM_TXT_2">
+<td>
+<input type="button" name="B11" value="讀書籤7" onclick="read_from_json_7();Send_to_win34(11,0,0,0,0,0,0); return false;">
+</td>
+</form>
+<td></td><td></td><td></td><td></td><td></td>
+
+
+<td></td><td></td><td></td>
+
+
+</FORM>
+
+</tr></table>
+
+</div>
+
+
+<script>
+//document.getElementById("etest").style.visibility='hidden'; // hide 
+document.getElementById("etest").style.display="none"; // "none" or "inline"
+
+function efocus() {  // do nothing
+    //document.getElementById("etest").style.visibility='visible'; // visible
+    document.getElementById("etest").style.display="inline"; // display
+    document.getElementById("etest").focus(); 
+    //document.getElementById("etest").style.visibility='hidden'; // hide 
+    document.getElementById("etest").style.display="none"; // "none" 
+};
+
+//document.getElementById("etest").focus();
+//<td>
+//<input class="topfont2" type="button" name="B11" value="Pause" onclick="Mousetrap.pause(); return false;">
+//</td>
+//<td>
+//<input class="topfont2" type="button" name="B11" value="UnPause" onclick="Mousetrap.unpause(); return false;">
+//</td>
+</script>
+
+<script>
+
+
+// Mousetrap -- test
+
+   Mousetrap.addKeycodes({
+       144: 'numlock'
+   });
+   Mousetrap.addKeycodes({
+       96: 'Numpad0'
+   });
+   Mousetrap.addKeycodes({
+       97: 'Numpad1'
+   });
+   Mousetrap.addKeycodes({
+       98: 'Numpad2'
+   });
+   Mousetrap.addKeycodes({
+       99: 'Numpad3'
+   });
+   Mousetrap.addKeycodes({
+       100: 'Numpad4'
+   });
+   Mousetrap.addKeycodes({
+       101: 'Numpad5'
+   });
+   Mousetrap.addKeycodes({
+       102: 'Numpad6'
+   });
+   Mousetrap.addKeycodes({
+       103: 'Numpad7'
+   });
+   Mousetrap.addKeycodes({
+       104: 'Numpad8'
+   });
+   Mousetrap.addKeycodes({
+       105: 'Numpad9'
+   });
+
+// single keys 
+    //Mousetrap.bind('a b c', function() { change(); }); // For press 'abc'
+    //Mousetrap.bind('d', function() { change(); });
+    //Mousetrap.bind('numlock', function() { change(); });
+    //Mousetrap.bind('Numpad2', function() { change(); });
+    //Mousetrap.bind('enter', function() { change(); });
+    //Mousetrap.bind('right', function() { change(); });
+    //Mousetrap.bind('left', function() { change(); });
+
+    //Mousetrap.bind("?", function() { console.log('show shortcuts!'); });
+    //Mousetrap.bind('esc', function() { console.log('escape'); }, 'keyup');
+    //Mousetrap.bind('numlock', function() { console.log('numlock'); }, 'keypress');
+
+    //Mousetrap.trigger('b');
+    //Mousetrap.trigger('c');
+
+    //Mousetrap.bind('b', function() { keyFunction(66,'b'); }, 'keyup');
+    //Mousetrap.bind('c 1', function() { keyFunction(67,'c'); }, 'keyup');
+    //Mousetrap.bind('1', function() { keyFunction(97,'1'); }, 'keyup');
+    //Mousetrap.bind('Numpad1', function() { keyFunction(97,'1'); }, 'keyup');
+
+    //Mousetrap.bind('c', function() { keyFunction2('c1'); });
+    //Mousetrap.bind('b 1', function() { keyFunction2('b',1); });
+    //Mousetrap.bind('b 1 0', function() { keyFunction2('b',10); });
+    //Mousetrap.bind('b 1 1', function() { keyFunction2('b',11); });
+    //Mousetrap.bind('b 2 3', function() { keyFunction2('b',23); });
+    //Mousetrap.bind(['b 0 1','b 1'], function() { keyFunction2('b',1); });
+    //Mousetrap.bind('c 1', function() { keyFunction2('c',1); });
+
+
+    // for keyFunction test
+    //Mousetrap.bind('b', function() { keyFunction('b'); });
+    //Mousetrap.bind('0', function() { keyFunction(0); });
+    //Mousetrap.bind('1', function() { keyFunction(1); });
+    //Mousetrap.bind('2', function() { keyFunction(2); });
+    //Mousetrap.bind('3', function() { keyFunction(3); });
+    //Mousetrap.bind('4', function() { keyFunction(4); });
+
+
+
+
+    // 由使用Mousetrap.bind 全改為使用 Mousetrap.bindGlobal ***
+
+    
+
+    // for keyFunction2 test
+
+    //Mousetrap.bindGlobal('esc', function() { reset_Keyin(); enableRolling();});  //efocus()
+    Mousetrap.bindGlobal('esc', function() { reset_Keyin(); });  //efocus()
+
+    Mousetrap.bindGlobal('b', function() { keyFunction2('b'); efocus();});
+    Mousetrap.bindGlobal('c', function() { keyFunction2('c'); efocus();}); // for chap
+    Mousetrap.bindGlobal('v', function() { keyFunction2('v'); efocus();}); // for verse
+    Mousetrap.bindGlobal('t', function() { keyFunction2('t'); efocus();}); // for to_verse
+
+
+    Mousetrap.bindGlobal('enter', function() { keyFunction2('enter');efocus(); });
+    //Mousetrap.bindGlobal('backspace', function() { keyFunction2('backspace'); });
+    //Mousetrap.bindGlobal('+', function() { keyFunction2('+'); });
+
+    //Mousetrap.bindGlobal('right', function() { keyFunction2('right'); ;});        //efocus();
+    //Mousetrap.bindGlobal('left', function() { keyFunction2('left'); ;});        //efocus();
+    //Mousetrap.bindGlobal('up', function() { keyFunction2('up');efocus2() ;});             //efocus()
+    //Mousetrap.bindGlobal('down', function() { keyFunction2('down');efocus2() ;});         //efocus()
+    //Mousetrap.bindGlobal('space', function() { keyFunction2('space');enableRolling() ;});       //efocus()
+
+    Mousetrap.bindGlobal('right', function() { keyFunction2('right');efocus() ;});        //efocus();
+    Mousetrap.bindGlobal('left', function() { keyFunction2('left');efocus() ;});        //efocus();
+    Mousetrap.bindGlobal('up', function() { keyFunction2('up');efocus() ;});             //efocus()
+    Mousetrap.bindGlobal('down', function() { keyFunction2('down');efocus() ;});         //efocus()
+    Mousetrap.bindGlobal('space', function() { keyFunction2('space');efocus() ;});       //efocus()
+
+    Mousetrap.bindGlobal('0', function() { keyFunction2(0); });
+    Mousetrap.bindGlobal('1', function() { keyFunction2(1); });
+    Mousetrap.bindGlobal('2', function() { keyFunction2(2); });
+    Mousetrap.bindGlobal('3', function() { keyFunction2(3); });
+    Mousetrap.bindGlobal('4', function() { keyFunction2(4); });
+    Mousetrap.bindGlobal('5', function() { keyFunction2(5); });
+    Mousetrap.bindGlobal('6', function() { keyFunction2(6); });
+    Mousetrap.bindGlobal('7', function() { keyFunction2(7); });
+    Mousetrap.bindGlobal('8', function() { keyFunction2(8); });
+    Mousetrap.bindGlobal('9', function() { keyFunction2(9); });
+
+
+    // For Book Name Input
+    Mousetrap.bindGlobal('a', function() { keyFunction2('a');efocus(); });
+    Mousetrap.bindGlobal('d', function() { keyFunction2('d');efocus(); });
+    Mousetrap.bindGlobal('e', function() { keyFunction2('e');efocus(); });
+    Mousetrap.bindGlobal('g', function() { keyFunction2('g');efocus(); });
+    Mousetrap.bindGlobal('h', function() { keyFunction2('h');efocus(); });
+    Mousetrap.bindGlobal('i', function() { keyFunction2('i');efocus(); });
+    Mousetrap.bindGlobal('j', function() { keyFunction2('j');efocus(); });
+    Mousetrap.bindGlobal('k', function() { keyFunction2('k');efocus(); });
+    Mousetrap.bindGlobal('l', function() { keyFunction2('l');efocus(); });
+    Mousetrap.bindGlobal('m', function() { keyFunction2('m');efocus(); });
+    Mousetrap.bindGlobal('n', function() { keyFunction2('n');efocus(); });
+    Mousetrap.bindGlobal('o', function() { keyFunction2('o');efocus(); });
+    //Mousetrap.bindGlobal('p', function() { keyFunction2('p'); ; });          //efocus()
+    Mousetrap.bindGlobal('p', function() { keyFunction2('p');efocus(); });          //efocus()
+    Mousetrap.bindGlobal('r', function() { keyFunction2('r');efocus(); });
+    Mousetrap.bindGlobal('s', function() { keyFunction2('s');efocus(); });
+    Mousetrap.bindGlobal('u', function() { keyFunction2('u');efocus(); });
+    Mousetrap.bindGlobal('x', function() { keyFunction2('x');efocus(); });
+    Mousetrap.bindGlobal('z', function() { keyFunction2('z');efocus(); });
+
+
+
+
+
+    // 由使用Mousetrap.bind 全改為使用 Mousetrap.bindGlobal ***
+
+
+
+
+
+    //Mousetrap.bind(['m t','m a t'], function()   { keyFunction3(40); }); // Mat
+    //Mousetrap.bind(['m k','m a r'], function()   { keyFunction3(41); }); // Mark
+    //Mousetrap.bind(['l k','l u k'], function() { keyFunction3(42); }); // Luk
+    //Mousetrap.bind('j n', function() { keyFunction3(43); }); // John
+
+
+    // for keyFunction2 test
+
+
+    //readchapter(nowbook,nowchapter,--nowsection)
+  
+    //for Listen NKJV
+    Mousetrap.bindGlobal('alt+l', function() { Listen_NKJV_web(); }); // Alt+L
+
+
+// End of Mousetrap
+
+// For 讀經系統，將 "C"(chap) 換為"X"                         *****
+// For 投影系統，將 "C"(chap) 換為"X"， "T"(to) 換為"Y"       *****
+// 1Co 林前，以 "co1" 輸入
+// 2Co 林後，以 "co2" 輸入
+// Jn  約翰福音書
+// 1Jn 約翰ㄧ書，以 "jo1" 輸入
+// 1Jn 約翰二書，以 "jo2" 輸入
+
+
+function Qmaxchap(index) {  // find out maximum chapter of book , add on 15.04.2015
+                            // index, start from 0 to 65, input book_int
+                            // output maxchap
+        var i;
+	var cnum=new Array(50,40,27,36,34,24,21,4,31,24,22,25,29,36,10,13,10,42,150,31,12,8,66,52,5,48,12,
+	14,3,9,1,4,7,3,3,3,2,14,4, 28,16,24,21,28,16,16,13,6,6,4,4,5,3,6,4,3,1,13,5,5,3,5,1,1,1,22);
+	i=cnum[index];
+        maxchap = i;
+}
+
+function Qmaxverse(index,index2) {   // find out maximum verse of chapter of book , add on 16.04.2015
+                                     // index  , input book_int
+                                     // index2 , input chap_int
+        var i;
+        var a,s,s2;
+        s = 0;
+        s2 = 0;
+	var cnum=new Array(50,40,27,36,34,24,21,4,31,24,22,25,29,36,10,13,10,42,150,31,12,8,66,52,5,48,12,
+	14,3,9,1,4,7,3,3,3,2,14,4, 28,16,24,21,28,16,16,13,6,6,4,4,5,3,6,4,3,1,13,5,5,3,5,1,1,1,22);
+ 
+	var snum=new Array(31,25,24,26,32,22,24,22,29,32,32,20,
+	18,24,21,16,27,33,38,18,34,24,20,67,34,35,46,22,35,43,55,
+	32,20,31,29,43,36,30,23,23,57,38,34,34,28,34,31,
+	22,33,26,22,25,22,31,23,30,25,32,35,29,10,51,22,
+	31,27,36,16,27,25,26,36,31,33,18,40,37,21,43,46,
+	38,18,35,23,35,35,38,29,31,43,38,17,16,17,35,19,
+	30,38,36,24,20,47,8,59,57,33,34,16,30,37,27,24,
+	33,44,23,55,46,34,54,34,51,49,31,27,89,26,23,36,
+	35,16,33,45,41,50,13,32,22,29,35,41,30,25,18,65,
+	23,31,40,16,54,42,56,29,34,13,46,37,29,49,33,25,
+	26,20,29,22,32,32,18,29,23,22,20,22,21,20,23,30,
+	25,22,19,19,26,68,29,20,30,52,29,12,18,24,17,24,
+	15,27,26,35,27,43,23,24,33,15,63,10,18,28,51,9,
+	45,34,16,33,36,23,31,24,31,40,25,35,57,18,40,15,
+	25,20,20,31,13,31,30,48,25,22,23,18,22,28,36,21,
+	22,12,21,17,22,27,27,15,25,23,52,35,23,58,30,24,
+	42,15,23,29,22,44,25,12,25,11,31,13,27,32,39,12,
+	25,23,29,18,13,19,27,31,39,33,37,23,29,33,43,26,
+	22,51,39,25,53,46,28,34,18,38,51,66,28,29,43,33,
+	34,31,34,34,24,46,21,43,29,53,18,25,27,44,27,33,
+	20,29,37,36,21,21,25,29,38,20,41,37,37,21,26,
+    20,37,20,30,54,55,24,43,26,81,40,40,44,
+    14,47,40,14,17,29,43,27,17,19,8,31,19,
+    32,31,31,32,34,21,30,17,18,17,22,14,42,
+    22,18,31,19,23,16,22,15,19,14,19,34,11,
+    37,20,12,21,27,28,23,9,27,36,27,21,33,
+    25,33,27,23,11,70,13,24,17,22,28,36,15,
+    44,11,20,32,23,19,19,73,18,38,39,36,47,
+    31,22,23,15,17,14,14,10,17,32,3,22,13,
+    26,21,27,30,21,22,35,22,20,25,28,22,35,
+    22,16,21,29,29,34,30,17,25,6,14,23,28,
+    25,31,40,22,33,37,16,33,24,41,30,24,34,
+    17,6,12,8,8,12,10,17,9,20,18,7,8,
+    6,7,5,11,15,50,14,9,13,31,6,10,22,
+    12,14,9,11,12,24,11,22,22,28,12,40,22,
+    13,17,13,11,5,26,17,11,9,14,20,23,19,
+    9,6,7,23,13,11,11,17,12,8,12,11,10,
+    13,20,7,35,36,5,24,20,28,23,10,12,20,
+    72,13,19,16,8,18,12,13,17,7,18,52,17,
+    16,15,5,23,11,13,12,9,9,5,8,28,22,
+    35,45,48,43,13,31,7,10,10,9,8,18,19,
+    2,29,176,7,8,9,4,8,5,6,5,6,8,
+    8,3,18,3,3,21,26,9,8,24,13,10,7,
+    12,15,21,10,20,14,9,6,33,22,35,27,23,
+    35,27,36,18,32,31,28,25,35,33,33,28,24,
+    29,30,31,29,35,34,28,28,27,28,27,33,31,
+    18,26,22,16,20,12,29,17,18,20,10,14,17,
+    17,11,16,16,13,13,14,31,22,26,6,30,13,
+    25,22,21,34,16,6,22,32,9,14,14,7,25,
+    6,17,25,18,23,12,21,13,29,24,33,9,20,
+    24,17,10,22,38,22,8,31,29,25,28,28,25,
+    13,15,22,26,11,23,15,12,17,13,12,21,14,
+    21,22,11,12,19,12,25,24,19,37,25,31,31,
+    30,34,22,26,25,23,17,27,22,21,21,27,23,
+    15,18,14,30,40,10,38,24,22,17,32,24,40,
+    44,26,22,19,32,21,28,18,16,18,22,13,30,
+    5,28,7,47,39,46,64,34,22,22,66,22,22,
+    28,10,27,17,17,14,27,18,11,22,25,28,23,
+    23,8,63,24,32,14,49,32,31,49,27,17,21,
+    36,26,21,26,18,32,33,31,15,38,28,23,29,
+    49,26,20,27,31,25,24,23,35,21,49,30,37,
+    31,28,28,27,27,21,45,13,11,23,5,19,15,
+    11,16,14,17,15,12,14,16,9,20,32,21,15,
+    16,15,13,27,14,17,14,15,21,17,10,10,11,
+    16,13,12,13,15,16,20,15,13,19,17,20,19,
+    18,15,20,15,23,21,13,10,14,11,15,14,23,
+    17,12,17,14,9,21,14,17,18,6,25,23,17,
+    25,48,34,29,34,38,42,30,50,58,36,39,28,
+    27,35,30,34,46,46,39,51,46,75,66,20,45,
+    28,35,41,43,56,37,38,50,52,33,44,37,72,
+    47,20,80,52,38,44,39,49,50,56,62,42,54,
+    59,35,35,32,31,37,43,48,47,38,71,56,53,
+    51,25,36,54,47,71,53,59,41,42,57,50,38,
+    31,27,33,26,40,42,31,25,26,47,26,37,42,
+    15,60,40,43,48,30,25,52,28,41,40,34,28,
+    41,38,40,30,35,27,27,32,44,31,32,29,31,
+    25,21,23,25,39,33,21,36,21,14,23,33,27,
+    31,16,23,21,13,20,40,13,27,33,34,31,13,
+    40,58,24,24,17,18,18,21,18,16,24,15,18,
+    33,21,14,24,21,29,31,26,18,23,22,21,32,
+    33,24,30,30,21,23,29,23,25,18,10,20,13,
+    18,28,12,17,18,20,15,16,16,25,21,18,26,
+    17,22,16,15,15,25,14,18,19,16,14,20,28,
+    13,28,39,40,29,25,27,26,18,17,20,25,25,
+    22,19,14,21,22,18,10,29,24,21,21,13,15,
+    25,20,29,22,11,14,17,17,13,21,11,19,17,
+    18,20,8,21,18,24,21,15,27,21,21);
+
+    // selectedbook = selectedbook1;
+	
+    for(i=0;i<index;i++) {
+      s = s + cnum[i];
+    }
+     
+    s2 = s + index2;
+    a=snum[s2];
+
+    maxverse = a;
+
+}
+
+
+
+
+
+// 20171025
+
+</script>  
+
+<div id="tool_area_3" style="height:0px;visibility:hidden">
+
+<table>
+<tr><th colspan="2"><div id="bookmark8"></div></th><th colspan="2"><div id="bookmark9"></div></th><th colspan="2"><div id="bookmark10"></div></th><th colspan="2"><div id="bookmark11"></div></th><th colspan="2"><div id="bookmark12"></div></th><th colspan="2"><div id="bookmark13"></div></th><th colspan="2"><div id="bookmark14"></div></th></tr>
+<tr>
+<form name="WR_TO_TXT_1">
+<td>
+<input type="button" name="B11" value="存書籤8" onclick="write_to_json_8(nowbook,nowchapter,nowsection, nowtosection); return false;">
+</td>
+</form>
+<form name="RD_FROM_TXT_1">
+<td>
+<input type="button" name="B11" value="讀書籤8" onclick="read_from_json_8();Send_to_win34(11,0,0,0,0,0,0); return false;">
+</td>
+</form>
+<form name="WR_TO_TXT_2">
+<td>
+<input type="button" name="B11" value="存書籤9" onclick="write_to_json_9(nowbook,nowchapter,nowsection, nowtosection); return false;">
+</td>
+</form>
+<form name="RD_FROM_TXT_2">
+<td>
+<input type="button" name="B11" value="讀書籤9" onclick="read_from_json_9();Send_to_win34(11,0,0,0,0,0,0); return false;">
+</td>
+</form>
+<form name="WR_TO_TXT_2">
+<td>
+<input type="button" name="B11" value="存書籤10" onclick="write_to_json_10(nowbook,nowchapter,nowsection, nowtosection); return false;">
+</td>
+</form>
+<form name="RD_FROM_TXT_2">
+<td>
+<input type="button" name="B11" value="讀書籤10" onclick="read_from_json_10();Send_to_win34(11,0,0,0,0,0,0); return false;">
+</td>
+</form>
+<form name="WR_TO_TXT_1">
+<td>
+<input type="button" name="B11" value="存書籤11" onclick="write_to_json_11(nowbook,nowchapter,nowsection, nowtosection); return false;">
+</td>
+</form>
+<form name="RD_FROM_TXT_1">
+<td>
+<input type="button" name="B11" value="讀書籤11" onclick="read_from_json_11();Send_to_win34(11,0,0,0,0,0,0); return false;">
+</td>
+</form>
+<form name="WR_TO_TXT_2">
+<td>
+<input type="button" name="B11" value="存書籤12" onclick="write_to_json_12(nowbook,nowchapter,nowsection, nowtosection); return false;">
+</td>
+</form>
+<form name="RD_FROM_TXT_2">
+<td>
+<input type="button" name="B11" value="讀書籤12" onclick="read_from_json_12();Send_to_win34(11,0,0,0,0,0,0); return false;">
+</td>
+</form>
+<form name="WR_TO_TXT_2">
+<td>
+<input type="button" name="B11" value="存書籤13" onclick="write_to_json_13(nowbook,nowchapter,nowsection, nowtosection); return false;">
+</td>
+</form>
+<form name="RD_FROM_TXT_2">
+<td>
+<input type="button" name="B11" value="讀書籤13" onclick="read_from_json_13();Send_to_win34(11,0,0,0,0,0,0); return false;">
+</td>
+</form>
+<form name="WR_TO_TXT_2">
+<td>
+<input type="button" name="B11" value="存書籤14" onclick="write_to_json_14(nowbook,nowchapter,nowsection, nowtosection); return false;">
+</td>
+</form>
+<form name="RD_FROM_TXT_2">
+<td>
+<input type="button" name="B11" value="讀書籤14" onclick="read_from_json_14();Send_to_win34(11,0,0,0,0,0,0); return false;">
+</td>
+</tr></table>
+</form>
+
+<div style="font-size:2pt"> <HR width="100%"> </div>
+
+<table>
+<tr>
+<td></td><td></td><td></td><td></td>
+
+<td><button onclick="Show_History_Only()">Show Verse History</button></td>
+<td><button onclick="Hide_History_Only()">Hide Verse History</button></td>
+
+<td></td><td></td><td></td><td></td>
+</tr>
+</table>
+
+<div style="font-size:2pt"> <HR width="100%"> </div>
+
+</div>
+
+
+
+
+
+<table><tr>
+
+
+<td>
+
+
+
+<script>
+
+// clear_bookmark(document.ClearBookmark.na.selectedIndex);
+
+function setup_size1()
+{
+   sec_size =document.setup_body_size2.body2.options.value;  
+   bcs_size =document.setup_body_size2.body2.options.value;
+}
+function setup_display()
+{
+   disp_secs_a =document.setup_disp_secs.body2.options.value;
+}
+function setup_open_window()
+{
+   open_win =document.setup_open_win.body2.options.value;
+   if(open_win==2)
+      open_win1();
+}
+
+//const remote = require('electron').remote;
+//const BrowserWindow = remote.BrowserWindow;
+//const Store2 = require('./store2.js');  // Store Bible Reading Records in current directory
+
+// First instantiate the class
+// For Store Bible Reading Records 1
+// width  -- for Book1
+// height -- for chapter1
+// x      -- for verse1
+
+//const store = new Store2({
+//  // We'll call our data file 'Reading-Bible-Record1'
+//  configName: 'Reading-Bible-Record1',
+//  defaults: {
+    
+//    windowBounds: { width: 44, height: 4, x: 12, y:20 }
+//  }
+//});
+
+// Reading records
+// let { width, height, x, y } = store.get('windowBounds');
+
+// Writing records
+// store.set('windowBounds', { width, height, x, y });
+
+
+function write_A1() // 將讀經進度寫入記錄檔1, "Reading-Bible-Record-1.json"
+{
+   //var fso_w1=new ActiveXObject("Scripting.FileSystemObject");
+  
+   var R_Book_w1=nowbook;
+   var R_Chap_w1=nowchapter;
+   var R_Vers_w1=nowsection;
+
+   //var width=nowbook;
+   //var height=nowchapter;
+   //var x=nowsection;
+
+
+   //var f_w1=fso_w1.createtextfile("D:\\Scott_Data\\Dropbox\\Offline Bible\\BibleR43\\logs\\Reading_Bible_Record1.js",2,true);
+
+   //var R_String_w1 = 'ReadingRecord1 = new Array (' + R_Book_w1 + ',' + R_Chap_w1 + ',' + R_Vers_w1 + ');';
+
+   // Writing records
+   //store.set('windowBounds', { width, height, x });
+
+   //write_to_json1(R_Book_w1, R_Chap_w1, R_Vers_w1);
+   write_to_json1(nowbook, nowchapter, nowsection);
+
+
+   //readchapter_R(R_Book_w1,R_Chap_w1,R_Vers_w1,1);
+
+   //f_w1.write(R_String_w1);
+
+   //f_w1.close(); 
+}
+
+function write_A2() // 將讀經進度寫入記錄檔2
+{
+   var fso_w2=new ActiveXObject("Scripting.FileSystemObject");
+  
+   var R_Book_w2=nowbook;
+   var R_Chap_w2=nowchapter;
+   var R_Vers_w2=nowsection;
+
+
+   var f_w2=fso_w2.createtextfile("D:\\Scott_Data\\Dropbox\\Offline Bible\\BibleR43\\logs\\Reading_Bible_Record2.js",2,true);
+
+   var R_String_w2 = 'ReadingRecord2 = new Array (' + R_Book_w2 + ',' + R_Chap_w2 + ',' + R_Vers_w2 + ');';
+
+
+   readchapter_R(R_Book_w2,R_Chap_w2,R_Vers_w2,2);
+
+   f_w2.write(R_String_w2);
+
+   f_w2.close(); 
+}
+
+function write_A3() // 將讀經進度寫入記錄檔3
+{
+   var fso_w3=new ActiveXObject("Scripting.FileSystemObject");
+  
+   var R_Book_w3=nowbook;
+   var R_Chap_w3=nowchapter;
+   var R_Vers_w3=nowsection;
+
+
+   var f_w3=fso_w3.createtextfile("D:\\Scott_Data\\Dropbox\\Offline Bible\\BibleR43\\logs\\Reading_Bible_Record3.js",2,true);
+
+   var R_String_w3 = 'ReadingRecord3 = new Array (' + R_Book_w3 + ',' + R_Chap_w3 + ',' + R_Vers_w3 + ');';
+
+
+   readchapter_R(R_Book_w3,R_Chap_w3,R_Vers_w3,3);
+
+   f_w3.write(R_String_w3);
+
+   f_w3.close(); 
+}
+
+function read_A1() // 讀取讀經進度從記錄檔1
+{
+
+   var R_Book_r1= ReadingRecord1[0]; 
+   var R_Chap_r1= ReadingRecord1[1];
+   var R_Vers_r1= ReadingRecord1[2];
+
+   readchapter(R_Book_r1,R_Chap_r1,R_Vers_r1);
+
+   //f2.close(); 
+}
+
+function read_A2() // 讀取讀經進度從記錄檔2
+{
+
+   var R_Book_r2= ReadingRecord2[0]; 
+   var R_Chap_r2= ReadingRecord2[1];
+   var R_Vers_r2= ReadingRecord2[2];
+
+   readchapter(R_Book_r2,R_Chap_r2,R_Vers_r2);
+
+   //f2.close(); 
+}
+
+function read_A3() // 讀取讀經進度從記錄檔3
+{
+
+   var R_Book_r3= ReadingRecord3[0]; 
+   var R_Chap_r3= ReadingRecord3[1];
+   var R_Vers_r3= ReadingRecord3[2];
+
+   readchapter(R_Book_r3,R_Chap_r3,R_Vers_r3);
+
+   //f2.close(); 
+}
+
+
+// For Using Electron
+
+    // Using ipcRenderer to send & receive Message from Main Process
+
+    const ipc = require('electron').ipcRenderer;
+
+    function Send_to_win34(arg1,arg2,arg3,arg4,arg5,arg6,arg7){                       // window3 refer to main.html, window4 refer to main2.html
+       ipc.send('asynchronous-message-to-win34', arg1,arg2,arg3,arg4,arg5,arg6,arg7); // Send args to main.html via main.js
+    }
+
+    // Send_to_win34(arg1,arg2,arg3,arg4,arg5,arg6,arg7)
+    // arg1 = 11, 表 放大 window
+    // arg1 = 9 , 表 Minimize window, and hide rest of windows
+    // arg1 = 8 , 表 Show all windows, except window5
+    // arg1 = 7 , 表 Show window5
+    // arg1 = 6 , 表 send validate() 之 arg 給 main.js, 由 main.js 轉發給 window5-即 result.html via ping-win5
+    //            此時: arg2 為 給 validate() 之 arg - 即 document.search.query.value
+    // arg1 = 0 , 表 Close all windows
+    // arg1 = 1 , 表 send readchapter() 之 args
+    //            此時: arg2,arg3,arg4 為 readchapter() 之 args
+    //                  arg5 為 BibleVersion_Disp
+    //                  arg6 為 disp_secs_a
+    //                  arg7 因此時不用，就傳 0
+    // Ex: Send_to_win34(1,arg2,arg3,arg4,0,0,0)
+
+
+    // Receive message from main.js chanel:'ping-win'
+    require('electron').ipcRenderer.on('ping-win', function(event, arg1,arg2,arg3,arg4,arg5,arg6,arg7) {
+
+       //document.write('<tr>'+ 'Receive: ' + arg1 + arg2 + arg3 + '</tr>'); // for debug
+       //document.writeln('<tr>'+ 'Receive: ' + arg1 + ', ' + arg2 + ', ' + arg3 + '</tr>' + '\n' ); // for debug
+
+       //BibleVersion_Disp = arg5; // 0:顯示NKJV, 1:顯示NIV, 2:顯示呂振中譯本, 3顯示全部版本
+
+       //disp_secs_a = arg6; 
+
+       readchapter(arg2,arg3,arg4);
+       //Send_to_win34(1,arg2,arg3,arg4,BibleVersion_Disp,disp_secs_a,0);
+
+
+
+    }); // End of chanel:'ping-win'
+
+
+// End of Using Electron
+
+// <HR NOSHADE WIDTH=100%>
+
+// <div id="container1" style="height:538px;width:600px;float:left;">
+
+</script>
+
+</td></tr></table>
+
+
+<script>
+
+
+//TEST1<br>
+//<a id="a1" href="javascript:;" onclick="change()">顯示書籤</a><br>
+//<div id="d1" style="display: none">
+//TEST2<br>
+//TEST3
+//</div>
+//TEST4<br>
+
+
+
+var isShow = false;
+function change() {
+	if(!isShow) {  // 顯示書籤
+		isShow = true;
+		//document.getElementById('d1').style.display='';
+		//document.getElementById('a1').innerText = "隱藏xxx資料";
+		document.getElementById('a1').innerText = "隱藏書籤";
+                read_bookmark1();read_bookmark2();read_bookmark3();read_bookmark4();
+                read_bookmark5();read_bookmark6();read_bookmark7();
+                read_bookmark8();read_bookmark9();read_bookmark10();read_bookmark11();
+                read_bookmark12();read_bookmark13();read_bookmark14();
+                //read_bookmark8();read_bookmark9();   // for test
+                //read_bookmark13();read_bookmark14(); // for test
+
+                //if(isShow_Tool == true){
+                   document.getElementById("tool_area_2").style.height='50px';
+                   document.getElementById("tool_area_3").style.height='80px';
+                //}
+                //else{
+                //   document.getElementById("tool_area_2").style.height='30px';
+                //   document.getElementById("tool_area_3").style.height='30px';
+                //}
+
+	}
+	else {        // 隱藏書籤
+		isShow = false;
+		//document.getElementById('d1').style.display='none';
+		//document.getElementById('a1').innerText = "檢視xxx資料";
+		document.getElementById('a1').innerText = "顯示書籤";
+                hide_bookmark1();hide_bookmark2();hide_bookmark3();hide_bookmark4();
+                hide_bookmark5();hide_bookmark6();hide_bookmark7();
+                hide_bookmark8();hide_bookmark9();hide_bookmark10();hide_bookmark11();
+                hide_bookmark12();hide_bookmark13();hide_bookmark14();
+                //hide_bookmark8();hide_bookmark9();   // for test
+                //hide_bookmark13();hide_bookmark14(); // for test
+                //document.getElementById("tool_area_3").style.visibility='visible';
+                //document.getElementById("tool_area_3").style.height='50px';
+
+                //if(isShow_Tool == true){
+                //   document.getElementById("tool_area_2").style.height='50px';
+                //   document.getElementById("tool_area_3").style.height='50px';
+                //}
+                //else{
+                   document.getElementById("tool_area_2").style.height='30px';
+                   document.getElementById("tool_area_3").style.height='60px';
+                //}
+
+ 	}			
+}
+
+
+var isShow_Tool = false;
+function change2() {
+	if(!isShow_Tool) {  // 顯示工具區
+
+		isShow_Tool = true;
+                show_tool_area();
+		document.getElementById('a2').innerText = "隱藏工具區";
+         
+                if(isShow == true){
+                   document.getElementById("tool_area_2").style.height='50px';
+                   document.getElementById("tool_area_3").style.height='80px';// 原為50px
+                }
+                else{
+                   document.getElementById("tool_area_2").style.height='30px';
+                   document.getElementById("tool_area_3").style.height='60px';// 原為30px
+                }
+
+	}
+	else {        // 隱藏工具區
+
+		isShow_Tool = false;
+                hide_tool_area();
+		document.getElementById('a2').innerText = "顯示工具區";
+
+                //if(isShow == true){
+                //   document.getElementById("tool_area_2").style.height='50px';
+                //   document.getElementById("tool_area_3").style.height='50px';
+                //}
+                //else{
+                //   document.getElementById("tool_area_2").style.height='30px';
+                //   document.getElementById("tool_area_3").style.height='30px';
+                //}
+
+	}			
+}
+
+function Hide_Some(){
+
+   document.getElementById("container_Bro").style.visibility='hidden';
+
+}
+
+var Bro_M = 0;
+var Bro_TrS = 0;   //Bro Truth Seeker
+var Bro_Total = 0; //Bro Total
+
+var Sis_M = 0;
+var Sis_TrS = 0;   //Sis Truth Seeker
+var Sis_Total = 0; //Sis Total
+
+var Mem_Total = 0; //Mem Total
+var TrS_Total = 0; //Truth Seeker Total
+var All_Total = 0; //All Total
+
+
+var In_BroM_F = 0;     // 1 means in Input_BroMember_Mode
+var In_BroTrS_F = 0;   // 1 means in Input_BroTruSeeker_Mode()
+
+var In_SisM_F = 0;     // 1 means in Input_SisMember_Mode()
+var In_SisTrS_F = 0;   // 1 means in Input_SisTruSeeker_Mode()
+
+
+var key_A=0;    // 1 means click "+"
+var key_A1=0;
+var key_A2=0;
+var key_A3=0;
+
+var key_S=0;    // 1 means click "-"
+var key_S1=0;
+var key_S2=0;
+var key_S3=0;
+
+var Add_Num = 0;
+var Sub_Num = 0;
+
+var A_num = 0;
+var A_num1 = 0;
+var A_num2 = 0;
+var A_num3 = 0;
+
+var S_num = 0;
+var S_num1 = 0;
+var S_num2 = 0;
+var S_num3 = 0;
+
+
+function Input_BroMember_Mode(){
+
+   In_BroM_F = 1;
+   In_BroTrS_F = 0;
+   In_SisM_F = 0;
+   In_SisTrS_F = 0;
+
+   document.getElementById("container_Disp").style.visibility='visible';
+   document.getElementById("container_Disp").style.height='70%';
+
+   document.getElementById("People_Number").style.color='blue';    //20180906
+   document.getElementById("People_Number").innerText= 'Brother Member: ' + Bro_M;
+
+   document.getElementById("container_Total").style.visibility='hidden';
+   document.getElementById("container_Total").style.height='0%';
+
+   document.getElementById("container_Reset_Button").style.visibility='hidden';
+   document.getElementById("container_Reset_Button").style.height='0%';
+   
+}
+
+function Input_SisMember_Mode(){
+
+   In_BroM_F = 0;
+   In_BroTrS_F = 0;
+   In_SisM_F = 1;
+   In_SisTrS_F = 0;
+
+   document.getElementById("container_Disp").style.visibility='visible';
+   document.getElementById("container_Disp").style.height='70%';
+
+   document.getElementById("People_Number").style.color='red';    //20180906
+   document.getElementById("People_Number").innerText= 'Sister Member: ' + Sis_M;
+
+   document.getElementById("container_Total").style.visibility='hidden';
+   document.getElementById("container_Total").style.height='0%';
+
+   document.getElementById("container_Reset_Button").style.visibility='hidden';
+   document.getElementById("container_Reset_Button").style.height='0%';
+   
+}
+
+
+
+function Input_BroTruSeeker_Mode(){
+
+   In_BroM_F = 0;
+   In_BroTrS_F = 1;
+   In_SisM_F = 0;
+   In_SisTrS_F = 0;
+
+   document.getElementById("container_Disp").style.visibility='visible';
+   document.getElementById("container_Disp").style.height='70%';
+
+   document.getElementById("People_Number").style.color='blue';    //20180906
+   document.getElementById("People_Number").innerText= 'Brother Truth Seeker: ' + Bro_TrS;
+
+   document.getElementById("container_Total").style.visibility='hidden';
+   document.getElementById("container_Total").style.height='0%';
+
+   document.getElementById("container_Reset_Button").style.visibility='hidden';
+   document.getElementById("container_Reset_Button").style.height='0%';
+   
+}
+
+function Input_SisTruSeeker_Mode(){
+
+   In_BroM_F = 0;
+   In_BroTrS_F = 0;
+   In_SisM_F = 0;
+   In_SisTrS_F = 1;
+
+   document.getElementById("container_Disp").style.visibility='visible';
+   document.getElementById("container_Disp").style.height='70%';
+
+   document.getElementById("People_Number").style.color='red';    //20180906
+   document.getElementById("People_Number").innerText= 'Sister Truth Seeker: ' + Sis_TrS;
+
+   document.getElementById("container_Total").style.visibility='hidden';
+   document.getElementById("container_Total").style.height='0%';
+
+   document.getElementById("container_Reset_Button").style.visibility='hidden';
+   document.getElementById("container_Reset_Button").style.height='0%';
+   
+}
+
+
+
+function Input_Bro_Mode(){
+
+   document.getElementById("container_Bro").style.visibility='visible';
+   document.getElementById("container_Bro").style.height='15%';
+
+   document.getElementById("container_Sis").style.visibility='hidden';
+   document.getElementById("container_Sis").style.height='0%';
+
+   document.getElementById("container_Total").style.visibility='hidden';
+   document.getElementById("container_Total").style.height='0%';
+
+   document.getElementById("container_Reset_Button").style.visibility='hidden';
+   document.getElementById("container_Reset_Button").style.height='0%';
+
+}
+
+function Input_Sis_Mode(){
+
+   document.getElementById("container_Bro").style.visibility='hidden';
+   document.getElementById("container_Bro").style.height='0%';
+
+   document.getElementById("container_Sis").style.visibility='visible';
+   document.getElementById("container_Sis").style.height='15%';
+
+   document.getElementById("container_Total").style.visibility='hidden';
+   document.getElementById("container_Total").style.height='0%';
+
+   document.getElementById("container_Reset_Button").style.visibility='hidden';
+   document.getElementById("container_Reset_Button").style.height='0%';
+
+}
+
+function Show_Total_Mode(){
+
+   document.getElementById("BroM").innerText= Bro_M;
+   document.getElementById("BroTrs").innerText= Bro_TrS;
+
+   document.getElementById("SisM").innerText= Sis_M;
+   document.getElementById("SisTrs").innerText= Sis_TrS;
+
+   document.getElementById("BroTotal").innerText= Bro_M + Bro_TrS;
+   document.getElementById("SisTotal").innerText= Sis_M + Sis_TrS;
+
+   document.getElementById("MemTotal").innerText= Bro_M + Sis_M;
+   document.getElementById("TrsTotal").innerText= Bro_TrS + Sis_TrS;
+
+   document.getElementById("AllTotal").innerText= Bro_M + Bro_TrS + Sis_M + Sis_TrS;
+
+
+   //document.getElementById("container_Total").style.visibility='visible';
+   //document.getElementById("container_Total").style.height='70%';
+
+   //document.getElementById("container_Bro").style.visibility='hidden';
+   //document.getElementById("container_Bro").style.height='0%';
+
+   //document.getElementById("container_Sis").style.visibility='hidden';
+   //document.getElementById("container_Sis").style.height='0%';
+
+   //document.getElementById("container_Disp").style.visibility='hidden';
+   //document.getElementById("container_Disp").style.height='0%';
+
+   //document.getElementById("container_Reset_Button").style.visibility='hidden';
+   //document.getElementById("container_Reset_Button").style.height='0%';
+
+}  // End of function Show_Total_Mode()
+
+
+function Reset_Mode(){
+
+   document.getElementById("container_Reset_Button").style.visibility='visible';
+   document.getElementById("container_Reset_Button").style.height='20%';
+
+   document.getElementById("container_Total").style.visibility='visible';
+   document.getElementById("container_Total").style.height='50%';
+
+
+   document.getElementById("BroM").innerText= Bro_M;
+   document.getElementById("BroTrs").innerText= Bro_TrS;
+
+   document.getElementById("SisM").innerText= Sis_M;
+   document.getElementById("SisTrs").innerText= Sis_TrS;
+
+   document.getElementById("BroTotal").innerText= Bro_M + Bro_TrS;
+   document.getElementById("SisTotal").innerText= Sis_M + Sis_TrS;
+
+   document.getElementById("MemTotal").innerText= Bro_M + Sis_M;
+   document.getElementById("TrsTotal").innerText= Bro_TrS + Sis_TrS;
+
+   document.getElementById("AllTotal").innerText= Bro_M + Bro_TrS + Sis_M + Sis_TrS;
+
+
+   //document.getElementById("container_Total").style.visibility='visible';
+   //document.getElementById("container_Total").style.height='70%';
+
+   document.getElementById("container_Bro").style.visibility='hidden';
+   document.getElementById("container_Bro").style.height='0%';
+
+   document.getElementById("container_Sis").style.visibility='hidden';
+   document.getElementById("container_Sis").style.height='0%';
+
+   document.getElementById("container_Disp").style.visibility='hidden';
+   document.getElementById("container_Disp").style.height='0%';
+
+}
+
+function Reset_All(){
+
+   Bro_M = 0;
+   Sis_M = 0;
+   Bro_TrS = 0;
+   Sis_TrS = 0;
+
+   document.getElementById("BroM").innerText= Bro_M;
+   document.getElementById("BroTrs").innerText= Bro_TrS;
+
+   document.getElementById("SisM").innerText= Sis_M;
+   document.getElementById("SisTrs").innerText= Sis_TrS;
+
+   document.getElementById("BroTotal").innerText= Bro_M + Bro_TrS;
+   document.getElementById("SisTotal").innerText= Sis_M + Sis_TrS;
+
+   document.getElementById("MemTotal").innerText= Bro_M + Sis_M;
+   document.getElementById("TrsTotal").innerText= Bro_TrS + Sis_TrS;
+
+   document.getElementById("AllTotal").innerText= Bro_M + Bro_TrS + Sis_M + Sis_TrS;
+
+}
+
+
+
+</script>
+
+<div id="His_Container" style="height:560px;width:0%;float:left;font-size:14pt;overflow:auto;">
+
+  <p id="Vers_bookmark"></p>
+
+  <p id="Vers_history"></p>
+   
+</div>
+
+
+<div id="Bible_Container" style="height:560px;width:100%;">
+
+
+<div id="header1" style="height:5%;">
+
+
+
+</div>
+
+<div id="container_Bro" style="height:0%;visibility:hidden">
+
+<center>
+<table>
+<tr>
+
+
+<td>
+<input style="font-size:18pt;color:blue" type="button" name="M222" id="Bro_Member" value="Member" onclick="Input_BroMember_Mode();; return false;">
+</td>
+
+<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+
+<td>
+<input style="font-size:18pt;color:blue" type="button" name="M222" id="Bro_TruSeeker" value="Truth Seeker" onclick="Input_BroTruSeeker_Mode();; return false;">
+</td>
+
+</tr>
+</table>
+</center>
+
+</div>
+
+<div id="container_Sis" style="height:0%;visibility:hidden">
+
+<center>
+<table>
+<tr>
+
+
+<td>
+<input style="font-size:18pt;color:red" type="button" name="M222" id="Sis_Member" value="Member" onclick="Input_SisMember_Mode();; return false;">
+</td>
+
+<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+
+<td>
+<input style="font-size:18pt;color:red" type="button" name="M222" id="Sis_TruSeeker" value="Truth Seeker" onclick="Input_SisTruSeeker_Mode();; return false;">
+</td>
+
+</tr>
+</table>
+</center>
+
+</div>
+
+
+
+<div id="container_Total" style="height:0%;visibility:hidden">
+
+<center>
+<table>
+<table border=1 width=100% text=white>
+
+<tr>
+<td><p style="font-size:18pt;">&nbsp</p></td>
+
+<td>
+<p align=center style="font-size:18pt;">Member</p>
+</td>
+
+<td>
+<p align=center style="font-size:18pt;">T.S.</p>
+</td>
+
+<td>
+<p align=center style="font-size:18pt;">Total</p>
+</td>
+</tr>
+
+
+<tr>
+<td><p align=center style="font-size:18pt;">Brother</p></td>
+
+<td>
+<p align=center id="BroM" style="font-size:18pt;"></p>
+</td>
+
+<td>
+<p align=center id="BroTrs" style="font-size:18pt;"></p>
+</td>
+
+<td>
+<p align=center id="BroTotal" style="font-size:18pt;"></p>
+</td>
+</tr>
+
+
+<tr>
+<td><p align=center style="font-size:18pt;">Sister</p></td>
+
+<td>
+<p align=center id="SisM" style="font-size:18pt;"></p>
+</td>
+
+<td>
+<p align=center id="SisTrs" style="font-size:18pt;"></p>
+</td>
+
+<td>
+<p align=center id="SisTotal" style="font-size:18pt;"></p>
+</td>
+</tr>
+
+
+<tr>
+<td><p align=center style="font-size:18pt;">Total</p></td>
+
+<td>
+<p align=center id="MemTotal" style="font-size:18pt;"></p>
+</td>
+
+<td>
+<p align=center id="TrsTotal" style="font-size:18pt;"></p>
+</td>
+
+<td>
+<p align=center id="AllTotal" style="font-size:18pt;"></p>
+</td>
+</tr>
+
+
+</table>
+</center>
+
+
+</div>
+
+
+
+<div id="container_Reset_Button" style="height:0%;visibility:hidden">
+
+
+
+<center>
+<table>
+
+<tr><td><p style="font-size:14pt;"></p></td></tr>
+
+
+<td>
+<input style="font-size:18pt;color:red" type="button" name="M222" id="Reset_Button" value="Press to Reset All" onclick="Reset_All();; return false;">
+</td>
+
+</table>
+</center>
+
+
+
+</div>
+
+
+
+<div id="container_Disp" style="height:0%;visibility:hidden">
+
+<center>
+<table>
+
+<tr><td><p style="font-size:14pt;"></p></td></tr>
+
+<tr>
+<td><p id="People_Number" style="font-size:18pt;"></p></td>
+</tr>
+
+
+
+</table>
+</center>
+
+
+<center>
+<table>
+
+<tr><td><p style="font-size:14pt;"></p></td></tr>
+
+<tr>
+
+
+<td style="font-size:24pt">
+<input style="font-size:24pt" type="button" name="M222" value="7" onclick="keyFunction2(7); return false;">
+</td> 
+<td>&nbsp&nbsp</td><td>&nbsp&nbsp</td><td>&nbsp&nbsp</td>
+<td style="font-size:24pt">
+<input style="font-size:24pt" type="button" name="M222" value="8" onclick="keyFunction2(8); return false;">
+</td>
+<td>&nbsp&nbsp</td><td>&nbsp&nbsp</td><td>&nbsp&nbsp</td>
+<td style="font-size:24pt">
+<input style="font-size:24pt" type="button" name="M222" value="9" onclick="keyFunction2(9); return false;">
+</td>
+
+
+<td>&nbsp&nbsp</td><td>&nbsp&nbsp</td><td>&nbsp&nbsp</td><td>&nbsp&nbsp</td>
+<td style="font-size:24pt">
+<input style="font-size:24pt" type="button" name="M222" value="+" onclick="keyFunction2('A'); return false;">
+</td>
+
+</tr>
+
+<tr><td><p style="font-size:8pt;"></p></td></tr>
+
+<tr>
+
+
+<td style="font-size:24pt">
+<input style="font-size:24pt" type="button" name="M222" value="4" onclick="keyFunction2(4); return false;">
+</td> 
+<td>&nbsp&nbsp</td><td>&nbsp&nbsp</td><td>&nbsp&nbsp</td>
+<td style="font-size:24pt">
+<input style="font-size:24pt" type="button" name="M222" value="5" onclick="keyFunction2(5); return false;">
+</td>
+<td>&nbsp&nbsp</td><td>&nbsp&nbsp</td><td>&nbsp&nbsp</td>
+<td style="font-size:24pt">
+<input style="font-size:24pt" type="button" name="M222" value="6" onclick="keyFunction2(6); return false;">
+</td>
+
+
+<td>&nbsp&nbsp</td><td>&nbsp&nbsp</td><td>&nbsp&nbsp</td><td>&nbsp&nbsp</td>
+<td style="font-size:24pt">
+<input style="font-size:24pt" type="button" name="M222" value="--" onclick="keyFunction2('S'); return false;">
+</td>
+
+</tr>
+
+<tr><td><p style="font-size:8pt;"></p></td></tr>
+
+<tr>
+
+
+<td style="font-size:24pt">
+<input style="font-size:24pt" type="button" name="M222" value="1" onclick="keyFunction2(1); return false;">
+</td> 
+<td>&nbsp&nbsp</td><td>&nbsp&nbsp</td><td>&nbsp&nbsp</td>
+<td style="font-size:24pt">
+<input style="font-size:24pt" type="button" name="M222" value="2" onclick="keyFunction2(2); return false;">
+</td>
+<td>&nbsp&nbsp</td><td>&nbsp&nbsp</td><td>&nbsp&nbsp</td>
+<td style="font-size:24pt">
+<input style="font-size:24pt" type="button" name="M222" value="3" onclick="keyFunction2(3); return false;">
+</td>
+
+
+<td>&nbsp&nbsp</td><td>&nbsp&nbsp</td><td>&nbsp&nbsp</td><td>&nbsp&nbsp</td>
+<td style="font-size:24pt">
+<input style="font-size:24pt" type="button" name="M222" value="C" onclick="keyFunction2('C'); return false;">
+</td>
+
+</tr>
+
+<tr><td><p style="font-size:8pt;"></p></td></tr>
+
+<tr>
+
+<td>&nbsp&nbsp</td><td>&nbsp&nbsp</td><td>&nbsp&nbsp</td><td>&nbsp&nbsp</td>
+<td colspan=6 style="font-size:24pt">
+<input style="font-size:24pt" type="button" name="M222" value="0" onclick="keyFunction2(0); return false;">
+</td> 
+<td>&nbsp&nbsp</td><td>&nbsp&nbsp</td><td>&nbsp&nbsp</td>
+
+
+<td style="font-size:24pt">
+<input style="font-size:24pt" type="button" name="M222" value="E" onclick="keyFunction2('E');Show_Total_Mode(); return false;">
+</td>
+
+</tr>
+
+</table>
+</center>
+
+</div>
+
+
+
+
+<div id="container1" style="height:0%;width:100%;;">
+
+
+
+
+<div id="conten1t1" style="height:100%;overflow:auto;">
+  <div id="1L"> </div>
+
+  <div id="smallVer1"></div>
+  <table><tr><td valign="top"><div id="10002"></div></td><td><div id="10003"></div></td></tr></table>
+  <div id="smallVer2"></div>
+  <table><tr><td valign="top"><div id="20002"></div></td><td><div id="20003"></div></td></tr></table>
+
+  <table><tr><td valign="top"><div id="2L"> </div></td><td><div id="3L"></div></td></tr></table> 
+
+  <table><tr><td valign="top"><div id="1001"></div></td><td><div id="2001"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1002"></div></td><td><div id="2002"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1003"></div></td><td><div id="2003"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1004"></div></td><td><div id="2004"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1005"></div></td><td><div id="2005"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1006"></div></td><td><div id="2006"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1007"></div></td><td><div id="2007"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1008"></div></td><td><div id="2008"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1009"></div></td><td><div id="2009"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1010"></div></td><td><div id="2010"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1011"></div></td><td><div id="2011"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1012"></div></td><td><div id="2012"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1013"></div></td><td><div id="2013"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1014"></div></td><td><div id="2014"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1015"></div></td><td><div id="2015"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1016"></div></td><td><div id="2016"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1017"></div></td><td><div id="2017"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1018"></div></td><td><div id="2018"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1019"></div></td><td><div id="2019"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1020"></div></td><td><div id="2020"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1021"></div></td><td><div id="2021"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1022"></div></td><td><div id="2022"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1023"></div></td><td><div id="2023"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1024"></div></td><td><div id="2024"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1025"></div></td><td><div id="2025"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1026"></div></td><td><div id="2026"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1027"></div></td><td><div id="2027"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1028"></div></td><td><div id="2028"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1029"></div></td><td><div id="2029"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1030"></div></td><td><div id="2030"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1031"></div></td><td><div id="2031"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1032"></div></td><td><div id="2032"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1033"></div></td><td><div id="2033"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1034"></div></td><td><div id="2034"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1035"></div></td><td><div id="2035"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1036"></div></td><td><div id="2036"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1037"></div></td><td><div id="2037"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1038"></div></td><td><div id="2038"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1039"></div></td><td><div id="2039"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1040"></div></td><td><div id="2040"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1041"></div></td><td><div id="2041"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1042"></div></td><td><div id="2042"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1043"></div></td><td><div id="2043"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1044"></div></td><td><div id="2044"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1045"></div></td><td><div id="2045"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1046"></div></td><td><div id="2046"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1047"></div></td><td><div id="2047"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1048"></div></td><td><div id="2048"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1049"></div></td><td><div id="2049"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1050"></div></td><td><div id="2050"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1051"></div></td><td><div id="2051"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1052"></div></td><td><div id="2052"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1053"></div></td><td><div id="2053"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1054"></div></td><td><div id="2054"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1055"></div></td><td><div id="2055"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1056"></div></td><td><div id="2056"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1057"></div></td><td><div id="2057"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1058"></div></td><td><div id="2058"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1059"></div></td><td><div id="2059"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1060"></div></td><td><div id="2060"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1061"></div></td><td><div id="2061"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1062"></div></td><td><div id="2062"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1063"></div></td><td><div id="2063"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1064"></div></td><td><div id="2064"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1065"></div></td><td><div id="2065"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1066"></div></td><td><div id="2066"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1067"></div></td><td><div id="2067"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1068"></div></td><td><div id="2068"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1069"></div></td><td><div id="2069"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1070"></div></td><td><div id="2070"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1071"></div></td><td><div id="2071"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1072"></div></td><td><div id="2072"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1073"></div></td><td><div id="2073"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1074"></div></td><td><div id="2074"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1075"></div></td><td><div id="2075"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1076"></div></td><td><div id="2076"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1077"></div></td><td><div id="2077"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1078"></div></td><td><div id="2078"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1079"></div></td><td><div id="2079"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1080"></div></td><td><div id="2080"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1081"></div></td><td><div id="2081"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1082"></div></td><td><div id="2082"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1083"></div></td><td><div id="2083"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1084"></div></td><td><div id="2084"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1085"></div></td><td><div id="2085"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1086"></div></td><td><div id="2086"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1087"></div></td><td><div id="2087"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1088"></div></td><td><div id="2088"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1089"></div></td><td><div id="2089"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1090"></div></td><td><div id="2090"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1091"></div></td><td><div id="2091"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1092"></div></td><td><div id="2092"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1093"></div></td><td><div id="2093"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1094"></div></td><td><div id="2094"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1095"></div></td><td><div id="2095"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1096"></div></td><td><div id="2096"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1097"></div></td><td><div id="2097"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1098"></div></td><td><div id="2098"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1099"></div></td><td><div id="2099"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1100"></div></td><td><div id="2100"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1101"></div></td><td><div id="2101"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1102"></div></td><td><div id="2102"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1103"></div></td><td><div id="2103"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1104"></div></td><td><div id="2104"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1105"></div></td><td><div id="2105"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1106"></div></td><td><div id="2106"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1107"></div></td><td><div id="2107"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1108"></div></td><td><div id="2108"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1109"></div></td><td><div id="2109"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1110"></div></td><td><div id="2110"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1111"></div></td><td><div id="2111"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1112"></div></td><td><div id="2112"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1113"></div></td><td><div id="2113"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1114"></div></td><td><div id="2114"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1115"></div></td><td><div id="2115"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1116"></div></td><td><div id="2116"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1117"></div></td><td><div id="2117"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1118"></div></td><td><div id="2118"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1119"></div></td><td><div id="2119"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1120"></div></td><td><div id="2120"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1121"></div></td><td><div id="2121"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1122"></div></td><td><div id="2122"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1123"></div></td><td><div id="2123"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1124"></div></td><td><div id="2124"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1125"></div></td><td><div id="2125"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1126"></div></td><td><div id="2126"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1127"></div></td><td><div id="2127"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1128"></div></td><td><div id="2128"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1129"></div></td><td><div id="2129"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1130"></div></td><td><div id="2130"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1131"></div></td><td><div id="2131"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1132"></div></td><td><div id="2132"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1133"></div></td><td><div id="2133"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1134"></div></td><td><div id="2134"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1135"></div></td><td><div id="2135"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1136"></div></td><td><div id="2136"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1137"></div></td><td><div id="2137"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1138"></div></td><td><div id="2138"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1139"></div></td><td><div id="2139"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1140"></div></td><td><div id="2140"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1141"></div></td><td><div id="2141"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1142"></div></td><td><div id="2142"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1143"></div></td><td><div id="2143"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1144"></div></td><td><div id="2144"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1145"></div></td><td><div id="2145"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1146"></div></td><td><div id="2146"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1147"></div></td><td><div id="2147"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1148"></div></td><td><div id="2148"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1149"></div></td><td><div id="2149"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1150"></div></td><td><div id="2150"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1151"></div></td><td><div id="2151"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1152"></div></td><td><div id="2152"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1153"></div></td><td><div id="2153"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1154"></div></td><td><div id="2154"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1155"></div></td><td><div id="2155"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1156"></div></td><td><div id="2156"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1157"></div></td><td><div id="2157"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1158"></div></td><td><div id="2158"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1159"></div></td><td><div id="2159"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1160"></div></td><td><div id="2160"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1161"></div></td><td><div id="2161"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1162"></div></td><td><div id="2162"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1163"></div></td><td><div id="2163"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1164"></div></td><td><div id="2164"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1165"></div></td><td><div id="2165"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1166"></div></td><td><div id="2166"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1167"></div></td><td><div id="2167"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1168"></div></td><td><div id="2168"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1169"></div></td><td><div id="2169"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1170"></div></td><td><div id="2170"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1171"></div></td><td><div id="2171"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1172"></div></td><td><div id="2172"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1173"></div></td><td><div id="2173"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1174"></div></td><td><div id="2174"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1175"></div></td><td><div id="2175"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="1176"></div></td><td><div id="2176"></div></td></tr></table>
+
+</div>
+
+</div>
+
+<script>
+//<div id="header2" style="height:8%;color:red;">
+//  <div id="p2"> </div>
+//</div>
+</script>
+
+
+<div id="container2" style="height:0%;width:0%;;">
+
+
+
+<div id="content2" style="height:100%;overflow:auto;">
+  <div id="1R"> </div>
+
+  <div id="smallVer3"></div>
+  <table><tr><td valign="top"><div id="30002"></div></td><td><div id="30003"></div></td></tr></table>
+  <div id="smallVer4"></div>
+  <table><tr><td valign="top"><div id="40002"></div></td><td><div id="40003"></div></td></tr></table>
+
+  <table><tr><td valign="top"><div id="3001"></div></td><td><div id="4001"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3002"></div></td><td><div id="4002"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3003"></div></td><td><div id="4003"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3004"></div></td><td><div id="4004"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3005"></div></td><td><div id="4005"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3006"></div></td><td><div id="4006"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3007"></div></td><td><div id="4007"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3008"></div></td><td><div id="4008"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3009"></div></td><td><div id="4009"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3010"></div></td><td><div id="4010"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3011"></div></td><td><div id="4011"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3012"></div></td><td><div id="4012"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3013"></div></td><td><div id="4013"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3014"></div></td><td><div id="4014"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3015"></div></td><td><div id="4015"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3016"></div></td><td><div id="4016"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3017"></div></td><td><div id="4017"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3018"></div></td><td><div id="4018"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3019"></div></td><td><div id="4019"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3020"></div></td><td><div id="4020"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3021"></div></td><td><div id="4021"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3022"></div></td><td><div id="4022"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3023"></div></td><td><div id="4023"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3024"></div></td><td><div id="4024"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3025"></div></td><td><div id="4025"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3026"></div></td><td><div id="4026"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3027"></div></td><td><div id="4027"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3028"></div></td><td><div id="4028"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3029"></div></td><td><div id="4029"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3030"></div></td><td><div id="4030"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3031"></div></td><td><div id="4031"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3032"></div></td><td><div id="4032"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3033"></div></td><td><div id="4033"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3034"></div></td><td><div id="4034"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3035"></div></td><td><div id="4035"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3036"></div></td><td><div id="4036"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3037"></div></td><td><div id="4037"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3038"></div></td><td><div id="4038"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3039"></div></td><td><div id="4039"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3040"></div></td><td><div id="4040"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3041"></div></td><td><div id="4041"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3042"></div></td><td><div id="4042"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3043"></div></td><td><div id="4043"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3044"></div></td><td><div id="4044"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3045"></div></td><td><div id="4045"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3046"></div></td><td><div id="4046"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3047"></div></td><td><div id="4047"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3048"></div></td><td><div id="4048"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3049"></div></td><td><div id="4049"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3050"></div></td><td><div id="4050"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3051"></div></td><td><div id="4051"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3052"></div></td><td><div id="4052"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3053"></div></td><td><div id="4053"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3054"></div></td><td><div id="4054"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3055"></div></td><td><div id="4055"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3056"></div></td><td><div id="4056"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3057"></div></td><td><div id="4057"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3058"></div></td><td><div id="4058"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3059"></div></td><td><div id="4059"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3060"></div></td><td><div id="4060"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3061"></div></td><td><div id="4061"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3062"></div></td><td><div id="4062"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3063"></div></td><td><div id="4063"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3064"></div></td><td><div id="4064"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3065"></div></td><td><div id="4065"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3066"></div></td><td><div id="4066"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3067"></div></td><td><div id="4067"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3068"></div></td><td><div id="4068"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3069"></div></td><td><div id="4069"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3070"></div></td><td><div id="4070"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3071"></div></td><td><div id="4071"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3072"></div></td><td><div id="4072"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3073"></div></td><td><div id="4073"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3074"></div></td><td><div id="4074"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3075"></div></td><td><div id="4075"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3076"></div></td><td><div id="4076"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3077"></div></td><td><div id="4077"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3078"></div></td><td><div id="4078"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3079"></div></td><td><div id="4079"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3080"></div></td><td><div id="4080"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3081"></div></td><td><div id="4081"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3082"></div></td><td><div id="4082"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3083"></div></td><td><div id="4083"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3084"></div></td><td><div id="4084"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3085"></div></td><td><div id="4085"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3086"></div></td><td><div id="4086"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3087"></div></td><td><div id="4087"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3088"></div></td><td><div id="4088"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3089"></div></td><td><div id="4089"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3090"></div></td><td><div id="4090"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3091"></div></td><td><div id="4091"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3092"></div></td><td><div id="4092"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3093"></div></td><td><div id="4093"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3094"></div></td><td><div id="4094"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3095"></div></td><td><div id="4095"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3096"></div></td><td><div id="4096"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3097"></div></td><td><div id="4097"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3098"></div></td><td><div id="4098"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3099"></div></td><td><div id="4099"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3100"></div></td><td><div id="4100"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3101"></div></td><td><div id="4101"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3102"></div></td><td><div id="4102"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3103"></div></td><td><div id="4103"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3104"></div></td><td><div id="4104"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3105"></div></td><td><div id="4105"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3106"></div></td><td><div id="4106"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3107"></div></td><td><div id="4107"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3108"></div></td><td><div id="4108"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3109"></div></td><td><div id="4109"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3110"></div></td><td><div id="4110"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3111"></div></td><td><div id="4111"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3112"></div></td><td><div id="4112"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3113"></div></td><td><div id="4113"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3114"></div></td><td><div id="4114"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3115"></div></td><td><div id="4115"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3116"></div></td><td><div id="4116"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3117"></div></td><td><div id="4117"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3118"></div></td><td><div id="4118"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3119"></div></td><td><div id="4119"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3120"></div></td><td><div id="4120"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3121"></div></td><td><div id="4121"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3122"></div></td><td><div id="4122"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3123"></div></td><td><div id="4123"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3124"></div></td><td><div id="4124"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3125"></div></td><td><div id="4125"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3126"></div></td><td><div id="4126"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3127"></div></td><td><div id="4127"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3128"></div></td><td><div id="4128"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3129"></div></td><td><div id="4129"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3130"></div></td><td><div id="4130"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3131"></div></td><td><div id="4131"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3132"></div></td><td><div id="4132"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3133"></div></td><td><div id="4133"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3134"></div></td><td><div id="4134"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3135"></div></td><td><div id="4135"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3136"></div></td><td><div id="4136"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3137"></div></td><td><div id="4137"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3138"></div></td><td><div id="4138"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3139"></div></td><td><div id="4139"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3140"></div></td><td><div id="4140"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3141"></div></td><td><div id="4141"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3142"></div></td><td><div id="4142"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3143"></div></td><td><div id="4143"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3144"></div></td><td><div id="4144"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3145"></div></td><td><div id="4145"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3146"></div></td><td><div id="4146"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3147"></div></td><td><div id="4147"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3148"></div></td><td><div id="4148"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3149"></div></td><td><div id="4149"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3150"></div></td><td><div id="4150"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3151"></div></td><td><div id="4151"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3152"></div></td><td><div id="4152"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3153"></div></td><td><div id="4153"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3154"></div></td><td><div id="4154"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3155"></div></td><td><div id="4155"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3156"></div></td><td><div id="4156"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3157"></div></td><td><div id="4157"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3158"></div></td><td><div id="4158"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3159"></div></td><td><div id="4159"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3160"></div></td><td><div id="4160"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3161"></div></td><td><div id="4161"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3162"></div></td><td><div id="4162"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3163"></div></td><td><div id="4163"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3164"></div></td><td><div id="4164"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3165"></div></td><td><div id="4165"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3166"></div></td><td><div id="4166"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3167"></div></td><td><div id="4167"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3168"></div></td><td><div id="4168"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3169"></div></td><td><div id="4169"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3170"></div></td><td><div id="4170"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3171"></div></td><td><div id="4171"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3172"></div></td><td><div id="4172"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3173"></div></td><td><div id="4173"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3174"></div></td><td><div id="4174"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3175"></div></td><td><div id="4175"></div></td></tr></table>
+  <table><tr><td valign="top"><div id="3176"></div></td><td><div id="4176"></div></td></tr></table>
+
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
