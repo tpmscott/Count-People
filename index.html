@@ -99,6 +99,37 @@
 
 // End of CORDOVA
 
+
+function Read_File(){
+
+        function readFile(fileEntry) {
+
+            fs.root.getFile('test.txt', {}, function(fileEntry) {
+
+            fileEntry.file(function (file) {
+                var reader = new FileReader();
+
+                reader.onloadend = function() {
+                    //console.log("Successful file read: " + this.result);
+                    //displayFileData(fileEntry.fullPath + ": " + this.result);
+
+                    var txtArea = document.createElement('textarea');
+                    txtArea.value = this.result;
+                    document.body.appendChild(txtArea);
+                };
+
+                reader.readAsText(file);
+
+            }, onErrorReadFile);
+        }
+
+
+        //window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, readFile, fail);
+
+        window.requestFileSystem(iosPersistentFileLocation.PERSISTENT, 0, readFile, fail);
+
+}
+
 </script>
 
 
@@ -346,6 +377,12 @@
 <table>
 
 <tr>
+
+<td>
+<input style="font-size:18pt;color:blue" type="button" name="M222" id="ReadFile" value="Read" onclick="Read_File();; return false;">
+</td>
+
+
 
 <td>
 <input style="font-size:18pt;color:blue" type="button" name="M222" id="Bro_Member" value="B.M." onclick="Input_BroMember_Mode();; return false;">
