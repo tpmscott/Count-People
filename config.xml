@@ -4,5 +4,7 @@
     <description>
         The Count People app is to count people in meeting. 
     </description>
+    <preference name="iosPersistentFileLocation" value="Library" />
+    <plugin name="cordova-plugin-file" spec="^5.0.0"/>
     <icon src="resources/icon.png" />
 </widget>
