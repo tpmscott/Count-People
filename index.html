@@ -20,7 +20,8 @@
 
         // Create a persistent file
 
-        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fs) {
+        //window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fs) {
+        window.requestFileSystem(iosPersistentFileLocation.PERSISTENT, 0, function (fs) {
 
             console.log('file system open: ' + fs.name);
             fs.root.getFile("test.txt", { create: true, exclusive: false }, function (fileEntry) {
@@ -84,8 +85,9 @@
         }
 
 
-        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, readFile, fail);
+        //window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, readFile, fail);
 
+        window.requestFileSystem(iosPersistentFileLocation.PERSISTENT, 0, readFile, fail);
 
 
 
