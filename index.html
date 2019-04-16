@@ -111,7 +111,9 @@ function Read_File(){
 
                 reader.onloadend = function() {
                     //console.log("Successful file read: " + this.result);
-                    //displayFileData(fileEntry.fullPath + ": " + this.result);
+                    displayFileData(fileEntry.fullPath + ": " + this.result);
+
+                    document.getElementById('ReadFile').value = "Read2";
 
                     var txtArea = document.createElement('textarea');
                     txtArea.value = this.result;
