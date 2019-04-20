@@ -1,185 +1,6 @@
 <html>
 <head>
 
-
-<script type="text/javascript" charset="utf-8">
-
-// Start for CORDOVA
-
-    // Wait for Cordova to load
-    //
-    document.addEventListener("deviceready", onDeviceReady, false);
-
-    // Cordova is ready
-    //
-    function onDeviceReady() {
-        //window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
-
-    // ----->
-
-
-        // Create a persistent file
-
-        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fs) {
-        //window.requestFileSystem(iosPersistentFileLocation.PERSISTENT, 0, function (fs) {
-
-            console.log('file system open: ' + fs.name);
-            fs.root.getFile("test.txt", { create: true, exclusive: false }, function (fileEntry) {
-
-                console.log("fileEntry is file?" + fileEntry.isFile.toString());
-                // fileEntry.name == 'someFile.txt'
-                // fileEntry.fullPath == '/someFile.txt'
-                writeFile(fileEntry, null);
-
-            }, onErrorCreateFile);
-
-        }, onErrorLoadFs);
-
-
-        // Write to a file
-
-        function writeFile(fileEntry, dataObj) {
-            // Create a FileWriter object for our FileEntry (log.txt).
-            fileEntry.createWriter(function (fileWriter) {
-
-                fileWriter.onwriteend = function() {
-                    console.log("Successful file write...");
-                    readFile(fileEntry);
-                };
-
-                fileWriter.onerror = function (e) {
-                    console.log("Failed file write: " + e.toString());
-                };
-
-                // If data object is not passed in,
-                // create a new Blob instead.
-                if (!dataObj) {
-                    dataObj = new Blob(['some file data'], { type: 'text/plain' });
-                }
-
-                fileWriter.write(dataObj);
-            });
-        }
-
-        // Read a file
-
-        function readFile(fileEntry) {
-
-            fs.root.getFile('test.txt', {}, function(fileEntry) {
-
-            fileEntry.file(function (file) {
-                var reader = new FileReader();
-
-                reader.onloadend = function() {
-                    //console.log("Successful file read: " + this.result);
-                    //displayFileData(fileEntry.fullPath + ": " + this.result);
-
-                    var txtArea = document.createElement('textarea');
-                    txtArea.value = this.result;
-                    document.body.appendChild(txtArea);
-                };
-
-                reader.readAsText(file);
-
-            }, onErrorReadFile);
-        }
-
-
-        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, readFile, fail);
-
-        //window.requestFileSystem(iosPersistentFileLocation.PERSISTENT, 0, readFile, fail);
-
-
-
-    // ----->
-
-    }
-
-
-
-// End of CORDOVA
-
-
-function Read_File(){
-
-        function readFile(fileEntry) {
-
-            fs.root.getFile('test.txt', {}, function(fileEntry) {
-
-            fileEntry.file(function (file) {
-                var reader = new FileReader();
-
-                reader.onloadend = function() {
-                    //console.log("Successful file read: " + this.result);
-                    displayFileData(fileEntry.fullPath + ": " + this.result);
-
-                    document.getElementById('ReadFile').value = "Read2";
-
-                    var txtArea = document.createElement('textarea');
-                    txtArea.value = this.result;
-                    document.body.appendChild(txtArea);
-                };
-
-                reader.readAsText(file);
-
-            }, onErrorReadFile);
-        }
-
-
-        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, readFile, fail);
-
-        //window.requestFileSystem(iosPersistentFileLocation.PERSISTENT, 0, readFile, fail);
-
-}
-
-function Write_File(){
-
-        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fs) {
-        //window.requestFileSystem(iosPersistentFileLocation.PERSISTENT, 0, function (fs) {
-
-            console.log('file system open: ' + fs.name);
-            fs.root.getFile("test.txt", { create: true, exclusive: false }, function (fileEntry) {
-
-                console.log("fileEntry is file?" + fileEntry.isFile.toString());
-                // fileEntry.name == 'someFile.txt'
-                // fileEntry.fullPath == '/someFile.txt'
-                writeFile2(fileEntry, 'test');
-
-            }, onErrorCreateFile);
-
-        }, onErrorLoadFs);
-
-}
-
-        function writeFile2(fileEntry, dataObj) {
-            // Create a FileWriter object for our FileEntry (log.txt).
-            fileEntry.createWriter(function (fileWriter) {
-
-                fileWriter.onwriteend = function() {
-                    console.log("Successful file write...");
-                    readFile(fileEntry);
-                };
-
-                fileWriter.onerror = function (e) {
-                    console.log("Failed file write: " + e.toString());
-                };
-
-                // If data object is not passed in,
-                // create a new Blob instead.
-                if (!dataObj) {
-                    dataObj = new Blob(['some file data'], { type: 'text/plain' });
-                }
-
-                fileWriter.write(dataObj);
-            });
-        }
-
-
-
-</script>
-
-
-
 <style type="text/css"> 
 
   div{
@@ -286,6 +107,24 @@ function Write_File(){
 
 
 <script Language="JavaScript">
+
+// For LocalStorage Test
+
+function clickCounter() {
+  if (typeof(Storage) !== "undefined") {
+    if (localStorage.clickcount) {
+      localStorage.clickcount = Number(localStorage.clickcount)+1;
+    } else {
+      localStorage.clickcount = 1;
+    }
+    document.getElementById("result").innerHTML = "You have clicked the button " + localStorage.clickcount + " time(s).";
+  } else {
+    document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+  }
+}
+
+
+// End of LocalStorage Test
 
 
 //font-family:arial; 
@@ -419,20 +258,16 @@ function Write_File(){
 </tr><tr><td>&nbsp</td></tr>
 
 
+<p><button onclick="clickCounter()" type="button">Click me!</button></p>
+<div id="result"></div>
+<p>Click the button to see the counter increase.</p>
+<p>Close the browser tab (or window), and try again, and the counter will continue to count (is not reset).</p>
+
+
 <center>
 <table>
 
 <tr>
-
-<td>
-<input style="font-size:18pt;color:blue" type="button" name="M222" id="WriteFile" value="Write" onclick="Write_File();; return false;">
-</td>
-
-<td>
-<input style="font-size:18pt;color:blue" type="button" name="M222" id="ReadFile" value="Read" onclick="Read_File();; return false;">
-</td>
-
-
 
 <td>
 <input style="font-size:18pt;color:blue" type="button" name="M222" id="Bro_Member" value="B.M." onclick="Input_BroMember_Mode();; return false;">
