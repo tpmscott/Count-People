@@ -1867,6 +1867,15 @@ function Reset_All(){
    Bro_TrS = 0;
    Sis_TrS = 0;
 
+   // Start Writing to Local Storage
+
+   localStorage.Bro_M = Bro_M;
+   localStorage.Sis_M = Sis_M;
+   localStorage.Bro_Trs = Bro_TrS;
+   localStorage.Sis_Trs = Sis_TrS;
+
+   // End of Writing to Local Storage
+
    document.getElementById("BroM").innerText= Bro_M;
    document.getElementById("BroTrs").innerText= Bro_TrS;
 
