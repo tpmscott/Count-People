@@ -253,7 +253,7 @@ function clickCounter() {
 <meta http-equiv="Content-Type" content="text/html; charset=big5">
 
 </head>
-<body onload="Show_Total_Mode(); return false;" text="#000000" link="#0000ff" alink="#ffffff" vlink="#0000ff" background="back5.jpg">
+<body onload="Init_Total_Mode(); return false;" text="#000000" link="#0000ff" alink="#ffffff" vlink="#0000ff" background="back5.jpg">
 
 </tr><tr><td>&nbsp</td></tr>
 
@@ -1725,6 +1725,15 @@ function Show_Total_Mode(){
 
    document.getElementById("AllTotal").innerText= Bro_M + Bro_TrS + Sis_M + Sis_TrS;
 
+   // Start Writing to Local Storage
+
+   localStorage.Bro_M = Bro_M;
+   localStorage.Sis_M = Sis_M;
+   localStorage.Bro_Trs = Bro_Trs;
+   localStorage.Sis_Trs = Sis_Trs;
+
+   // End of Writing to Local Storage
+
 
    //document.getElementById("container_Total").style.visibility='visible';
    //document.getElementById("container_Total").style.height='70%';
@@ -1742,6 +1751,78 @@ function Show_Total_Mode(){
    //document.getElementById("container_Reset_Button").style.height='0%';
 
 }  // End of function Show_Total_Mode()
+
+
+function Init_Total_Mode(){
+
+   // Start Reading from Local Storage
+
+   if(localStorage.Bro_M) {
+      localStorage.Bro_M = Number(localStorage.Bro_M);
+   }else {
+      localStorage.Bro_M = 0;
+   }
+
+   if(localStorage.Sis_M) {
+      localStorage.Sis_M = Number(localStorage.Sis_M);
+   }else {
+      localStorage.Sis_M = 0;
+   }
+
+   if(localStorage.Bro_Trs) {
+      localStorage.Bro_Trs = Number(localStorage.Bro_Trs);
+   }else {
+      localStorage.Bro_Trs = 0;
+   }
+
+   if(localStorage.Sis_Trs) {
+      localStorage.Sis_Trs = Number(localStorage.Sis_Trs);
+   }else {
+      localStorage.Sis_Trs = 0;
+   }
+
+   Bro_M = Number(localStorage.Bro_M);
+   Bro_TrS = Number(localStorage.Bro_Trs);
+   Sis_M = Number(localStorage.Sis_M);
+   Sis_TrS = Number(localStorage.Sis_Trs);
+
+   // End of Reading from Local Storage
+
+
+   document.getElementById("BroM").innerText= Bro_M;
+   document.getElementById("BroTrs").innerText= Bro_TrS;
+
+   document.getElementById("SisM").innerText= Sis_M;
+   document.getElementById("SisTrs").innerText= Sis_TrS;
+
+   document.getElementById("BroTotal").innerText= Bro_M + Bro_TrS;
+   document.getElementById("SisTotal").innerText= Sis_M + Sis_TrS;
+
+   document.getElementById("MemTotal").innerText= Bro_M + Sis_M;
+   document.getElementById("TrsTotal").innerText= Bro_TrS + Sis_TrS;
+
+   document.getElementById("AllTotal").innerText= Bro_M + Bro_TrS + Sis_M + Sis_TrS;
+
+
+   //document.getElementById("container_Total").style.visibility='visible';
+   //document.getElementById("container_Total").style.height='70%';
+
+   //document.getElementById("container_Bro").style.visibility='hidden';
+   //document.getElementById("container_Bro").style.height='0%';
+
+   //document.getElementById("container_Sis").style.visibility='hidden';
+   //document.getElementById("container_Sis").style.height='0%';
+
+   //document.getElementById("container_Disp").style.visibility='hidden';
+   //document.getElementById("container_Disp").style.height='0%';
+
+   //document.getElementById("container_Reset_Button").style.visibility='hidden';
+   //document.getElementById("container_Reset_Button").style.height='0%';
+
+}  // End of function Init_Total_Mode()
+
+
+
 
 
 function Reset_Mode(){
