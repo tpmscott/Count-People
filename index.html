@@ -1636,9 +1636,13 @@ function Input_BroMember_Mode(){
    document.getElementById("container_Reset_Button").style.visibility='hidden';
    document.getElementById("container_Reset_Button").style.height='0%';
 
+   document.getElementById("BroM").style.color="white";
    document.getElementById("BroM").style.backgroundColor='blue';
+   document.getElementById("BroTrs").style.color="black";
    document.getElementById("BroTrs").style.backgroundColor='';
+   document.getElementById("SisM").style.color="black";
    document.getElementById("SisM").style.backgroundColor='';
+   document.getElementById("SisTrs").style.color="black";
    document.getElementById("SisTrs").style.backgroundColor='';
 
    Reset_Number_Pad_Color();
@@ -1681,10 +1685,19 @@ function Input_SisMember_Mode(){
    document.getElementById("container_Reset_Button").style.visibility='hidden';
    document.getElementById("container_Reset_Button").style.height='0%';
 
+   document.getElementById("BroM").style.color="black";
    document.getElementById("BroM").style.backgroundColor='';
+   document.getElementById("BroTrs").style.color="black";
    document.getElementById("BroTrs").style.backgroundColor='';
+   document.getElementById("SisM").style.color="white";
    document.getElementById("SisM").style.backgroundColor='red';
+   document.getElementById("SisTrs").style.color="black";
    document.getElementById("SisTrs").style.backgroundColor='';
+
+   //document.getElementById("BroM").style.backgroundColor='';
+   //document.getElementById("BroTrs").style.backgroundColor='';
+   //document.getElementById("SisM").style.backgroundColor='red';
+   //document.getElementById("SisTrs").style.backgroundColor='';
 
    Reset_Number_Pad_Color();
    
@@ -1728,10 +1741,19 @@ function Input_BroTruSeeker_Mode(){
    document.getElementById("container_Reset_Button").style.visibility='hidden';
    document.getElementById("container_Reset_Button").style.height='0%';
 
+   document.getElementById("BroM").style.color="black";
    document.getElementById("BroM").style.backgroundColor='';
+   document.getElementById("BroTrs").style.color="white";
    document.getElementById("BroTrs").style.backgroundColor='blue';
+   document.getElementById("SisM").style.color="black";
    document.getElementById("SisM").style.backgroundColor='';
+   document.getElementById("SisTrs").style.color="black";
    document.getElementById("SisTrs").style.backgroundColor='';
+
+   //document.getElementById("BroM").style.backgroundColor='';
+   //document.getElementById("BroTrs").style.backgroundColor='blue';
+   //document.getElementById("SisM").style.backgroundColor='';
+   //document.getElementById("SisTrs").style.backgroundColor='';
 
    Reset_Number_Pad_Color();
    
@@ -1773,10 +1795,19 @@ function Input_SisTruSeeker_Mode(){
    document.getElementById("container_Reset_Button").style.visibility='hidden';
    document.getElementById("container_Reset_Button").style.height='0%';
 
+   document.getElementById("BroM").style.color="black";
    document.getElementById("BroM").style.backgroundColor='';
+   document.getElementById("BroTrs").style.color="black";
    document.getElementById("BroTrs").style.backgroundColor='';
+   document.getElementById("SisM").style.color="black";
    document.getElementById("SisM").style.backgroundColor='';
+   document.getElementById("SisTrs").style.color="white";
    document.getElementById("SisTrs").style.backgroundColor='red';
+
+   //document.getElementById("BroM").style.backgroundColor='';
+   //document.getElementById("BroTrs").style.backgroundColor='';
+   //document.getElementById("SisM").style.backgroundColor='';
+   //document.getElementById("SisTrs").style.backgroundColor='red';
 
    Reset_Number_Pad_Color();
    
@@ -1877,10 +1908,14 @@ function Show_Total(){
    document.getElementById("Sis_TruSeeker").style.backgroundColor='';
 
 
+   document.getElementById("BroM").style.color="black";
    document.getElementById("BroM").style.backgroundColor='';
+   document.getElementById("BroTrs").style.color="black";
    document.getElementById("BroTrs").style.backgroundColor='';
 
+   document.getElementById("SisM").style.color="black";
    document.getElementById("SisM").style.backgroundColor='';
+   document.getElementById("SisTrs").style.color="black";
    document.getElementById("SisTrs").style.backgroundColor='';
 
    document.getElementById("AllTotal").style.backgroundColor='';
