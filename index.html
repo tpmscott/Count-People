@@ -272,10 +272,6 @@ function clickCounter() {
 </head>
 <body onload="Init_Total_Mode(); return false;" text="#000000" link="#0000ff" alink="#ffffff" vlink="#0000ff" background="back5.jpg">
 
-</tr><tr><td>&nbsp</td></tr>
-
-
-
 
 
 <center>
@@ -284,22 +280,22 @@ function clickCounter() {
 <tr>
 
 <td>
-<input style="font-size:16pt;color:blue;" type="button" id="Bro_Member" name="M222" value="B.M." onclick="Input_BroMember_Mode();; return false;">
+<input style="font-size:15pt;color:blue;" type="button" id="Bro_Member" name="M222" value="B.M." onclick="Input_BroMember_Mode();; return false;">
 </td>
 
 <td>
-<input style="font-size:16pt;color:blue;" type="button" name="M222" id="Bro_TruSeeker" value="B.Ts." onclick="Input_BroTruSeeker_Mode();; return false;">
+<input style="font-size:15pt;color:blue;" type="button" name="M222" id="Bro_TruSeeker" value="B.Ts." onclick="Input_BroTruSeeker_Mode();; return false;">
 </td>
 
 
-<td></td><td></td><td></td><td></td>
+<td></td><td></td><td></td>
 
 <td>
-<input style="font-size:16pt;color:red;" type="button" name="M222" id="Sis_Member" value="S.M." onclick="Input_SisMember_Mode();; return false;">
+<input style="font-size:15pt;color:red;" type="button" name="M222" id="Sis_Member" value="S.M." onclick="Input_SisMember_Mode();; return false;">
 </td>
 
 <td>
-<input style="font-size:16pt;color:red;" type="button" name="M222" id="Sis_TruSeeker" value="S.Ts." onclick="Input_SisTruSeeker_Mode();; return false;">
+<input style="font-size:15pt;color:red;" type="button" name="M222" id="Sis_TruSeeker" value="S.Ts." onclick="Input_SisTruSeeker_Mode();; return false;">
 </td>
 
 <td>
@@ -401,325 +397,7 @@ function clickCounter() {
 //<div id="tool_area" style="height:0px;">
 </script>
 
-<div id="tool_area_1" style="height:0px;visibility:hidden">
 
-<table><tr><td>
-<a href="" onClick="readchapter(nowbook,nowchapter,--nowsection);Send_to_win34(11,0,0,0,0,0,0); return false;">前一節</a>
-</td><td>
-<form method="POST" name="Reading" onsubmit="readchapter(document.Reading.na.selectedIndex,document.Reading.chap.selectedIndex , document.Reading.sec.selectedIndex+1);Send_to_win34(11,0,0,0,0,0,0); return false;">
-<SELECT NAME="na" OnChange="setchap(Reading, this.selectedIndex, this.selectedIndex)">
-  <OPTION  VALUE="0">Genesis
-  <OPTION  VALUE="1">Exodus
-  <OPTION  VALUE="2">Leviticus
-  <OPTION  VALUE="3">Numbers
-  <OPTION  VALUE="4">Deuteronomy
-  <OPTION  VALUE="5">Joshua
-  <OPTION  VALUE="6">Judges
-  <OPTION  VALUE="7">Ruth
-  <OPTION  VALUE="8">1 Samuel
-  <OPTION  VALUE="9">2 Samuel
-  <OPTION  VALUE="10">1 Kings
-  <OPTION  VALUE="11">2 Kings
-  <OPTION  VALUE="12">1 Chronicles
-  <OPTION  VALUE="13">2 Chronicles
-  <OPTION  VALUE="14">Ezra
-  <OPTION  VALUE="15">Nehemiah
-  <OPTION  VALUE="16">Esther
-  <OPTION  VALUE="17">Job
-  <OPTION  VALUE="18">Psalms
-  <OPTION  VALUE="19">Proverbs
-  <OPTION  VALUE="20">Ecclesiastes
-  <OPTION  VALUE="21">Song of Solomon
-  <OPTION  VALUE="22">Isaiah
-  <OPTION  VALUE="23">Jeremiah
-  <OPTION  VALUE="24">Lamentations
-  <OPTION  VALUE="25">Ezekiel
-  <OPTION  VALUE="26">Daniel
-  <OPTION  VALUE="27">Hosea
-  <OPTION  VALUE="28">Joel
-  <OPTION  VALUE="29">Amos
-  <OPTION  VALUE="30">Obadiah
-  <OPTION  VALUE="31">Jonah
-  <OPTION  VALUE="32">Micah
-  <OPTION  VALUE="33">Nahum
-  <OPTION  VALUE="34">Habakkuk
-  <OPTION  VALUE="35">Zephaniah
-  <OPTION  VALUE="36">Haggai
-  <OPTION  VALUE="37">Zechariah
-  <OPTION  VALUE="38">Malachi 
-</SELECT> 
-<SELECT NAME="chap" OnChange="setsec(Reading, this.selectedIndex, this.selectedIndex)">                                                                                                                                                                     
-<OPTION  VALUE="001">第 1 章
-<OPTION  VALUE="002">第 2 章
-<OPTION  VALUE="003">第 3 章
-<OPTION  VALUE="004">第 4 章
-<OPTION  VALUE="005">第 5 章
-<OPTION  VALUE="006">第 6 章
-<OPTION  VALUE="007">第 7 章
-<OPTION  VALUE="008">第 8 章
-<OPTION  VALUE="009">第 9 章
-<OPTION  VALUE="010">第 10 章
-<OPTION  VALUE="011">第 11 章
-<OPTION  VALUE="012">第 12 章
-<OPTION  VALUE="013">第 13 章
-<OPTION  VALUE="014">第 14 章
-<OPTION  VALUE="015">第 15 章
-<OPTION  VALUE="016">第 16 章
-<OPTION  VALUE="017">第 17 章
-<OPTION  VALUE="018">第 18 章
-<OPTION  VALUE="019">第 19 章
-<OPTION  VALUE="020">第 20 章
-<OPTION  VALUE="021">第 21 章
-<OPTION  VALUE="022">第 22 章
-<OPTION  VALUE="023">第 23 章
-<OPTION  VALUE="024">第 24 章
-<OPTION  VALUE="025">第 25 章
-<OPTION  VALUE="026">第 26 章
-<OPTION  VALUE="027">第 27 章
-<OPTION  VALUE="028">第 28 章
-<OPTION  VALUE="029">第 29 章
-<OPTION  VALUE="030">第 30 章
-<OPTION  VALUE="031">第 31 章
-<OPTION  VALUE="032">第 32 章
-<OPTION  VALUE="033">第 33 章
-<OPTION  VALUE="034">第 34 章
-<OPTION  VALUE="035">第 35 章
-<OPTION  VALUE="036">第 36 章
-<OPTION  VALUE="037">第 37 章
-<OPTION  VALUE="038">第 38 章
-<OPTION  VALUE="039">第 39 章
-<OPTION  VALUE="040">第 40 章
-<OPTION  VALUE="041">第 41 章
-<OPTION  VALUE="042">第 42 章
-<OPTION  VALUE="043">第 43 章
-<OPTION  VALUE="044">第 44 章
-<OPTION  VALUE="045">第 45 章
-<OPTION  VALUE="046">第 46 章
-<OPTION  VALUE="047">第 47 章
-<OPTION  VALUE="048">第 48 章
-<OPTION  VALUE="049">第 49 章
-<OPTION  VALUE="050">第 50 章
-</SELECT>  
-<SELECT NAME="sec" >                                                                                                                                                                   
-<OPTION  VALUE="1">第 1 節
-<OPTION  VALUE="2">第 2 節
-<OPTION  VALUE="3">第 3 節
-<OPTION  VALUE="4">第 4 節
-<OPTION  VALUE="5">第 5 節
-<OPTION  VALUE="6">第 6 節
-<OPTION  VALUE="7">第 7 節
-<OPTION  VALUE="008">第 8 節
-<OPTION  VALUE="009">第 9 節
-<OPTION  VALUE="010">第 10 節
-<OPTION  VALUE="011">第 11 節
-<OPTION  VALUE="012">第 12 節
-<OPTION  VALUE="013">第 13 節
-<OPTION  VALUE="014">第 14 節
-<OPTION  VALUE="015">第 15 節
-<OPTION  VALUE="016">第 16 節
-<OPTION  VALUE="017">第 17 節
-<OPTION  VALUE="018">第 18 節
-<OPTION  VALUE="019">第 19 節
-<OPTION  VALUE="020">第 20 節
-<OPTION  VALUE="021">第 21 節
-<OPTION  VALUE="022">第 22 節
-<OPTION  VALUE="023">第 23 節
-<OPTION  VALUE="024">第 24 節
-<OPTION  VALUE="025">第 25 節
-<OPTION  VALUE="026">第 26 節
-<OPTION  VALUE="027">第 27 節
-<OPTION  VALUE="028">第 28 節
-<OPTION  VALUE="029">第 29 節
-<OPTION  VALUE="030">第 30 節
-<OPTION  VALUE="031">第 31 節
-<OPTION  VALUE="032">第 32 節
-<OPTION  VALUE="033">第 33 節
-<OPTION  VALUE="034">第 34 節
-<OPTION  VALUE="035">第 35 節
-<OPTION  VALUE="036">第 36 節
-<OPTION  VALUE="037">第 37 節
-<OPTION  VALUE="038">第 38 節
-<OPTION  VALUE="039">第 39 節
-<OPTION  VALUE="040">第 40 節
-<OPTION  VALUE="041">第 41 節
-<OPTION  VALUE="042">第 42 節
-<OPTION  VALUE="043">第 43 節
-<OPTION  VALUE="044">第 44 節
-<OPTION  VALUE="045">第 45 節
-<OPTION  VALUE="046">第 46 節
-<OPTION  VALUE="047">第 47 節
-<OPTION  VALUE="048">第 48 節
-</SELECT>  
-<input type="submit" name="submit1" value="閱讀">                                                                                                                                                                     
-</form>
-</td><td>
-<form method="POST" name="Reading2" onsubmit="readchapter(document.Reading2.na.selectedIndex+39, document.Reading2.chap.selectedIndex, document.Reading2.sec.selectedIndex+1);Send_to_win34(11,0,0,0,0,0,0); return false;">
-<SELECT NAME="na" OnChange="setchap2(Reading2, this.selectedIndex+39, this.selectedIndex)">
-  <OPTION  VALUE="39">Matthew
-  <OPTION  VALUE="40">Mark
-  <OPTION  VALUE="41">Luke
-  <OPTION  VALUE="42">John
-  <OPTION  VALUE="43">Acts
-  <OPTION  VALUE="44">Romans
-  <OPTION  VALUE="45">1 Corinthians
-  <OPTION  VALUE="46">2 Corinthians
-  <OPTION  VALUE="47">Galatians
-  <OPTION  VALUE="48">Ephesians
-  <OPTION  VALUE="49">Philippians
-  <OPTION  VALUE="50">Colossians
-  <OPTION  VALUE="51">1 Thessalonians
-  <OPTION  VALUE="52">2 Thessalonians
-  <OPTION  VALUE="53">1 Timothy
-  <OPTION  VALUE="54">2 Timothy
-  <OPTION  VALUE="55">Titus
-  <OPTION  VALUE="56">Philemon
-  <OPTION  VALUE="57">Hebrews
-  <OPTION  VALUE="58">James
-  <OPTION  VALUE="59">1 Peter
-  <OPTION  VALUE="60">2 Peter
-  <OPTION  VALUE="61">1 John
-  <OPTION  VALUE="62">2 John
-  <OPTION  VALUE="63">3 John
-  <OPTION  VALUE="64">Jude
-  <OPTION  VALUE="65">Revelation
-</SELECT> 
-<SELECT NAME="chap" OnChange="setsec2(Reading2, this.selectedIndex, this.selectedIndex)">                                                                                                                                                                     
-<OPTION  VALUE="001" SELECTED>第 1 章
-<OPTION  VALUE="002">第 2 章
-<OPTION  VALUE="003">第 3 章
-<OPTION  VALUE="004">第 4 章
-<OPTION  VALUE="005">第 5 章
-<OPTION  VALUE="006">第 6 章
-<OPTION  VALUE="007">第 7 章
-<OPTION  VALUE="008">第 8 章
-<OPTION  VALUE="009">第 9 章
-<OPTION  VALUE="010">第 10 章
-<OPTION  VALUE="011">第 11 章
-<OPTION  VALUE="012">第 12 章
-<OPTION  VALUE="013">第 13 章
-<OPTION  VALUE="014">第 14 章
-<OPTION  VALUE="015">第 15 章
-<OPTION  VALUE="016">第 16 章
-<OPTION  VALUE="017">第 17 章
-<OPTION  VALUE="018">第 18 章
-<OPTION  VALUE="019">第 19 章
-<OPTION  VALUE="020">第 20 章
-<OPTION  VALUE="021">第 21 章
-<OPTION  VALUE="022">第 22 章
-<OPTION  VALUE="023">第 23 章
-<OPTION  VALUE="024">第 24 章
-<OPTION  VALUE="025">第 25 章
-<OPTION  VALUE="026">第 26 章
-<OPTION  VALUE="027">第 27 章
-<OPTION  VALUE="028">第 28 章
-</SELECT>  
-<SELECT NAME="sec" >                                                                                                                                                                     
-<OPTION  VALUE="1">第 1 節
-<OPTION  VALUE="2">第 2 節
-<OPTION  VALUE="3">第 3 節
-<OPTION  VALUE="4">第 4 節
-<OPTION  VALUE="5">第 5 節
-<OPTION  VALUE="6">第 6 節
-<OPTION  VALUE="7">第 7 節
-<OPTION  VALUE="008">第 8 節
-<OPTION  VALUE="009">第 9 節
-<OPTION  VALUE="010">第 10 節
-<OPTION  VALUE="011">第 11 節
-<OPTION  VALUE="012">第 12 節
-<OPTION  VALUE="013">第 13 節
-<OPTION  VALUE="014">第 14 節
-<OPTION  VALUE="015">第 15 節
-<OPTION  VALUE="016">第 16 節
-<OPTION  VALUE="017">第 17 節
-<OPTION  VALUE="018">第 18 節
-<OPTION  VALUE="019">第 19 節
-<OPTION  VALUE="020">第 20 節
-<OPTION  VALUE="021">第 21 節
-<OPTION  VALUE="022">第 22 節
-<OPTION  VALUE="023">第 23 節
-<OPTION  VALUE="024">第 24 節
-<OPTION  VALUE="025">第 25 節
-<OPTION  VALUE="026">第 26 節
-<OPTION  VALUE="027">第 27 節
-<OPTION  VALUE="028">第 28 節
-<OPTION  VALUE="029">第 29 節
-<OPTION  VALUE="030">第 30 節
-<OPTION  VALUE="031">第 31 節
-<OPTION  VALUE="032">第 32 節
-<OPTION  VALUE="033">第 33 節
-<OPTION  VALUE="034">第 34 節
-<OPTION  VALUE="035">第 35 節
-<OPTION  VALUE="036">第 36 節
-<OPTION  VALUE="037">第 37 節
-<OPTION  VALUE="038">第 38 節
-<OPTION  VALUE="039">第 39 節
-<OPTION  VALUE="040">第 40 節
-<OPTION  VALUE="041">第 41 節
-<OPTION  VALUE="042">第 42 節
-<OPTION  VALUE="043">第 43 節
-<OPTION  VALUE="044">第 44 節
-<OPTION  VALUE="045">第 45 節
-<OPTION  VALUE="046">第 46 節
-<OPTION  VALUE="047">第 47 節
-<OPTION  VALUE="048">第 48 節
-<OPTION  VALUE="049">第 49 節
-<OPTION  VALUE="050">第 50 節
-<OPTION  VALUE="051">第 51 節
-<OPTION  VALUE="052">第 52 節
-<OPTION  VALUE="053">第 53 節
-<OPTION  VALUE="054">第 54 節
-<OPTION  VALUE="055">第 55 節
-<OPTION  VALUE="056">第 56 節
-<OPTION  VALUE="057">第 57 節
-<OPTION  VALUE="058">第 58 節
-</SELECT>   
-<input type="submit" name="submit1" value="閱讀">                                                                                                                                                                     
-</form>
-</td><td>
-<a href="" onClick="readchapter(nowbook,nowchapter,++nowsection);Send_to_win34(11,0,0,0,0,0,0); return false;">後一節</a>
-</td>
-
-
-
-<td></td><td></td>
-<td>
-<a id="a1" href="javascript:;" onclick="change()">顯示書籤</a>
-</td>
-
-
-
-<td>
-<form method="POST" name="ClearBookmark" onsubmit="clear_bookmark(); return false;">
-<SELECT id="CBookmark" >
-  <OPTION  VALUE="1">書籤1</OPTION>
-  <OPTION  VALUE="2">書籤2</OPTION>
-  <OPTION  VALUE="3">書籤3</OPTION>
-  <OPTION  VALUE="4">書籤4</OPTION>
-  <OPTION  VALUE="5">書籤5</OPTION>
-  <OPTION  VALUE="6">書籤6</OPTION>
-  <OPTION  VALUE="7">書籤7</OPTION>
-  <OPTION  VALUE="8">書籤8</OPTION>
-  <OPTION  VALUE="9">書籤9</OPTION>
-  <OPTION  VALUE="10">書籤10</OPTION>
-  <OPTION  VALUE="11">書籤11</OPTION>
-  <OPTION  VALUE="12">書籤12</OPTION>
-  <OPTION  VALUE="13">書籤13</OPTION>
-  <OPTION  VALUE="14">書籤14</OPTION>
-  <OPTION  VALUE="15">全部書籤</OPTION>
-</SELECT> 
-<input type="submit" name="submit1" value="清除">                                                                          
-                                                                                          
-</form>
-</td>
-
-<td></td><td></td><td></td><td></td>
-
-<td>
-<a href="" onClick="Send_to_win34(3,0,0,0,0,0,0); return false;">Help</a>
-</td>
-</tr></table>
-
-</div>
 
 <div id="tool_area_2" style="height:0px;visibility:hidden">
 
@@ -2438,13 +2116,7 @@ function Reset_All(){
 
 </script>
 
-<div id="His_Container" style="height:560px;width:0%;float:left;font-size:14pt;overflow:auto;">
 
-  <p id="Vers_bookmark"></p>
-
-  <p id="Vers_history"></p>
-   
-</div>
 
 
 <div id="Bible_Container" style="height:560px;width:100%;">
@@ -2614,7 +2286,7 @@ function Reset_All(){
 <center>
 <table>
 
-<tr><td><p style="font-size:8pt;"></p></td></tr>
+<tr><td><p style="font-size:4pt;"></p></td></tr>
 
 <tr>
 <td><p id="People_Number" style="font-size:16pt;"></p></td>
@@ -2629,94 +2301,94 @@ function Reset_All(){
 <center>
 <table>
 
-<tr><td><p style="font-size:8pt;"></p></td></tr>
+<tr><td><p style="font-size:4pt;"></p></td></tr>
 
 <tr>
 
 
-<td style="font-size:18pt">
-<input style="font-size:18pt" type="button" name="M222" id="7" value="7" ontouchstart="keyFunction2(7);Seven_Pressed(); return false;">
+<td style="font-size:17pt">
+<input style="font-size:17pt" type="button" name="M222" id="7" value="7" ontouchstart="keyFunction2(7);Seven_Pressed(); return false;">
 </td> 
 <td>&nbsp&nbsp</td>
-<td style="font-size:18pt">
-<input style="font-size:18pt" type="button" name="M222" id="8" value="8" ontouchstart="keyFunction2(8);Eight_Pressed(); return false;">
+<td style="font-size:17pt">
+<input style="font-size:17pt" type="button" name="M222" id="8" value="8" ontouchstart="keyFunction2(8);Eight_Pressed(); return false;">
 </td>
 <td>&nbsp&nbsp</td>
-<td style="font-size:18pt">
-<input style="font-size:18pt" type="button" name="M222" id="9" value="9" ontouchstart="keyFunction2(9);Nine_Pressed(); return false;">
+<td style="font-size:17pt">
+<input style="font-size:17pt" type="button" name="M222" id="9" value="9" ontouchstart="keyFunction2(9);Nine_Pressed(); return false;">
 </td>
 
 
 <td>&nbsp&nbsp</td><td>&nbsp&nbsp</td>
-<td style="font-size:18pt">
-<input style="font-size:18pt" type="button" name="M222" id="Add" value=" ＋" ontouchstart="keyFunction2('A');Add_Pressed(); return false;">
+<td style="font-size:17pt">
+<input style="font-size:17pt" type="button" name="M222" id="Add" value="＋" ontouchstart="keyFunction2('A');Add_Pressed(); return false;">
 </td>
 
 </tr>
 
-<tr><td><p style="font-size:8pt;"></p></td></tr>
+<tr><td><p style="font-size:4pt;"></p></td></tr>
 
 <tr>
 
 
-<td style="font-size:18pt">
-<input style="font-size:18pt" type="button" name="M222" id="4" value="4" ontouchstart="keyFunction2(4);Four_Pressed(); return false;">
+<td style="font-size:17pt">
+<input style="font-size:17pt" type="button" name="M222" id="4" value="4" ontouchstart="keyFunction2(4);Four_Pressed(); return false;">
 </td> 
 <td>&nbsp&nbsp</td>
-<td style="font-size:18pt">
-<input style="font-size:18pt" type="button" name="M222" id="5" value="5" ontouchstart="keyFunction2(5);Five_Pressed(); return false;">
+<td style="font-size:17pt">
+<input style="font-size:17pt" type="button" name="M222" id="5" value="5" ontouchstart="keyFunction2(5);Five_Pressed(); return false;">
 </td>
 <td>&nbsp&nbsp</td>
-<td style="font-size:18pt">
-<input style="font-size:18pt" type="button" name="M222" id="6" value="6" ontouchstart="keyFunction2(6);Six_Pressed(); return false;">
+<td style="font-size:17pt">
+<input style="font-size:17pt" type="button" name="M222" id="6" value="6" ontouchstart="keyFunction2(6);Six_Pressed(); return false;">
 </td>
 
 
 <td>&nbsp&nbsp</td><td>&nbsp&nbsp</td>
-<td style="font-size:18pt">
-<input style="font-size:18pt" type="button" name="M222" id="Sub" value=" －" ontouchstart="keyFunction2('S');Sub_Pressed(); return false;">
+<td style="font-size:17pt">
+<input style="font-size:17pt" type="button" name="M222" id="Sub" value="－" ontouchstart="keyFunction2('S');Sub_Pressed(); return false;">
 </td>
 
 </tr>
 
-<tr><td><p style="font-size:8pt;"></p></td></tr>
+<tr><td><p style="font-size:4pt;"></p></td></tr>
 
 <tr>
 
 
-<td style="font-size:18pt">
-<input style="font-size:18pt" type="button" name="M222" id="1" value="1" ontouchstart="keyFunction2(1);One_Pressed(); return false;">
+<td style="font-size:17pt">
+<input style="font-size:17pt" type="button" name="M222" id="1" value="1" ontouchstart="keyFunction2(1);One_Pressed(); return false;">
 </td> 
 <td>&nbsp&nbsp</td>
-<td style="font-size:18pt">
-<input style="font-size:18pt" type="button" name="M222" id="2" value="2" ontouchstart="keyFunction2(2);Two_Pressed(); return false;">
+<td style="font-size:17pt">
+<input style="font-size:17pt" type="button" name="M222" id="2" value="2" ontouchstart="keyFunction2(2);Two_Pressed(); return false;">
 </td>
 <td>&nbsp&nbsp</td>
-<td style="font-size:18pt">
-<input style="font-size:18pt" type="button" name="M222" id="3" value="3" ontouchstart="keyFunction2(3);Three_Pressed(); return false;">
+<td style="font-size:17pt">
+<input style="font-size:17pt" type="button" name="M222" id="3" value="3" ontouchstart="keyFunction2(3);Three_Pressed(); return false;">
 </td>
 
 
 <td>&nbsp&nbsp</td><td>&nbsp&nbsp</td>
-<td style="font-size:18pt">
-<input style="font-size:18pt" type="button" name="M222" id="C" value=" C " ontouchstart="keyFunction2('C');C_Pressed(); return false;">
+<td style="font-size:17pt">
+<input style="font-size:17pt" type="button" name="M222" id="C" value=" C" ontouchstart="keyFunction2('C');C_Pressed(); return false;">
 </td>
 
 </tr>
 
-<tr><td><p style="font-size:8pt;"></p></td></tr>
+<tr><td><p style="font-size:4pt;"></p></td></tr>
 
 <tr>
 
 <td>&nbsp&nbsp</td><td>&nbsp&nbsp</td>
-<td colspan=4 style="font-size:18pt">
-<input style="font-size:18pt" type="button" name="M222" id="0" value="0" ontouchstart="keyFunction2(0);Zero_Pressed(); return false;">
+<td colspan=4 style="font-size:17pt">
+<input style="font-size:17pt" type="button" name="M222" id="0" value="0" ontouchstart="keyFunction2(0);Zero_Pressed(); return false;">
 </td> 
 <td>&nbsp&nbsp</td>
 
 
-<td style="font-size:18pt">
-<input style="font-size:18pt" type="button" name="M222" id="E" value=" E " ontouchstart="keyFunction2('E');Show_Total_Mode();E_Pressed(); return false;">
+<td style="font-size:17pt">
+<input style="font-size:17pt" type="button" name="M222" id="E" value=" E" ontouchstart="keyFunction2('E');Show_Total_Mode();E_Pressed(); return false;">
 </td>
 
 </tr>
