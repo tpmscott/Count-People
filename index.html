@@ -115,6 +115,14 @@
   text-align: center;
   width: 78px;
 }
+.messageBox{
+  background-image:url('back5.jpg');
+  background-repeat:repeat;
+}
+.center {
+  margin: auto;
+  width: 35%;
+}
 </style>
 
 
@@ -386,6 +394,19 @@ function clickCounter() {
 
 <td>
 <input style="font-size:12pt;color:red;" type="button" name="M222" id="Sis_TruSeeker" value="S.Ts." ontouchstart="Input_SisTruSeeker_Mode();; return false;">
+</td>
+
+
+<td></td><td></td><td></td><td></td>
+
+
+<td>
+<button onclick="Show_Headcount()">Show Headcount</button>
+</td>
+
+<td>
+<button onclick="Show_Headcount_2()">Show Headcount = </button>
+<input size="10" type="text" id="Show_Headcount_2" name="Show_Headcount_2">
 </td>
 
 <td>
@@ -2426,40 +2447,168 @@ function Reset_All(){
 
     </div>
 
+                <center><b><p id="listElem3"></p></b></center>
 
 
-  <label for="Attendant_No">Attendant No: </label>
-  <input size="2" type="text" id="Attendant_No" name="Attendant_No">
-  <button onclick="add_record_to_Attendance()">Add Attendance</button>
+  <center>
+  <label style="font-size:28px" for="Attendant_No">Attendant No: </label>
+  <input style="font-size:22px" size="1" type="text" id="Attendant_No" name="Attendant_No">
+  <button style="font-size:20px" onclick="add_record_to_Attendance()">Add Attendance</button>
+  </center>
+            
+<br><br>
+       
+  <center>                 
+  <button style="font-size:20px" onclick="Roll_Call()">Roll Call</button>
+  </center>
 
-                   <a id="listElem3"></a>
+<br>
 
-  <br><br><br>
-  <label for="cNo">CNo: </label>
-  <input size="2" type="text" id="cNo" name="cNo">
+<div id="content2" style="height:80%;overflow:auto;" class="center">
 
-  <label for="fname">First name: </label>
-  <input size="10" type="text" id="fname" name="fname">
-  <label for="lname">Last name: </label>
-  <input size="10" type="text" id="lname" name="lname">
+  <p id="Roll_Call_Content"> </p>
 
-  <label for="Member">Member: </label>
-  <input size="2" type="text" id="Member" name="Member">
-  <label for="Gender">Gender: </label>
-  <input size="2" type="text" id="Gender" name="Gender">
+</div>
+
 
 <br><br>
 
-<button onclick="add_people_to_Congregation()">Add Congregation</button> 
+  <button style="font-size:20px" onclick="generate_CNo_for_New_Householder()">Add Householder</button>
 
-<button onclick="list_all_Congregation()">List All Congregation</button>
+  <button style="font-size:20px" onclick="add_people_to_Congregation4()">Add </button>
+  <button style="font-size:20px" onclick="read_from_Congregation4()">Read</button>
+  <button style="font-size:20px" onclick="update_to_Congregation4()">Update</button>
+
+  <button style="font-size:20px" onclick="Delete_Congregation4_Cno()">Delete</button>
+
+  <label style="font-size:28px" for="Mesg2"> Message </label>
+  <input style="font-size:22px" size="40" type="text" id="Mesg2" name="Mesg2" class="messageBox">
+
+  <br>
+  <label style="font-size:28px" for="cNo2"> CNo: </label>
+  <input style="font-size:22px" size="1" type="text" id="cNo2" name="cNo2">
+
+  <label style="font-size:28px" for="fname2">First name: </label>
+  <input style="font-size:22px" size="10" type="text" id="fname2" name="fname2">
+  <label style="font-size:28px" for="lname2">Last name: </label>
+  <input style="font-size:22px" size="10" type="text" id="lname2" name="lname2">
+
+  <label style="font-size:28px" for="Member2">Member: </label>
+  <input style="font-size:22px" size="1" type="text" id="Member2" name="Member2">
+
+  <label style="font-size:28px" for="Member2">Tel: </label>
+  <input style="font-size:22px" size="8" type="text" id="Tel2" name="Tel2">
+
+  <br>
+  <label style="font-size:28px" for="h_No2">HNo: </label>
+  <input style="font-size:22px" size="2" type="text" id="h_No2" name="h_No2">
+
+  <label style="font-size:30px" for="Cfname2"> 姓: </label>
+  <input style="font-size:24px" size="1" type="text" id="Cfname2" name="Cfname2">
+  <label style="font-size:30px" for="Clname2">名: </label>
+  <input style="font-size:24px" size="2" type="text" id="Clname2" name="Clname2">
+  <label style="font-size:28px" for="fOrder2">Family Order: </label>
+  <input style="font-size:22px" size="1" type="text" id="fOrder2" name="fOrder2">
+
+  <label style="font-size:28px" for="Gender2">Gender: </label>
+  <input style="font-size:22px" size="1" type="text" id="Gender2" name="Gender2">
+
+  <label style="font-size:28px" for="Member2">Mobile: </label>
+  <input style="font-size:22px" size="8" type="text" id="Mob2" name="Mob2">
+
+
+<br><br>
+
+
+  <button style="font-size:20px" onclick="generate_CNo_for_New_Family_Member()">Add Family Member</button>
+
+  <button style="font-size:20px" onclick="add_people_to_Congregation4_F()">Add </button>
+  <button style="font-size:20px" onclick="read_from_Congregation4_F()">Read</button>
+  <button style="font-size:20px" onclick="update_to_Congregation4_F()">Update</button>
+
+  <button style="font-size:20px" onclick="Delete_Congregation4_F_Cno()">Delete</button>
+
+  <label style="font-size:28px" for="Mesg3"> Message </label>
+  <input style="font-size:22px" size="40" type="text" id="Mesg3" name="Mesg3" class="messageBox">
+
+  <br>
+  <label style="font-size:28px" for="cNo3"> CNo: </label>
+  <input style="font-size:22px" size="1" type="text" id="cNo3" name="cNo3">
+
+  <label style="font-size:28px" for="fname3">First name: </label>
+  <input style="font-size:22px" size="10" type="text" id="fname3" name="fname3">
+  <label style="font-size:28px" for="lname3">Last name: </label>
+  <input style="font-size:22px" size="10" type="text" id="lname3" name="lname3">
+
+  <label style="font-size:28px" for="Member3">Member: </label>
+  <input style="font-size:22px" size="1" type="text" id="Member3" name="Member3">
+
+  <label style="font-size:28px" for="Member3">Tel: </label>
+  <input style="font-size:22px" size="8" type="text" id="Tel3" name="Tel3">
+
+  <br>
+  <label style="font-size:28px" for="h_No3">HNo: </label>
+  <input style="font-size:22px" size="2" type="text" id="h_No3" name="h_No3">
+
+  <label style="font-size:30px" for="Cfname3"> 姓: </label>
+  <input style="font-size:24px" size="1" type="text" id="Cfname3" name="Cfname3">
+  <label style="font-size:30px" for="Clname3">名: </label>
+  <input style="font-size:24px" size="2" type="text" id="Clname3" name="Clname3">
+  <label style="font-size:28px" for="fOrder3">Family Order: </label>
+  <input style="font-size:22px" size="1" type="text" id="fOrder3" name="fOrder3">
+
+  <label style="font-size:28px" for="Gender3">Gender: </label>
+  <input style="font-size:22px" size="1" type="text" id="Gender3" name="Gender3">
+
+  <label style="font-size:28px" for="Member2">Mobile: </label>
+  <input style="font-size:22px" size="8" type="text" id="Mob3" name="Mob3">
+
+
+<br><br>
+
+
+
+<button onclick="Congregation4_to_Householder()">Congregation4 -> Householder</button>
+
+<button onclick="list_all_Congregation3()">List All Congregation3</button>
+
+<button onclick="list_all_Householder()">List All Householder</button>
+
+<button onclick="Householder_to_Roll()">Householder -> Roll</button>
+
+<button onclick="list_all_Roll()">List All Roll</button>
 
 <button onclick="list_all_Attendance()">List All Attendance</button>
 
-<button onclick="Show_Headcount()">Show Headcount</button>
 
-<button onclick="Show_Headcount_2()">Show Headcount = </button>
-<input size="10" type="text" id="Show_Headcount_2" name="Show_Headcount_2">
+
+<br>
+
+<button onclick="list_all_Congregation2()">List All Congregation2</button>
+
+<button onclick="Delete_All_Congregation2()">Delete All Congregation2</button>
+
+
+<button onclick="Delete_Congregation2_Cno()">Delete Congregation2 CNo = </button>
+<input size="2" type="text" id="Delete_Congregation2_Cno" name="Delete_Congregation2_Cno">
+
+
+<br>
+
+
+<button onclick="list_all_Congregation4()">List All Congregation4</button>
+
+<button onclick="Delete_All_Congregation4()">Delete All Congregation4</button>
+
+
+<button onclick="Delete_Congregation4_Cno()">Delete Congregation4 CNo = </button>
+<input size="2" type="text" id="Delete_Congregation4_Cno" name="Delete_Congregation4_Cno">
+
+
+<button onclick="list_Distinct_Test_Congregation4()">Distinct Test</button>
+
+<button onclick="list_all_Congregation4_V2()">List All Congregation4 V2</button>
+
 
 <p>Congregation list:</p>
 
@@ -2474,13 +2623,15 @@ function Reset_All(){
 
 <script>
 
+document.getElementById("Mesg2").readOnly = true;
 
+document.getElementById("Mesg3").readOnly = true;
 
 
 async function list_all_Congregation() {
 
 
-  let Verse = await dbT2.Congregation.toArray();
+  let Verse = await dbT2.Congregation.reverse().toArray();
 
   //db.table.toArray()
 
@@ -2491,7 +2642,9 @@ async function list_all_Congregation() {
 
      if (Verse.length) {
        listElem.innerHTML = Verse.map(book => `<li>
-           CNo: ${book.CNo}, First Name: ${book.F_Name}, Last Name: ${book.L_Name}, Member: ${book.Member}, Gender: ${book.Gender} 
+
+           CNo:${book.CNo}  Name:${book.F_Name} ${book.L_Name}  Member:${book.Member} Gender:${book.Gender}  HNo:${book.H_No} 姓名:${book.C_F_Name} ${book.C_L_Name} F_Order:${book.F_Order}
+
          </li>`).join('');
      } else {
        listElem.innerHTML = '<li>No Data</li>'
@@ -2508,6 +2661,984 @@ async function list_all_Congregation() {
 }  // End of function list_all_Congregation()
 
 
+
+async function Congregation4_to_Householder() {
+
+
+  let Verse = await dbT2.Congregation4.where("F_Order").equals('1').toArray();  // where("CNo").equals(delete_CNo)
+
+  //let Verse = await dbT2.Congregation2.orderBy('[L_Name+F_Name]').toArray();  // where("CNo").equals(delete_CNo)
+
+
+  if (Verse) {
+
+     dbT2.Congregation3.clear();  // delete all in Congregation3
+
+     // Add "F_Order" = 1 into Congregation3 from Congregation2
+
+     for (i = 0; i < Verse.length; i++) {
+
+        var CNo = Verse[i].CNo;
+        var F_Name = Verse[i].F_Name;
+        var L_Name = Verse[i].L_Name;
+        var H_No = Verse[i].H_No;   
+
+        try { 
+
+           dbT2.Congregation3.add({ CNo, F_Name, L_Name, H_No });   
+
+        } catch(err) {   
+
+           if (err.name == 'ConstraintError') {
+             alert("Such book exists already");
+             //await addBook();
+           } else {
+             throw err;
+           }
+
+        }
+
+
+     } // End of for (i = 0; i < Verse.length; i++)
+
+     // End of Add "F_Order" = 1 into Congregation3 from Congregation2
+
+     dbT2.Householder.clear();  // delete all in Householder
+
+     // Add into Householder from Congregation3 orderby [L_Name+F_Name]
+
+     let Verse_3 = await dbT2.Congregation3.orderBy('[L_Name+F_Name]').toArray();
+
+     for (i = 0; i < Verse_3.length; i++) {
+
+        var H_No = Verse_3[i].H_No;   
+
+        try { 
+
+           dbT2.Householder.add({ H_No }); 
+
+        } catch(err) {
+          if (err.name == 'ConstraintError') {
+            alert("Such book exists already");
+            //await addBook();
+          } else {
+            throw err;
+          }
+        }
+
+     } // end of for (i = 0; i < Verse_3.length; i++)
+
+
+  }
+  else {
+
+     listElem.innerHTML = 'Congregation4 No Data';
+
+  }
+
+
+}  // End of function Congregation4_to_Householder()
+
+
+async function Congregation2_to_Householder() {
+
+
+  let Verse = await dbT2.Congregation2.where("F_Order").equals('1').toArray();  // where("CNo").equals(delete_CNo)
+
+  //let Verse = await dbT2.Congregation2.orderBy('[L_Name+F_Name]').toArray();  // where("CNo").equals(delete_CNo)
+
+
+  if (Verse) {
+
+     dbT2.Congregation3.clear();  // delete all in Congregation3
+
+     // Add "F_Order" = 1 into Congregation3 from Congregation2
+
+     for (i = 0; i < Verse.length; i++) {
+
+        var CNo = Verse[i].CNo;
+        var F_Name = Verse[i].F_Name;
+        var L_Name = Verse[i].L_Name;
+        var H_No = Verse[i].H_No;   
+
+        try { 
+
+           dbT2.Congregation3.add({ CNo, F_Name, L_Name, H_No });   
+
+        } catch(err) {   
+
+           if (err.name == 'ConstraintError') {
+             alert("Such book exists already");
+             //await addBook();
+           } else {
+             throw err;
+           }
+
+        }
+
+
+     } // End of for (i = 0; i < Verse.length; i++)
+
+     // End of Add "F_Order" = 1 into Congregation3 from Congregation2
+
+     dbT2.Householder.clear();  // delete all in Householder
+
+     // Add into Householder from Congregation3 orderby [L_Name+F_Name]
+
+     let Verse_3 = await dbT2.Congregation3.orderBy('[L_Name+F_Name]').toArray();
+
+     for (i = 0; i < Verse_3.length; i++) {
+
+        var H_No = Verse_3[i].H_No;   
+
+        try { 
+
+           dbT2.Householder.add({ H_No }); 
+
+        } catch(err) {
+          if (err.name == 'ConstraintError') {
+            alert("Such book exists already");
+            //await addBook();
+          } else {
+            throw err;
+          }
+        }
+
+     } // end of for (i = 0; i < Verse_3.length; i++)
+
+
+  }
+  else {
+
+     listElem.innerHTML = 'Congregation2 No Data';
+
+  }
+
+
+}  // End of function Congregation2_to_Householder()
+
+
+
+
+async function update_to_Congregation4_F() {
+
+  var CNo_tmp = document.getElementById("cNo3").value;
+
+  var CNo = Number(CNo_tmp);
+
+  let Verse = await dbT2.Congregation4.get(CNo);
+
+  //db.table.toArray()
+
+  //let Verse = await db.books.getAll();
+
+
+  if (Verse) {  // Exist so update
+
+     //var content_tmp = document.getElementById("Chap_Note_Textarea").value;
+
+     var F_Name_tmp = document.getElementById("fname3").value;
+     var L_Name_tmp = document.getElementById("lname3").value;
+     var Member_tmp = document.getElementById("Member3").value;
+     var Gender_tmp = document.getElementById("Gender3").value;
+
+     var H_No_tmp = document.getElementById("h_No3").value;
+     var C_F_Name_tmp = document.getElementById("Cfname3").value;
+     var C_L_Name_tmp = document.getElementById("Clname3").value;
+     var F_Order_tmp = document.getElementById("fOrder3").value;
+
+     var Tel_tmp = document.getElementById("Tel3").value;
+     var Mob_tmp = document.getElementById("Mob3").value;
+
+     //dbT2.ChapNote.update(Book_tmp, {content: content_tmp  });
+
+     dbT2.Congregation4.update(CNo, { F_Name: F_Name_tmp, L_Name: L_Name_tmp, Member: Member_tmp, Gender: Gender_tmp, H_No: H_No_tmp, C_F_Name: C_F_Name_tmp, C_L_Name: C_L_Name_tmp, F_Order: F_Order_tmp, Tel: Tel_tmp, Mob: Mob_tmp });
+
+     document.getElementById("Mesg3").value = 'Updated.';
+     document.getElementById("Mesg3").readOnly = true;
+     document.getElementById("Mesg3").style.color = "blue";
+
+  }
+  else {   // Not Exist so do nothing
+
+     document.getElementById("Mesg3").value = 'Failed. CNo:' + CNo + ' does not exist.';
+     document.getElementById("Mesg3").readOnly = true;
+     document.getElementById("Mesg3").style.color = "red";
+  }
+
+
+}  // End of function update_to_Congregation4_F()
+
+
+
+async function update_to_Congregation4() {
+
+  var CNo_tmp = document.getElementById("cNo2").value;
+
+  var CNo = Number(CNo_tmp);
+
+  let Verse = await dbT2.Congregation4.get(CNo);
+
+  //db.table.toArray()
+
+  //let Verse = await db.books.getAll();
+
+
+  if (Verse) {  // Exist so update
+
+     //var content_tmp = document.getElementById("Chap_Note_Textarea").value;
+
+     var F_Name_tmp = document.getElementById("fname2").value;
+     var L_Name_tmp = document.getElementById("lname2").value;
+     var Member_tmp = document.getElementById("Member2").value;
+     var Gender_tmp = document.getElementById("Gender2").value;
+
+     var H_No_tmp = document.getElementById("h_No2").value;
+     var C_F_Name_tmp = document.getElementById("Cfname2").value;
+     var C_L_Name_tmp = document.getElementById("Clname2").value;
+     var F_Order_tmp = document.getElementById("fOrder2").value;
+
+     var Tel_tmp = document.getElementById("Tel2").value;
+     var Mob_tmp = document.getElementById("Mob2").value;
+
+     //dbT2.ChapNote.update(Book_tmp, {content: content_tmp  });
+
+     dbT2.Congregation4.update(CNo, { F_Name: F_Name_tmp, L_Name: L_Name_tmp, Member: Member_tmp, Gender: Gender_tmp, H_No: H_No_tmp, C_F_Name: C_F_Name_tmp, C_L_Name: C_L_Name_tmp, F_Order: F_Order_tmp, Tel: Tel_tmp, Mob: Mob_tmp });
+
+     document.getElementById("Mesg2").value = 'Updated.';
+     document.getElementById("Mesg2").readOnly = true;
+     document.getElementById("Mesg2").style.color = "blue";
+
+  }
+  else {   // Not Exist so do nothing
+
+     document.getElementById("Mesg2").value = 'Failed. CNo:' + CNo + ' does not exist.';
+     document.getElementById("Mesg2").readOnly = true;
+     document.getElementById("Mesg2").style.color = "red";
+  }
+
+
+}  // End of function update_to_Congregation4()
+
+
+async function update_to_Congregation2() {
+
+  var CNo_tmp = document.getElementById("cNo2").value;
+
+  var CNo = Number(CNo_tmp);
+
+  let Verse = await dbT2.Congregation2.get(CNo);
+
+  //db.table.toArray()
+
+  //let Verse = await db.books.getAll();
+
+
+  if (Verse) {  // Exist so update
+
+     //var content_tmp = document.getElementById("Chap_Note_Textarea").value;
+
+     var F_Name_tmp = document.getElementById("fname2").value;
+     var L_Name_tmp = document.getElementById("lname2").value;
+     var Member_tmp = document.getElementById("Member2").value;
+     var Gender_tmp = document.getElementById("Gender2").value;
+
+     var H_No_tmp = document.getElementById("h_No2").value;
+     var C_F_Name_tmp = document.getElementById("Cfname2").value;
+     var C_L_Name_tmp = document.getElementById("Clname2").value;
+     var F_Order_tmp = document.getElementById("fOrder2").value;
+
+     //dbT2.ChapNote.update(Book_tmp, {content: content_tmp  });
+
+     dbT2.Congregation2.update(CNo, { F_Name: F_Name_tmp, L_Name: L_Name_tmp, Member: Member_tmp, Gender: Gender_tmp, H_No: H_No_tmp, C_F_Name: C_F_Name_tmp, C_L_Name: C_L_Name_tmp, F_Order: F_Order_tmp });
+
+  }
+  else {   // Not Exist so do nothing
+
+     listElem.innerHTML = 'No Data';
+
+  }
+
+
+}  // End of function update_to_Congregation2()
+
+
+
+async function read_from_Congregation4_F() {
+
+  var CNo_tmp = document.getElementById("cNo3").value;
+
+  var CNo = Number(CNo_tmp);
+
+  let Verse = await dbT2.Congregation4.get(CNo);
+
+  //db.table.toArray()
+
+  //let Verse = await db.books.getAll();
+
+
+  if (Verse) {
+
+     document.getElementById("fname3").value = Verse.F_Name;
+     document.getElementById("lname3").value = Verse.L_Name;
+     document.getElementById("Member3").value = Verse.Member;
+     document.getElementById("Gender3").value = Verse.Gender;
+
+     document.getElementById("h_No3").value = Verse.H_No; // Format : HouseholderNo_BirthOrder Ex: 1_1, 1_2
+     document.getElementById("Cfname3").value = Verse.C_F_Name; // 姓
+     document.getElementById("Clname3").value = Verse.C_L_Name; // 名字
+     document.getElementById("fOrder3").value = Verse.F_Order; // 1 for Householder
+
+     if (!Verse.Tel) 
+        document.getElementById("Tel3").value = '';
+     else
+        document.getElementById("Tel3").value = Verse.Tel;
+
+     if (!Verse.Mob)
+        document.getElementById("Mob3").value = '';
+     else
+        document.getElementById("Mob3").value = Verse.Mob;
+
+     document.getElementById("Mesg3").value = 'Succeeded.';
+     document.getElementById("Mesg3").readOnly = true;
+     document.getElementById("Mesg3").style.color = "blue";
+
+  }
+  else {
+
+     //listElem.innerHTML = 'No Data';
+
+     document.getElementById("fname3").value = '';
+     document.getElementById("lname3").value = '';
+     document.getElementById("Member3").value = '';
+     document.getElementById("Gender3").value = '';
+
+     document.getElementById("h_No3").value = ''; // Format : HouseholderNo_BirthOrder Ex: 1_1, 1_2
+     document.getElementById("Cfname3").value = ''; // 姓
+     document.getElementById("Clname3").value = ''; // 名字
+     document.getElementById("fOrder3").value = ''; // 1 for Householder
+
+     document.getElementById("Tel3").value = '';
+     document.getElementById("Mob3").value = '';
+
+     document.getElementById("Mesg3").value = 'No Data.';
+     document.getElementById("Mesg3").readOnly = true;
+     document.getElementById("Mesg3").style.color = "red";
+
+  }
+
+
+}  // End of function read_from_Congregation4_F()
+
+
+async function read_from_Congregation4() {
+
+  var CNo_tmp = document.getElementById("cNo2").value;
+
+  var CNo = Number(CNo_tmp);
+
+  let Verse = await dbT2.Congregation4.get(CNo);
+
+  //db.table.toArray()
+
+  //let Verse = await db.books.getAll();
+
+
+  if (Verse) {
+
+     document.getElementById("fname2").value = Verse.F_Name;
+     document.getElementById("lname2").value = Verse.L_Name;
+     document.getElementById("Member2").value = Verse.Member;
+     document.getElementById("Gender2").value = Verse.Gender;
+
+     document.getElementById("h_No2").value = Verse.H_No; // Format : HouseholderNo_BirthOrder Ex: 1_1, 1_2
+     document.getElementById("Cfname2").value = Verse.C_F_Name; // 姓
+     document.getElementById("Clname2").value = Verse.C_L_Name; // 名字
+     document.getElementById("fOrder2").value = Verse.F_Order; // 1 for Householder
+
+     if (!Verse.Tel) 
+        document.getElementById("Tel2").value = '';
+     else
+        document.getElementById("Tel2").value = Verse.Tel;
+
+     if (!Verse.Mob)
+        document.getElementById("Mob2").value = '';
+     else
+        document.getElementById("Mob2").value = Verse.Mob;
+
+     document.getElementById("Mesg2").value = 'Succeeded.';
+     document.getElementById("Mesg2").readOnly = true;
+     document.getElementById("Mesg2").style.color = "blue";
+
+  }
+  else {
+
+     //listElem.innerHTML = 'No Data';
+
+     document.getElementById("fname2").value = '';
+     document.getElementById("lname2").value = '';
+     document.getElementById("Member2").value = '';
+     document.getElementById("Gender2").value = '';
+
+     document.getElementById("h_No2").value = ''; // Format : HouseholderNo_BirthOrder Ex: 1_1, 1_2
+     document.getElementById("Cfname2").value = ''; // 姓
+     document.getElementById("Clname2").value = ''; // 名字
+     document.getElementById("fOrder2").value = ''; // 1 for Householder
+
+     document.getElementById("Tel2").value = '';
+     document.getElementById("Mob2").value = '';
+
+     document.getElementById("Mesg2").value = 'No Data.';
+     document.getElementById("Mesg2").readOnly = true;
+     document.getElementById("Mesg2").style.color = "red";
+
+  }
+
+
+}  // End of function read_from_Congregation4()
+
+
+async function read_from_Congregation2() {
+
+  var CNo_tmp = document.getElementById("cNo2").value;
+
+  var CNo = Number(CNo_tmp);
+
+  let Verse = await dbT2.Congregation2.get(CNo);
+
+  //db.table.toArray()
+
+  //let Verse = await db.books.getAll();
+
+
+  if (Verse) {
+
+     document.getElementById("fname2").value = Verse.F_Name;
+     document.getElementById("lname2").value = Verse.L_Name;
+     document.getElementById("Member2").value = Verse.Member;
+     document.getElementById("Gender2").value = Verse.Gender;
+
+     document.getElementById("h_No2").value = Verse.H_No; // Format : HouseholderNo_BirthOrder Ex: 1_1, 1_2
+     document.getElementById("Cfname2").value = Verse.C_F_Name; // 姓
+     document.getElementById("Clname2").value = Verse.C_L_Name; // 名字
+     document.getElementById("fOrder2").value = Verse.F_Order; // 1 for Householder
+
+  }
+  else {
+
+     listElem.innerHTML = 'No Data';
+
+  }
+
+
+}  // End of function read_from_Congregation2()
+
+
+
+async function list_Distinct_Test_Congregation4() {  // Can't use .distinct(), try to find other way
+
+
+  //let Verse = await dbT2.Congregation4..toArray();
+
+  //let Verse = await dbT2.Congregation4.reverse().toArray();
+
+
+  if (Verse) {
+
+     if (Verse.length) {
+       listElem.innerHTML = Verse.map(book => `<li>
+
+           CNo:${book.CNo}  Name:${book.F_Name} ${book.L_Name}  Member:${book.Member} Gender:${book.Gender}  HNo:${book.H_No} 姓名:${book.C_F_Name} ${book.C_L_Name} F_Order:${book.F_Order}
+
+         </li>`).join('');
+     } else {
+       listElem.innerHTML = '<li>No Data</li>'
+     }
+
+  }
+  else {
+
+     listElem.innerHTML = 'No Data';
+
+  }
+
+
+}  // End of function list_Distinct_Test_Congregation4()
+
+
+async function list_all_Congregation4_V2() {
+
+
+  let Verse = await dbT2.Congregation4.reverse().toArray();
+
+  //db.table.toArray()
+
+  //let Verse = await db.books.getAll();
+
+
+  if (Verse) {
+
+     if (Verse.length) {
+       listElem.innerHTML = Verse.map(book => `<li>
+
+           CNo:${book.CNo}  Name:${book.F_Name} ${book.L_Name}  M:${book.Member} G:${book.Gender}  ${book.C_F_Name} ${book.C_L_Name} Tel:${book.Tel} Mob:${book.Mob}
+
+         </li>`).join('');
+     } else {
+       listElem.innerHTML = '<li>No Data</li>'
+     }
+
+  }
+  else {
+
+     listElem.innerHTML = 'No Data';
+
+  }
+
+
+}  // End of function list_all_Congregation4_V2()
+
+
+async function list_all_Congregation4() {
+
+
+  let Verse = await dbT2.Congregation4.reverse().toArray();
+
+  //db.table.toArray()
+
+  //let Verse = await db.books.getAll();
+
+
+  if (Verse) {
+
+     if (Verse.length) {
+       listElem.innerHTML = Verse.map(book => `<li>
+
+           CNo:${book.CNo}  Name:${book.F_Name} ${book.L_Name}  Member:${book.Member} Gender:${book.Gender}  HNo:${book.H_No} 姓名:${book.C_F_Name} ${book.C_L_Name} F_Order:${book.F_Order}
+
+         </li>`).join('');
+     } else {
+       listElem.innerHTML = '<li>No Data</li>'
+     }
+
+  }
+  else {
+
+     listElem.innerHTML = 'No Data';
+
+  }
+
+
+}  // End of function list_all_Congregation4()
+
+
+async function list_all_Congregation2() {
+
+
+  let Verse = await dbT2.Congregation2.reverse().toArray();
+
+  //db.table.toArray()
+
+  //let Verse = await db.books.getAll();
+
+
+  if (Verse) {
+
+     if (Verse.length) {
+       listElem.innerHTML = Verse.map(book => `<li>
+
+           CNo:${book.CNo}  Name:${book.F_Name} ${book.L_Name}  Member:${book.Member} Gender:${book.Gender}  HNo:${book.H_No} 姓名:${book.C_F_Name} ${book.C_L_Name} F_Order:${book.F_Order}
+
+         </li>`).join('');
+     } else {
+       listElem.innerHTML = '<li>No Data</li>'
+     }
+
+  }
+  else {
+
+     listElem.innerHTML = 'No Data';
+
+  }
+
+
+}  // End of function list_all_Congregation2()
+
+
+
+async function list_all_Congregation3() {
+
+  //let Verse_3 = await dbT2.Congregation3.toArray();
+
+  let Verse_3 = await dbT2.Congregation3.orderBy('[L_Name+F_Name]').toArray();
+
+  //let Verse = await dbT2.Congregation2.reverse().toArray();
+
+
+  if (Verse_3) {
+
+     if (Verse_3.length) {
+       listElem.innerHTML = Verse_3.map(book => `<li>
+
+           CNo:${book.CNo}  Name: ${book.L_Name}, ${book.F_Name}  HNo:${book.H_No} 
+
+         </li>`).join('');
+     } else {
+       listElem.innerHTML = '<li>Congregation3 No Data</li>'
+     }
+
+  }
+  else {
+
+     listElem.innerHTML = 'No Data';
+
+  }
+
+
+}  // End of function list_all_Congregation3()
+
+
+async function list_all_Householder() {
+
+  //let Verse_3 = await dbT2.Congregation3.toArray();
+
+  let Verse_3 = await dbT2.Householder.toArray();
+
+  //let Verse = await dbT2.Congregation2.reverse().toArray();
+
+
+  if (Verse_3) {
+
+     if (Verse_3.length) {
+       listElem.innerHTML = Verse_3.map(book => `<li>
+
+           H_Seq:${book.H_Seq} ,  H_No:${book.H_No}
+
+         </li>`).join('');
+     } else {
+       listElem.innerHTML = '<li>Householder No Data</li>'
+     }
+
+  }
+  else {
+
+     listElem.innerHTML = 'No Data';
+
+  }
+
+
+}  // End of function list_all_Householder()
+
+
+async function Add_or_Remove_Attendance(arg1,arg2,arg3,arg44) { // arg1: CNo, arg2: Member, arg3:Gender, arg4: position
+
+
+   var CNo = String(arg1);
+
+   var DateStr = ML_Date_V2();
+
+   var Member_Str = String(arg2);
+   var Gender_Str = String(arg3);
+
+   var arg4 = String(arg44);
+
+   let Record = DateStr + '_' + Member_Str + '_' + Gender_Str + '_' + CNo;
+
+   let Verse_Attendance = await dbT2.Attendance.get(Record);
+
+   if (Verse_Attendance) {  // mean has Data then Remove Attendance
+
+      remove_record_from_Attendance_V2(Record);
+
+      document.getElementById(arg4).style.color = "black";
+
+   }
+   else {   // mean No Data then Add Attendance         
+
+      add_record_to_Attendance_V3(arg1);
+
+      document.getElementById(arg4).style.color = "blue";
+
+   }
+
+
+}  // End of function Add_or_Remove_Attendance(arg1,arg2,arg3)
+
+
+async function Check_Attendance(arg1,arg2,arg3) { // arg1: CNo, arg2: Member, arg3:Gender
+
+   var CNo = arg1;
+
+   var DateStr = ML_Date_V2();
+
+   var Member_Str = arg2;
+   var Gender_Str = arg3;
+
+   let Record = DateStr + '_' + Member_Str + '_' + Gender_Str + '_' + CNo;
+
+   let Verse_Attendance = await dbT2.Attendance.get(Record);
+
+   if (Verse_Attendance) {
+
+      var Result = 'y'; // mean has Data
+
+      return Result;
+
+   }
+   else {
+
+      var Result = 'n'; // mean No Data
+
+      return Result;
+
+   }
+
+}  // End of function Check_Attendance(arg1,arg2,arg3)
+
+
+async function Roll_Call() {
+
+
+  let Verse_3 = await dbT2.Roll.toArray();
+
+  //let Verse = await dbT2.Attendance.reverse().toArray();
+
+  //var DateStr = ML_Date_V2();
+
+
+  if (Verse_3) {
+
+     var Rnum = 3001;  // Rnum
+     var Rvers = 4001;  // EName
+     var CName = 5001;  // CName
+
+     var Roll_Call_Content_Str = '<table>';
+
+     for (var i = 0; i < Verse_3.length ; i++) {
+
+        Roll_Call_Content_Str = Roll_Call_Content_Str + '<tr><td valign=\"top\"><div id=\"' + Rnum + '\"></div></td><td><div id=\"' + Rvers + '\"></div></td><td><div id=\"' + CName + '\"></div></td></tr>';
+
+        Rnum++;
+        Rvers++;
+        CName++;
+
+     }
+
+     var Roll_Call_Content_Str = Roll_Call_Content_Str + '</table>';
+
+     document.getElementById("Roll_Call_Content").innerHTML = Roll_Call_Content_Str;
+
+  }
+
+
+  if (Verse_3) {
+
+     var Rnum = 3001;  // Rnum
+     var Rvers = 4001;  // EName
+     var CName = 5001;  // CName
+
+     for (var i = 0; i < Verse_3.length ; i++) {
+
+        // arg1: CNo, arg2: Member, arg3:Gender
+
+        var arg1 = Verse_3[i].CNo;
+
+        var arg2 = Verse_3[i].Member;
+
+        var arg3 = Verse_3[i].Gender;
+
+        var Result = await Check_Attendance(arg1,arg2,arg3);
+
+        if (Result == 'y') {
+
+           document.getElementById(Rvers).style.color = "blue";
+
+        }
+        else {
+
+           document.getElementById(Rvers).style.color = "black";
+
+        }
+
+        var Name_Str = Verse_3[i].L_Name + ',' + Verse_3[i].F_Name + ' ';
+
+        if (Verse_3[i].Member == 'T') {
+
+           Name_Str = '*' + Verse_3[i].L_Name + ',' + Verse_3[i].F_Name + ' ';
+
+        }
+
+
+        var H_No_tmp = Verse_3[i].H_No;        // 1_2
+        var H_No_tmp2 = H_No_tmp.split("_");   
+        var H_No_tmp3 = H_No_tmp2[1];          // 2
+
+        if (H_No_tmp3 == '1') {
+
+           Name_Str = '<b><u>' + Name_Str + ' </u></b>';
+
+        }
+        //else {
+
+        //   var Name_Str = Verse_3[i].L_Name + ',' + Verse_3[i].F_Name + ' ';
+
+        //}
+
+        var Name_Str2 =  Verse_3[i].C_F_Name + Verse_3[i].C_L_Name;
+
+        //document.getElementById(Rnum++).innerHTML = 'V';
+
+ //Add_or_Remove_Attendance(arg1,arg2,arg3,arg4) { // arg1: CNo, arg2: Member, arg3:Gender, arg4: position
+
+        //var Check_Str = '<a href="" " onClick="Add_or_Remove_Attendance(' + arg1 + ',' + arg2 + ',' + arg3 + ',' + Rvers + ');return false;"> V </a>';
+
+        //<button onclick="Add_or_Remove_Attendance('5','M','B','4001')">Test Add or remove</button>
+
+
+        var Check_Str = '<button onClick="Add_or_Remove_Attendance(\'' + arg1 + '\',\'' + arg2 + '\',\'' + arg3 + '\',\'' + Rvers + '\')"> V </button>';  // Using \' as an escape character
+
+        document.getElementById(Rnum++).innerHTML = Check_Str;
+
+        document.getElementById(Rvers++).innerHTML =  Name_Str;
+
+        document.getElementById(CName++).innerHTML =  Name_Str2;
+
+
+     } // End of for (var i = 0; i < Verse_3.length ; i++)
+
+
+
+  }
+
+
+}  // End of function Roll_Call()
+
+
+
+async function list_all_Roll() {
+
+  //let Verse_3 = await dbT2.Congregation3.toArray();
+
+  let Verse_3 = await dbT2.Roll.toArray();
+
+  //let Verse = await dbT2.Congregation2.reverse().toArray();
+
+
+  if (Verse_3) {
+
+     if (Verse_3.length) {
+       listElem.innerHTML = Verse_3.map(book => `<li>
+
+           Roll_No: ${book.Roll_No}  CNo:${book.CNo}  ${book.L_Name},${book.F_Name}   ${book.C_F_Name} ${book.C_L_Name}   H_No:${book.H_No}
+         </li>`).join('');
+     } else {
+       listElem.innerHTML = '<li>Householder No Data</li>'
+     }
+
+  }
+  else {
+
+     listElem.innerHTML = 'No Data';
+
+  }
+
+
+}  // End of function list_all_Roll()
+
+
+
+async function Householder_to_Roll() {
+
+  //let Verse_3 = await dbT2.Congregation3.toArray();
+
+  //let Verse = await dbT2.Congregation2.reverse().toArray();
+
+
+  let Verse_3 = await dbT2.Householder.toArray();
+
+
+  //dbT2.Roll.clear();  // delete all in Roll
+
+  if (Verse_3) {
+
+     dbT2.Roll.clear();  // delete all in Roll
+
+     // 
+
+     for (i = 0; i < Verse_3.length; i++) {
+
+        //var CNo = Verse[i].CNo;
+        //var F_Name = Verse[i].F_Name;
+        //var L_Name = Verse[i].L_Name;
+
+        var H_No_tmp = Verse_3[i].H_No;   // 1_1 , 2_1
+
+        var H_No_tmp2 = H_No_tmp.split("_"); 
+
+        var H_No_tmp3 = H_No_tmp2[0] + '_';   // 1_ , 2_
+
+        //let Verse = await dbT2.books.where('date').startsWithIgnoreCase(startWith_date).toArray();
+
+        let Verse = await dbT2.Congregation4.where('H_No').startsWithIgnoreCase(H_No_tmp3).toArray();
+
+        //let Verse = await dbT2.Congregation2.where('H_No').startsWithIgnoreCase(H_No_tmp3).orderBy('H_No').toArray();
+
+        //let Verse = await dbT2.Congregation2.where('H_No').equals(H_No_tmp).toArray();
+
+        if (Verse) {
+
+           // Add data to Roll from Congregation4 
+
+           for (j = 0; j < Verse.length; j++) {
+
+              var CNo = Verse[j].CNo;
+
+              var F_Name = Verse[j].F_Name;
+              var L_Name = Verse[j].L_Name;
+              var Member = Verse[j].Member;   
+
+              var C_F_Name = Verse[j].C_F_Name;
+              var C_L_Name = Verse[j].C_L_Name;
+              var Gender = Verse[j].Gender;  
+
+              var H_No = Verse[j].H_No;
+
+              try { 
+
+                 dbT2.Roll.add({ CNo, F_Name, L_Name, Member, Gender, C_F_Name, C_L_Name, H_No });   
+
+              } catch(err) {   
+
+                 if (err.name == 'ConstraintError') {
+                   alert("Such book exists already");
+                   //await addBook();
+                 } else {
+                   throw err;
+                 }
+
+              }
+
+
+           } // End of for (j = 0; j < Verse.length; j++)
+
+        } // End of if (Verse)
+
+
+     } // End of for (i = 0; i < Verse_3.length; i++)
+
+
+  }
+  else {
+
+     listElem.innerHTML = 'No Data';
+
+  }
+
+
+}  // End of function Householder_to_Roll()
+
+
+
 async function add_people_to_Congregation() {
 
   let CNo = document.getElementById("cNo").value;
@@ -2516,6 +3647,11 @@ async function add_people_to_Congregation() {
   let Member = document.getElementById("Member").value;
   let Gender = document.getElementById("Gender").value;
 
+  let H_No = document.getElementById("h_No").value;      // Format : HouseholderNo_BirthOrder Ex: 1_1, 1_2
+  let C_F_Name = document.getElementById("Cfname").value; // 姓
+  let C_L_Name = document.getElementById("Clname").value; // 名字
+  let F_Order = document.getElementById("fOrder").value; // 1 for Householder
+
   //let date = ML_Date();
 
   //let tx = db.transaction('books', 'readwrite');
@@ -2523,7 +3659,9 @@ async function add_people_to_Congregation() {
   try {
     //await tx.objectStore('books').add({name,color_no, book_no, chap_no, vers_no});
 
-    dbT2.Congregation.add({CNo,F_Name, L_Name, Member, Gender });
+    dbT2.Congregation.add({CNo,F_Name, L_Name, Member, Gender, H_No, C_F_Name, C_L_Name, F_Order });
+
+    //dbT2.Congregation.add({F_Name, L_Name, Member, Gender, H_No, C_F_Name, C_L_Name, F_Order });
 
     //dbT.books.add({name: "Ingemar Bergman", isCloseFriend: 0});
 
@@ -2539,17 +3677,439 @@ async function add_people_to_Congregation() {
   }
 }  // End of function add_people_to_Congregation()
 
-async function add_record_to_Attendance() {
 
-  //let CNo = document.getElementById("cNo").value;
-  //let F_Name = document.getElementById("fname").value;
-  //let L_Name = document.getElementById("lname").value;
-  //let Member = document.getElementById("Member").value;
-  //let Gender = document.getElementById("Gender").value;
+
+async function generate_CNo_for_New_Family_Member() {
+
+  read_from_Congregation4();
+
+  setTimeout(generate_CNo_for_New_Family_Member_2, 300);
+
+} // End of function generate_CNo_for_New_Family_Member()
+
+
+async function generate_CNo_for_New_Family_Member_2() {
+
+   // Generate CNo, HNo and Family Order for Congregation4 for New Family Member
+
+
+  //let CNo = document.getElementById("cNo2").value;
+  //let F_Name = document.getElementById("fname2").value;
+  //let L_Name = document.getElementById("lname2").value;
+  //let Member = document.getElementById("Member2").value;
+  //let Gender = document.getElementById("Gender2").value;
+
+  //let H_No = document.getElementById("h_No2").value;      // Format : HouseholderNo_BirthOrder Ex: 1_1, 1_2
+
+
+
+  var Check_Mesg = document.getElementById("Mesg2").value; //  = 'Succeeded.';
+
+  if (Check_Mesg == 'Succeeded.') {  //  Having Valid CNo in ById("cNo2")
+                                     //  Before Add New Family Member need to Have Valid CNo in ById("cNo2")
+
+      document.getElementById("Mesg3").value = 'Input Data then press Add.';
+      document.getElementById("Mesg3").readOnly = true;
+      document.getElementById("Mesg3").style.color = "red";
+
+      // Determine CNo
+
+      let Verse_tmp = await dbT2.Congregation4.reverse().toArray();
+
+      let Verse_tmp3 = await dbT2.Congregation4.count();
+
+
+      if (Verse_tmp3 == 0) {  // Generate CNo
+ 
+         var CNo_tmp = Number('1');
+
+         var CNo_str = '1';
+
+      }
+      else {
+
+         if (Verse_tmp) {  // Generate CNo
+
+            //var num = 15;
+            //var n = num.toString();
+
+            var CNo_tmp = Number(Verse_tmp[0].CNo + 1);
+
+            var CNo_str = CNo_tmp.toString();
+
+         }
+         else {
+
+            var CNo_tmp = Number('1');
+
+            var CNo_str = '1';
+
+         }
+
+      }
+
+      document.getElementById("cNo3").value = CNo_tmp;
+
+
+      // Determine HNo
+
+      var H_No_tmp = document.getElementById("h_No2").value; // 1_1
+
+      var H_No_tmp2 = H_No_tmp.split("_");
+
+      var H_No_tmp4 = H_No_tmp2[0] + '_';  // 1_
+
+      let Verse_tmp2 = await dbT2.Congregation4.where("H_No").startsWithIgnoreCase(H_No_tmp4).reverse().toArray();
+
+      //let Verse_tmp2 = await dbT2.Congregation4.where("H_No").startsWithIgnoreCase('1_').reverse().toArray();
+
+      var H_No_tmp5 = Verse_tmp2[0].H_No; // 1_3
+
+      var H_No_tmp6 = H_No_tmp5.split("_");
+
+      var H_No_tmp7 = Number(H_No_tmp6[1]) + 1;  // 4
+
+      var H_No_tmp3 = H_No_tmp4 + H_No_tmp7;  // 1_4
+
+      document.getElementById("h_No3").value = H_No_tmp3;
+
+
+      // Determine Family Order
+
+      document.getElementById("fOrder3").value = H_No_tmp7;
+
+
+      // Determine Tel
+
+      var Tel2_tmp = document.getElementById("Tel2").value;
+
+      if (Tel2_tmp) {
+
+         if (Tel2_tmp != '') {
+
+            document.getElementById("Tel3").value = Tel2_tmp;
+
+         }
+
+      }
+
+
+  } 
+  else {  // No Valid CNo in ById("cNo2")
+
+      document.getElementById("Mesg3").value = 'Read Valid CNo in above Section first.';
+      document.getElementById("Mesg3").readOnly = true;
+      document.getElementById("Mesg3").style.color = "red";
+
+  }
+
+
+} // End of function generate_CNo_for_New_Family_Member_2()
+
+
+async function generate_CNo_for_New_Householder() {
+
+   // Generate CNo, HNo and Family Order for Congregation4 for New Householder
+
+
+  //let CNo = document.getElementById("cNo2").value;
+  //let F_Name = document.getElementById("fname2").value;
+  //let L_Name = document.getElementById("lname2").value;
+  //let Member = document.getElementById("Member2").value;
+  //let Gender = document.getElementById("Gender2").value;
+
+  //let H_No = document.getElementById("h_No2").value;      // Format : HouseholderNo_BirthOrder Ex: 1_1, 1_2
+
+  
+      document.getElementById("Mesg2").value = 'Input Data then press Add.';
+      document.getElementById("Mesg2").readOnly = true;
+      document.getElementById("Mesg2").style.color = "red";
+
+
+      let Verse_tmp = await dbT2.Congregation4.reverse().toArray();
+
+      let Verse_tmp2 = await dbT2.Congregation4.where("F_Order").equals('1').reverse().toArray();
+
+      let Verse_tmp3 = await dbT2.Congregation4.count();
+
+      let Verse_tmp4 = await dbT2.Congregation4.where("F_Order").equals('1').count();
+
+      //let Verse_tmp = await dbT2.Congregation2.reverse().toArray();
+
+      //let Verse_tmp2 = await dbT2.Congregation2.where("F_Order").equals('1').reverse().toArray();
+
+
+      if (Verse_tmp4 == 0) {
+ 
+         var H_No_tmp3 = '1_1';
+
+      }
+      else {
+
+         if (Verse_tmp2) {
+
+            var H_No_tmp = Verse_tmp2[0].H_No;    // 1_1 , 2_1
+
+            var H_No_tmp2 = H_No_tmp.split("_");
+
+            var H_No_tmp4 = Number(H_No_tmp2[0]) + 1;
+
+            var H_No_tmp3 = H_No_tmp4 + '_1';   // 2_1 , 3_1
+
+         }
+         else {
+
+            var H_No_tmp3 = '1_1';
+
+         }
+
+      }
+
+      if (Verse_tmp3 == 0) {
+ 
+         var CNo_tmp = Number('1');
+
+         var CNo_str = '1';
+
+      }
+      else {
+
+         if (Verse_tmp) {
+
+            //var num = 15;
+            //var n = num.toString();
+
+            var CNo_tmp = Number(Verse_tmp[0].CNo + 1);
+
+            var CNo_str = CNo_tmp.toString();
+
+         }
+         else {
+
+            var CNo_tmp = Number('1');
+
+            var CNo_str = '1';
+
+         }
+
+      }
+
+      document.getElementById("cNo2").value = CNo_tmp;
+
+      document.getElementById("h_No2").value = H_No_tmp3;
+
+      document.getElementById("fOrder2").value = '1';
+      
+
+  //let H_No = date + '-' + CNo_str;  // Format : YYYYMMDD-CNo, ex: 20200311-2
+
+  //document.getElementById("h_No2").value = H_No;
+
+
+
+} // End of function generate_CNo_for_New_Householder()
+
+
+
+async function add_people_to_Congregation4_F() {
+
+  let CNo = Number(document.getElementById("cNo3").value);
+  let F_Name = document.getElementById("fname3").value;
+  let L_Name = document.getElementById("lname3").value;
+  let Member = document.getElementById("Member3").value;
+  let Gender = document.getElementById("Gender3").value;
+
+  let H_No = document.getElementById("h_No3").value;      // Format : HouseholderNo_BirthOrder Ex: 1_1, 1_2
+
+  let C_F_Name = document.getElementById("Cfname3").value; // 姓
+  let C_L_Name = document.getElementById("Clname3").value; // 名字
+  let F_Order = document.getElementById("fOrder3").value; // 1 for Householder
+
+  let Tel = document.getElementById("Tel3").value;
+  let Mob = document.getElementById("Mob3").value;
+
+
+  if ( CNo>0 && F_Name != '' && L_Name != '' && Member != '' && Gender != '' ) {
+
+
+     let Verse = await dbT2.Congregation4.get(CNo);
+
+     if (Verse) {
+
+        document.getElementById("Mesg3").value = F_Name + ' ' + L_Name + ' exists already.';
+        document.getElementById("Mesg3").readOnly = true;
+        document.getElementById("Mesg3").style.color = "red";
+
+     }
+     else {
+
+        try {
+
+          dbT2.Congregation4.add({CNo, F_Name, L_Name, Member, Gender, H_No, C_F_Name, C_L_Name, F_Order, Tel, Mob });
+
+          document.getElementById("Mesg3").value = F_Name + ' ' + L_Name + ' added as a Family Member.';
+          document.getElementById("Mesg3").readOnly = true;
+          document.getElementById("Mesg3").style.color = "blue";
+
+        } catch(err) {
+
+          if (err.name == 'ConstraintError') {
+            alert("Such book exists already");
+             //document.getElementById("Mesg2").value = F_Name + ' ' + L_Name + ' exists already.';
+             //document.getElementById("Mesg2").readOnly = true;
+          } else {
+            throw err;
+          }
+        }
+
+     }  // End of if (Verse)
+
+
+  }  // End of if ( CNo>0 && F_Name != ''...
+
+
+}  // End of function add_people_to_Congregation4_F()
+
+
+
+async function add_people_to_Congregation4() {
+
+  let CNo = Number(document.getElementById("cNo2").value);
+  let F_Name = document.getElementById("fname2").value;
+  let L_Name = document.getElementById("lname2").value;
+  let Member = document.getElementById("Member2").value;
+  let Gender = document.getElementById("Gender2").value;
+
+  let H_No = document.getElementById("h_No2").value;      // Format : HouseholderNo_BirthOrder Ex: 1_1, 1_2
+
+  let C_F_Name = document.getElementById("Cfname2").value; // 姓
+  let C_L_Name = document.getElementById("Clname2").value; // 名字
+  let F_Order = document.getElementById("fOrder2").value; // 1 for Householder
+
+  let Tel = document.getElementById("Tel2").value;
+  let Mob = document.getElementById("Mob2").value;
+
+
+  if ( CNo>0 && F_Name != '' && L_Name != '' && Member != '' && Gender != '' ) {
+
+
+     let Verse = await dbT2.Congregation4.get(CNo);
+
+     if (Verse) {
+
+        document.getElementById("Mesg2").value = F_Name + ' ' + L_Name + ' exists already.';
+        document.getElementById("Mesg2").readOnly = true;
+        document.getElementById("Mesg2").style.color = "red";
+
+     }
+     else {
+
+        try {
+
+          dbT2.Congregation4.add({CNo, F_Name, L_Name, Member, Gender, H_No, C_F_Name, C_L_Name, F_Order, Tel, Mob });
+
+          document.getElementById("Mesg2").value = F_Name + ' ' + L_Name + ' added as a Householder.';
+          document.getElementById("Mesg2").readOnly = true;
+          document.getElementById("Mesg2").style.color = "blue";
+
+        } catch(err) {
+
+          if (err.name == 'ConstraintError') {
+            alert("Such book exists already");
+             //document.getElementById("Mesg2").value = F_Name + ' ' + L_Name + ' exists already.';
+             //document.getElementById("Mesg2").readOnly = true;
+          } else {
+            throw err;
+          }
+        }
+
+     }  // End of if (Verse)
+
+
+  }  // End of if ( CNo>0 && F_Name != ''...
+
+
+}  // End of function add_people_to_Congregation4()
+
+
+
+async function add_people_to_Congregation2() {
+
+  //let CNo2 = document.getElementById("cNo").value;
+  let F_Name = document.getElementById("fname2").value;
+  let L_Name = document.getElementById("lname2").value;
+  let Member = document.getElementById("Member2").value;
+  let Gender = document.getElementById("Gender2").value;
+
+  let H_No = document.getElementById("h_No2").value;      // Format : HouseholderNo_BirthOrder Ex: 1_1, 1_2
+
+  //let date = ML_Date();  // ex: 20200311
+
+  //let Verse_tmp = await dbT2.Congregation2.reverse().toArray();
+
+  //let Verse_tmp = await dbT2.Congregation2.last();
+
+  //if (Verse_tmp) {
+
+  //   //var num = 15;
+  //   //var n = num.toString();
+
+  //   var CNo_tmp = Verse_tmp[0].CNo + 1;
+
+  //   var CNo_str = CNo_tmp.toString();
+
+  //}
+  //else {
+
+  //   var CNo_str = '1';
+
+  //}
+
+  //let H_No = date + '-' + CNo_str;  // Format : YYYYMMDD-CNo, ex: 20200311-2
+
+  //document.getElementById("h_No2").value = H_No;
+
+  let C_F_Name = document.getElementById("Cfname2").value; // 姓
+  let C_L_Name = document.getElementById("Clname2").value; // 名字
+  let F_Order = document.getElementById("fOrder2").value; // 1 for Householder
+
+  //let date = ML_Date();  // ex: 20200311
+
+  //let tx = db.transaction('books', 'readwrite');
+
+  try {
+    //await tx.objectStore('books').add({name,color_no, book_no, chap_no, vers_no});
+
+    //dbT2.Congregation.add({CNo,F_Name, L_Name, Member, Gender, H_No, C_F_Name, C_L_Name });
+
+    dbT2.Congregation2.add({F_Name, L_Name, Member, Gender, H_No, C_F_Name, C_L_Name, F_Order });
+
+    //dbT.books.add({name: "Ingemar Bergman", isCloseFriend: 0});
+
+
+    //await list();
+  } catch(err) {
+    if (err.name == 'ConstraintError') {
+      alert("Such book exists already");
+      //await addBook();
+    } else {
+      throw err;
+    }
+  }
+}  // End of function add_people_to_Congregation2()
+
+
+
+async function add_record_to_Attendance() {
 
 
   let DateStr = ML_Date_V2();
-  let CNo = document.getElementById("Attendant_No").value;
+
+  //let CNo = document.getElementById("Attendant_No").value;
+
+  let CNo_tmp = document.getElementById("Attendant_No").value;
+  var CNo = Number(CNo_tmp);
+
   //let CNo = '5';
 
   var Member_Str;
@@ -2559,23 +4119,33 @@ async function add_record_to_Attendance() {
 
      //let Verse = await dbT2.Congregation.toArray();   where('name').startsWithIgnoreCase('39_').toArray()
 
-     let Verse = await dbT2.Congregation.get(CNo);
+
+     let Verse = await dbT2.Roll.where("CNo").equals(CNo).toArray();  // Mark for test
+
+     //let Verse = await dbT2.Congregation4.where("CNo").equals(CNo).toArray();  // for test
+
+
      //let Verse = await db.Congregation.where('CNo').startsWithIgnoreCase('5').toArray();
 
 
-     if (Verse) {
+     if (Verse.length) {
 
-        var F_L_Name_tmp = Verse.F_Name + ' ' + Verse.L_Name;
+        //var F_L_Name_tmp = Verse.F_Name + ' ' + Verse.L_Name;
 
-        Member_Str = Verse.Member;
-        Gender_Str = Verse.Gender;
+        var F_L_Name_tmp = Verse[0].F_Name + ' ' + Verse[0].L_Name + ' ' + ' ' + Verse[0].C_F_Name + ' ' + Verse[0].C_L_Name;
 
-        let Record = DateStr + '_' + Member_Str + '_' + Gender_Str + '_' + CNo;
+
+        Member_Str = Verse[0].Member;
+        Gender_Str = Verse[0].Gender;
+
+        //let Record = DateStr + '_' + Member_Str + '_' + Gender_Str + '_' + CNo;
+
+        let Record = DateStr + '_' + Member_Str + '_' + Gender_Str + '_' + CNo_tmp;
 
         //let Record = DateStr + '_' + CNo + '_' + Member_Str + '_' + Gender_Str;
 
 
-        document.getElementById("listElem3").innerHTML = F_L_Name_tmp;
+        //document.getElementById("listElem3").innerHTML = F_L_Name_tmp;
 
    
         let Verse_Attendance = await dbT2.Attendance.get(Record);
@@ -2583,7 +4153,11 @@ async function add_record_to_Attendance() {
 
         if (Verse_Attendance) {
 
-           document.getElementById("listElem3").innerHTML = F_L_Name_tmp + ' : Exist';
+           document.getElementById("listElem3").innerHTML = F_L_Name_tmp + ' : Exist Already';
+
+           document.getElementById("listElem3").style.color = "black";
+
+           document.getElementById("listElem3").style.fontSize = "44";
 
         } 
         else {
@@ -2593,7 +4167,16 @@ async function add_record_to_Attendance() {
 
              dbT2.Attendance.add({Record });
 
+             //var str_1 = F_L_Name_tmp + ' : OK'; // str.fontcolor("green")
+
+             //var str_2 = str_1.fontcolor("blue");
+
              document.getElementById("listElem3").innerHTML = F_L_Name_tmp + ' : OK';
+
+             document.getElementById("listElem3").style.color = "blue";  // fontSize
+
+             document.getElementById("listElem3").style.fontSize = "44";
+
 
            } catch(err) {
              if (err.name == 'ConstraintError') {
@@ -2611,6 +4194,10 @@ async function add_record_to_Attendance() {
      else {
 
         document.getElementById("listElem3").innerHTML = 'No Data in DB';
+
+        document.getElementById("listElem3").style.color = "black";
+
+        document.getElementById("listElem3").style.fontSize = "44";
 
      } // End of if (Verse)
 
@@ -2632,8 +4219,13 @@ async function add_record_to_Attendance_V2(arg1) {
 
   let DateStr = ML_Date_V2();
 
+  //let CNo = arg1;
 
-  let CNo = arg1;
+  let CNo_tmp = arg1;
+  var CNo = Number(CNo_tmp);
+
+
+
   //let CNo = document.getElementById("Attendant_No").value;
 
 
@@ -2644,23 +4236,30 @@ async function add_record_to_Attendance_V2(arg1) {
 
      //let Verse = await dbT2.Congregation.toArray();   where('name').startsWithIgnoreCase('39_').toArray()
 
-     let Verse = await dbT2.Congregation.get(CNo);
+     let Verse = await dbT2.Roll.where("CNo").equals(CNo).toArray();
+
+     //let Verse = await dbT2.Congregation2.get(CNo);
      //let Verse = await db.Congregation.where('CNo').startsWithIgnoreCase('5').toArray();
 
 
-     if (Verse) {
+     if (Verse.length) {
 
-        var F_L_Name_tmp = Verse.F_Name + ' ' + Verse.L_Name;
+        //var F_L_Name_tmp = Verse.F_Name + ' ' + Verse.L_Name;
 
-        Member_Str = Verse.Member;
-        Gender_Str = Verse.Gender;
+        var F_L_Name_tmp = Verse[0].F_Name + ' ' + Verse[0].L_Name + ' ' + ' ' + Verse[0].C_F_Name + ' ' + Verse[0].C_L_Name;
 
-        let Record = DateStr + '_' + Member_Str + '_' + Gender_Str + '_' + CNo;
+
+        Member_Str = Verse[0].Member;
+        Gender_Str = Verse[0].Gender;
+
+        //let Record = DateStr + '_' + Member_Str + '_' + Gender_Str + '_' + CNo;
+
+        let Record = DateStr + '_' + Member_Str + '_' + Gender_Str + '_' + CNo_tmp;
 
         //let Record = DateStr + '_' + CNo + '_' + Member_Str + '_' + Gender_Str;
 
 
-        document.getElementById("listElem3").innerHTML = F_L_Name_tmp;
+        //document.getElementById("listElem3").innerHTML = F_L_Name_tmp;
 
    
         let Verse_Attendance = await dbT2.Attendance.get(Record);
@@ -2668,7 +4267,11 @@ async function add_record_to_Attendance_V2(arg1) {
 
         if (Verse_Attendance) {
 
-           document.getElementById("listElem3").innerHTML = F_L_Name_tmp + ' : Exist';
+           document.getElementById("listElem3").innerHTML = F_L_Name_tmp + ' : Exist Already';
+
+           document.getElementById("listElem3").style.color = "black";
+
+           document.getElementById("listElem3").style.fontSize = "44";
 
         } 
         else {
@@ -2679,6 +4282,10 @@ async function add_record_to_Attendance_V2(arg1) {
              dbT2.Attendance.add({Record });
 
              document.getElementById("listElem3").innerHTML = F_L_Name_tmp + ' : OK';
+
+             document.getElementById("listElem3").style.color = "blue";
+
+             document.getElementById("listElem3").style.fontSize = "44";
 
            } catch(err) {
              if (err.name == 'ConstraintError') {
@@ -2697,6 +4304,10 @@ async function add_record_to_Attendance_V2(arg1) {
 
         document.getElementById("listElem3").innerHTML = 'No Data in DB';
 
+        document.getElementById("listElem3").style.color = "black";
+
+        document.getElementById("listElem3").style.fontSize = "44";
+
      } // End of if (Verse)
 
 
@@ -2704,6 +4315,126 @@ async function add_record_to_Attendance_V2(arg1) {
 
 
 }  // End of function add_record_to_Attendance_V2()
+
+
+async function add_record_to_Attendance_V3(arg1) {
+
+  //let CNo = document.getElementById("cNo").value;
+  //let F_Name = document.getElementById("fname").value;
+  //let L_Name = document.getElementById("lname").value;
+  //let Member = document.getElementById("Member").value;
+  //let Gender = document.getElementById("Gender").value;
+
+
+  let DateStr = ML_Date_V2();
+
+  //let CNo = arg1;
+
+  let CNo_tmp = arg1;
+  var CNo = Number(CNo_tmp);
+
+
+
+  //let CNo = document.getElementById("Attendant_No").value;
+
+
+  var Member_Str;
+  var Gender_Str;
+
+  if(CNo != '') {
+
+     //let Verse = await dbT2.Congregation.toArray();   where('name').startsWithIgnoreCase('39_').toArray()
+
+     let Verse = await dbT2.Roll.where("CNo").equals(CNo).toArray();
+
+     //let Verse = await dbT2.Congregation2.get(CNo);
+     //let Verse = await db.Congregation.where('CNo').startsWithIgnoreCase('5').toArray();
+
+
+     if (Verse.length) {
+
+        //var F_L_Name_tmp = Verse.F_Name + ' ' + Verse.L_Name;
+
+        var F_L_Name_tmp = Verse[0].F_Name + ' ' + Verse[0].L_Name + ' ' + ' ' + Verse[0].C_F_Name + ' ' + Verse[0].C_L_Name;
+
+
+        Member_Str = Verse[0].Member;
+        Gender_Str = Verse[0].Gender;
+
+        //let Record = DateStr + '_' + Member_Str + '_' + Gender_Str + '_' + CNo;
+
+        let Record = DateStr + '_' + Member_Str + '_' + Gender_Str + '_' + CNo_tmp;
+
+        //let Record = DateStr + '_' + CNo + '_' + Member_Str + '_' + Gender_Str;
+
+
+        //document.getElementById("listElem3").innerHTML = F_L_Name_tmp;
+
+   
+        let Verse_Attendance = await dbT2.Attendance.get(Record);
+
+
+        if (Verse_Attendance) {
+
+           //document.getElementById("listElem3").innerHTML = F_L_Name_tmp + ' : Exist Already';
+
+           //document.getElementById("listElem3").style.color = "black";
+
+           //document.getElementById("listElem3").style.fontSize = "44";
+
+        } 
+        else {
+
+
+           try {
+
+             dbT2.Attendance.add({Record });
+
+             //document.getElementById("listElem3").innerHTML = F_L_Name_tmp + ' : OK';
+
+             //document.getElementById("listElem3").style.color = "blue";
+
+             //document.getElementById("listElem3").style.fontSize = "44";
+
+           } catch(err) {
+             if (err.name == 'ConstraintError') {
+               alert("Such book exists already");
+             } else {
+               throw err;
+             }
+           }
+
+
+        } // End of if (Verse_Attendance)
+
+    
+     }
+     else {
+
+        //document.getElementById("listElem3").innerHTML = 'No Data in DB';
+
+        //document.getElementById("listElem3").style.color = "black";
+
+        //document.getElementById("listElem3").style.fontSize = "44";
+
+     } // End of if (Verse)
+
+
+  } // End of if(CNo != '')
+
+
+}  // End of function add_record_to_Attendance_V3()
+
+
+
+async function remove_record_from_Attendance_V2(arg1) {  // arg1:Record
+
+   dbT2.Attendance.delete(arg1);
+ 
+
+} // End of function remove_record_from_Attendance_V2(arg1)
+
+
 
 
 async function list_all_Attendance() {
@@ -2793,6 +4524,151 @@ async function Show_Headcount_2() {
 
 
 }  // End of function Show_Headcount_2()
+
+
+async function Delete_All_Congregation() { // Delete all objects from the store.
+                                // Syntax : table.clear()
+                                // Compare -- table.delete(primaryKey) -- Delete object from store
+
+  //dbT2.books.delete(arg1);
+
+  dbT2.Congregation.clear();
+
+
+}  // End of function Delete_All_Congregation()
+
+
+async function Delete_All_Congregation2() { // Delete all objects from the store.
+                                // Syntax : table.clear()
+                                // Compare -- table.delete(primaryKey) -- Delete object from store
+
+  //dbT2.books.delete(arg1);
+
+  dbT2.Congregation2.clear();
+
+
+}  // End of function Delete_All_Congregation2()
+
+
+
+
+async function Delete_Congregation4_F_Cno() { // Delete all objects from the store.
+                                // Syntax : table.clear()
+                                // Compare -- table.delete(primaryKey) -- Delete object from store
+
+
+  //let delete_CNo_tmp = document.getElementById("Delete_Congregation2_Cno").value;
+
+  let delete_CNo_tmp = document.getElementById("cNo3").value;
+  
+  var delete_CNo = Number(delete_CNo_tmp);
+
+  let Verse = await dbT2.Congregation4.get(delete_CNo);
+
+  if(Verse) {
+
+     dbT2.Congregation4.where("CNo").equals(delete_CNo).delete();
+
+     document.getElementById("fname3").value = '';
+     document.getElementById("lname3").value = '';
+     document.getElementById("Member3").value = '';
+     document.getElementById("Gender3").value = '';
+
+     document.getElementById("h_No3").value = ''; // Format : HouseholderNo_BirthOrder Ex: 1_1, 1_2
+     document.getElementById("Cfname3").value = ''; // 姓
+     document.getElementById("Clname3").value = ''; // 名字
+     document.getElementById("fOrder3").value = ''; // 1 for Householder
+
+     document.getElementById("Tel3").value = '';
+     document.getElementById("Mob3").value = '';
+
+     document.getElementById("Mesg3").value = 'CNo:' + delete_CNo_tmp + ' deleted.';
+     document.getElementById("Mesg3").readOnly = true;
+     document.getElementById("Mesg3").style.color = "blue";
+
+  }
+  else {
+
+     document.getElementById("Mesg3").value = 'Failed. CNo:' + delete_CNo_tmp + ' does not exist.';
+     document.getElementById("Mesg3").readOnly = true;
+     document.getElementById("Mesg3").style.color = "red";
+
+  }
+
+
+}  // End of function Delete_Congregation4_F_Cno()
+
+
+
+async function Delete_Congregation4_Cno() { // Delete all objects from the store.
+                                // Syntax : table.clear()
+                                // Compare -- table.delete(primaryKey) -- Delete object from store
+
+
+  //let delete_CNo_tmp = document.getElementById("Delete_Congregation2_Cno").value;
+
+  let delete_CNo_tmp = document.getElementById("cNo2").value;
+  
+  var delete_CNo = Number(delete_CNo_tmp);
+
+  let Verse = await dbT2.Congregation4.get(delete_CNo);
+
+  if(Verse) {
+
+     dbT2.Congregation4.where("CNo").equals(delete_CNo).delete();
+
+     document.getElementById("fname2").value = '';
+     document.getElementById("lname2").value = '';
+     document.getElementById("Member2").value = '';
+     document.getElementById("Gender2").value = '';
+
+     document.getElementById("h_No2").value = ''; // Format : HouseholderNo_BirthOrder Ex: 1_1, 1_2
+     document.getElementById("Cfname2").value = ''; // 姓
+     document.getElementById("Clname2").value = ''; // 名字
+     document.getElementById("fOrder2").value = ''; // 1 for Householder
+
+     document.getElementById("Tel2").value = '';
+     document.getElementById("Mob2").value = '';
+
+     document.getElementById("Mesg2").value = 'CNo:' + delete_CNo_tmp + ' deleted.';
+     document.getElementById("Mesg2").readOnly = true;
+     document.getElementById("Mesg2").style.color = "blue";
+
+  }
+  else {
+
+     document.getElementById("Mesg2").value = 'Failed. CNo:' + delete_CNo_tmp + ' does not exist.';
+     document.getElementById("Mesg2").readOnly = true;
+     document.getElementById("Mesg2").style.color = "red";
+
+  }
+
+
+}  // End of function Delete_Congregation4_Cno()
+
+
+async function Delete_Congregation2_Cno() { // Delete all objects from the store.
+                                // Syntax : table.clear()
+                                // Compare -- table.delete(primaryKey) -- Delete object from store
+
+  //dbT2.books.delete(arg1);
+
+  //dbT2.Congregation2.clear();
+
+  //db.books.delete('1_1_18');
+
+  //let CNo = document.getElementById("Attendant_No").value;
+
+  //let delete_CNo = document.getElementById("Delete_Congregation2_Cno").value;
+
+  let delete_CNo_tmp = document.getElementById("Delete_Congregation2_Cno").value;
+
+  var delete_CNo = Number(delete_CNo_tmp);
+
+  dbT2.Congregation2.where("CNo").equals(delete_CNo).delete();
+
+
+}  // End of function Delete_Congregation2_Cno()
 
 
 
