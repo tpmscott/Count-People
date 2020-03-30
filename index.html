@@ -2443,7 +2443,8 @@ function Reset_All(){
 <br>
        
   <center>                 
-  <button style="font-size:20px" onclick="Roll_Call()">Roll Call</button>
+  <button style="font-size:20px" onclick="Roll_Call_V1()">Roll Call V1</button>
+  <button style="font-size:20px" onclick="Roll_Call_V2()">Roll Call V2</button>
   </center>
 
 <br>
@@ -3395,7 +3396,170 @@ async function Check_Attendance(arg1,arg2,arg3) { // arg1: CNo, arg2: Member, ar
 }  // End of function Check_Attendance(arg1,arg2,arg3)
 
 
-async function Roll_Call() {
+
+async function Roll_Call_V2() {
+
+
+  let Verse_3 = await dbT2.Roll.toArray();
+
+  //let Verse = await dbT2.Attendance.reverse().toArray();
+
+  //var DateStr = ML_Date_V2();
+
+
+  if (Verse_3) {
+
+     var Rnum = 3001;  // Rnum
+     var Rvers = 4001;  // EName
+     var CName = 5001;  // CName
+
+     var Roll_Call_Content_Str = '<table><tr>';
+
+     var j=1;
+
+     for (var i = 0; i < Verse_3.length ; i++) {
+
+        var H_No_tmp = Verse_3[i].H_No;        // 1_2
+        var H_No_tmp2 = H_No_tmp.split("_");   
+        var H_No_tmp3 = H_No_tmp2[1];          // 2
+
+        if (H_No_tmp3 == '1' || j==1) {
+
+           var add_str1 = '</tr><tr>';
+
+           var add_str2 = '<td valign=\"top\"><div id=\"' + Rnum + '\"></div></td><td><div id=\"' + Rvers + '\"></div></td><td><div id=\"' + CName + '\"></div></td>';
+
+           Roll_Call_Content_Str = Roll_Call_Content_Str + add_str1 + add_str2;
+
+           j=2;
+
+        }
+        else {
+
+           var add_str1 = '<td></td><td></td><td></td><td></td><td></td>';
+
+           var add_str2 = '<td valign=\"top\"><div id=\"' + Rnum + '\"></div></td><td><div id=\"' + Rvers + '\"></div></td><td><div id=\"' + CName + '\"></div></td>';
+
+           Roll_Call_Content_Str = Roll_Call_Content_Str + add_str1 + add_str2;
+
+           j=1;
+
+        }
+
+
+
+        //var '<tr><td valign=\"top\"><div id=\"' + Rnum + '\"></div></td><td><div id=\"' + Rvers + '\"></div></td><td><div id=\"' + CName + '\"></div></td></tr>';
+
+        //Roll_Call_Content_Str = Roll_Call_Content_Str + 
+
+
+        Rnum++;
+        Rvers++;
+        CName++;
+
+         
+
+     } // End of for (var i = 0; i < Verse_3.length ; i++)
+
+     var Roll_Call_Content_Str = Roll_Call_Content_Str + '</tr></table>';
+
+     document.getElementById("Roll_Call_Content").innerHTML = Roll_Call_Content_Str;
+
+  }
+
+
+  if (Verse_3) {
+
+     var Rnum = 3001;  // Rnum
+     var Rvers = 4001;  // EName
+     var CName = 5001;  // CName
+
+     for (var i = 0; i < Verse_3.length ; i++) {
+
+        // arg1: CNo, arg2: Member, arg3:Gender
+
+        var arg1 = Verse_3[i].CNo;
+
+        var arg2 = Verse_3[i].Member;
+
+        var arg3 = Verse_3[i].Gender;
+
+        var Result = await Check_Attendance(arg1,arg2,arg3);
+
+        if (Result == 'y') {
+
+           document.getElementById(Rvers).style.color = "blue";
+
+        }
+        else {
+
+           document.getElementById(Rvers).style.color = "black";
+
+        }
+
+
+        //var Name_Str = Verse_3[i].L_Name + ',' + Verse_3[i].F_Name + ' ';
+
+        var Name_Str = Verse_3[i].F_Name + ' ' + Verse_3[i].L_Name + ' ';
+
+
+       
+
+        if (Verse_3[i].Member == 'T') {
+
+           //Name_Str = '*' + Name_Str;
+
+           Name_Str = '*' + Verse_3[i].L_Name + ',' + Verse_3[i].F_Name + ' ';
+
+        }
+
+
+        var H_No_tmp = Verse_3[i].H_No;        // 1_2
+        var H_No_tmp2 = H_No_tmp.split("_");   
+        var H_No_tmp3 = H_No_tmp2[1];          // 2
+
+        if (H_No_tmp3 == '1') {
+
+           Name_Str = '<b><u>' + Name_Str + ' </u></b>';
+
+        }
+        //else {
+
+        //   var Name_Str = Verse_3[i].L_Name + ',' + Verse_3[i].F_Name + ' ';
+
+        //}
+
+        var Name_Str2 =  Verse_3[i].C_F_Name + Verse_3[i].C_L_Name;
+
+        //document.getElementById(Rnum++).innerHTML = 'V';
+
+ //Add_or_Remove_Attendance(arg1,arg2,arg3,arg4) { // arg1: CNo, arg2: Member, arg3:Gender, arg4: position
+
+        //var Check_Str = '<a href="" " onClick="Add_or_Remove_Attendance(' + arg1 + ',' + arg2 + ',' + arg3 + ',' + Rvers + ');return false;"> V </a>';
+
+        //<button onclick="Add_or_Remove_Attendance('5','M','B','4001')">Test Add or remove</button>
+
+
+        var Check_Str = '<button onClick="Add_or_Remove_Attendance(\'' + arg1 + '\',\'' + arg2 + '\',\'' + arg3 + '\',\'' + Rvers + '\')"> V </button>';  // Using \' as an escape character
+
+        document.getElementById(Rnum++).innerHTML = Check_Str;
+
+        document.getElementById(Rvers++).innerHTML =  Name_Str;
+
+        document.getElementById(CName++).innerHTML =  Name_Str2;
+
+
+     } // End of for (var i = 0; i < Verse_3.length ; i++)
+
+
+
+  }
+
+
+}  // End of function Roll_Call_V2()
+
+
+async function Roll_Call_V1() {
 
 
   let Verse_3 = await dbT2.Roll.toArray();
@@ -3501,9 +3665,23 @@ async function Roll_Call() {
 
         }
 
+
         var Name_Str = Verse_3[i].L_Name + ',' + Verse_3[i].F_Name + ' ';
 
+        //var Name_Str = Verse_3[i].F_Name + ' ' + Verse_3[i].L_Name + ' ';
+
+
+
+        //if (arg1 == 1)
+        //   var Name_Str = Verse_3[i].L_Name + ',' + Verse_3[i].F_Name + ' ';
+
+        //if (arg1 == '2')
+        //   var Name_Str = Verse_3[i].F_Name + ' ' + Verse_3[i].L_Name + ' ';
+        
+
         if (Verse_3[i].Member == 'T') {
+
+           //Name_Str = '*' + Name_Str;
 
            Name_Str = '*' + Verse_3[i].L_Name + ',' + Verse_3[i].F_Name + ' ';
 
@@ -3552,7 +3730,7 @@ async function Roll_Call() {
   }
 
 
-}  // End of function Roll_Call()
+}  // End of function Roll_Call_V1()
 
 
 
