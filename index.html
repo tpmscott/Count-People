@@ -3507,11 +3507,14 @@ async function Roll_Call_V2() {
 
         if (Verse_3[i].Member == 'T') {
 
-           //Name_Str = '*' + Name_Str;
+           //Name_Str = '*' + Verse_3[i].L_Name + ',' + Verse_3[i].F_Name + ' ';
 
-           Name_Str = '*' + Verse_3[i].L_Name + ',' + Verse_3[i].F_Name + ' ';
+           Name_Str = '*' + Verse_3[i].F_Name + ' ' + Verse_3[i].L_Name + ' ';
 
         }
+
+
+        var Name_Str2 =  Verse_3[i].C_F_Name + Verse_3[i].C_L_Name;
 
 
         var H_No_tmp = Verse_3[i].H_No;        // 1_2
@@ -3522,22 +3525,13 @@ async function Roll_Call_V2() {
 
            Name_Str = '<b><u>' + Name_Str + ' </u></b>';
 
+           Name_Str2 =  '<b><u>' + Name_Str2 + ' </u></b>';
+
         }
-        //else {
 
-        //   var Name_Str = Verse_3[i].L_Name + ',' + Verse_3[i].F_Name + ' ';
 
-        //}
+        //var Name_Str2 =  Verse_3[i].C_F_Name + Verse_3[i].C_L_Name;
 
-        var Name_Str2 =  Verse_3[i].C_F_Name + Verse_3[i].C_L_Name;
-
-        //document.getElementById(Rnum++).innerHTML = 'V';
-
- //Add_or_Remove_Attendance(arg1,arg2,arg3,arg4) { // arg1: CNo, arg2: Member, arg3:Gender, arg4: position
-
-        //var Check_Str = '<a href="" " onClick="Add_or_Remove_Attendance(' + arg1 + ',' + arg2 + ',' + arg3 + ',' + Rvers + ');return false;"> V </a>';
-
-        //<button onclick="Add_or_Remove_Attendance('5','M','B','4001')">Test Add or remove</button>
 
 
         var Check_Str = '<button onClick="Add_or_Remove_Attendance(\'' + arg1 + '\',\'' + arg2 + '\',\'' + arg3 + '\',\'' + Rvers + '\')"> V </button>';  // Using \' as an escape character
