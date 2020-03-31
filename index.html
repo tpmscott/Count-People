@@ -133,7 +133,7 @@
     <script src="idb.min.js"></script>
     <script src="dexie.js"></script>
 
-<SCRIPT LANGUAGE="JavaScript" SRC="Mark_Line_V8.js"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" SRC="Mark_Line_V9.js"></SCRIPT>
 
 <SCRIPT LANGUAGE="JavaScript" SRC="KeyFunction2.js"></SCRIPT>
 
@@ -3407,68 +3407,14 @@ async function Roll_Call_V2() {
   //var DateStr = ML_Date_V2();
 
 
-  if (Verse_3) {
+  if (Read_for_Roll_Call == 'N') {
 
-     var Rnum = 3001;  // Rnum
-     var Rvers = 4001;  // EName
-     var CName = 5001;  // CName
-
-     var Roll_Call_Content_Str = '<table><tr>';
-
-     var j=1;
-
-     for (var i = 0; i < Verse_3.length ; i++) {
-
-        var H_No_tmp = Verse_3[i].H_No;        // 1_2
-        var H_No_tmp2 = H_No_tmp.split("_");   
-        var H_No_tmp3 = H_No_tmp2[1];          // 2
-
-        if (H_No_tmp3 == '1' || j==1) {
-
-           var add_str1 = '</tr><tr>';
-
-           var add_str2 = '<td valign=\"top\"><div id=\"' + Rnum + '\"></div></td><td><div id=\"' + Rvers + '\"></div></td><td><div id=\"' + CName + '\"></div></td>';
-
-           Roll_Call_Content_Str = Roll_Call_Content_Str + add_str1 + add_str2;
-
-           j=2;
-
-        }
-        else {
-
-           var add_str1 = '<td></td><td></td><td></td><td></td><td></td>';
-
-           var add_str2 = '<td valign=\"top\"><div id=\"' + Rnum + '\"></div></td><td><div id=\"' + Rvers + '\"></div></td><td><div id=\"' + CName + '\"></div></td>';
-
-           Roll_Call_Content_Str = Roll_Call_Content_Str + add_str1 + add_str2;
-
-           j=1;
-
-        }
-
-
-
-        //var '<tr><td valign=\"top\"><div id=\"' + Rnum + '\"></div></td><td><div id=\"' + Rvers + '\"></div></td><td><div id=\"' + CName + '\"></div></td></tr>';
-
-        //Roll_Call_Content_Str = Roll_Call_Content_Str + 
-
-
-        Rnum++;
-        Rvers++;
-        CName++;
-
-         
-
-     } // End of for (var i = 0; i < Verse_3.length ; i++)
-
-     var Roll_Call_Content_Str = Roll_Call_Content_Str + '</tr></table>';
-
-     document.getElementById("Roll_Call_Content").innerHTML = Roll_Call_Content_Str;
+     Prepare_for_Roll_Call();
 
   }
 
 
-  if (Verse_3) {
+  if (Verse_3) {  // Fill data
 
      var Rnum = 3001;  // Rnum
      var Rvers = 4001;  // EName
