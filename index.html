@@ -2431,38 +2431,56 @@ function Reset_All(){
 
 
 
-                <center><b><p id="listElem3"></p></b></center>
+    <div id="app">
 
+      <p class="error">
+        {{ errorMessage }}
+      </p>
+
+      <qrcode-stream :camera="camera" @decode="onDecode" @init="onInit">
+
+        <button @click="turnCameraOn"> Turn On QR Code Scan </button>
+
+        <button @click="turnCameraOff"> Turn Off QR Code Scan </button>
+
+      </qrcode-stream>
+
+    </div>
+
+                <center><b><p id="listElem3"></p></b></center>
 
   <center>
   <label style="font-size:28px" for="Attendant_No">Attendant No: </label>
-  <input style="font-size:22px" size="3" type="text" id="Attendant_No" name="Attendant_No">
+  <input style="font-size:22px" size="1" type="text" id="Attendant_No" name="Attendant_No">
   <button style="font-size:20px" onclick="add_record_to_Attendance()">Add Attendance</button>
   </center>
-            
-<br>
        
-  <center>                 
+<br>     
+       
+                
   <button style="font-size:20px" onclick="Roll_Call_V1()">Roll Call V1</button>
+  <a href="javascript:Roll_Call_Search_V1('B')"> B </a>
+  <a href="javascript:Roll_Call_Search_V1('C')"> C </a>
+  <a href="javascript:Roll_Call_Search_V1('H')"> H </a>
+  <a href="javascript:Roll_Call_Search_V1('J')"> J </a>
+  <a href="javascript:Roll_Call_Search_V1('K')"> K </a>
+  <a href="javascript:Roll_Call_Search_V1('K')"> L </a>
+
+  <br>
+                 
   <button style="font-size:20px" onclick="Roll_Call_V2()">Roll Call V2</button>
-  <a href="javascript:Roll_Call_Search('B')"> B </a>
-  <a href="javascript:Roll_Call_Search('C')"> C </a>
-  <a href="javascript:Roll_Call_Search('H')"> H </a>
-  <a href="javascript:Roll_Call_Search('J')"> J </a>
-  <a href="javascript:Roll_Call_Search('K')"> K </a>
-  <a href="javascript:Roll_Call_Search_V2('³¯')"> ³¯ </a>
-  <a href="javascript:Roll_Call_Search_V2('±i')"> ±i </a>
-  <a href="javascript:Roll_Call_Search_V2('¾G')"> ¾G </a>
-  <a href="javascript:Roll_Call_Search_V2('¶À')"> ¶À </a>
-  <a href="javascript:Roll_Call_Search_V2('´R')"> ´R </a>
-  <a href="javascript:Roll_Call_Search_V2('¬_')"> ¬_ </a>
-  <a href="javascript:Roll_Call_Search_V2('³¢')"> ³¢ </a>
-  <button style="font-size:20px" onclick="Roll_Call_Search_test_C()">C test</button>
-  </center>
+  <a href="javascript:Roll_Call_Search_V3('³¯')"> ³¯ </a>
+  <a href="javascript:Roll_Call_Search_V3('±i')"> ±i </a>
+  <a href="javascript:Roll_Call_Search_V3('¾G')"> ¾G </a>
+  <a href="javascript:Roll_Call_Search_V3('¶À')"> ¶À </a>
+  <a href="javascript:Roll_Call_Search_V3('´R')"> ´R </a>
+  <a href="javascript:Roll_Call_Search_V3('¬_')"> ¬_ </a>
+  <a href="javascript:Roll_Call_Search_V3('³¢')"> ³¢ </a>
+  <a href="javascript:Roll_Call_Search_V3('§õ')"> §õ </a>
 
-<br>
 
-<div id="content2" style="height:98%;overflow:auto;" class="center">
+
+<div id="content2" style="height:95%;overflow:auto;" class="center">
 
   <p id="Roll_Call_Content"> </p>
 
@@ -3410,7 +3428,8 @@ async function Check_Attendance(arg1,arg2,arg3) { // arg1: CNo, arg2: Member, ar
 
 
 
-async function Roll_Call_V2() {
+
+async function Roll_Call() {
 
 
   let Verse_3 = await dbT2.Roll.toArray();
@@ -3420,113 +3439,71 @@ async function Roll_Call_V2() {
   //var DateStr = ML_Date_V2();
 
 
-  //if (Read_for_Roll_Call == 'N') {
-
-     Prepare_for_Roll_Call();
-
-  //}
-
-
-  if (Verse_3) {  // Fill data
+  if (Verse_3) {
 
      var Rnum = 3001;  // Rnum
      var Rvers = 4001;  // EName
      var CName = 5001;  // CName
 
+     var Roll_Call_Content_Str = '<table><tr>';
+
+     var j=1;
+
      for (var i = 0; i < Verse_3.length ; i++) {
-
-        // arg1: CNo, arg2: Member, arg3:Gender
-
-        var arg1 = Verse_3[i].CNo;
-
-        var arg2 = Verse_3[i].Member;
-
-        var arg3 = Verse_3[i].Gender;
-
-        var Result = await Check_Attendance(arg1,arg2,arg3);
-
-        if (Result == 'y') {
-
-           document.getElementById(Rvers).style.color = "blue";
-
-        }
-        else {
-
-           document.getElementById(Rvers).style.color = "black";
-
-        }
-
-
-        //var Name_Str = Verse_3[i].L_Name + ',' + Verse_3[i].F_Name + ' ';
-
-        var Name_Str = Verse_3[i].F_Name + ' ' + Verse_3[i].L_Name + ' ';
-
-
-       
-
-        if (Verse_3[i].Member == 'T') {
-
-           //Name_Str = '*' + Verse_3[i].L_Name + ',' + Verse_3[i].F_Name + ' ';
-
-           Name_Str = '*' + Verse_3[i].F_Name + ' ' + Verse_3[i].L_Name + ' ';
-
-        }
-
-
-        var Name_Str2 =  Verse_3[i].C_F_Name + Verse_3[i].C_L_Name;
-
 
         var H_No_tmp = Verse_3[i].H_No;        // 1_2
         var H_No_tmp2 = H_No_tmp.split("_");   
         var H_No_tmp3 = H_No_tmp2[1];          // 2
 
-        if (H_No_tmp3 == '1') {
+        if (H_No_tmp3 == '1' || j==1) {
 
-           Name_Str = '<b><u>' + Name_Str + ' </u></b>';
+           var add_str1 = '</tr><tr>';
 
-           Name_Str2 =  '<b><u>' + Name_Str2 + ' </u></b>';
+           var add_str2 = '<td valign=\"top\"><div id=\"' + Rnum + '\"></div></td><td><div id=\"' + Rvers + '\"></div></td><td><div id=\"' + CName + '\"></div></td>';
+
+           Roll_Call_Content_Str = Roll_Call_Content_Str + add_str1 + add_str2;
+
+           j=2;
+
+        }
+        else {
+
+           var add_str1 = '<td></td><td></td><td></td><td></td><td></td>';
+
+           var add_str2 = '<td valign=\"top\"><div id=\"' + Rnum + '\"></div></td><td><div id=\"' + Rvers + '\"></div></td><td><div id=\"' + CName + '\"></div></td>';
+
+           Roll_Call_Content_Str = Roll_Call_Content_Str + add_str1 + add_str2;
+
+           j=1;
 
         }
 
 
-        //var Name_Str2 =  Verse_3[i].C_F_Name + Verse_3[i].C_L_Name;
+
+        //var '<tr><td valign=\"top\"><div id=\"' + Rnum + '\"></div></td><td><div id=\"' + Rvers + '\"></div></td><td><div id=\"' + CName + '\"></div></td></tr>';
+
+        //Roll_Call_Content_Str = Roll_Call_Content_Str + 
 
 
+        Rnum++;
+        Rvers++;
+        CName++;
 
-        var Check_Str = '<button onClick="Add_or_Remove_Attendance(\'' + arg1 + '\',\'' + arg2 + '\',\'' + arg3 + '\',\'' + Rvers + '\')"> V </button>';  // Using \' as an escape character
-
-        document.getElementById(Rnum++).innerHTML = Check_Str;
-
-        document.getElementById(Rvers++).innerHTML =  Name_Str;
-
-        document.getElementById(CName++).innerHTML =  Name_Str2;
-
+        //if ( j==1 ) {
+        //   j=2;
+        //} 
+        //else {
+        //   j=1;
+        //}
+           
 
      } // End of for (var i = 0; i < Verse_3.length ; i++)
 
+     var Roll_Call_Content_Str = Roll_Call_Content_Str + '</tr></table>';
 
+     document.getElementById("Roll_Call_Content").innerHTML = Roll_Call_Content_Str;
 
   }
-
-
-}  // End of function Roll_Call_V2()
-
-
-async function Roll_Call_V1() {
-
-
-  let Verse_3 = await dbT2.Roll.toArray();
-
-  //let Verse = await dbT2.Attendance.reverse().toArray();
-
-  //var DateStr = ML_Date_V2();
-
-
-  //if (Read_for_Roll_Call == 'N') {
-
-     Prepare_for_Roll_Call();
-
-  //}
 
 
   if (Verse_3) {
@@ -3565,23 +3542,11 @@ async function Roll_Call_V1() {
 
 
 
-        //if (arg1 == 1)
-        //   var Name_Str = Verse_3[i].L_Name + ',' + Verse_3[i].F_Name + ' ';
-
-        //if (arg1 == '2')
-        //   var Name_Str = Verse_3[i].F_Name + ' ' + Verse_3[i].L_Name + ' ';
-        
-
         if (Verse_3[i].Member == 'T') {
-
-           //Name_Str = '*' + Name_Str;
 
            Name_Str = '*' + Verse_3[i].L_Name + ',' + Verse_3[i].F_Name + ' ';
 
         }
-
-
-        var Name_Str2 =  Verse_3[i].C_F_Name + Verse_3[i].C_L_Name;
 
 
         var H_No_tmp = Verse_3[i].H_No;        // 1_2
@@ -3592,8 +3557,6 @@ async function Roll_Call_V1() {
 
            Name_Str = '<b><u>' + Name_Str + ' </u></b>';
 
-           Name_Str2 =  '<b><u>' + Name_Str2 + ' </u></b>';
-
         }
         //else {
 
@@ -3601,6 +3564,7 @@ async function Roll_Call_V1() {
 
         //}
 
+        var Name_Str2 =  Verse_3[i].C_F_Name + Verse_3[i].C_L_Name;
 
         //document.getElementById(Rnum++).innerHTML = 'V';
 
@@ -3627,7 +3591,7 @@ async function Roll_Call_V1() {
   }
 
 
-}  // End of function Roll_Call_V1()
+}  // End of function Roll_Call()
 
 
 
@@ -3759,6 +3723,97 @@ async function Householder_to_Roll() {
   }
 
   Read_for_Roll_Call = 'N';
+
+
+}  // End of function Householder_to_Roll()
+
+
+async function Householder_to_Roll_old() { // Not in use
+
+  //let Verse_3 = await dbT2.Congregation3.toArray();
+
+  //let Verse = await dbT2.Congregation2.reverse().toArray();
+
+
+  let Verse_3 = await dbT2.Householder.toArray();
+
+
+  //dbT2.Roll.clear();  // delete all in Roll
+
+  if (Verse_3) {
+
+     dbT2.Roll.clear();  // delete all in Roll
+
+     // 
+
+     for (i = 0; i < Verse_3.length; i++) {
+
+        //var CNo = Verse[i].CNo;
+        //var F_Name = Verse[i].F_Name;
+        //var L_Name = Verse[i].L_Name;
+
+        var H_No_tmp = Verse_3[i].H_No;   // 1_1 , 2_1
+
+        var H_No_tmp2 = H_No_tmp.split("_"); 
+
+        var H_No_tmp3 = H_No_tmp2[0] + '_';   // 1_ , 2_
+
+        //let Verse = await dbT2.books.where('date').startsWithIgnoreCase(startWith_date).toArray();
+
+        let Verse = await dbT2.Congregation4.where('H_No').startsWithIgnoreCase(H_No_tmp3).toArray();
+
+        //let Verse = await dbT2.Congregation2.where('H_No').startsWithIgnoreCase(H_No_tmp3).orderBy('H_No').toArray();
+
+        //let Verse = await dbT2.Congregation2.where('H_No').equals(H_No_tmp).toArray();
+
+        if (Verse) {
+
+           // Add data to Roll from Congregation4 
+
+           for (j = 0; j < Verse.length; j++) {
+
+              var CNo = Verse[j].CNo;
+
+              var F_Name = Verse[j].F_Name;
+              var L_Name = Verse[j].L_Name;
+              var Member = Verse[j].Member;   
+
+              var C_F_Name = Verse[j].C_F_Name;
+              var C_L_Name = Verse[j].C_L_Name;
+              var Gender = Verse[j].Gender;  
+
+              var H_No = Verse[j].H_No;
+
+              try { 
+
+                 dbT2.Roll.add({ CNo, F_Name, L_Name, Member, Gender, C_F_Name, C_L_Name, H_No });   
+
+              } catch(err) {   
+
+                 if (err.name == 'ConstraintError') {
+                   alert("Such book exists already");
+                   //await addBook();
+                 } else {
+                   throw err;
+                 }
+
+              }
+
+
+           } // End of for (j = 0; j < Verse.length; j++)
+
+        } // End of if (Verse)
+
+
+     } // End of for (i = 0; i < Verse_3.length; i++)
+
+
+  }
+  else {
+
+     listElem.innerHTML = 'No Data';
+
+  }
 
 
 }  // End of function Householder_to_Roll()
