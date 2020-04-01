@@ -2463,7 +2463,7 @@ async function Roll_Call_Search_V1(argC) { // Search from English Family Last Na
   // --------------------------------------------
 
 
-  var Verse_31 = await dbT2.Roll.where('E_F_LName').startsWithIgnoreCase(argC).toArray();
+  let Verse_31 = await dbT2.Roll.where('E_F_LName').startsWithIgnoreCase(argC).toArray();
 
   if (Verse_31) {  // Prepare HTML for filling data
 
@@ -2529,7 +2529,7 @@ async function Roll_Call_Search_V1(argC) { // Search from English Family Last Na
 
   // --------------------------------------------
 
-  var Verse_32 = await dbT2.Roll.where('E_F_LName').startsWithIgnoreCase(argC).toArray();
+  let Verse_32 = await dbT2.Roll.where('E_F_LName').startsWithIgnoreCase(argC).toArray();
 
   if (Verse_32) {  // Fill data
 
@@ -2648,7 +2648,7 @@ async function Roll_Call_Search_V3(argC) { // Search from Chinese Family First N
   // --------------------------------------------
 
 
-  var Verse_41 = await dbT2.Roll.where('C_F_FName').startsWithIgnoreCase(argC).toArray();
+  let Verse_41 = await dbT2.Roll.where('C_F_FName').startsWithIgnoreCase(argC).toArray();
 
   if (Verse_41) {  // Prepare HTML for filling data
 
@@ -2714,7 +2714,7 @@ async function Roll_Call_Search_V3(argC) { // Search from Chinese Family First N
 
   // --------------------------------------------
 
-  var Verse_42 = await dbT2.Roll.where('C_F_FName').startsWithIgnoreCase(argC).toArray();
+  let Verse_42 = await dbT2.Roll.where('C_F_FName').startsWithIgnoreCase(argC).toArray();
 
   if (Verse_42) {  // Fill data
 
