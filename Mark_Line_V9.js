@@ -2462,14 +2462,20 @@ async function Roll_Call_Search_V1(argC) { // Search from English Family Last Na
 
   // --------------------------------------------
 
+   document.getElementById("content2").style.visibility='hidden'; // hidden , visible
+   document.getElementById("content2").style.height = "0%";
+
+   document.getElementById("content2_C").style.visibility='visible'; 
+   document.getElementById("content2_C").style.height = "98%";       // 98% , 0%
+
 
   let Verse_31 = await dbT2.Roll.where('E_F_LName').startsWithIgnoreCase(argC).toArray();
 
   if (Verse_31) {  // Prepare HTML for filling data
 
-     var Rnum = 3001;  // Rnum
-     var Rvers = 4001;  // EName
-     var CName = 5001;  // CName
+     var Rnum = 30001;  // Rnum
+     var Rvers = 40001;  // EName
+     var CName = 50001;  // CName
 
      var Roll_Call_Content_Str = '<table><tr>';
 
@@ -2521,7 +2527,7 @@ async function Roll_Call_Search_V1(argC) { // Search from English Family Last Na
 
      var Roll_Call_Content_Str = Roll_Call_Content_Str + '</tr></table>';
 
-     document.getElementById("Roll_Call_Content").innerHTML = Roll_Call_Content_Str;
+     document.getElementById("Roll_Call_Content_C").innerHTML = Roll_Call_Content_Str;  // Roll_Call_Content
 
   }
 
@@ -2533,9 +2539,9 @@ async function Roll_Call_Search_V1(argC) { // Search from English Family Last Na
 
   if (Verse_32) {  // Fill data
 
-     var Rnum = 3001;  // Rnum
-     var Rvers = 4001;  // EName
-     var CName = 5001;  // CName
+     var Rnum = 30001;  // Rnum
+     var Rvers = 40001;  // EName
+     var CName = 50001;  // CName
 
      for (var i = 0; i < Verse_32.length ; i++) {
 
@@ -2648,13 +2654,20 @@ async function Roll_Call_Search_V3(argC) { // Search from Chinese Family First N
   // --------------------------------------------
 
 
+   document.getElementById("content2").style.visibility='hidden'; // hidden , visible
+   document.getElementById("content2").style.height = "0%";
+
+   document.getElementById("content2_C").style.visibility='visible'; 
+   document.getElementById("content2_C").style.height = "98%";       // 98% , 0%
+
+
   let Verse_41 = await dbT2.Roll.where('C_F_FName').startsWithIgnoreCase(argC).toArray();
 
   if (Verse_41) {  // Prepare HTML for filling data
 
-     var Rnum = 3001;  // Rnum
-     var Rvers = 4001;  // EName
-     var CName = 5001;  // CName
+     var Rnum = 30001;  // Rnum
+     var Rvers = 40001;  // EName
+     var CName = 50001;  // CName
 
      var Roll_Call_Content_Str = '<table><tr>';
 
@@ -2706,7 +2719,7 @@ async function Roll_Call_Search_V3(argC) { // Search from Chinese Family First N
 
      var Roll_Call_Content_Str = Roll_Call_Content_Str + '</tr></table>';
 
-     document.getElementById("Roll_Call_Content").innerHTML = Roll_Call_Content_Str;
+     document.getElementById("Roll_Call_Content_C").innerHTML = Roll_Call_Content_Str;
 
   }
 
@@ -2718,9 +2731,9 @@ async function Roll_Call_Search_V3(argC) { // Search from Chinese Family First N
 
   if (Verse_42) {  // Fill data
 
-     var Rnum = 3001;  // Rnum
-     var Rvers = 4001;  // EName
-     var CName = 5001;  // CName
+     var Rnum = 30001;  // Rnum
+     var Rvers = 40001;  // EName
+     var CName = 50001;  // CName
 
      for (var i = 0; i < Verse_42.length ; i++) {
 
@@ -2958,11 +2971,17 @@ async function Roll_Call_V1() {
   //var DateStr = ML_Date_V2();
 
 
-  //if (Read_for_Roll_Call == 'N') {
+  if (Read_for_Roll_Call == 'N') {
 
      Prepare_for_Roll_Call();
 
-  //}
+  }
+
+   document.getElementById("content2").style.visibility='visible'; // hide
+   document.getElementById("content2").style.height = "98%";
+
+   document.getElementById("content2_C").style.visibility='hidden'; // hide
+   document.getElementById("content2_C").style.height = "0%";
 
 
   if (Verse_3) {
@@ -3077,11 +3096,17 @@ async function Roll_Call_V2() {
   //var DateStr = ML_Date_V2();
 
 
-  //if (Read_for_Roll_Call == 'N') {
+  if (Read_for_Roll_Call == 'N') {
 
      Prepare_for_Roll_Call();
 
-  //}
+  }
+
+   document.getElementById("content2").style.visibility='visible'; // hide
+   document.getElementById("content2").style.height = "98%";
+
+   document.getElementById("content2_C").style.visibility='hidden'; // hide
+   document.getElementById("content2_C").style.height = "0%";
 
 
   if (Verse_3) {  // Fill data
