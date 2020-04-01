@@ -2445,6 +2445,19 @@ function Reset_All(){
   <center>                 
   <button style="font-size:20px" onclick="Roll_Call_V1()">Roll Call V1</button>
   <button style="font-size:20px" onclick="Roll_Call_V2()">Roll Call V2</button>
+  <a href="javascript:Roll_Call_Search('B')"> B </a>
+  <a href="javascript:Roll_Call_Search('C')"> C </a>
+  <a href="javascript:Roll_Call_Search('H')"> H </a>
+  <a href="javascript:Roll_Call_Search('J')"> J </a>
+  <a href="javascript:Roll_Call_Search('K')"> K </a>
+  <a href="javascript:Roll_Call_Search_V2('³¯')"> ³¯ </a>
+  <a href="javascript:Roll_Call_Search_V2('±i')"> ±i </a>
+  <a href="javascript:Roll_Call_Search_V2('¾G')"> ¾G </a>
+  <a href="javascript:Roll_Call_Search_V2('¶À')"> ¶À </a>
+  <a href="javascript:Roll_Call_Search_V2('´R')"> ´R </a>
+  <a href="javascript:Roll_Call_Search_V2('¬_')"> ¬_ </a>
+  <a href="javascript:Roll_Call_Search_V2('³¢')"> ³¢ </a>
+  <button style="font-size:20px" onclick="Roll_Call_Search_test_C()">C test</button>
   </center>
 
 <br>
@@ -3407,11 +3420,11 @@ async function Roll_Call_V2() {
   //var DateStr = ML_Date_V2();
 
 
-  if (Read_for_Roll_Call == 'N') {
+  //if (Read_for_Roll_Call == 'N') {
 
      Prepare_for_Roll_Call();
 
-  }
+  //}
 
 
   if (Verse_3) {  // Fill data
@@ -3509,71 +3522,11 @@ async function Roll_Call_V1() {
   //var DateStr = ML_Date_V2();
 
 
-  if (Verse_3) {
+  //if (Read_for_Roll_Call == 'N') {
 
-     var Rnum = 3001;  // Rnum
-     var Rvers = 4001;  // EName
-     var CName = 5001;  // CName
+     Prepare_for_Roll_Call();
 
-     var Roll_Call_Content_Str = '<table><tr>';
-
-     var j=1;
-
-     for (var i = 0; i < Verse_3.length ; i++) {
-
-        var H_No_tmp = Verse_3[i].H_No;        // 1_2
-        var H_No_tmp2 = H_No_tmp.split("_");   
-        var H_No_tmp3 = H_No_tmp2[1];          // 2
-
-        if (H_No_tmp3 == '1' || j==1) {
-
-           var add_str1 = '</tr><tr>';
-
-           var add_str2 = '<td valign=\"top\"><div id=\"' + Rnum + '\"></div></td><td><div id=\"' + Rvers + '\"></div></td><td><div id=\"' + CName + '\"></div></td>';
-
-           Roll_Call_Content_Str = Roll_Call_Content_Str + add_str1 + add_str2;
-
-           j=2;
-
-        }
-        else {
-
-           var add_str1 = '<td></td><td></td><td></td><td></td><td></td>';
-
-           var add_str2 = '<td valign=\"top\"><div id=\"' + Rnum + '\"></div></td><td><div id=\"' + Rvers + '\"></div></td><td><div id=\"' + CName + '\"></div></td>';
-
-           Roll_Call_Content_Str = Roll_Call_Content_Str + add_str1 + add_str2;
-
-           j=1;
-
-        }
-
-
-
-        //var '<tr><td valign=\"top\"><div id=\"' + Rnum + '\"></div></td><td><div id=\"' + Rvers + '\"></div></td><td><div id=\"' + CName + '\"></div></td></tr>';
-
-        //Roll_Call_Content_Str = Roll_Call_Content_Str + 
-
-
-        Rnum++;
-        Rvers++;
-        CName++;
-
-        //if ( j==1 ) {
-        //   j=2;
-        //} 
-        //else {
-        //   j=1;
-        //}
-           
-
-     } // End of for (var i = 0; i < Verse_3.length ; i++)
-
-     var Roll_Call_Content_Str = Roll_Call_Content_Str + '</tr></table>';
-
-     document.getElementById("Roll_Call_Content").innerHTML = Roll_Call_Content_Str;
-
-  }
+  //}
 
 
   if (Verse_3) {
@@ -3628,6 +3581,9 @@ async function Roll_Call_V1() {
         }
 
 
+        var Name_Str2 =  Verse_3[i].C_F_Name + Verse_3[i].C_L_Name;
+
+
         var H_No_tmp = Verse_3[i].H_No;        // 1_2
         var H_No_tmp2 = H_No_tmp.split("_");   
         var H_No_tmp3 = H_No_tmp2[1];          // 2
@@ -3636,6 +3592,8 @@ async function Roll_Call_V1() {
 
            Name_Str = '<b><u>' + Name_Str + ' </u></b>';
 
+           Name_Str2 =  '<b><u>' + Name_Str2 + ' </u></b>';
+
         }
         //else {
 
@@ -3643,7 +3601,6 @@ async function Roll_Call_V1() {
 
         //}
 
-        var Name_Str2 =  Verse_3[i].C_F_Name + Verse_3[i].C_L_Name;
 
         //document.getElementById(Rnum++).innerHTML = 'V';
 
@@ -3762,9 +3719,17 @@ async function Householder_to_Roll() {
 
               var H_No = Verse[j].H_No;
 
+              var E_F_LName = Verse[0].L_Name;
+              var C_F_FName = Verse[0].C_F_Name;
+
               try { 
 
-                 dbT2.Roll.add({ CNo, F_Name, L_Name, Member, Gender, C_F_Name, C_L_Name, H_No });   
+                 dbT2.Roll.add({ CNo, F_Name, L_Name, Member, Gender, C_F_Name, C_L_Name, H_No, E_F_LName, C_F_FName });
+                 // E_F_LName : English Family Last Name
+                 // C_F_FName : Chinese Family First Name ©m
+
+                 //dbT2.Roll.add({ CNo, F_Name, L_Name, Member, Gender, C_F_Name, C_L_Name, H_No }); // E_F_LName : English Family Last Name
+                 //                                                                                  // C_F_LName : Chinese Family Last Name
 
               } catch(err) {   
 
@@ -3792,6 +3757,8 @@ async function Householder_to_Roll() {
      listElem.innerHTML = 'No Data';
 
   }
+
+  Read_for_Roll_Call = 'N';
 
 
 }  // End of function Householder_to_Roll()
