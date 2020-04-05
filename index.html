@@ -288,9 +288,36 @@ function clickCounter() {
 </head>
 <body onload="Init_Total_Mode();init_Bible4U_DB(); return false;" text="#000000" link="#0000ff" alink="#ffffff" vlink="#0000ff" background="back5.jpg">
 
+  <center>
+  <label style="font-size:28px" for="fname2">Church Service Schedule - </label>
+  <button style="font-size:20px" onclick="Show_Church_Service_Schedule()">Show</button>
+  <label style="font-size:28px" for="fname2"> - </label>
+  <button style="font-size:20px" onclick="hide_Church_Service_Schedule()">Hide</button>
+
+  <label style="font-size:28px" for="fname2">&nbsp&nbsp&nbsp&nbsp</label>
+  <label style="font-size:28px" for="fname2">IYC Schedule - </label>
+  <button style="font-size:20px" onclick="Show_IYC_Schedule()">Show</button>
+  <label style="font-size:28px" for="fname2"> - </label>
+  <button style="font-size:20px" onclick="hide_IYC_Schedule()">Hide</button>
+  </center>
 
 
+<div id="Church_Service_Schedule" style="width:100%;height:0%;overflow:auto;" class="center">
 
+  <p id="Church_Service_Schedule_Content"> </p>
+ 
+  <img src="Church_Service_Schedule_1.jpg" width="100%" height="280%" >
+  <img src="Church_Service_Schedule_2.jpg" width="100%" height="280%" >
+
+</div>
+
+<div id="IYC_Schedule" style="width:100%;height:0%;overflow:auto;" class="center">
+
+  <p id="IYC_Schedule_Content"> </p>
+
+  <img src="IYC_Schedule.jpg" width="100%" height="140%" >
+
+</div>
 
 
 <center>
@@ -2431,43 +2458,87 @@ function Reset_All(){
 
 
 
+    <div id="app">
+
+      <p class="error">
+        {{ errorMessage }}
+      </p>
+
+      <qrcode-stream :camera="camera" @decode="onDecode" @init="onInit">
+
+        <button @click="turnCameraOn"> Turn On QR Code Scan </button>
+
+        <button @click="turnCameraOff"> Turn Off QR Code Scan </button>
+
+      </qrcode-stream>
+
+    </div>
+
                 <center><b><p id="listElem3"></p></b></center>
 
 
-  <center>
-  <label style="font-size:28px" for="Attendant_No">Attendant No: </label>
-  <input style="font-size:22px" size="3" type="text" id="Attendant_No" name="Attendant_No">
-  <button style="font-size:20px" onclick="add_record_to_Attendance()">Add Attendance</button>
-  </center>
-            
-<br>
-                      
-  <button style="font-size:20px" onclick="Roll_Call_V1()">Roll Call V1</button>
+  <button style="font-size:20px" onclick="Search_Person_from_F_Name()">Search Person from </button>
+  <label style="font-size:28px" for="fname2">First Name: </label>
+  <input style="font-size:22px" size="10" type="text" id="Search_fname2" name="Search_fname2">
 
-  <a href="javascript:;" onclick="Roll_Call_Search_V1('B')"> B </a>
-  <a href="javascript:;" onclick="Roll_Call_Search_V1('C')"> C </a>
-  <a href="javascript:;" onclick="Roll_Call_Search_V1('H')"> H </a>
-  <a href="javascript:;" onclick="Roll_Call_Search_V1('J')"> J </a>
-  <a href="javascript:;" onclick="Roll_Call_Search_V1('K')"> K </a>
-  <a href="javascript:;" onclick="Roll_Call_Search_V1('L')"> L </a>
+  <label style="font-size:28px" for="Attendant_No">Attendant No: </label>
+  <input style="font-size:22px" size="1" type="text" id="Attendant_No" name="Attendant_No">
+  <button style="font-size:20px" onclick="add_record_to_Attendance()">Add Attendance</button>
+  <button style="font-size:20px" onclick="window.print()">Print Test</button>
+
+       
+<br>     
+       
+                
+  <button style="font-size:20px" onclick="Roll_Call_V1('R')">Roll Call V1</button>
+  <a href="javascript:Roll_Call_Search_V1('B','R')"> B </a>
+  <a href="javascript:Roll_Call_Search_V1('C','R')"> C </a>
+  <a href="javascript:Roll_Call_Search_V1('H','R')"> H </a>
+  <a href="javascript:Roll_Call_Search_V1('J','R')"> J </a>
+  <a href="javascript:Roll_Call_Search_V1('K','R')"> K </a>
+  <a href="javascript:Roll_Call_Search_V1('L','R')"> L </a>
+  <a href="javascript:Roll_Call_Search_V1('M','R')"> M </a>
+  <a href="javascript:Roll_Call_Search_V1('N','R')"> N </a>
+  <a href="javascript:Roll_Call_Search_V1('O','R')"> O </a>
+  <a href="javascript:Roll_Call_Search_V1('S','R')"> S </a>
+  <a href="javascript:Roll_Call_Search_V1('T','R')"> T </a>
+  <a href="javascript:Roll_Call_Search_V1('W','R')"> W </a>
+  <a href="javascript:Roll_Call_Search_V1('Y','R')"> Y </a>
+
+  <a href="javascript:Roll_Call_Search_V3('ªò','R')"> ªò </a>
+  <a href="javascript:Roll_Call_Search_V3('²±','R')"> ²± </a>
+  <a href="javascript:Roll_Call_Search_V3('¬I','R')"> ¬I </a>
+  <a href="javascript:Roll_Call_Search_V3('Á§','R')"> Á§ </a>
+  <a href="javascript:Roll_Call_Search_V3('®]','R')"> ®] </a>
+  <a href="javascript:Roll_Call_Search_V3('ÃÓ','R')"> ÃÓ </a>
+  <a href="javascript:Roll_Call_Search_V3('¤ý','R')"> ¤ý </a>
+  <a href="javascript:Roll_Call_Search_V3('·¨','R')"> ·¨ </a>
+  <a href="javascript:Roll_Call_Search_V3('§E','R')"> §E </a>
 
   <br>
+                 
+  <button style="font-size:20px" onclick="Roll_Call_V2('R')">Roll Call V2</button>
+  <a href="javascript:Roll_Call_Search_V3('³¯','R')"> ³¯ </a>
+  <a href="javascript:Roll_Call_Search_V3('±i','R')"> ±i </a>
+  <a href="javascript:Roll_Call_Search_V3('¾G','R')"> ¾G </a>
+  <a href="javascript:Roll_Call_Search_V3('¶À','R')"> ¶À </a>
+  <a href="javascript:Roll_Call_Search_V3('´R','R')"> ´R </a>
+  <a href="javascript:Roll_Call_Search_V3('¬_','R')"> ¬_ </a>
+  <a href="javascript:Roll_Call_Search_V3('³¢','R')"> ³¢ </a>
+  <a href="javascript:Roll_Call_Search_V3('§õ','R')"> §õ </a>
+  <a href="javascript:Roll_Call_Search_V3('½²','R')"> ½² </a>
+  <a href="javascript:Roll_Call_Search_V3('³\','R')"> ³\ </a>
+  <a href="javascript:Roll_Call_Search_V3('®}','R')"> ®} </a>
+  <a href="javascript:Roll_Call_Search_V3('­J','R')"> ­J </a>
+  <a href="javascript:Roll_Call_Search_V3('±ç','R')"> ±ç </a>
+  <a href="javascript:Roll_Call_Search_V3('¼B','R')"> ¼B </a>
+  <a href="javascript:Roll_Call_Search_V3('ªL','R')"> ªL </a>
+  <a href="javascript:Roll_Call_Search_V3('¤ò','R')"> ¤ò </a>
+  <a href="javascript:Roll_Call_Search_V3('¯Î','R')"> ¯Î </a>
+  <a href="javascript:Roll_Call_Search_V3('¸­','R')"> ¸­ </a>
 
-  <button style="font-size:20px" onclick="Roll_Call_V2()">Roll Call V2</button>
 
-  <a href="javascript:;" onclick="Roll_Call_Search_V3('³¯')"> ³¯ </a>
-  <a href="javascript:;" onclick="Roll_Call_Search_V3('±i')"> ±i </a>
-  <a href="javascript:;" onclick="Roll_Call_Search_V3('¾G')"> ¾G </a>
-  <a href="javascript:;" onclick="Roll_Call_Search_V3('¶À')"> ¶À </a>
-  <a href="javascript:;" onclick="Roll_Call_Search_V3('´R')"> ´R </a>
-  <a href="javascript:;" onclick="Roll_Call_Search_V3('¬_')"> ¬_ </a>
-  <a href="javascript:;" onclick="Roll_Call_Search_V3('³¢')"> ³¢ </a> 
-  <a href="javascript:;" onclick="Roll_Call_Search_V3('§õ')"> §õ </a> 
-
-
-<br>
-
-<div id="content2" style="height:98%;overflow:auto;" class="center">
+<div id="content2" style="height:95%;overflow:auto;" class="center">
 
   <p id="Roll_Call_Content"> </p>
 
@@ -2479,6 +2550,67 @@ function Reset_All(){
 
 </div>
 
+  <label id="Phone_Dir_Content"> </label> <br>
+
+  <button style="font-size:20px" onclick="Search_Phone_from_F_Name()">Search Phone from </button>
+  <label style="font-size:28px" for="fname2">First Name: </label>
+  <input style="font-size:22px" size="10" type="text" id="Search_fname1" name="Search_fname1"> <br>
+
+  <button style="font-size:20px" onclick="Search_Person_from_Tel()">Search Person from </button>
+  <label style="font-size:28px" for="fname2">Tel: </label>
+  <input style="font-size:22px" size="10" type="text" id="Search_Tel" name="Search_Tel">
+
+  <button style="font-size:20px" onclick="Search_Person_from_Mob()">Search Person from </button>
+  <label style="font-size:28px" for="fname2">Mob: </label>
+  <input style="font-size:22px" size="10" type="text" id="Search_Mob" name="Search_Mob"> <br>
+
+
+  <button style="font-size:20px" onclick="Roll_Call_V1('P')">Phone Dir. V1</button>
+  <a href="javascript:Roll_Call_Search_V1('B','P')"> B </a>
+  <a href="javascript:Roll_Call_Search_V1('C','P')"> C </a>
+  <a href="javascript:Roll_Call_Search_V1('H','P')"> H </a>
+  <a href="javascript:Roll_Call_Search_V1('J','P')"> J </a>
+  <a href="javascript:Roll_Call_Search_V1('K','P')"> K </a>
+  <a href="javascript:Roll_Call_Search_V1('L','P')"> L </a>
+  <a href="javascript:Roll_Call_Search_V1('M','P')"> M </a>
+  <a href="javascript:Roll_Call_Search_V1('N','P')"> N </a>
+  <a href="javascript:Roll_Call_Search_V1('O','P')"> O </a>
+  <a href="javascript:Roll_Call_Search_V1('S','P')"> S </a>
+  <a href="javascript:Roll_Call_Search_V1('T','P')"> T </a>
+  <a href="javascript:Roll_Call_Search_V1('W','P')"> W </a>
+  <a href="javascript:Roll_Call_Search_V1('Y','P')"> Y </a>
+
+  <a href="javascript:Roll_Call_Search_V3('ªò','P')"> ªò </a>
+  <a href="javascript:Roll_Call_Search_V3('²±','P')"> ²± </a>
+  <a href="javascript:Roll_Call_Search_V3('¬I','P')"> ¬I </a>
+  <a href="javascript:Roll_Call_Search_V3('Á§','P')"> Á§ </a>
+  <a href="javascript:Roll_Call_Search_V3('®]','P')"> ®] </a>
+  <a href="javascript:Roll_Call_Search_V3('ÃÓ','P')"> ÃÓ </a>
+  <a href="javascript:Roll_Call_Search_V3('¤ý','P')"> ¤ý </a>
+  <a href="javascript:Roll_Call_Search_V3('·¨','P')"> ·¨ </a>
+  <a href="javascript:Roll_Call_Search_V3('§E','P')"> §E </a>
+
+  <br>
+                 
+  <button style="font-size:20px" onclick="Roll_Call_V2('P')">Phone Dir. V2</button>
+  <a href="javascript:Roll_Call_Search_V3('³¯','P')"> ³¯ </a>
+  <a href="javascript:Roll_Call_Search_V3('±i','P')"> ±i </a>
+  <a href="javascript:Roll_Call_Search_V3('¾G','P')"> ¾G </a>
+  <a href="javascript:Roll_Call_Search_V3('¶À','P')"> ¶À </a>
+  <a href="javascript:Roll_Call_Search_V3('´R','P')"> ´R </a>
+  <a href="javascript:Roll_Call_Search_V3('¬_','P')"> ¬_ </a>
+  <a href="javascript:Roll_Call_Search_V3('³¢','P')"> ³¢ </a>
+  <a href="javascript:Roll_Call_Search_V3('§õ','P')"> §õ </a>
+  <a href="javascript:Roll_Call_Search_V3('½²','P')"> ½² </a>
+  <a href="javascript:Roll_Call_Search_V3('³\','P')"> ³\ </a>
+  <a href="javascript:Roll_Call_Search_V3('®}','P')"> ®} </a>
+  <a href="javascript:Roll_Call_Search_V3('­J','P')"> ­J </a>
+  <a href="javascript:Roll_Call_Search_V3('±ç','P')"> ±ç </a>
+  <a href="javascript:Roll_Call_Search_V3('¼B','P')"> ¼B </a>
+  <a href="javascript:Roll_Call_Search_V3('ªL','P')"> ªL </a>
+  <a href="javascript:Roll_Call_Search_V3('¤ò','P')"> ¤ò </a>
+  <a href="javascript:Roll_Call_Search_V3('¯Î','P')"> ¯Î </a>
+  <a href="javascript:Roll_Call_Search_V3('¸­','P')"> ¸­ </a>
 
 <br><br>
 
@@ -2641,8 +2773,6 @@ function Reset_All(){
 <p>Attendance list:</p>
 
 <ul id="listElem2"></ul>
-
-
 
 
 <script>
@@ -3421,6 +3551,173 @@ async function Check_Attendance(arg1,arg2,arg3) { // arg1: CNo, arg2: Member, ar
 
 
 
+
+async function Roll_Call() {
+
+
+  let Verse_3 = await dbT2.Roll.toArray();
+
+  //let Verse = await dbT2.Attendance.reverse().toArray();
+
+  //var DateStr = ML_Date_V2();
+
+
+  if (Verse_3) {
+
+     var Rnum = 3001;  // Rnum
+     var Rvers = 4001;  // EName
+     var CName = 5001;  // CName
+
+     var Roll_Call_Content_Str = '<table><tr>';
+
+     var j=1;
+
+     for (var i = 0; i < Verse_3.length ; i++) {
+
+        var H_No_tmp = Verse_3[i].H_No;        // 1_2
+        var H_No_tmp2 = H_No_tmp.split("_");   
+        var H_No_tmp3 = H_No_tmp2[1];          // 2
+
+        if (H_No_tmp3 == '1' || j==1) {
+
+           var add_str1 = '</tr><tr>';
+
+           var add_str2 = '<td valign=\"top\"><div id=\"' + Rnum + '\"></div></td><td><div id=\"' + Rvers + '\"></div></td><td><div id=\"' + CName + '\"></div></td>';
+
+           Roll_Call_Content_Str = Roll_Call_Content_Str + add_str1 + add_str2;
+
+           j=2;
+
+        }
+        else {
+
+           var add_str1 = '<td></td><td></td><td></td><td></td><td></td>';
+
+           var add_str2 = '<td valign=\"top\"><div id=\"' + Rnum + '\"></div></td><td><div id=\"' + Rvers + '\"></div></td><td><div id=\"' + CName + '\"></div></td>';
+
+           Roll_Call_Content_Str = Roll_Call_Content_Str + add_str1 + add_str2;
+
+           j=1;
+
+        }
+
+
+
+        //var '<tr><td valign=\"top\"><div id=\"' + Rnum + '\"></div></td><td><div id=\"' + Rvers + '\"></div></td><td><div id=\"' + CName + '\"></div></td></tr>';
+
+        //Roll_Call_Content_Str = Roll_Call_Content_Str + 
+
+
+        Rnum++;
+        Rvers++;
+        CName++;
+
+        //if ( j==1 ) {
+        //   j=2;
+        //} 
+        //else {
+        //   j=1;
+        //}
+           
+
+     } // End of for (var i = 0; i < Verse_3.length ; i++)
+
+     var Roll_Call_Content_Str = Roll_Call_Content_Str + '</tr></table>';
+
+     document.getElementById("Roll_Call_Content").innerHTML = Roll_Call_Content_Str;
+
+  }
+
+
+  if (Verse_3) {
+
+     var Rnum = 3001;  // Rnum
+     var Rvers = 4001;  // EName
+     var CName = 5001;  // CName
+
+     for (var i = 0; i < Verse_3.length ; i++) {
+
+        // arg1: CNo, arg2: Member, arg3:Gender
+
+        var arg1 = Verse_3[i].CNo;
+
+        var arg2 = Verse_3[i].Member;
+
+        var arg3 = Verse_3[i].Gender;
+
+        var Result = await Check_Attendance(arg1,arg2,arg3);
+
+        if (Result == 'y') {
+
+           document.getElementById(Rvers).style.color = "blue";
+
+        }
+        else {
+
+           document.getElementById(Rvers).style.color = "black";
+
+        }
+
+
+        var Name_Str = Verse_3[i].L_Name + ',' + Verse_3[i].F_Name + ' ';
+
+        //var Name_Str = Verse_3[i].F_Name + ' ' + Verse_3[i].L_Name + ' ';
+
+
+
+        if (Verse_3[i].Member == 'T') {
+
+           Name_Str = '*' + Verse_3[i].L_Name + ',' + Verse_3[i].F_Name + ' ';
+
+        }
+
+
+        var H_No_tmp = Verse_3[i].H_No;        // 1_2
+        var H_No_tmp2 = H_No_tmp.split("_");   
+        var H_No_tmp3 = H_No_tmp2[1];          // 2
+
+        if (H_No_tmp3 == '1') {
+
+           Name_Str = '<b><u>' + Name_Str + ' </u></b>';
+
+        }
+        //else {
+
+        //   var Name_Str = Verse_3[i].L_Name + ',' + Verse_3[i].F_Name + ' ';
+
+        //}
+
+        var Name_Str2 =  Verse_3[i].C_F_Name + Verse_3[i].C_L_Name;
+
+        //document.getElementById(Rnum++).innerHTML = 'V';
+
+ //Add_or_Remove_Attendance(arg1,arg2,arg3,arg4) { // arg1: CNo, arg2: Member, arg3:Gender, arg4: position
+
+        //var Check_Str = '<a href="" " onClick="Add_or_Remove_Attendance(' + arg1 + ',' + arg2 + ',' + arg3 + ',' + Rvers + ');return false;"> V </a>';
+
+        //<button onclick="Add_or_Remove_Attendance('5','M','B','4001')">Test Add or remove</button>
+
+
+        var Check_Str = '<button onClick="Add_or_Remove_Attendance(\'' + arg1 + '\',\'' + arg2 + '\',\'' + arg3 + '\',\'' + Rvers + '\')"> V </button>';  // Using \' as an escape character
+
+        document.getElementById(Rnum++).innerHTML = Check_Str;
+
+        document.getElementById(Rvers++).innerHTML =  Name_Str;
+
+        document.getElementById(CName++).innerHTML =  Name_Str2;
+
+
+     } // End of for (var i = 0; i < Verse_3.length ; i++)
+
+
+
+  }
+
+
+}  // End of function Roll_Call()
+
+
+
 async function list_all_Roll() {
 
   //let Verse_3 = await dbT2.Congregation3.toArray();
@@ -3554,6 +3851,97 @@ async function Householder_to_Roll() {
 }  // End of function Householder_to_Roll()
 
 
+async function Householder_to_Roll_old() { // Not in use
+
+  //let Verse_3 = await dbT2.Congregation3.toArray();
+
+  //let Verse = await dbT2.Congregation2.reverse().toArray();
+
+
+  let Verse_3 = await dbT2.Householder.toArray();
+
+
+  //dbT2.Roll.clear();  // delete all in Roll
+
+  if (Verse_3) {
+
+     dbT2.Roll.clear();  // delete all in Roll
+
+     // 
+
+     for (i = 0; i < Verse_3.length; i++) {
+
+        //var CNo = Verse[i].CNo;
+        //var F_Name = Verse[i].F_Name;
+        //var L_Name = Verse[i].L_Name;
+
+        var H_No_tmp = Verse_3[i].H_No;   // 1_1 , 2_1
+
+        var H_No_tmp2 = H_No_tmp.split("_"); 
+
+        var H_No_tmp3 = H_No_tmp2[0] + '_';   // 1_ , 2_
+
+        //let Verse = await dbT2.books.where('date').startsWithIgnoreCase(startWith_date).toArray();
+
+        let Verse = await dbT2.Congregation4.where('H_No').startsWithIgnoreCase(H_No_tmp3).toArray();
+
+        //let Verse = await dbT2.Congregation2.where('H_No').startsWithIgnoreCase(H_No_tmp3).orderBy('H_No').toArray();
+
+        //let Verse = await dbT2.Congregation2.where('H_No').equals(H_No_tmp).toArray();
+
+        if (Verse) {
+
+           // Add data to Roll from Congregation4 
+
+           for (j = 0; j < Verse.length; j++) {
+
+              var CNo = Verse[j].CNo;
+
+              var F_Name = Verse[j].F_Name;
+              var L_Name = Verse[j].L_Name;
+              var Member = Verse[j].Member;   
+
+              var C_F_Name = Verse[j].C_F_Name;
+              var C_L_Name = Verse[j].C_L_Name;
+              var Gender = Verse[j].Gender;  
+
+              var H_No = Verse[j].H_No;
+
+              try { 
+
+                 dbT2.Roll.add({ CNo, F_Name, L_Name, Member, Gender, C_F_Name, C_L_Name, H_No });   
+
+              } catch(err) {   
+
+                 if (err.name == 'ConstraintError') {
+                   alert("Such book exists already");
+                   //await addBook();
+                 } else {
+                   throw err;
+                 }
+
+              }
+
+
+           } // End of for (j = 0; j < Verse.length; j++)
+
+        } // End of if (Verse)
+
+
+     } // End of for (i = 0; i < Verse_3.length; i++)
+
+
+  }
+  else {
+
+     listElem.innerHTML = 'No Data';
+
+  }
+
+
+}  // End of function Householder_to_Roll()
+
+
 
 async function add_people_to_Congregation() {
 
@@ -3675,6 +4063,8 @@ async function generate_CNo_for_New_Family_Member_2() {
 
       var H_No_tmp4 = H_No_tmp2[0] + '_';  // 1_
 
+      var H_No_tmp8 = H_No_tmp2[0] + '_1' ;  // 1_1
+
       let Verse_tmp2 = await dbT2.Congregation4.where("H_No").startsWithIgnoreCase(H_No_tmp4).reverse().toArray();
 
       //let Verse_tmp2 = await dbT2.Congregation4.where("H_No").startsWithIgnoreCase('1_').reverse().toArray();
@@ -3699,16 +4089,27 @@ async function generate_CNo_for_New_Family_Member_2() {
 
       var Tel2_tmp = document.getElementById("Tel2").value;
 
-      if (Tel2_tmp) {
+      //if (Tel2_tmp) {
 
-         if (Tel2_tmp != '') {
+         //if (Tel2_tmp != '') {
 
             document.getElementById("Tel3").value = Tel2_tmp;
 
-         }
+         //}
 
-      }
+      //}
 
+      // Determine L_Name
+
+      var Verse_tmp333 = await dbT2.Congregation4.where("H_No").startsWithIgnoreCase(H_No_tmp8).toArray();
+
+      var C_F_Name_tmp5 = Verse_tmp333[0].C_F_Name;
+
+      var L_Name_tmp5 = Verse_tmp333[0].L_Name;
+
+      document.getElementById("lname3").value = L_Name_tmp5;  // Cfname3
+
+      document.getElementById("Cfname3").value = C_F_Name_tmp5;  // Cfname3
 
   } 
   else {  // No Valid CNo in ById("cNo2")
