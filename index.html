@@ -288,19 +288,6 @@ function clickCounter() {
 </head>
 <body onload="Init_Total_Mode();init_Bible4U_DB(); return false;" text="#000000" link="#0000ff" alink="#ffffff" vlink="#0000ff" background="back5.jpg">
 
-  <center>
-  <label style="font-size:28px" for="fname2">Church Service Schedule - </label>
-  <button style="font-size:20px" onclick="Show_Church_Service_Schedule()">Show</button>
-  <label style="font-size:28px" for="fname2"> - </label>
-  <button style="font-size:20px" onclick="hide_Church_Service_Schedule()">Hide</button>
-
-  <label style="font-size:28px" for="fname2">&nbsp&nbsp&nbsp&nbsp</label>
-  <label style="font-size:28px" for="fname2">IYC Schedule - </label>
-  <button style="font-size:20px" onclick="Show_IYC_Schedule()">Show</button>
-  <label style="font-size:28px" for="fname2"> - </label>
-  <button style="font-size:20px" onclick="hide_IYC_Schedule()">Hide</button>
-  </center>
-
 
 <div id="Church_Service_Schedule" style="width:100%;height:0%;overflow:auto;" class="center">
 
@@ -2457,23 +2444,6 @@ function Reset_All(){
 </div>
 
 
-
-    <div id="app">
-
-      <p class="error">
-        {{ errorMessage }}
-      </p>
-
-      <qrcode-stream :camera="camera" @decode="onDecode" @init="onInit">
-
-        <button @click="turnCameraOn"> Turn On QR Code Scan </button>
-
-        <button @click="turnCameraOff"> Turn Off QR Code Scan </button>
-
-      </qrcode-stream>
-
-    </div>
-
                 <center><b><p id="listElem3"></p></b></center>
 
 
@@ -2481,10 +2451,13 @@ function Reset_All(){
   <label style="font-size:28px" for="fname2">First Name: </label>
   <input style="font-size:22px" size="10" type="text" id="Search_fname2" name="Search_fname2">
 
-  <label style="font-size:28px" for="Attendant_No">Attendant No: </label>
-  <input style="font-size:22px" size="1" type="text" id="Attendant_No" name="Attendant_No">
-  <button style="font-size:20px" onclick="add_record_to_Attendance()">Add Attendance</button>
-  <button style="font-size:20px" onclick="window.print()">Print Test</button>
+
+  <button style="font-size:20px" onclick="Open_Admin_Tools_Area()">Admin Tools</button>
+  <label style="font-size:28px" for="fname2">Password: </label>
+  <input style="font-size:22px" size="10" type="text" id="Password" name="Password">
+  <button style="font-size:20px" onclick="">Enter</button>
+  <button style="font-size:20px" onclick="Close_Admin_Tools_Area()">Close</button>
+
 
        
 <br>     
@@ -2549,6 +2522,8 @@ function Reset_All(){
   <p id="Roll_Call_Content_C"> </p>
 
 </div>
+
+<div id="Admin_Tools_Area" style="width:100%;height:0%;overflow:auto;" class="center">
 
   <label id="Phone_Dir_Content"> </label> <br>
 
@@ -2773,6 +2748,8 @@ function Reset_All(){
 <p>Attendance list:</p>
 
 <ul id="listElem2"></ul>
+
+</div>
 
 
 <script>

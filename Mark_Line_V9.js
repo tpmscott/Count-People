@@ -173,6 +173,69 @@ async function init_Bible4U_DB() {
          Congregation4: 'CNo,F_Name,L_Name,[L_Name+F_Name],H_No,F_Order,Tel,Mob'     
      });
 
+     dbT2.version(17).stores({      // New for V11
+         books: 'name,date',
+         ChapNote: 'name,date',
+         Congregation: 'CNo,F_Name,L_Name,[L_Name+F_Name],H_No,F_Order',
+         Attendance: 'Record',
+         Householder: '++H_Seq,H_No',
+         Congregation2: '++CNo,F_Name,L_Name,[L_Name+F_Name],H_No,F_Order',
+         Congregation3: 'CNo,F_Name,L_Name,[L_Name+F_Name],H_No',
+         Roll: '++Roll_No,CNo,F_Name,L_Name,C_F_Name,H_No,E_F_LName,C_F_FName',
+         Congregation4: 'CNo,F_Name,L_Name,[L_Name+F_Name],H_No,F_Order,Tel,Mob',
+         SermonNote: 'Name,Speaker'     
+     });
+     dbT2.version(18).stores({      // New for V12
+         books: 'name,date',
+         ChapNote: 'name,date',
+         Congregation: 'CNo,F_Name,L_Name,[L_Name+F_Name],H_No,F_Order',
+         Attendance: 'Record',
+         Householder: '++H_Seq,H_No',
+         Congregation2: '++CNo,F_Name,L_Name,[L_Name+F_Name],H_No,F_Order',
+         Congregation3: 'CNo,F_Name,L_Name,[L_Name+F_Name],H_No',
+         Roll: '++Roll_No,CNo,F_Name,L_Name,C_F_Name,H_No,E_F_LName,C_F_FName',
+         Congregation4: 'CNo,F_Name,L_Name,[L_Name+F_Name],H_No,F_Order,Tel,Mob',
+         SermonNote: 'Name,Speaker, *MainVerses'     
+     });
+     dbT2.version(19).stores({      // New for V12
+         books: 'name,date',
+         ChapNote: 'name,date',
+         Congregation: 'CNo,F_Name,L_Name,[L_Name+F_Name],H_No,F_Order',
+         Attendance: 'Record',
+         Householder: '++H_Seq,H_No',
+         Congregation2: '++CNo,F_Name,L_Name,[L_Name+F_Name],H_No,F_Order',
+         Congregation3: 'CNo,F_Name,L_Name,[L_Name+F_Name],H_No',
+         Roll: '++Roll_No,CNo,F_Name,L_Name,C_F_Name,H_No,E_F_LName,C_F_FName',
+         Congregation4: 'CNo,F_Name,L_Name,[L_Name+F_Name],H_No,F_Order,Tel,Mob',
+         SermonNote: 'Name,Speaker, *MainVerses, *KeyWords'     
+     });
+     dbT2.version(20).stores({      // New for V12
+         books: 'name,date',
+         ChapNote: 'name,date',
+         Congregation: 'CNo,F_Name,L_Name,[L_Name+F_Name],H_No,F_Order',
+         Attendance: 'Record',
+         Householder: '++H_Seq,H_No',
+         Congregation2: '++CNo,F_Name,L_Name,[L_Name+F_Name],H_No,F_Order',
+         Congregation3: 'CNo,F_Name,L_Name,[L_Name+F_Name],H_No',
+         Roll: '++Roll_No,CNo,F_Name,L_Name,C_F_Name,H_No,E_F_LName,C_F_FName',
+         Congregation4: 'CNo,F_Name,L_Name,[L_Name+F_Name],H_No,F_Order,Tel,Mob',
+         SermonNote: 'Name,Speaker, *MainVerses, *KeyWords',
+         Pictures: 'ID, *MainVerses'       
+     });
+     dbT2.version(21).stores({      // New for V12
+         books: 'name,date',
+         ChapNote: 'name,date',
+         Congregation: 'CNo,F_Name,L_Name,[L_Name+F_Name],H_No,F_Order',
+         Attendance: 'Record',
+         Householder: '++H_Seq,H_No',
+         Congregation2: '++CNo,F_Name,L_Name,[L_Name+F_Name],H_No,F_Order',
+         Congregation3: 'CNo,F_Name,L_Name,[L_Name+F_Name],H_No',
+         Roll: '++Roll_No,CNo,F_Name,L_Name,C_F_Name,H_No,E_F_LName,C_F_FName',
+         Congregation4: 'CNo,F_Name,L_Name,[L_Name+F_Name],H_No,F_Order,Tel,Mob',
+         SermonNote: 'Name,Speaker, *MainVerses, *KeyWords',
+         Pictures: 'ID, P_Name, *MainVerses'       
+     });
+
    // End of Declare Database
 
    
@@ -3814,6 +3877,22 @@ async function Search_Person_from_F_Name() { // Search from First Name
 }  // End of function Search_Person_from_F_Name()
 
 
+function Open_Admin_Tools_Area() {
+
+   document.getElementById("Admin_Tools_Area").style.visibility='visible'; 
+   document.getElementById("Admin_Tools_Area").style.height = "100%";       // 98% , 0%
+   document.getElementById("Admin_Tools_Area").style.width = "100%";       // 98% , 0%
+
+} // End of function Open_Admin_Tools_Area()
+
+function Close_Admin_Tools_Area() {
+
+   document.getElementById("Admin_Tools_Area").style.visibility='hidden'; // hidden , visible
+   document.getElementById("Admin_Tools_Area").style.height = "0%";
+
+} // End of Close_Admin_Tools_Area()
+
+
 function Show_Church_Service_Schedule() {
 
    //document.getElementById("content2").style.visibility='hidden'; // hidden , visible
@@ -3835,9 +3914,6 @@ function hide_Church_Service_Schedule() {
 
 function Show_IYC_Schedule() {
 
-   //document.getElementById("content2").style.visibility='hidden'; // hidden , visible
-   //document.getElementById("content2").style.height = "0%";
-
    document.getElementById("IYC_Schedule").style.visibility='visible'; 
    document.getElementById("IYC_Schedule").style.height = "100%";       // 98% , 0%
    document.getElementById("IYC_Schedule").style.width = "100%";       // 98% , 0%
@@ -3850,3 +3926,161 @@ function hide_IYC_Schedule() {
    document.getElementById("IYC_Schedule").style.height = "0%";
 
 } // End of hide_IYC_Schedule()
+
+
+
+function Show_Read_Me() {
+
+   document.getElementById("Read_Me").style.visibility='visible'; 
+   document.getElementById("Read_Me").style.height = "40%";       // 98% , 0%
+   document.getElementById("Read_Me").style.width = "100%";       // 98% , 0%   // "Read_Me_Content"
+
+   var Read_Me_Content_str1 = '1. *Schedule.docx Save As *Schedule.pdf <br>';
+
+   var Read_Me_Content_str2 = '2. Convert *Schedule.pdf to *Schedule.jpg by <br>';
+
+   var Read_Me_Content_str3 = '3. Go to https://smallpdf.com/pdf-to-jpg and upload *Schedule.pdf<br>';
+
+   var Read_Me_Content_str4 = '4. Download *Schedule.jpg from https://smallpdf.com/pdf-to-jpg <br>';
+
+   var Read_Me_Content_str5 = '5. Name Rule: Church_Service_Schedule_1.jpg Church_Service_Schedule_2.jpg <br>';
+
+   var Read_Me_Content_str6 = '6. Name Rule: IYC_Schedule.jpg <br>';
+
+   var Read_Me_Content_tmp = Read_Me_Content_str1 + Read_Me_Content_str2 + Read_Me_Content_str3 + Read_Me_Content_str4 + Read_Me_Content_str5 + Read_Me_Content_str6; 
+
+   document.getElementById("Read_Me_Content").innerHTML = Read_Me_Content_tmp;
+
+} // End of Show_Read_Me()
+
+function hide_Read_Me() {
+
+   document.getElementById("Read_Me").style.visibility='hidden'; // hidden , visible
+   document.getElementById("Read_Me").style.height = "0%";
+
+} // End of hide_Read_Me()
+
+
+async function Generate_Schedule() { // Search from English Family Last Name
+                                                 // argC2: 'R' for Roll Call, 'P' for Phone Dir.
+
+   //document.getElementById("content2").style.visibility='hidden'; // hidden , visible
+   //document.getElementById("content2").style.height = "0%";
+
+   //document.getElementById("content2_C").style.visibility='visible'; 
+   //document.getElementById("content2_C").style.height = "98%";       // 98% , 0%
+
+
+  //let Verse_101 = await dbT2.Roll.where('E_F_LName').startsWithIgnoreCase('L').toArray();  // test for 'L' - OK
+
+  //let Verse_101 = await dbT2.Roll.where('E_F_LName').startsWithIgnoreCase('C').toArray();  // test for 'C' - OK
+
+  let Verse_101 = await dbT2.Roll.toArray();  // test for All
+
+
+
+  if (Verse_101) {  // 
+
+     var Churh_Servie_Schedule_Content_Str = '';
+
+     for (var i = 0; i < Verse_101.length ; i++) {
+
+        var H_No_tmp = Verse_101[i].H_No;        // 1_2
+        var H_No_tmp2 = H_No_tmp.split("_");   
+        var H_No_tmp3 = H_No_tmp2[1];          // 2
+
+        if (H_No_tmp3 == '1') {
+
+           var F_Name_tmp = Verse_101[i].F_Name;
+           var L_Name_tmp = Verse_101[i].L_Name;
+
+           var C_F_Name_tmp = Verse_101[i].C_F_Name;
+           var C_L_Name_tmp = Verse_101[i].C_L_Name;
+
+           var Str_tmp1 = '<div class="container"><br>';
+           var Str_tmp2 = '<img src="Church_Service_Schedule_1.jpg" width="100%" height="260%" ><br>';
+           var Str_tmp3 = '<img src="Church_Service_Schedule_2.jpg" width="100%" height="240%" ><br>'; // 240 230 ok
+           var Str_tmp4 = '<div class="top-left">' + ' ' + F_Name_tmp + ' ' + L_Name_tmp + ' ' + C_F_Name_tmp + C_L_Name_tmp + '</div><br>';
+           var Str_tmp5 = '</div><br>';
+
+           Churh_Servie_Schedule_Content_Str += Str_tmp1 + Str_tmp2 + Str_tmp3 + Str_tmp4 + Str_tmp5;
+
+        }  // End of if (H_No_tmp3 == '1')
+
+     } // End of for (var i = 0; i < Verse_101.length ; i++)
+
+     document.getElementById("Churh_Servie_Schedule_Content").innerHTML = Churh_Servie_Schedule_Content_Str;
+
+   } // End of if (Verse_101)
+
+
+}  // End of function Generate_Schedule()
+
+
+async function Generate_Schedule_First_Page_Only() { // Search from English Family Last Name
+                                                 // argC2: 'R' for Roll Call, 'P' for Phone Dir.
+                                                 // 不印 第二頁
+
+   //document.getElementById("content2").style.visibility='hidden'; // hidden , visible
+   //document.getElementById("content2").style.height = "0%";
+
+   //document.getElementById("content2_C").style.visibility='visible'; 
+   //document.getElementById("content2_C").style.height = "98%";       // 98% , 0%
+
+
+  //let Verse_101 = await dbT2.Roll.where('E_F_LName').startsWithIgnoreCase('L').toArray();  // test for 'L' - OK
+
+  //let Verse_101 = await dbT2.Roll.where('E_F_LName').startsWithIgnoreCase('C').toArray();  // test for 'C' - OK
+
+  let Verse_101 = await dbT2.Roll.toArray();  // test for All
+
+
+
+  if (Verse_101) {  // 
+
+     var Churh_Servie_Schedule_Content_Str = '';
+
+     for (var i = 0; i < Verse_101.length ; i++) {
+
+        var H_No_tmp = Verse_101[i].H_No;        // 1_2
+        var H_No_tmp2 = H_No_tmp.split("_");   
+        var H_No_tmp3 = H_No_tmp2[1];          // 2
+
+        if (H_No_tmp3 == '1') {
+
+           var F_Name_tmp = Verse_101[i].F_Name;
+           var L_Name_tmp = Verse_101[i].L_Name;
+
+           var C_F_Name_tmp = Verse_101[i].C_F_Name;
+           var C_L_Name_tmp = Verse_101[i].C_L_Name;
+
+           var Str_tmp1 = '<div class="container"><br>';
+           var Str_tmp2 = '<img src="Church_Service_Schedule_1.jpg" width="100%" height="244%" ><br>'; // 240 242 244 ok,260 不 ok
+           //var Str_tmp3 = '<img src="Church_Service_Schedule_2.jpg" width="100%" height="240%" ><br>'; // 240 230 ok
+           var Str_tmp4 = '<div class="top-left">' + ' ' + F_Name_tmp + ' ' + L_Name_tmp + ' ' + C_F_Name_tmp + C_L_Name_tmp + '</div><br>';
+           var Str_tmp5 = '</div><br>';
+
+           Churh_Servie_Schedule_Content_Str += Str_tmp1 + Str_tmp2 + Str_tmp4 + Str_tmp5;
+
+        }  // End of if (H_No_tmp3 == '1')
+
+     } // End of for (var i = 0; i < Verse_101.length ; i++)
+
+     document.getElementById("Churh_Servie_Schedule_Content").innerHTML = Churh_Servie_Schedule_Content_Str;
+
+   } // End of if (Verse_101)
+
+
+}  // End of function Generate_Schedule_First_Page_Only()
+
+
+
+async function Generate_Schedule_First_Page_Only_V2() { // Search from English Family Last Name
+                                                 // argC2: 'R' for Roll Call, 'P' for Phone Dir.
+                                                 // 不印 第二頁
+
+   document.getElementById("Churh_Servie_Schedule_Content").innerHTML = 'Hardi Boediardjo 陳忠信';
+
+
+
+}  // End of function Generate_Schedule_First_Page_Only_V2()
