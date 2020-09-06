@@ -418,10 +418,6 @@ function clickCounter() {
 <button onclick="Show_Headcount()">Show Headcount</button>
 </td>
 
-<td>
-<button onclick="Show_Headcount_2()">Show Headcount = </button>
-<input size="10" type="text" id="Show_Headcount_2" name="Show_Headcount_2">
-</td>
 
 <td>
 <input class="topfont2" type="button" id="etest" value="e" onclick="return false;">
@@ -2530,6 +2526,13 @@ function Reset_All(){
 
 <div id="Admin_Tools_Area" style="width:100%;height:0%;overflow:auto;" class="center">
 
+  <button style="font-size:20px" onclick="Show_Headcount_2()">Show Headcount = </button>
+  <input style="font-size:22px" size="10" type="text" id="Show_Headcount_2" name="Show_Headcount_2">
+  <label style="font-size:24px" for="fname2">Ex: 20200905M, 20200905A - Morning/Afternoon/Evening</label>
+  <br>
+
+
+
   <label id="Phone_Dir_Content"> </label> <br>
 
   <button style="font-size:20px" onclick="Search_Phone_from_F_Name()">Search Phone from </button>
@@ -3530,6 +3533,40 @@ async function Check_Attendance(arg1,arg2,arg3) { // arg1: CNo, arg2: Member, ar
    }
 
 }  // End of function Check_Attendance(arg1,arg2,arg3)
+
+
+
+async function Check_Attendance2(arg1,arg2,arg3) { // arg1: CNo, arg2: Member, arg3:Gender
+
+   var CNo = arg1;
+
+   //var DateStr = ML_Date_V2();
+
+   var DateStr = document.getElementById("Show_Headcount_2").value;
+
+   var Member_Str = arg2;
+   var Gender_Str = arg3;
+
+   let Record = DateStr + '_' + Member_Str + '_' + Gender_Str + '_' + CNo;
+
+   let Verse_Attendance = await dbT2.Attendance.get(Record);
+
+   if (Verse_Attendance) {
+
+      var Result = 'y'; // mean has Data
+
+      return Result;
+
+   }
+   else {
+
+      var Result = 'n'; // mean No Data
+
+      return Result;
+
+   }
+
+}  // End of function Check_Attendance2(arg1,arg2,arg3)
 
 
 
@@ -4820,6 +4857,8 @@ async function Show_Headcount_2() {
 
 
   Show_Total_Mode();
+
+  Roll_Call_V2('S'); // <-- for show history attendance
 
 
 }  // End of function Show_Headcount_2()

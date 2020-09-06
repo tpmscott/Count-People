@@ -2253,7 +2253,7 @@ function ML_Date_V2() {  // New for V8
 
    var Date_Str = Y.toString() + M.toString() + D.toString() + Service_Code ;
 
-   return Date_Str;
+   return Date_Str; // 20200905M, 'E'-evening, 'M'-morning, 'A'-afternoon
 
 }  // End of function ML_Date_V2()
 
@@ -3230,7 +3230,20 @@ async function Roll_Call_V2(Arg) {  // Arg: 'R' for Roll Call, 'P' for Phone Dir
 
         var arg3 = Verse_3[i].Gender;
 
-        var Result = await Check_Attendance(arg1,arg2,arg3);
+        var Result = 'n';
+
+        if (Arg == 'S') {
+
+           Result = await Check_Attendance2(arg1,arg2,arg3);
+
+        }
+        else {
+
+           Result = await Check_Attendance(arg1,arg2,arg3);
+
+        }
+
+        //var Result = await Check_Attendance(arg1,arg2,arg3);
 
         if (Result == 'y') {
 
@@ -3279,15 +3292,21 @@ async function Roll_Call_V2(Arg) {  // Arg: 'R' for Roll Call, 'P' for Phone Dir
         //var Name_Str2 =  Verse_3[i].C_F_Name + Verse_3[i].C_L_Name;
 
 
-        if (Arg == 'R') {
+        if (Arg == 'R') {  // Arg: 'R' for Roll Call, 'P' for Phone Dir.
 
            var Check_Str = '<button onClick="Add_or_Remove_Attendance(\'' + arg1 + '\',\'' + arg2 + '\',\'' + arg3 + '\',\'' + Rvers + '\')"> V </button>';  // Using \' as an escape character
 
         }
 
-        if (Arg == 'P') {
+        if (Arg == 'P') {  // Arg: 'R' for Roll Call, 'P' for Phone Dir.
 
            var Check_Str = '<button onClick="Show_People_Phone_V2(\'' + arg1 + '\')"> P </button>';  // Using \' as an escape character
+
+        }
+
+        if (Arg == 'S') {  // Arg: 'S' for show history attendance
+
+           var Check_Str = '';
 
         }
 
