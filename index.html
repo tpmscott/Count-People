@@ -2737,9 +2737,6 @@ function Reset_All(){
 
 <br>
 
-<label style="font-size:20px" for="Member2">Congregation4 </label>
-<button onclick="Exp_from_Congregation4()">Exp All</button> 
-
 <button onclick="Imp_to_Congregation4()">Imp Db</button>
 
 <INPUT TYPE=TEXT NAME="Imp_to_Congregation4" SIZE="12" id="Imp_to_Congregation4">
@@ -2747,6 +2744,17 @@ function Reset_All(){
   <label style="font-size:20px" for="Mesg4"> Message </label>
   <input style="font-size:16px" size="40" type="text" id="Mesg4" name="Mesg4" >
 
+<br>
+
+<label style="font-size:20px" for="Member2">Congregation4 </label>
+<button onclick="Exp_from_Congregation4()">Exp All</button> 
+
+<br>
+
+<label style="font-size:20px" for="Member2">Attendance </label>
+<button onclick="Exp_from_Attendance()">Exp = </button> 
+
+<INPUT TYPE=TEXT NAME="Exp_start_date" SIZE="12" id="Exp_start_date">
 
 
 <p>Congregation list:</p>
@@ -5009,6 +5017,59 @@ async function Delete_Congregation2_Cno() { // Delete all objects from the store
 }  // End of function Delete_Congregation2_Cno()
 
 
+async function Exp_from_Attendance() { // New for V12
+
+  var Verse_Count = 0;
+
+  var startWith_date = document.getElementById("Exp_start_date").value;
+
+  if(startWith_date!='') {
+
+     //let Verse = await dbT2.books.where('date').startsWithIgnoreCase(startWith_date).toArray();
+
+     let Verse = await dbT2.Attendance.where('Record').startsWithIgnoreCase(startWith_date).toArray();
+
+     Verse_Count = Verse.length;
+
+     if (Verse) {
+
+        //var text = 'i!^_^,' + Verse_Count.toString() + ',';
+        //var text = 'i!^_^,' + Verse_Count.toString();
+
+        //var text = 'C4^_^,' + Verse_Count.toString();
+
+        var text = 'Ae^_^,' + Verse_Count.toString(); // Attendance
+
+        for (i = 0; i < Verse.length; i++) {
+
+           //let CNo = Verse[i].CNo;
+
+           let Record = Verse[i].Record;
+
+           text += ',' + Record;
+
+        } // End of for (i = 0; i < Verse.length; i++)
+
+        var mesg1 = 'Attendance ' + Verse_Count + ' exported';
+
+        document.getElementById("Imp_to_Congregation4").value = text;
+
+        document.getElementById("Mesg4").value = mesg1;
+
+     } // End of if (Verse)
+
+  }
+  else {
+
+     //myExp_Db_Display.innerHTML = 'ML 0 exported';
+
+     document.getElementById("Mesg4").value = 'Attendance 0 exported';
+
+  } // End of if(startWith_date!='')
+
+
+} // End of function Exp_from_Attendance()
+
 
 async function Exp_from_Congregation4() { // New for V8
 
@@ -5085,6 +5146,80 @@ async function Imp_to_Congregation4() {  // New for V8
    //var Imp_Word=document.Imp_to_books_Test2Db.value;
 
    var Imp_Word = document.getElementById("Imp_to_Congregation4").value;
+
+
+   if(Imp_Word!='' && Imp_Word.length>5 && Imp_Word.substr(0, 5)=='Ae^_^') { // For Attendance import
+                                                                             // Do pre-check
+      //Split String "str" into Array "res"
+      //var str = "i!^_^,2,18,18,2,20200302,65,4,9,20200304";  // <-- test Data
+      //var str = "i!^_^,3,18,18,2,20200302,65,4,9,20200304,18,18,4,20200304";  // <-- test Data
+      //var str = "i!^_^,4,18,18,2,20200302,65,4,9,20200304,18,18,4,20200304,65,4,10,20200305";  // <-- test Data
+      //var res = str.split(",");
+
+      var Imp_Word_Real_Str = Imp_Word.substr(6, Imp_Word.length);
+
+      var Imp_Tmp = Imp_Word_Real_Str.split(",");  // Imp_Tmp is an Array 
+
+      var imp_records_no = Imp_Tmp[0];
+
+      var update_no = 0;
+
+      var add_no = 0;
+
+      for (i = 0; i < imp_records_no; i++) {
+
+        var Record = Imp_Tmp[1*i+1];
+
+        let Verse = await dbT2.Attendance.get(Record);  // Check if data exist already
+
+        if (Verse) { // data exist already, so update
+
+           //dbT2.Congregation4.update(CNo, { F_Name: F_Name_tmp, L_Name: L_Name_tmp, Member: Member_tmp, Gender: Gender_tmp, H_No: H_No_tmp, C_F_Name: C_F_Name_tmp, C_L_Name: C_L_Name_tmp, F_Order: F_Order_tmp, Tel: Tel_tmp, Mob: Mob_tmp });
+
+           //dbT2.Attendance.update(CNo, { F_Name: F_Name, L_Name: L_Name, Member: Member, Gender: Gender, H_No: H_No, C_F_Name: C_F_Name, C_L_Name: C_L_Name, F_Order: F_Order, Tel: Tel, Mob: Mob });
+
+           //update_no = update_no + 1;
+
+           // Do Nothing
+
+        }
+        else {  // add 
+
+           try {
+
+             //dbT2.Congregation4.add({CNo, F_Name, L_Name, Member, Gender, H_No, C_F_Name, C_L_Name, F_Order, Tel, Mob });
+
+             //dbT2.Attendance.add({CNo, F_Name, L_Name, Member, Gender, H_No, C_F_Name, C_L_Name, F_Order, Tel, Mob });
+
+             dbT2.Attendance.add({Record });  // <--- *** // 20200905E_M_S_83
+
+             add_no = add_no + 1;
+
+             //imp_successed_no = imp_successed_no + 1;
+
+           } catch(err) {
+
+             if (err.name == 'ConstraintError') {
+               alert("Such book exists already");
+                //document.getElementById("Mesg2").value = F_Name + ' ' + L_Name + ' exists already.';
+                //document.getElementById("Mesg2").readOnly = true;
+             } else {
+               throw err;
+             }
+           }
+
+        }  // End of if (Verse)
+
+
+      }  // End of for (i = 0; i < imp_records_no; i++)
+
+
+      var imp_mesg = 'Attendance ' + update_no + ' updated, ' + add_no + ' added.';
+
+      document.getElementById("Mesg4").value = imp_mesg;
+
+
+   }  // End of if(Imp_Word!=''...// For Attendance import
 
 
    if(Imp_Word!='' && Imp_Word.length>5 && Imp_Word.substr(0, 5)=='C4^_^') { // For Congregation4 import
