@@ -2444,19 +2444,23 @@ function Reset_All(){
 </div>
 
 
-                <center><b><p id="listElem3"></p></b></center>
-
-
-  <button style="font-size:20px" onclick="Search_Person_from_F_Name()">Search Person from </button>
+  <button style="font-size:20px" onclick="Search_Person_from_F_Name()">Search from </button>
   <label style="font-size:28px" for="fname2">First Name: </label>
   <input style="font-size:22px" size="10" type="text" id="Search_fname2" name="Search_fname2">
 
 
-  <button style="font-size:20px" onclick="Open_Admin_Tools_Area()">Admin Tools</button>
-  <label style="font-size:28px" for="fname2">Password: </label>
-  <input style="font-size:22px" size="10" type="text" id="Password" name="Password">
-  <button style="font-size:20px" onclick="">Enter</button>
-  <button style="font-size:20px" onclick="Close_Admin_Tools_Area()">Close</button>
+  <button style="font-size:20px" onclick="Input_passWord_1()">Admin Tools</button>
+  <button style="font-size:20px" onclick="Close_Admin_Tools_Area()">Close Tools</button>
+
+
+<div id="tool_area_6" style="height:0px;display:none"> 
+
+  Password: <input type="password" style="font-size:16pt" id="pwd" name="pwd" onfocus="Mousetrap.pause()" onBlur="Mousetrap.unpause()">  
+
+  <input type="button" name="B121" style="font-size:16pt;color:black" value="Submit" onclick="passWord_1(); return false;">
+
+</div>
+
 
 
        

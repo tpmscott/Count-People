@@ -3890,6 +3890,8 @@ function Close_Admin_Tools_Area() {
    document.getElementById("Admin_Tools_Area").style.visibility='hidden'; // hidden , visible
    document.getElementById("Admin_Tools_Area").style.height = "0%";
 
+   document.getElementById("tool_area_6").style.display='none';
+
 } // End of Close_Admin_Tools_Area()
 
 
@@ -3959,6 +3961,53 @@ function hide_Read_Me() {
    document.getElementById("Read_Me").style.height = "0%";
 
 } // End of hide_Read_Me()
+
+
+var pass1="";
+
+function Input_passWord_1() { // Show Input password area
+
+   document.getElementById("tool_area_6").style.display='block';  //inline
+
+   //document.getElementById("tool_area_6").style.visibility='visible';
+   document.getElementById("tool_area_6").style.height='10px';
+
+   //document.getElementById("tool_area_7").style.visibility='visible';
+
+   //document.getElementById("tool_area_8").style.visibility='hidden';
+   //document.getElementById("tool_area_9").style.visibility='hidden';
+   //document.getElementById("tool_area_9").style.height='0px';
+
+   //document.getElementById("tool_area_10").style.visibility='hidden';
+
+}
+
+function passWord_1() { // Display and Input pass1
+
+   //document.getElementById("tool_area_6").style.visibility='hidden';
+   //document.getElementById("tool_area_6").style.height='0px';
+
+   pass1 = document.getElementById("pwd").value;
+
+   passWord_2();
+
+} // End of function passWord_1()
+
+function passWord_2() { // Check pass1
+
+      //if (pass1.toLowerCase() == "TJCBNE1818") {
+      if (pass1 == "TJCBNE1818") {
+
+         //document.getElementById("tool_area_8").style.visibility='visible';
+
+         //Show_n_Delete_Notes_List();
+
+         Open_Admin_Tools_Area();
+
+      } 
+
+
+} // End of function passWord_2()
 
 
 async function Generate_Schedule() { // Search from English Family Last Name
