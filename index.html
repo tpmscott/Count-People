@@ -2752,8 +2752,8 @@ function Reset_All(){
 <br>
 
 <label style="font-size:20px" for="Member2">Attendance </label>
+<button onclick="Exp_All_from_Attendance()">Exp All </button> 
 <button onclick="Exp_from_Attendance()">Exp = </button> 
-
 <INPUT TYPE=TEXT NAME="Exp_start_date" SIZE="12" id="Exp_start_date">
 
 
@@ -3499,6 +3499,9 @@ async function Add_or_Remove_Attendance(arg1,arg2,arg3,arg44) { // arg1: CNo, ar
 
       document.getElementById(arg4).style.color = "black";
 
+
+      //Show_Headcount();
+
    }
    else {   // mean No Data then Add Attendance         
 
@@ -3506,7 +3509,11 @@ async function Add_or_Remove_Attendance(arg1,arg2,arg3,arg44) { // arg1: CNo, ar
 
       document.getElementById(arg4).style.color = "blue";
 
+      //Show_Headcount();
+
    }
+
+   //Show_Headcount();
 
 
 }  // End of function Add_or_Remove_Attendance(arg1,arg2,arg3)
@@ -4734,6 +4741,8 @@ async function add_record_to_Attendance_V3(arg1) {
 
              dbT2.Attendance.add({Record });
 
+             Show_Headcount(); 
+
              //document.getElementById("listElem3").innerHTML = F_L_Name_tmp + ' : OK';
 
              //document.getElementById("listElem3").style.color = "blue";
@@ -4774,7 +4783,8 @@ async function add_record_to_Attendance_V3(arg1) {
 async function remove_record_from_Attendance_V2(arg1) {  // arg1:Record
 
    dbT2.Attendance.delete(arg1);
- 
+
+   Show_Headcount(); 
 
 } // End of function remove_record_from_Attendance_V2(arg1)
 
@@ -5015,6 +5025,63 @@ async function Delete_Congregation2_Cno() { // Delete all objects from the store
 
 
 }  // End of function Delete_Congregation2_Cno()
+
+
+
+async function Exp_All_from_Attendance() { // New for V12
+
+  var Verse_Count = 0;
+
+  //var startWith_date = document.getElementById("Exp_start_date").value;
+
+  //if(startWith_date!='') {
+
+     //let Verse = await dbT2.books.where('date').startsWithIgnoreCase(startWith_date).toArray();
+
+     //let Verse = await dbT2.Attendance.where('Record').startsWithIgnoreCase(startWith_date).toArray();
+
+     let Verse = await dbT2.Attendance.toArray();
+
+     Verse_Count = Verse.length;
+
+     if (Verse) {
+
+        //var text = 'i!^_^,' + Verse_Count.toString() + ',';
+        //var text = 'i!^_^,' + Verse_Count.toString();
+
+        //var text = 'C4^_^,' + Verse_Count.toString();
+
+        var text = 'Ae^_^,' + Verse_Count.toString(); // Attendance
+
+        for (i = 0; i < Verse.length; i++) {
+
+           //let CNo = Verse[i].CNo;
+
+           let Record = Verse[i].Record;
+
+           text += ',' + Record;
+
+        } // End of for (i = 0; i < Verse.length; i++)
+
+        var mesg1 = 'Attendance ' + Verse_Count + ' exported';
+
+        document.getElementById("Imp_to_Congregation4").value = text;
+
+        document.getElementById("Mesg4").value = mesg1;
+
+     } // End of if (Verse)
+
+  //}
+  //else {
+
+     //myExp_Db_Display.innerHTML = 'ML 0 exported';
+
+  //   document.getElementById("Mesg4").value = 'Attendance 0 exported';
+
+  //} // End of if(startWith_date!='')
+
+
+} // End of function Exp_All_from_Attendance()
 
 
 async function Exp_from_Attendance() { // New for V12
