@@ -3331,6 +3331,279 @@ async function Roll_Call_V2(Arg) {  // Arg: 'R' for Roll Call, 'P' for Phone Dir
 }  // End of function Roll_Call_V2()
 
 
+
+async function Roll_Call_Kindy() {  // Arg: 'R' for Roll Call, 'P' for Phone Dir.
+
+
+  //var kindy_member = new Array(93,102,95); // 93 Hazel Chen
+
+  var kindy_member = new Array(95,183,102,93); // 93 Hazel Chen
+                                           // 95  Chloe Huang
+                                           // 102 Anabella Liang
+                                           // 183 Madeleine Shaw 邵予晨
+
+ 
+  //      table.where(indexOrPrimKey).anyOf(array)
+  //      table.where(indexOrPrimKey).anyOf(key1, key2, keyN, ...)
+ 
+
+  //let Verse_3 = await dbT2.Roll.where('CNo').anyOf(kindy_member).toArray();
+
+
+  //let Verse_3 = await dbT2.Roll.toArray();
+
+
+     Prepare_for_Roll_Call();
+
+
+   document.getElementById("content2").style.visibility='visible'; // hide
+   document.getElementById("content2").style.height = "98%";
+
+   document.getElementById("content2_C").style.visibility='hidden'; // hide
+   document.getElementById("content2_C").style.height = "0%";
+
+
+   var Rnum = 3001;  // Rnum
+   var Rvers = 4001;  // EName
+   var CName = 5001;  // CName
+
+
+     for (var i = 0; i < kindy_member.length ; i++) {
+
+     //for (var i = 0; i < 3 ; i++) {
+
+        //var CNo_tmp = kindy_member[i]; // new Array(95,102,93)
+
+        var CNo_tmp = kindy_member[i]; // new Array(93,102,95)
+
+
+        var Verse_3 = await dbT2.Roll.where('CNo').equals(CNo_tmp).toArray();
+
+        if (Verse_3.length) {  // Fill data
+
+           var arg1 = Verse_3[0].CNo;
+
+           var arg2 = Verse_3[0].Member;
+
+           var arg3 = Verse_3[0].Gender;  
+
+           Result = await Check_Attendance(arg1,arg2,arg3);
+
+           if (Result == 'y') {
+
+              document.getElementById(Rvers).style.color = "blue";
+
+           }
+           else {
+
+              document.getElementById(Rvers).style.color = "black";
+
+           }  
+
+           var Name_Str = Verse_3[0].F_Name + ' ' + Verse_3[0].L_Name + ' ';   
+ 
+
+           if (Verse_3[0].Member == 'T') {
+
+              //Name_Str = '*' + Verse_3[i].L_Name + ',' + Verse_3[i].F_Name + ' ';
+
+              Name_Str = '*' + Verse_3[0].F_Name + ' ' + Verse_3[0].L_Name + ' ';
+
+           }
+
+
+           var Name_Str2 =  Verse_3[0].C_F_Name + Verse_3[0].C_L_Name;
+
+
+           var H_No_tmp = Verse_3[0].H_No;        // 1_2
+           var H_No_tmp2 = H_No_tmp.split("_");   
+           var H_No_tmp3 = H_No_tmp2[1];          // 2
+
+
+           if (H_No_tmp3 == '1') {
+
+              Name_Str = '<b><u>' + Name_Str + ' </u></b>';
+
+              Name_Str2 =  '<b><u>' + Name_Str2 + ' </u></b>';
+
+           }
+
+
+           var Check_Str = '<button onClick="Add_or_Remove_Attendance(\'' + arg1 + '\',\'' + arg2 + '\',\'' + arg3 + '\',\'' + Rvers + '\')"> V </button>';  // Using \' as an escape character
+
+
+           document.getElementById(Rnum++).innerHTML = Check_Str;
+
+           document.getElementById(Rvers++).innerHTML =  Name_Str;
+
+           document.getElementById(CName++).innerHTML =  Name_Str2;
+
+
+        } // End of if (Verse_3)
+
+
+     } // End of for (var i = 0; i < kindy_member.length ; i++)
+
+
+}  // End of function Roll_Call_Kindy()
+
+
+
+
+async function Roll_Call_Kindy_Old() {  // Arg: 'R' for Roll Call, 'P' for Phone Dir.
+
+
+  var kindy_member = new Array(95,102,93); // 93 Hazel Chen
+                                           // 95  Chloe Huang
+                                           // 102 Anabella Liang
+                                           // 183 Madeleine Shaw 邵予晨
+
+ 
+  //      table.where(indexOrPrimKey).anyOf(array)
+  //      table.where(indexOrPrimKey).anyOf(key1, key2, keyN, ...)
+ 
+
+  let Verse_3 = await dbT2.Roll.where('CNo').anyOf(kindy_member).toArray();
+
+
+  //let Verse_3 = await dbT2.Roll.toArray();
+
+
+  //let Verse = await dbT2.Attendance.reverse().toArray();
+
+  //var DateStr = ML_Date_V2();
+
+
+  //if (Read_for_Roll_Call == 'N') {
+
+     Prepare_for_Roll_Call();
+
+  //}
+
+   document.getElementById("content2").style.visibility='visible'; // hide
+   document.getElementById("content2").style.height = "98%";
+
+   document.getElementById("content2_C").style.visibility='hidden'; // hide
+   document.getElementById("content2_C").style.height = "0%";
+
+
+  if (Verse_3) {  // Fill data
+
+     var Rnum = 3001;  // Rnum
+     var Rvers = 4001;  // EName
+     var CName = 5001;  // CName
+
+     for (var i = 0; i < Verse_3.length ; i++) {
+
+        // arg1: CNo, arg2: Member, arg3:Gender
+
+        var arg1 = Verse_3[i].CNo;
+
+        var arg2 = Verse_3[i].Member;
+
+        var arg3 = Verse_3[i].Gender;
+
+        var Result = 'n';
+
+        //if (Arg == 'S') {
+
+        //   Result = await Check_Attendance2(arg1,arg2,arg3);
+
+        //}
+        //else {
+
+           Result = await Check_Attendance(arg1,arg2,arg3);
+
+        //}
+
+        //var Result = await Check_Attendance(arg1,arg2,arg3);
+
+        if (Result == 'y') {
+
+           document.getElementById(Rvers).style.color = "blue";
+
+        }
+        else {
+
+           document.getElementById(Rvers).style.color = "black";
+
+        }
+
+
+        //var Name_Str = Verse_3[i].L_Name + ',' + Verse_3[i].F_Name + ' ';
+
+        var Name_Str = Verse_3[i].F_Name + ' ' + Verse_3[i].L_Name + ' ';
+
+
+       
+
+        if (Verse_3[i].Member == 'T') {
+
+           //Name_Str = '*' + Verse_3[i].L_Name + ',' + Verse_3[i].F_Name + ' ';
+
+           Name_Str = '*' + Verse_3[i].F_Name + ' ' + Verse_3[i].L_Name + ' ';
+
+        }
+
+
+        var Name_Str2 =  Verse_3[i].C_F_Name + Verse_3[i].C_L_Name;
+
+
+        var H_No_tmp = Verse_3[i].H_No;        // 1_2
+        var H_No_tmp2 = H_No_tmp.split("_");   
+        var H_No_tmp3 = H_No_tmp2[1];          // 2
+
+        if (H_No_tmp3 == '1') {
+
+           Name_Str = '<b><u>' + Name_Str + ' </u></b>';
+
+           Name_Str2 =  '<b><u>' + Name_Str2 + ' </u></b>';
+
+        }
+
+
+        //var Name_Str2 =  Verse_3[i].C_F_Name + Verse_3[i].C_L_Name;
+
+
+        //if (Arg == 'R') {  // Arg: 'R' for Roll Call, 'P' for Phone Dir.
+
+           var Check_Str = '<button onClick="Add_or_Remove_Attendance(\'' + arg1 + '\',\'' + arg2 + '\',\'' + arg3 + '\',\'' + Rvers + '\')"> V </button>';  // Using \' as an escape character
+
+        //}
+
+        //if (Arg == 'P') {  // Arg: 'R' for Roll Call, 'P' for Phone Dir.
+
+        //   var Check_Str = '<button onClick="Show_People_Phone_V2(\'' + arg1 + '\')"> P </button>';  // Using \' as an escape character
+
+        //}
+
+        //if (Arg == 'S') {  // Arg: 'S' for show history attendance
+
+        //   var Check_Str = '';
+
+        //}
+
+
+
+        //var Check_Str = '<button onClick="Add_or_Remove_Attendance(\'' + arg1 + '\',\'' + arg2 + '\',\'' + arg3 + '\',\'' + Rvers + '\')"> V </button>';  // Using \' as an escape character
+
+        document.getElementById(Rnum++).innerHTML = Check_Str;
+
+        document.getElementById(Rvers++).innerHTML =  Name_Str;
+
+        document.getElementById(CName++).innerHTML =  Name_Str2;
+
+
+     } // End of for (var i = 0; i < Verse_3.length ; i++)
+
+
+
+  }
+
+
+}  // End of function Roll_Call_Kindy_Old()
+
+
 async function Show_People_Phone(arg1) {
 
   //let Verse = await dbT2.Congregation2.where('H_No').equals(H_No_tmp).toArray();
