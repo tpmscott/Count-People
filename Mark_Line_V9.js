@@ -4475,7 +4475,7 @@ function Input_passWord_1() { // Show Input password area
    document.getElementById("tool_area_6").style.display='block';  //inline
 
    //document.getElementById("tool_area_6").style.visibility='visible';
-   document.getElementById("tool_area_6").style.height='10px';
+   document.getElementById("tool_area_6").style.height='50%'; // 10px
 
    //document.getElementById("tool_area_7").style.visibility='visible';
 
