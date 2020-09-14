@@ -2479,6 +2479,8 @@ function Reset_All(){
 
       <qrcode-stream :camera="camera" @decode="onDecode" @init="onInit">
 
+        <button @click="switchCamera"> Switch Camera </button>
+
         <button @click="turnCameraOn"> Turn On QR Code Scan </button>
 
         <button @click="turnCameraOff"> Turn Off QR Code Scan </button>
@@ -5338,6 +5340,17 @@ async function Imp_to_Congregation4() {  // New for V8
           //}
              
           //this.decodedContent = content_tmp
+        },
+
+        switchCamera () {
+          switch (this.camera) {
+            case 'front':
+              this.camera = 'rear'
+              break
+            case 'rear':
+              this.camera = 'front'
+              break
+          }
         },
 
         turnCameraOn() {
