@@ -3191,6 +3191,71 @@ async function Roll_Call_V1(Arg) {  // Arg: 'R' for Roll Call, 'P' for Phone Dir
 
 
 
+async function Download_Attendance_StartWith() {
+
+  var DateStr = document.getElementById("Download_Attendance_StartWith").value;
+
+  if(DateStr!='') {
+
+     //let Verse = await dbT2.SermonNote.where('Name').startsWithIgnoreCase(startWith_date).toArray();
+
+     let Verse_3 = await dbT2.Roll.toArray();
+
+     if (Verse_3) { 
+
+        //var text = 'Sermon_Notes_Download = new Array("' + Verse_Count.toString() + '"';  
+
+        var text = 'Name,Attendance,\n';  // ',\n"'
+
+        for (var i = 0; i < Verse_3.length ; i++) {
+
+           // arg1: CNo, arg2: Member, arg3:Gender
+
+           var arg1 = Verse_3[i].CNo;
+
+           var arg2 = Verse_3[i].Member;
+
+           var arg3 = Verse_3[i].Gender;
+
+           var Result = 'n';
+
+           Result = await Check_Attendance3(arg1,arg2,arg3);
+
+           var Name_Str = Verse_3[i].F_Name + ' ' + Verse_3[i].L_Name;
+
+           if (Result == 'y') {
+
+              text += Name_Str + ',' + 'V' + ',\n';
+
+           }
+           else {
+
+              text += Name_Str + ',' + '' + ',\n';
+
+           }
+
+        } // End of for (var i = 0; i < Verse_3.length ; i++)
+
+        //console.log(csv);
+        console.log(text);
+        var hiddenElement = document.createElement('a');
+        hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(text);
+        hiddenElement.target = '_blank';
+        var Download_File_Name = DateStr + '_Attendance.csv';
+        hiddenElement.download = Download_File_Name; // 
+        hiddenElement.click();
+
+     } // End of if (Verse_3)
+
+
+  } // End of if(DateStr!='')
+
+
+
+} // End of function Download_Attendance_StartWith()
+
+
+
 async function Roll_Call_V2(Arg) {  // Arg: 'R' for Roll Call, 'P' for Phone Dir.
 
 

@@ -2793,6 +2793,13 @@ function Reset_All(){
 <button onclick="Exp_and_Email_Attendance()">Send Attendance Record</button> 
 <p id="Send_Attendance"> </p>
 
+<br>
+
+  <button style="font-size:20px" onclick="Download_Attendance_StartWith()">Download Attendance = </button>
+  <input style="font-size:22px" size="10" type="text" id="Download_Attendance_StartWith" name="Download_Attendance_StartWith">
+  <label style="font-size:24px" for="fname2">Ex: 20200905M, 20200905A - Morning/Afternoon/Evening</label>
+  <br>
+
 
 
 <p>Congregation list:</p>
@@ -3620,6 +3627,42 @@ async function Check_Attendance2(arg1,arg2,arg3) { // arg1: CNo, arg2: Member, a
    }
 
 }  // End of function Check_Attendance2(arg1,arg2,arg3)
+
+
+
+async function Check_Attendance3(arg1,arg2,arg3) { // arg1: CNo, arg2: Member, arg3:Gender
+
+   var CNo = arg1;
+
+   //var DateStr = ML_Date_V2();
+
+   //var DateStr = document.getElementById("Show_Headcount_2").value;
+
+   var DateStr = document.getElementById("Download_Attendance_StartWith").value;
+
+   var Member_Str = arg2;
+   var Gender_Str = arg3;
+
+   let Record = DateStr + '_' + Member_Str + '_' + Gender_Str + '_' + CNo;
+
+   let Verse_Attendance = await dbT2.Attendance.get(Record);
+
+   if (Verse_Attendance) {
+
+      var Result = 'y'; // mean has Data
+
+      return Result;
+
+   }
+   else {
+
+      var Result = 'n'; // mean No Data
+
+      return Result;
+
+   }
+
+}  // End of function Check_Attendance3(arg1,arg2,arg3)
 
 
 
