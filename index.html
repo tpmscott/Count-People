@@ -288,32 +288,6 @@ function clickCounter() {
 </head>
 <body onload="Init_Total_Mode();init_Bible4U_DB(); return false;" text="#000000" link="#0000ff" alink="#ffffff" vlink="#0000ff" background="back5.jpg">
 
-  <center>
-  <label style="font-size:28px" for="fname2">Church Service Schedule - </label>
-  <button style="font-size:20px" onclick="Show_Church_Service_Schedule()">Show</button>
-  <label style="font-size:28px" for="fname2"> - </label>
-  <button style="font-size:20px" onclick="hide_Church_Service_Schedule()">Hide</button>
-
-  <label style="font-size:28px" for="fname2">&nbsp&nbsp&nbsp&nbsp</label>
-  <label style="font-size:28px" for="fname2">IYC Schedule - </label>
-  <button style="font-size:20px" onclick="Show_IYC_Schedule()">Show</button>
-  <label style="font-size:28px" for="fname2"> - </label>
-  <button style="font-size:20px" onclick="hide_IYC_Schedule()">Hide</button>
-
-  <label style="font-size:28px" for="fname2">&nbsp&nbsp&nbsp&nbsp</label>
-  <label style="font-size:28px" for="fname2">Read Me - </label>
-  <button style="font-size:20px" onclick="Show_Read_Me()">Show</button>
-  <label style="font-size:28px" for="fname2"> - </label>
-  <button style="font-size:20px" onclick="hide_Read_Me()">Hide</button>
-  </center>
-
-
-<div id="Read_Me" style="width:100%;height:0%;overflow:auto;" class="center">
-
-  <p id="Read_Me_Content"> </p>
-
-</div>
-
 
 <div id="Church_Service_Schedule" style="width:100%;height:0%;overflow:auto;" class="center">
 
@@ -444,10 +418,6 @@ function clickCounter() {
 <button onclick="Show_Headcount()">Show Headcount</button>
 </td>
 
-<td>
-<button onclick="Show_Headcount_2()">Show Headcount = </button>
-<input size="10" type="text" id="Show_Headcount_2" name="Show_Headcount_2">
-</td>
 
 <td>
 <input class="topfont2" type="button" id="etest" value="e" onclick="return false;">
@@ -2471,44 +2441,63 @@ function Reset_All(){
 
 
 
-    <div id="app">
-
-      <p class="error">
-        {{ errorMessage }}
-      </p>
-
-      <qrcode-stream :camera="camera" @decode="onDecode" @init="onInit">
-
-        <button @click="switchCamera"> Switch Camera </button>
-
-        <button @click="turnCameraOn"> Turn On QR Code Scan </button>
-
-        <button @click="turnCameraOff"> Turn Off QR Code Scan </button>
-
-      </qrcode-stream>
-
-    </div>
-
-                <center><b><p id="listElem3"></p></b></center>
 
 
-  <button style="font-size:20px" onclick="Search_Person_from_F_Name()">Search Person from </button>
+
+  <button style="font-size:20px" onclick="Search_Person_from_F_Name()">Search from </button>
   <label style="font-size:28px" for="fname2">First Name: </label>
   <input style="font-size:22px" size="10" type="text" id="Search_fname2" name="Search_fname2">
 
-  <label style="font-size:28px" for="Attendant_No">Attendant No: </label>
-  <input style="font-size:22px" size="1" type="text" id="Attendant_No" name="Attendant_No">
-  <button style="font-size:20px" onclick="add_record_to_Attendance()">Add Attendance</button>
-  <button style="font-size:20px" onclick="window.print()">Print Test</button>
+  <a href="javascript:Roll_Call_Kindy()"> Kindy</a>
+  <a href="javascript:Roll_Call_LPC()"> LPC</a>
+  <a href="javascript:Roll_Call_UPC()"> UPC</a>
+
+
+  <button style="font-size:20px" onclick="Input_passWord_1()">Admin Tools</button>
+
+
+<div id="tool_area_6" style="height:0%;display:none"> 
+
+  <table style="font-size:22px">
+  <tr>
+  <td>
+  <button style="font-size:16pt" onclick="Exp_and_Email_Attendance()">Send Attendance = </button> 
+  <INPUT TYPE=TEXT style="font-size:16pt" NAME="Exp_n_Email_start_date" SIZE="12" id="Exp_n_Email_start_date"> (Ex:20200912M, M/A/E)
+  </td>
+
+  <td>
+  <p id="Send_Attendance2"> </p>  
+  <p id="Send_Attendance_Message"> </p> 
+  </td>
+  </tr>
+
+  <tr>
+  <td>
+  Password: <input type="password" style="font-size:16pt" id="pwd" name="pwd" onfocus="Mousetrap.pause()" onBlur="Mousetrap.unpause()">  
+
+  <input type="button" name="B121" style="font-size:16pt;color:black" value="Submit" onclick="passWord_1(); return false;">
+
+  <button style="font-size:20px" onclick="Close_Admin_Tools_Area()">Close Tools</button>
+  </td>
+  </tr>
+
+  </table>
+
+</div>
+
+
 
        
 <br>     
        
                 
   <button style="font-size:20px" onclick="Roll_Call_V1('R')">Roll Call V1</button>
+  <a href="javascript:Roll_Call_Search_V1('A','R')"> A </a>
   <a href="javascript:Roll_Call_Search_V1('B','R')"> B </a>
   <a href="javascript:Roll_Call_Search_V1('C','R')"> C </a>
+  <a href="javascript:Roll_Call_Search_V1('D','R')"> D </a>
   <a href="javascript:Roll_Call_Search_V1('H','R')"> H </a>
+  <a href="javascript:Roll_Call_Search_V1('I','R')"> I </a>
   <a href="javascript:Roll_Call_Search_V1('J','R')"> J </a>
   <a href="javascript:Roll_Call_Search_V1('K','R')"> K </a>
   <a href="javascript:Roll_Call_Search_V1('L','R')"> L </a>
@@ -2518,7 +2507,9 @@ function Reset_All(){
   <a href="javascript:Roll_Call_Search_V1('S','R')"> S </a>
   <a href="javascript:Roll_Call_Search_V1('T','R')"> T </a>
   <a href="javascript:Roll_Call_Search_V1('W','R')"> W </a>
+  <a href="javascript:Roll_Call_Search_V1('X','R')"> X </a>
   <a href="javascript:Roll_Call_Search_V1('Y','R')"> Y </a>
+  <a href="javascript:Roll_Call_Search_V1('Z','R')"> Z </a>
 
   <a href="javascript:Roll_Call_Search_V3('ªò','R')"> ªò </a>
   <a href="javascript:Roll_Call_Search_V3('²±','R')"> ²± </a>
@@ -2526,13 +2517,14 @@ function Reset_All(){
   <a href="javascript:Roll_Call_Search_V3('Á§','R')"> Á§ </a>
   <a href="javascript:Roll_Call_Search_V3('®]','R')"> ®] </a>
   <a href="javascript:Roll_Call_Search_V3('ÃÓ','R')"> ÃÓ </a>
-  <a href="javascript:Roll_Call_Search_V3('¤ý','R')"> ¤ý </a>
-  <a href="javascript:Roll_Call_Search_V3('·¨','R')"> ·¨ </a>
-  <a href="javascript:Roll_Call_Search_V3('§E','R')"> §E </a>
+  <a href="javascript:Roll_Call_Search_V3('«\','R')"> «\ </a>
 
   <br>
                  
   <button style="font-size:20px" onclick="Roll_Call_V2('R')">Roll Call V2</button>
+  <a href="javascript:Roll_Call_Search_V3('¤ý','R')"> ¤ý </a>
+  <a href="javascript:Roll_Call_Search_V3('·¨','R')"> ·¨ </a>
+  <a href="javascript:Roll_Call_Search_V3('§E','R')"> §E </a>
   <a href="javascript:Roll_Call_Search_V3('³¯','R')"> ³¯ </a>
   <a href="javascript:Roll_Call_Search_V3('±i','R')"> ±i </a>
   <a href="javascript:Roll_Call_Search_V3('¾G','R')"> ¾G </a>
@@ -2564,6 +2556,15 @@ function Reset_All(){
   <p id="Roll_Call_Content_C"> </p>
 
 </div>
+
+<div id="Admin_Tools_Area" style="width:100%;height:0%;overflow:auto;" class="center">
+
+  <button style="font-size:20px" onclick="Show_Headcount_2()">Show Headcount = </button>
+  <input style="font-size:22px" size="10" type="text" id="Show_Headcount_2" name="Show_Headcount_2">
+  <label style="font-size:24px" for="fname2">Ex: 20200905M, 20200905A - Morning/Afternoon/Evening</label>
+  <br>
+
+
 
   <label id="Phone_Dir_Content"> </label> <br>
 
@@ -2769,15 +2770,28 @@ function Reset_All(){
 
 <br>
 
-<label style="font-size:20px" for="Member2">Congregation4 </label>
-<button onclick="Exp_from_Congregation4()">Exp All</button> 
-
 <button onclick="Imp_to_Congregation4()">Imp Db</button>
 
 <INPUT TYPE=TEXT NAME="Imp_to_Congregation4" SIZE="12" id="Imp_to_Congregation4">
 
   <label style="font-size:20px" for="Mesg4"> Message </label>
   <input style="font-size:16px" size="40" type="text" id="Mesg4" name="Mesg4" >
+
+<br>
+
+<label style="font-size:20px" for="Member2">Congregation4 </label>
+<button onclick="Exp_from_Congregation4()">Exp All</button> 
+<button onclick="Exp2_from_Congregation4()">Exp All without Tel & Mob</button> 
+
+<br>
+
+<label style="font-size:20px" for="Member2">Attendance </label>
+<button onclick="Exp_All_from_Attendance()">Exp All </button> 
+<button onclick="Exp_from_Attendance()">Exp = </button> 
+<INPUT TYPE=TEXT NAME="Exp_start_date" SIZE="12" id="Exp_start_date">
+
+<button onclick="Exp_and_Email_Attendance()">Send Attendance Record</button> 
+<p id="Send_Attendance"> </p>
 
 
 
@@ -2788,6 +2802,8 @@ function Reset_All(){
 <p>Attendance list:</p>
 
 <ul id="listElem2"></ul>
+
+</div>
 
 
 <script>
@@ -3521,6 +3537,9 @@ async function Add_or_Remove_Attendance(arg1,arg2,arg3,arg44) { // arg1: CNo, ar
 
       document.getElementById(arg4).style.color = "black";
 
+
+      //Show_Headcount();
+
    }
    else {   // mean No Data then Add Attendance         
 
@@ -3528,7 +3547,11 @@ async function Add_or_Remove_Attendance(arg1,arg2,arg3,arg44) { // arg1: CNo, ar
 
       document.getElementById(arg4).style.color = "blue";
 
+      //Show_Headcount();
+
    }
+
+   //Show_Headcount();
 
 
 }  // End of function Add_or_Remove_Attendance(arg1,arg2,arg3)
@@ -3563,6 +3586,40 @@ async function Check_Attendance(arg1,arg2,arg3) { // arg1: CNo, arg2: Member, ar
    }
 
 }  // End of function Check_Attendance(arg1,arg2,arg3)
+
+
+
+async function Check_Attendance2(arg1,arg2,arg3) { // arg1: CNo, arg2: Member, arg3:Gender
+
+   var CNo = arg1;
+
+   //var DateStr = ML_Date_V2();
+
+   var DateStr = document.getElementById("Show_Headcount_2").value;
+
+   var Member_Str = arg2;
+   var Gender_Str = arg3;
+
+   let Record = DateStr + '_' + Member_Str + '_' + Gender_Str + '_' + CNo;
+
+   let Verse_Attendance = await dbT2.Attendance.get(Record);
+
+   if (Verse_Attendance) {
+
+      var Result = 'y'; // mean has Data
+
+      return Result;
+
+   }
+   else {
+
+      var Result = 'n'; // mean No Data
+
+      return Result;
+
+   }
+
+}  // End of function Check_Attendance2(arg1,arg2,arg3)
 
 
 
@@ -4722,6 +4779,8 @@ async function add_record_to_Attendance_V3(arg1) {
 
              dbT2.Attendance.add({Record });
 
+             Show_Headcount(); 
+
              //document.getElementById("listElem3").innerHTML = F_L_Name_tmp + ' : OK';
 
              //document.getElementById("listElem3").style.color = "blue";
@@ -4762,7 +4821,8 @@ async function add_record_to_Attendance_V3(arg1) {
 async function remove_record_from_Attendance_V2(arg1) {  // arg1:Record
 
    dbT2.Attendance.delete(arg1);
- 
+
+   Show_Headcount(); 
 
 } // End of function remove_record_from_Attendance_V2(arg1)
 
@@ -4853,6 +4913,8 @@ async function Show_Headcount_2() {
 
 
   Show_Total_Mode();
+
+  Roll_Call_V2('S'); // <-- for show history attendance
 
 
 }  // End of function Show_Headcount_2()
@@ -5004,6 +5066,215 @@ async function Delete_Congregation2_Cno() { // Delete all objects from the store
 
 
 
+async function Exp_All_from_Attendance() { // New for V12
+
+  var Verse_Count = 0;
+
+  //var startWith_date = document.getElementById("Exp_start_date").value;
+
+  //if(startWith_date!='') {
+
+     //let Verse = await dbT2.books.where('date').startsWithIgnoreCase(startWith_date).toArray();
+
+     //let Verse = await dbT2.Attendance.where('Record').startsWithIgnoreCase(startWith_date).toArray();
+
+     let Verse = await dbT2.Attendance.toArray();
+
+     Verse_Count = Verse.length;
+
+     if (Verse) {
+
+        //var text = 'i!^_^,' + Verse_Count.toString() + ',';
+        //var text = 'i!^_^,' + Verse_Count.toString();
+
+        //var text = 'C4^_^,' + Verse_Count.toString();
+
+        var text = 'Ae^_^,' + Verse_Count.toString(); // Attendance
+
+        for (i = 0; i < Verse.length; i++) {
+
+           //let CNo = Verse[i].CNo;
+
+           let Record = Verse[i].Record;
+
+           text += ',' + Record;
+
+        } // End of for (i = 0; i < Verse.length; i++)
+
+        var mesg1 = 'Attendance ' + Verse_Count + ' exported';
+
+        document.getElementById("Imp_to_Congregation4").value = text;
+
+        document.getElementById("Mesg4").value = mesg1;
+
+     } // End of if (Verse)
+
+  //}
+  //else {
+
+     //myExp_Db_Display.innerHTML = 'ML 0 exported';
+
+  //   document.getElementById("Mesg4").value = 'Attendance 0 exported';
+
+  //} // End of if(startWith_date!='')
+
+
+} // End of function Exp_All_from_Attendance()
+
+
+async function Exp_from_Attendance() { // New for V12
+
+  var Verse_Count = 0;
+
+  var startWith_date = document.getElementById("Exp_start_date").value;
+
+  if(startWith_date!='') {
+
+     //let Verse = await dbT2.books.where('date').startsWithIgnoreCase(startWith_date).toArray();
+
+     let Verse = await dbT2.Attendance.where('Record').startsWithIgnoreCase(startWith_date).toArray();
+
+     Verse_Count = Verse.length;
+
+     if (Verse) {
+
+        //var text = 'i!^_^,' + Verse_Count.toString() + ',';
+        //var text = 'i!^_^,' + Verse_Count.toString();
+
+        //var text = 'C4^_^,' + Verse_Count.toString();
+
+        var text = 'Ae^_^,' + Verse_Count.toString(); // Attendance
+
+        for (i = 0; i < Verse.length; i++) {
+
+           //let CNo = Verse[i].CNo;
+
+           let Record = Verse[i].Record;
+
+           text += ',' + Record;
+
+        } // End of for (i = 0; i < Verse.length; i++)
+
+        var mesg1 = 'Attendance ' + Verse_Count + ' exported';
+
+        document.getElementById("Imp_to_Congregation4").value = text;
+
+        document.getElementById("Mesg4").value = mesg1;
+
+     } // End of if (Verse)
+
+  }
+  else {
+
+     //myExp_Db_Display.innerHTML = 'ML 0 exported';
+
+     document.getElementById("Mesg4").value = 'Attendance 0 exported';
+
+  } // End of if(startWith_date!='')
+
+
+} // End of function Exp_from_Attendance()
+
+
+async function Exp_and_Email_Attendance() { // New for V12
+
+  var Verse_Count = 0;
+
+  var startWith_date = document.getElementById("Exp_n_Email_start_date").value; // Exp_start_date
+
+  if(startWith_date!='') {
+
+     //let Verse = await dbT2.books.where('date').startsWithIgnoreCase(startWith_date).toArray();
+
+     let Verse = await dbT2.Attendance.where('Record').startsWithIgnoreCase(startWith_date).toArray();
+
+     Verse_Count = Verse.length;
+
+     if (Verse) {
+
+        //var text = 'i!^_^,' + Verse_Count.toString() + ',';
+        //var text = 'i!^_^,' + Verse_Count.toString();
+
+        //var text = 'C4^_^,' + Verse_Count.toString();
+
+        //var text = 'Ae^_^,' + Verse_Count.toString(); // Attendance
+
+        var text = 'AE^_^|' + Verse_Count.toString(); // Attendance , use '|' as seperator
+                                                      // AE^_^ for Attendance exp and Email
+
+
+        for (i = 0; i < Verse.length; i++) {
+
+           //let CNo = Verse[i].CNo;
+
+           let Record = Verse[i].Record;
+
+           //text += ',' + Record;
+
+           text += '|' + Record; // use '|' as seperator
+
+        } // End of for (i = 0; i < Verse.length; i++)
+
+        var mesg1 = 'Attendance ' + Verse_Count + ' exported';
+
+        //document.getElementById("Imp_to_Congregation4").value = text;
+
+        //document.getElementById("Mesg4").value = mesg1;
+
+        document.getElementById("Send_Attendance_Message").innerHTML = mesg1;
+
+        // -- Email
+
+        var name = "chang424000"; // sc424000
+        var address = "gmail.com"; // yahoo.com.tw
+        var link = "Send email";
+        var subject = startWith_date + "%20Attendance%20Record";
+
+        var body = text + '%0D';   // carriage return	%0D
+        //var body = 'test';  // for test
+
+        var email_text = '<a href=mailto:' + name + '@' + address + '?subject=' + subject + '&body=' + body + '>' + link + '</a>';
+
+        //if( body == 'AE^_^|0%0D') {  // Attendance 0 exported
+
+        if (mesg1 == 'Attendance 0 exported') {
+
+           document.getElementById("Send_Attendance2").innerHTML = '';
+
+        }
+        else {
+
+           document.getElementById("Send_Attendance2").innerHTML = email_text;
+
+        }
+
+
+        //document.getElementById("Send_Attendance").value = email_text;
+
+        // End of -- Email        
+
+     } // End of if (Verse)
+
+  }
+  else {
+
+     //myExp_Db_Display.innerHTML = 'ML 0 exported';
+
+     //document.getElementById("Mesg4").value = 'Attendance 0 exported';
+
+     document.getElementById("Send_Attendance2").innerHTML = "";
+
+     document.getElementById("Send_Attendance_Message").innerHTML = 'Attendance 0 exported';
+
+  } // End of if(startWith_date!='')
+
+
+} // End of function Exp_and_Email_Attendance()
+
+
+
+
+
 async function Exp_from_Congregation4() { // New for V8
 
   //let Verse = await dbT2.books.orderBy('date').reverse().limit(10).toArray(); // for test
@@ -5073,12 +5344,229 @@ async function Exp_from_Congregation4() { // New for V8
 } // End of function Exp_from_Congregation4()
 
 
+async function Exp2_from_Congregation4() { // New for V8 , do not exp Tel & Mob
+
+  //let Verse = await dbT2.books.orderBy('date').reverse().limit(10).toArray(); // for test
+  //let Verse_Count = 10;  // for test
+
+  let Verse = await dbT2.Congregation4.toArray();
+
+  var Verse_Count = Verse.length;
+
+  if (Verse) {
+
+     //var text = 'C4^_^,' + Verse_Count.toString() + ',';
+     var text = 'C4^_^,' + Verse_Count.toString();
+
+     for (i = 0; i < Verse.length; i++) {
+
+        let CNo = Verse[i].CNo;
+        let F_Name = Verse[i].F_Name;
+        let L_Name = Verse[i].L_Name;
+        let Member = Verse[i].Member;
+        let Gender = Verse[i].Gender;
+
+        let H_No = Verse[i].H_No;      // Format : HouseholderNo_BirthOrder Ex: 1_1, 1_2
+
+        let C_F_Name = Verse[i].C_F_Name; // ©m
+        let C_L_Name = Verse[i].C_L_Name; // ¦W¦r
+        let F_Order = Verse[i].F_Order; // 1 for Householder
+
+        //let Tel = Verse[i].Tel;  // 
+
+        //if (!Verse[i].Tel || Verse[i].Tel==' ') 
+           var Tel = 'no value';
+        //else
+        //   var Tel = Verse[i].Tel;
+
+        //let Mob = Verse[i].Mob;
+
+        //if (!Verse[i].Mob || Verse[i].Mob==' ') 
+           var Mob = 'no value';
+        //else
+        //   var Mob = Verse[i].Mob;
+
+
+        text += ',' + CNo + ',' + F_Name + ',' + L_Name + ',' + Member + ',' + Gender + ',' + H_No + ',' + C_F_Name + ',' + C_L_Name + ',' + F_Order + ',' + Tel + ',' + Mob;
+
+     } // End of for (i = 0; i < Verse.length; i++)
+
+     var mesg1 = 'Congregation4 ' + Verse_Count + ' exported';
+
+     //Exp_to_books_Test2Db.value = mesg1;
+
+     //myExp_Db_Display.innerHTML = text;
+     //Exp_to_books_Test2Db.value = text;  // Imp_to_books_Test2Db
+     //Imp_to_books_Test2Db.value = text;  // Imp_to_books_Test2Db
+
+     document.getElementById("Imp_to_Congregation4").value = text;
+
+     document.getElementById("Mesg4").value = mesg1;
+
+     //copyFunction5(mesg1);
+
+     //myExp_Db_Display.innerHTML = "";
+
+
+  } // End of if (Verse)
+
+} // End of function Exp2_from_Congregation4()
+
+
 
 async function Imp_to_Congregation4() {  // New for V8
 
    //var Imp_Word=document.Imp_to_books_Test2Db.value;
 
    var Imp_Word = document.getElementById("Imp_to_Congregation4").value;
+
+
+   if(Imp_Word!='' && Imp_Word.length>5 && Imp_Word.substr(0, 5)=='AE^_^') { // For Attendance by Email import
+                                                                             // Do pre-check
+      //Split String "str" into Array "res"
+      //var str = "i!^_^,2,18,18,2,20200302,65,4,9,20200304";  // <-- test Data
+      //var str = "i!^_^,3,18,18,2,20200302,65,4,9,20200304,18,18,4,20200304";  // <-- test Data
+      //var str = "i!^_^,4,18,18,2,20200302,65,4,9,20200304,18,18,4,20200304,65,4,10,20200305";  // <-- test Data
+      //var res = str.split(",");
+
+      var Imp_Word_Real_Str = Imp_Word.substr(6, Imp_Word.length);
+
+      var Imp_Tmp = Imp_Word_Real_Str.split("|");  // Imp_Tmp is an Array 
+
+      var imp_records_no = Imp_Tmp[0];
+
+      var update_no = 0;
+
+      var add_no = 0;
+
+      for (i = 0; i < imp_records_no; i++) {
+
+        var Record = Imp_Tmp[1*i+1];
+
+        let Verse = await dbT2.Attendance.get(Record);  // Check if data exist already
+
+        if (Verse) { // data exist already, so update
+
+           //dbT2.Congregation4.update(CNo, { F_Name: F_Name_tmp, L_Name: L_Name_tmp, Member: Member_tmp, Gender: Gender_tmp, H_No: H_No_tmp, C_F_Name: C_F_Name_tmp, C_L_Name: C_L_Name_tmp, F_Order: F_Order_tmp, Tel: Tel_tmp, Mob: Mob_tmp });
+
+           //dbT2.Attendance.update(CNo, { F_Name: F_Name, L_Name: L_Name, Member: Member, Gender: Gender, H_No: H_No, C_F_Name: C_F_Name, C_L_Name: C_L_Name, F_Order: F_Order, Tel: Tel, Mob: Mob });
+
+           //update_no = update_no + 1;
+
+           // Do Nothing
+
+        }
+        else {  // add 
+
+           try {
+
+             //dbT2.Congregation4.add({CNo, F_Name, L_Name, Member, Gender, H_No, C_F_Name, C_L_Name, F_Order, Tel, Mob });
+
+             //dbT2.Attendance.add({CNo, F_Name, L_Name, Member, Gender, H_No, C_F_Name, C_L_Name, F_Order, Tel, Mob });
+
+             dbT2.Attendance.add({Record });  // <--- *** // 20200905E_M_S_83
+
+             add_no = add_no + 1;
+
+             //imp_successed_no = imp_successed_no + 1;
+
+           } catch(err) {
+
+             if (err.name == 'ConstraintError') {
+               alert("Such book exists already");
+                //document.getElementById("Mesg2").value = F_Name + ' ' + L_Name + ' exists already.';
+                //document.getElementById("Mesg2").readOnly = true;
+             } else {
+               throw err;
+             }
+           }
+
+        }  // End of if (Verse)
+
+
+      }  // End of for (i = 0; i < imp_records_no; i++)
+
+
+      var imp_mesg = 'Attendance ' + update_no + ' updated, ' + add_no + ' added.';
+
+      document.getElementById("Mesg4").value = imp_mesg;
+
+
+   }  // End of if(Imp_Word!=''...// For Attendance by Email import
+
+
+   if(Imp_Word!='' && Imp_Word.length>5 && Imp_Word.substr(0, 5)=='Ae^_^') { // For Attendance import
+                                                                             // Do pre-check
+      //Split String "str" into Array "res"
+      //var str = "i!^_^,2,18,18,2,20200302,65,4,9,20200304";  // <-- test Data
+      //var str = "i!^_^,3,18,18,2,20200302,65,4,9,20200304,18,18,4,20200304";  // <-- test Data
+      //var str = "i!^_^,4,18,18,2,20200302,65,4,9,20200304,18,18,4,20200304,65,4,10,20200305";  // <-- test Data
+      //var res = str.split(",");
+
+      var Imp_Word_Real_Str = Imp_Word.substr(6, Imp_Word.length);
+
+      var Imp_Tmp = Imp_Word_Real_Str.split(",");  // Imp_Tmp is an Array 
+
+      var imp_records_no = Imp_Tmp[0];
+
+      var update_no = 0;
+
+      var add_no = 0;
+
+      for (i = 0; i < imp_records_no; i++) {
+
+        var Record = Imp_Tmp[1*i+1];
+
+        let Verse = await dbT2.Attendance.get(Record);  // Check if data exist already
+
+        if (Verse) { // data exist already, so update
+
+           //dbT2.Congregation4.update(CNo, { F_Name: F_Name_tmp, L_Name: L_Name_tmp, Member: Member_tmp, Gender: Gender_tmp, H_No: H_No_tmp, C_F_Name: C_F_Name_tmp, C_L_Name: C_L_Name_tmp, F_Order: F_Order_tmp, Tel: Tel_tmp, Mob: Mob_tmp });
+
+           //dbT2.Attendance.update(CNo, { F_Name: F_Name, L_Name: L_Name, Member: Member, Gender: Gender, H_No: H_No, C_F_Name: C_F_Name, C_L_Name: C_L_Name, F_Order: F_Order, Tel: Tel, Mob: Mob });
+
+           //update_no = update_no + 1;
+
+           // Do Nothing
+
+        }
+        else {  // add 
+
+           try {
+
+             //dbT2.Congregation4.add({CNo, F_Name, L_Name, Member, Gender, H_No, C_F_Name, C_L_Name, F_Order, Tel, Mob });
+
+             //dbT2.Attendance.add({CNo, F_Name, L_Name, Member, Gender, H_No, C_F_Name, C_L_Name, F_Order, Tel, Mob });
+
+             dbT2.Attendance.add({Record });  // <--- *** // 20200905E_M_S_83
+
+             add_no = add_no + 1;
+
+             //imp_successed_no = imp_successed_no + 1;
+
+           } catch(err) {
+
+             if (err.name == 'ConstraintError') {
+               alert("Such book exists already");
+                //document.getElementById("Mesg2").value = F_Name + ' ' + L_Name + ' exists already.';
+                //document.getElementById("Mesg2").readOnly = true;
+             } else {
+               throw err;
+             }
+           }
+
+        }  // End of if (Verse)
+
+
+      }  // End of for (i = 0; i < imp_records_no; i++)
+
+
+      var imp_mesg = 'Attendance ' + update_no + ' updated, ' + add_no + ' added.';
+
+      document.getElementById("Mesg4").value = imp_mesg;
+
+
+   }  // End of if(Imp_Word!=''...// For Attendance import
 
 
    if(Imp_Word!='' && Imp_Word.length>5 && Imp_Word.substr(0, 5)=='C4^_^') { // For Congregation4 import
@@ -5306,7 +5794,7 @@ async function Imp_to_Congregation4() {  // New for V8
       data() {
         return {
           decodedContent: '',
-          camera: 'front',
+          camera: 'off',
           errorMessage: ''
         }
       },
@@ -5342,19 +5830,8 @@ async function Imp_to_Congregation4() {  // New for V8
           //this.decodedContent = content_tmp
         },
 
-        switchCamera () {
-          switch (this.camera) {
-            case 'front':
-              this.camera = 'rear'
-              break
-            case 'rear':
-              this.camera = 'front'
-              break
-          }
-        },
-
         turnCameraOn() {
-          this.camera = 'front'
+          this.camera = 'auto'
         },
 
         turnCameraOff() {

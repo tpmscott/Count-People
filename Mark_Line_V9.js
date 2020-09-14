@@ -3332,12 +3332,241 @@ async function Roll_Call_V2(Arg) {  // Arg: 'R' for Roll Call, 'P' for Phone Dir
 
 
 
+async function Roll_Call_UPC() {  // Arg: 'R' for Roll Call, 'P' for Phone Dir.
+
+
+  //var kindy_member = new Array(93,102,95); // 93 Hazel Chen
+
+  var UPC_member = new Array(146,106,251,72,168,24,125,16,52,137,98,42,15,109,244,38,76,11,49,51,97,139); 
+
+ 
+  //      table.where(indexOrPrimKey).anyOf(array)
+  //      table.where(indexOrPrimKey).anyOf(key1, key2, keyN, ...)
+ 
+
+  //let Verse_3 = await dbT2.Roll.where('CNo').anyOf(kindy_member).toArray();
+
+
+  //let Verse_3 = await dbT2.Roll.toArray();
+
+
+     Prepare_for_Roll_Call();
+
+
+   document.getElementById("content2").style.visibility='visible'; // hide
+   document.getElementById("content2").style.height = "98%";
+
+   document.getElementById("content2_C").style.visibility='hidden'; // hide
+   document.getElementById("content2_C").style.height = "0%";
+
+
+   var Rnum = 3001;  // Rnum
+   var Rvers = 4001;  // EName
+   var CName = 5001;  // CName
+
+
+     for (var i = 0; i < UPC_member.length ; i++) {
+
+     //for (var i = 0; i < 3 ; i++) {
+
+        //var CNo_tmp = kindy_member[i]; // new Array(95,102,93)
+
+        var CNo_tmp = UPC_member[i]; // new Array(93,102,95)
+
+
+        var Verse_3 = await dbT2.Roll.where('CNo').equals(CNo_tmp).toArray();
+
+        if (Verse_3.length) {  // Fill data
+
+           var arg1 = Verse_3[0].CNo;
+
+           var arg2 = Verse_3[0].Member;
+
+           var arg3 = Verse_3[0].Gender;  
+
+           Result = await Check_Attendance(arg1,arg2,arg3);
+
+           if (Result == 'y') {
+
+              document.getElementById(Rvers).style.color = "blue";
+
+           }
+           else {
+
+              document.getElementById(Rvers).style.color = "black";
+
+           }  
+
+           var Name_Str = Verse_3[0].F_Name + ' ' + Verse_3[0].L_Name + ' ';   
+ 
+
+           if (Verse_3[0].Member == 'T') {
+
+              //Name_Str = '*' + Verse_3[i].L_Name + ',' + Verse_3[i].F_Name + ' ';
+
+              Name_Str = '*' + Verse_3[0].F_Name + ' ' + Verse_3[0].L_Name + ' ';
+
+           }
+
+
+           var Name_Str2 =  Verse_3[0].C_F_Name + Verse_3[0].C_L_Name;
+
+
+           var H_No_tmp = Verse_3[0].H_No;        // 1_2
+           var H_No_tmp2 = H_No_tmp.split("_");   
+           var H_No_tmp3 = H_No_tmp2[1];          // 2
+
+
+           if (H_No_tmp3 == '1') {
+
+              Name_Str = '<b><u>' + Name_Str + ' </u></b>';
+
+              Name_Str2 =  '<b><u>' + Name_Str2 + ' </u></b>';
+
+           }
+
+
+           var Check_Str = '<button onClick="Add_or_Remove_Attendance(\'' + arg1 + '\',\'' + arg2 + '\',\'' + arg3 + '\',\'' + Rvers + '\')"> V </button>';  // Using \' as an escape character
+
+
+           document.getElementById(Rnum++).innerHTML = Check_Str;
+
+           document.getElementById(Rvers++).innerHTML =  Name_Str;
+
+           document.getElementById(CName++).innerHTML =  Name_Str2;
+
+
+        } // End of if (Verse_3)
+
+
+     } // End of for (var i = 0; i < kindy_member.length ; i++)
+
+
+}  // End of function Roll_Call_UPC()
+
+
+
+async function Roll_Call_LPC() {  // Arg: 'R' for Roll Call, 'P' for Phone Dir.
+
+
+  //var kindy_member = new Array(93,102,95); // 93 Hazel Chen
+
+  var LPC_member = new Array(53,147,79,176,73,94,99,175,122,138,252,88,182,29,60,44,186,121,181,166,37); 
+
+ 
+  //      table.where(indexOrPrimKey).anyOf(array)
+  //      table.where(indexOrPrimKey).anyOf(key1, key2, keyN, ...)
+ 
+
+  //let Verse_3 = await dbT2.Roll.where('CNo').anyOf(kindy_member).toArray();
+
+
+  //let Verse_3 = await dbT2.Roll.toArray();
+
+
+     Prepare_for_Roll_Call();
+
+
+   document.getElementById("content2").style.visibility='visible'; // hide
+   document.getElementById("content2").style.height = "98%";
+
+   document.getElementById("content2_C").style.visibility='hidden'; // hide
+   document.getElementById("content2_C").style.height = "0%";
+
+
+   var Rnum = 3001;  // Rnum
+   var Rvers = 4001;  // EName
+   var CName = 5001;  // CName
+
+
+     for (var i = 0; i < LPC_member.length ; i++) {
+
+     //for (var i = 0; i < 3 ; i++) {
+
+        //var CNo_tmp = kindy_member[i]; // new Array(95,102,93)
+
+        var CNo_tmp = LPC_member[i]; // new Array(93,102,95)
+
+
+        var Verse_3 = await dbT2.Roll.where('CNo').equals(CNo_tmp).toArray();
+
+        if (Verse_3.length) {  // Fill data
+
+           var arg1 = Verse_3[0].CNo;
+
+           var arg2 = Verse_3[0].Member;
+
+           var arg3 = Verse_3[0].Gender;  
+
+           Result = await Check_Attendance(arg1,arg2,arg3);
+
+           if (Result == 'y') {
+
+              document.getElementById(Rvers).style.color = "blue";
+
+           }
+           else {
+
+              document.getElementById(Rvers).style.color = "black";
+
+           }  
+
+           var Name_Str = Verse_3[0].F_Name + ' ' + Verse_3[0].L_Name + ' ';   
+ 
+
+           if (Verse_3[0].Member == 'T') {
+
+              //Name_Str = '*' + Verse_3[i].L_Name + ',' + Verse_3[i].F_Name + ' ';
+
+              Name_Str = '*' + Verse_3[0].F_Name + ' ' + Verse_3[0].L_Name + ' ';
+
+           }
+
+
+           var Name_Str2 =  Verse_3[0].C_F_Name + Verse_3[0].C_L_Name;
+
+
+           var H_No_tmp = Verse_3[0].H_No;        // 1_2
+           var H_No_tmp2 = H_No_tmp.split("_");   
+           var H_No_tmp3 = H_No_tmp2[1];          // 2
+
+
+           if (H_No_tmp3 == '1') {
+
+              Name_Str = '<b><u>' + Name_Str + ' </u></b>';
+
+              Name_Str2 =  '<b><u>' + Name_Str2 + ' </u></b>';
+
+           }
+
+
+           var Check_Str = '<button onClick="Add_or_Remove_Attendance(\'' + arg1 + '\',\'' + arg2 + '\',\'' + arg3 + '\',\'' + Rvers + '\')"> V </button>';  // Using \' as an escape character
+
+
+           document.getElementById(Rnum++).innerHTML = Check_Str;
+
+           document.getElementById(Rvers++).innerHTML =  Name_Str;
+
+           document.getElementById(CName++).innerHTML =  Name_Str2;
+
+
+        } // End of if (Verse_3)
+
+
+     } // End of for (var i = 0; i < kindy_member.length ; i++)
+
+
+}  // End of function Roll_Call_LPC()
+
+
+
 async function Roll_Call_Kindy() {  // Arg: 'R' for Roll Call, 'P' for Phone Dir.
 
 
   //var kindy_member = new Array(93,102,95); // 93 Hazel Chen
 
-  var kindy_member = new Array(95,183,102,93); // 93 Hazel Chen
+  var kindy_member = new Array(253,183,95,102,156,145,18,85,93); 
+                                           // 93 Hazel Chen
                                            // 95  Chloe Huang
                                            // 102 Anabella Liang
                                            // 183 Madeleine Shaw 邵予晨
