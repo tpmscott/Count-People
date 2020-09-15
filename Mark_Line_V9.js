@@ -4694,6 +4694,23 @@ function Close_Admin_Tools_Area() {
 } // End of Close_Admin_Tools_Area()
 
 
+
+function Open_QR_Code_Scan_Area() {
+
+   document.getElementById("tool_area_7").style.display='block';  //inline
+   document.getElementById("tool_area_7").style.height = "110%";
+
+} // End of Open_QR_Code_Scan_Area()
+
+function Close_QR_Code_Scan_Area() {
+
+   document.getElementById("tool_area_7").style.display='none';
+   document.getElementById("tool_area_7").style.height = "0%";
+
+} // End of Close_QR_Code_Scan_Area()
+
+
+
 function Show_Church_Service_Schedule() {
 
    //document.getElementById("content2").style.visibility='hidden'; // hidden , visible

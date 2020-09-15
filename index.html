@@ -2440,8 +2440,33 @@ function Reset_All(){
 </div>
 
 
+<div id="tool_area_7" style="height:110%;display:block"> 
 
 
+
+    <div id="app">
+
+      <p class="error">
+        {{ errorMessage }}
+      </p>
+
+      <qrcode-stream :camera="camera" @decode="onDecode" @init="onInit">
+
+        <button @click="switchCamera"> Switch Camera </button>
+
+        <button @click="turnCameraOn"> Turn On QR Code Scan </button>
+
+        <button @click="turnCameraOff"> Turn Off QR Code Scan </button>
+
+      </qrcode-stream>
+
+    </div>
+
+                <center><b><p id="listElem3"></p></b></center>
+
+
+
+</div>
 
 
   <button style="font-size:20px" onclick="Search_Person_from_F_Name()">Search from </button>
@@ -2459,6 +2484,11 @@ function Reset_All(){
 <div id="tool_area_6" style="height:0%;display:none"> 
 
   <table style="font-size:22px">
+
+  <tr>
+  <td>  &nbsp;&nbsp;  </td>
+  </tr>
+
   <tr>
   <td>
   <button style="font-size:16pt" onclick="Exp_and_Email_Attendance()">Send Attendance = </button> 
@@ -2472,12 +2502,27 @@ function Reset_All(){
   </tr>
 
   <tr>
+  <td>  &nbsp;&nbsp;  </td>
+  </tr>
+
+  <tr>
+  <td>
+  <button style="font-size:20px" onclick="Open_QR_Code_Scan_Area()">Open QR Code Scan Area</button>
+  <button style="font-size:20px" onclick="Close_QR_Code_Scan_Area()">Close QR Code Scan Area</button>
+  </td>
+  </tr>
+
+  <tr>
+  <td>  &nbsp;&nbsp;  </td>
+  </tr>
+
+  <tr>
   <td>
   Password: <input type="password" style="font-size:16pt" id="pwd" name="pwd" onfocus="Mousetrap.pause()" onBlur="Mousetrap.unpause()">  
 
   <input type="button" name="B121" style="font-size:16pt;color:black" value="Submit" onclick="passWord_1(); return false;">
 
-  <button style="font-size:20px" onclick="Close_Admin_Tools_Area()">Close Tools</button>
+  <button style="font-size:20px" onclick="Close_Admin_Tools_Area()">Close Admin Tools</button>
   </td>
   </tr>
 
@@ -2814,6 +2859,11 @@ function Reset_All(){
 
 
 <script>
+
+
+
+
+
 
 document.getElementById("Mesg2").readOnly = true;
 
@@ -5837,7 +5887,7 @@ async function Imp_to_Congregation4() {  // New for V8
       data() {
         return {
           decodedContent: '',
-          camera: 'off',
+          camera: 'front',
           errorMessage: ''
         }
       },
@@ -5873,8 +5923,19 @@ async function Imp_to_Congregation4() {  // New for V8
           //this.decodedContent = content_tmp
         },
 
+        switchCamera () {
+          switch (this.camera) {
+            case 'front':
+              this.camera = 'rear'
+              break
+            case 'rear':
+              this.camera = 'front'
+              break
+          }
+        },
+
         turnCameraOn() {
-          this.camera = 'auto'
+          this.camera = 'front'
         },
 
         turnCameraOff() {
