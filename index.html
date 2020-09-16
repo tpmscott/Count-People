@@ -2554,6 +2554,11 @@ function Reset_All(){
        
                 
   <button style="font-size:20px" onclick="Roll_Call_V1('R')">Last Name V1</button>
+
+
+  <br>
+                 
+  <button style="font-size:20px" onclick="Roll_Call_V2('R')">Last Name V2</button>
   <a href="javascript:Roll_Call_Search_V1('A','R')"> A </a>
   <a href="javascript:Roll_Call_Search_V1('B','R')"> B </a>
   <a href="javascript:Roll_Call_Search_V1('C','R')"> C </a>
@@ -2572,11 +2577,6 @@ function Reset_All(){
   <a href="javascript:Roll_Call_Search_V1('X','R')"> X </a>
   <a href="javascript:Roll_Call_Search_V1('Y','R')"> Y </a>
   <a href="javascript:Roll_Call_Search_V1('Z','R')"> Z </a>
-
-  <br>
-                 
-  <button style="font-size:20px" onclick="Roll_Call_V2('R')">Last Name V2</button>
-
 
   <p id="Chinese_Surname"> </p>
 
@@ -4761,6 +4761,8 @@ async function add_record_to_Attendance_V2(arg1) {
              document.getElementById("listElem3").style.color = "blue";
 
              document.getElementById("listElem3").style.fontSize = "44";
+
+             Show_Headcount();
 
            } catch(err) {
              if (err.name == 'ConstraintError') {
