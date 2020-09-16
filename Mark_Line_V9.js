@@ -5417,3 +5417,18 @@ async function Generate_Schedule_First_Page_Only_V2() { // Search from English F
 
 
 }  // End of function Generate_Schedule_First_Page_Only_V2()
+
+
+async function Chinese_Surname() {
+
+   let Verse_107 = await dbT2.Roll.where('CNo').equals(1).toArray();
+
+   var Surname_tmp = Verse_107[0].C_F_Name;
+
+   //   <a href="javascript:Roll_Call_Search_V3('王','R')"> 王 </a>   // \"
+
+   var text = '<a href=\"javascript:Roll_Call_Search_V3(\'' + Surname_tmp + '\',\'R\')\"> ' + Surname_tmp + ' </a>';
+
+   document.getElementById("Chinese_Surname").innerHTML = text;
+
+}  // End of function Chinese_Surname()
