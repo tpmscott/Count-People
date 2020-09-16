@@ -4972,6 +4972,10 @@ async function Search_Person_from_F_Name() { // Search from First Name
   var Search_FName_tmp = document.getElementById("Search_fname2").value ; // id="Search_fname2"
 
 
+  if (Search_FName_tmp == '')
+     Search_FName_tmp = 'QQQQQ';
+
+
   let Verse_81 = await dbT2.Roll.where('F_Name').startsWithIgnoreCase(Search_FName_tmp).toArray();
 
   if (Verse_81) {  // Prepare HTML for filling data

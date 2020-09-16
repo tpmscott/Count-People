@@ -5313,15 +5313,36 @@ async function Exp_and_Email_Attendance() { // New for V12
 
         // -- Email
 
-        var name = "chang424000"; // sc424000
-        var address = "gmail.com"; // yahoo.com.tw
+        var name1 = "chang424000"; // sc424000
+        var address1 = "gmail.com"; // yahoo.com.tw
+
+        var name2 = "sc424000"; // sc424000
+        var address2 = "yahoo.com.tw"; // yahoo.com.tw
+
+        var name3 = "scott_chang22"; // sc424000
+        var address3 = "yahoo.com.au"; // yahoo.com.tw
+
         var link = "Send email";
         var subject = startWith_date + "%20Attendance%20Record";
 
         var body = text + '%0D';   // carriage return	%0D
         //var body = 'test';  // for test
 
-        var email_text = '<a href=mailto:' + name + '@' + address + '?subject=' + subject + '&body=' + body + '>' + link + '</a>';
+        //var email_text = '<a href=mailto:' + name + '@' + address + '?subject=' + subject + '&body=' + body + '>' + link + '</a>';
+
+        // <a href="mailto:name1@mail.com,name2@mail.com">Send mail</a>
+
+        // <a href="mailto:name1@rapidtables.com?cc=name2@rapidtables.com&bcc=name3@rapidtables.com
+        // &subject=The%20subject%20of%20the%20email
+        // &body=The%20body%20of%20the%20email">
+        // Send mail with cc, bcc, subject and body</a>
+
+
+        //var email_text = '<a href=\"mailto:' + name1 + '@' + address1 + '?cc=' + name2 + '@' + address2 + '&subject=' + subject + '&body=' + body + '\">' + link + '</a>';
+
+
+        var email_text = '<a href=\"mailto:' + name1 + '@' + address1 + '?cc=' + name2 + '@' + address2 + ',' + name3 + '@' + address3 + '&subject=' + subject + '&body=' + body + '\">' + link + '</a>';
+
 
         //if( body == 'AE^_^|0%0D') {  // Attendance 0 exported
 
