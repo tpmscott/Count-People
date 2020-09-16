@@ -242,6 +242,8 @@ async function init_Bible4U_DB() {
    // 
    Prepare_for_Roll_Call(); // // Prepare HTML for filling data for Roll_Call()
 
+   Chinese_Surname();
+
 }
 
 
@@ -5421,14 +5423,67 @@ async function Generate_Schedule_First_Page_Only_V2() { // Search from English F
 
 async function Chinese_Surname() {
 
-   let Verse_107 = await dbT2.Roll.where('CNo').equals(1).toArray();
+   //let Verse = await dbT2.SermonNote.orderBy('Speaker').uniqueKeys(function (Speakers) {
 
-   var Surname_tmp = Verse_107[0].C_F_Name;
+   //   return Speakers;
+ 
+   //}); // Store Speaker's name in array Verse[] 
+   //    // = SQL: select distinct(Speaker) from SermonNote
+
+
+   let Verse = await dbT2.Roll.orderBy('C_F_FName').uniqueKeys(function (C_F_FNames) { // C_F_FName
+
+      return C_F_FNames;
+ 
+   }); // Store C_F_FName in array Verse[] ***
+
+
+   if (Verse) {
+
+      if (Verse.length) { 
+
+        var text1='Search from ';
+
+        for (var i = 0; i < Verse.length ; i++) {
+
+           //var Surname_tmp = Verse[i].C_F_Name;
+
+           var Surname_tmp = Verse[i]; // ***
+
+           text1 += '<a href=\"javascript:Roll_Call_Search_V3(\'' + Surname_tmp + '\',\'R\')\"> ' + Surname_tmp + ' </a>';
+
+        } // End of for (var i = 0; i < Verse.length ; i++)
+
+      } // End of (Verse.length)
+
+   } // End of if (Verse)
+
+
+   document.getElementById("Chinese_Surname").innerHTML = text1;
+
+
+
+   //let Verse_107 = await dbT2.Roll.where('CNo').equals(1).toArray();
+
+
+   //var text = '';
+
+  
+   //for (var i = 0; i < Verse_107.length ; i++) {
+
+   //   var Surname_tmp = Verse_107[i].C_F_Name;
+
+   //   text += '<a href=\"javascript:Roll_Call_Search_V3(\'' + Surname_tmp + '\',\'R\')\"> ' + Surname_tmp + ' </a>';
+
+   //} // End of for (var i = 0; i < Verse_107.length ; i++)
+
+
+   //var Surname_tmp = Verse_107[0].C_F_Name;
 
    //   <a href="javascript:Roll_Call_Search_V3('王','R')"> 王 </a>   // \"
 
-   var text = '<a href=\"javascript:Roll_Call_Search_V3(\'' + Surname_tmp + '\',\'R\')\"> ' + Surname_tmp + ' </a>';
+   //var text = '<a href=\"javascript:Roll_Call_Search_V3(\'' + Surname_tmp + '\',\'R\')\"> ' + Surname_tmp + ' </a>';
 
-   document.getElementById("Chinese_Surname").innerHTML = text;
+   //document.getElementById("Chinese_Surname").innerHTML = text;
 
 }  // End of function Chinese_Surname()
