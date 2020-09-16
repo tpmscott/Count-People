@@ -133,6 +133,9 @@
     <script src="idb.min.js"></script>
     <script src="dexie.js"></script>
 
+    <script src="html5-qrcode.min.js"></script>
+
+
 <SCRIPT LANGUAGE="JavaScript" SRC="Mark_Line_V9.js"></SCRIPT>
 
 <SCRIPT LANGUAGE="JavaScript" SRC="KeyFunction2.js"></SCRIPT>
@@ -2444,23 +2447,9 @@ function Reset_All(){
 
 
 
-    <div id="app">
+   <div style="width: 500px" id="reader"></div>
 
-      <p class="error">
-        {{ errorMessage }}
-      </p>
 
-      <qrcode-stream :camera="camera" @decode="onDecode" @init="onInit">
-
-        <button @click="switchCamera"> Switch Camera </button>
-
-        <button @click="turnCameraOn"> Turn On QR Code Scan </button>
-
-        <button @click="turnCameraOff"> Turn Off QR Code Scan </button>
-
-      </qrcode-stream>
-
-    </div>
 
                 <center><b><p id="listElem3"></p></b></center>
 
@@ -5992,6 +5981,21 @@ async function Imp_to_Congregation4() {  // New for V8
         }
       }
     })
+
+// For New QR Code Scan 
+// Detail See https://blog.minhazav.dev/research/html5-qrcode.html 
+
+function onScanSuccess(qrCodeMessage) {
+
+   // handle on success condition with the decoded message
+
+   add_record_to_Attendance_V2(qrCodeMessage);
+
+}
+
+var html5QrcodeScanner = new Html5QrcodeScanner(
+	"reader", { fps: 10, qrbox: 250 });
+html5QrcodeScanner.render(onScanSuccess);
 
 
 </script>
