@@ -3398,6 +3398,146 @@ async function Roll_Call_V2(Arg) {  // Arg: 'R' for Roll Call, 'P' for Phone Dir
 }  // End of function Roll_Call_V2()
 
 
+async function Roll_Call_V3(Arg,Arg4) {  // Arg: 'R' for Roll Call, 'P' for Phone Dir.
+
+
+  let Verse_3 = await dbT2.Roll.toArray();
+
+  //let Verse = await dbT2.Attendance.reverse().toArray();
+
+  //var DateStr = ML_Date_V2();
+
+
+  if (Read_for_Roll_Call == 'N') {
+
+     Prepare_for_Roll_Call();
+
+  }
+
+   document.getElementById("content2").style.visibility='visible'; // hide
+   document.getElementById("content2").style.height = "98%";
+
+   document.getElementById("content2_C").style.visibility='hidden'; // hide
+   document.getElementById("content2_C").style.height = "0%";
+
+
+  if (Verse_3) {  // Fill data
+
+     var Rnum = 3001;  // Rnum
+     var Rvers = 4001;  // EName
+     var CName = 5001;  // CName
+
+     for (var i = 0; i < Verse_3.length ; i++) {
+
+        // arg1: CNo, arg2: Member, arg3:Gender
+
+        var arg1 = Verse_3[i].CNo;
+
+        var arg2 = Verse_3[i].Member;
+
+        var arg3 = Verse_3[i].Gender;
+
+        var Result = 'n';
+
+        if (Arg == 'S') {
+
+           Result = await Check_Attendance4(arg1,arg2,arg3,Arg4);
+
+        }
+        else {
+
+           Result = await Check_Attendance(arg1,arg2,arg3);
+
+        }
+
+        //var Result = await Check_Attendance(arg1,arg2,arg3);
+
+        if (Result == 'y') {
+
+           document.getElementById(Rvers).style.color = "blue";
+
+        }
+        else {
+
+           document.getElementById(Rvers).style.color = "black";
+
+        }
+
+
+        //var Name_Str = Verse_3[i].L_Name + ',' + Verse_3[i].F_Name + ' ';
+
+        var Name_Str = Verse_3[i].F_Name + ' ' + Verse_3[i].L_Name + ' ';
+
+
+       
+
+        if (Verse_3[i].Member == 'T') {
+
+           //Name_Str = '*' + Verse_3[i].L_Name + ',' + Verse_3[i].F_Name + ' ';
+
+           Name_Str = '*' + Verse_3[i].F_Name + ' ' + Verse_3[i].L_Name + ' ';
+
+        }
+
+
+        var Name_Str2 =  Verse_3[i].C_F_Name + Verse_3[i].C_L_Name;
+
+
+        var H_No_tmp = Verse_3[i].H_No;        // 1_2
+        var H_No_tmp2 = H_No_tmp.split("_");   
+        var H_No_tmp3 = H_No_tmp2[1];          // 2
+
+        if (H_No_tmp3 == '1') {
+
+           Name_Str = '<b><u>' + Name_Str + ' </u></b>';
+
+           Name_Str2 =  '<b><u>' + Name_Str2 + ' </u></b>';
+
+        }
+
+
+        //var Name_Str2 =  Verse_3[i].C_F_Name + Verse_3[i].C_L_Name;
+
+
+        if (Arg == 'R') {  // Arg: 'R' for Roll Call, 'P' for Phone Dir.
+
+           var Check_Str = '<button onClick="Add_or_Remove_Attendance(\'' + arg1 + '\',\'' + arg2 + '\',\'' + arg3 + '\',\'' + Rvers + '\')"> V </button>';  // Using \' as an escape character
+
+        }
+
+        if (Arg == 'P') {  // Arg: 'R' for Roll Call, 'P' for Phone Dir.
+
+           var Check_Str = '<button onClick="Show_People_Phone_V2(\'' + arg1 + '\')"> P </button>';  // Using \' as an escape character
+
+        }
+
+        if (Arg == 'S') {  // Arg: 'S' for show history attendance
+
+           var Check_Str = '';
+
+        }
+
+
+
+        //var Check_Str = '<button onClick="Add_or_Remove_Attendance(\'' + arg1 + '\',\'' + arg2 + '\',\'' + arg3 + '\',\'' + Rvers + '\')"> V </button>';  // Using \' as an escape character
+
+        document.getElementById(Rnum++).innerHTML = Check_Str;
+
+        document.getElementById(Rvers++).innerHTML =  Name_Str;
+
+        document.getElementById(CName++).innerHTML =  Name_Str2;
+
+
+     } // End of for (var i = 0; i < Verse_3.length ; i++)
+
+
+
+  }
+
+
+}  // End of function Roll_Call_V3()
+
+
 
 async function Roll_Call_UPC() {  // Arg: 'R' for Roll Call, 'P' for Phone Dir.
 
@@ -5491,3 +5631,64 @@ async function Chinese_Surname() {
    //document.getElementById("Chinese_Surname").innerHTML = text;
 
 }  // End of function Chinese_Surname()
+
+
+async function Download_from_Attendance_Test2Db_Time_Between() {  // New for testing, 
+                                                                  // Download for Backup & Restore & Update
+
+  var start_date = document.getElementById("Download_Time_start").value;
+
+  var end_date = document.getElementById("Download_Time_end").value;
+
+
+  var Verse_Count = 0;
+
+  if(start_date!='' && end_date!='') {
+
+     //let Verse = await dbT2.SermonNote.where('Name').between(start_date, end_date, true, true).reverse().toArray();
+
+     let Verse = await dbT2.Attendance.where('Record').between(start_date, end_date, true, true).reverse().toArray();
+
+     //await dbT2.Attendance.
+
+     Verse_Count = Verse.length;
+
+     if (Verse) {
+
+        var text = 'Attendance_Download = new Array("' + Verse_Count.toString() + '"';  
+
+                    // change seprator to "," ,  for Attendance Dowmload to File
+                    // Array name : Attendance_Download
+
+        for (i = 0; i < Verse.length; i++) {
+
+           let record = Verse[i].Record;
+
+           //text += ',"' + record + '","' + encryptedSpeaker + '","' + encryptedTopic + '","' + encryptedContent + '"';  // change seprator to ","
+
+           text += ',"' + record + '"';  // change seprator to ","
+
+
+        } // End of for (i = 0; i < Verse.length; i++)
+
+
+        text += ');'; 
+
+        //console.log(csv);
+        console.log(text);
+        var hiddenElement = document.createElement('a');
+        hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(text);
+        hiddenElement.target = '_blank';
+        hiddenElement.download = 'Attendance_Download.txt'; // use .txt , then change to .js by manual
+        hiddenElement.click();
+
+
+        //var mesg1 = 'Attendance ' + Verse_Count + ' downloaded';
+
+        //myExp_Db_Display.innerHTML = mesg1;
+
+     } // End of if (Verse)
+
+  } // End of if(start_date!='' && end_date!='')
+
+} // End of function Download_from_Attendance_Test2Db_Time_Between()

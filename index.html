@@ -2443,7 +2443,7 @@ function Reset_All(){
 </div>
 
 
-<div id="tool_area_7" style="height:110%;display:block"> 
+<div id="tool_area_7" style="height:0%;display:none"> 
 
 
 
@@ -2465,7 +2465,6 @@ function Reset_All(){
   <a href="javascript:Roll_Call_Kindy()"> Kindy</a>
   <a href="javascript:Roll_Call_LPC()"> LPC</a>
   <a href="javascript:Roll_Call_UPC()"> UPC</a>
-
 
   <button style="font-size:20px" onclick="Input_passWord_1()">Admin Tools</button>
 
@@ -2511,7 +2510,7 @@ function Reset_All(){
 
   <input type="button" name="B121" style="font-size:16pt;color:black" value="Submit" onclick="passWord_1(); return false;">
 
-  <button style="font-size:20px" onclick="Close_Admin_Tools_Area()">Close Admin Tools</button>
+  <button style="font-size:20px" onclick="Close_Admin_Tools_Area()">Close Admin Tools</button
   </td>
   </tr>
 
@@ -2833,9 +2832,13 @@ function Reset_All(){
 
 <br>
 
-  <button style="font-size:20px" onclick="Download_Attendance_StartWith()">Download Attendance = </button>
+  <button style="font-size:20px" onclick="Download_Attendance_StartWith()">Download(.csv) Attendance = </button>
   <input style="font-size:22px" size="10" type="text" id="Download_Attendance_StartWith" name="Download_Attendance_StartWith">
   <label style="font-size:24px" for="fname2">Ex: 20200905M, 20200905A - Morning/Afternoon/Evening</label>
+  <br>
+
+  <button style="font-size:20px" onclick="Download_from_Attendance_Test2Db_Time_Between()">Download(.txt) Attendance Time Between </button>
+  <INPUT TYPE=TEXT style="font-size:22px" size="10" id="Download_Time_start">-<INPUT TYPE=TEXT style="font-size:22px" size="10" id="Download_Time_end">
   <br>
 
 
@@ -3706,6 +3709,42 @@ async function Check_Attendance3(arg1,arg2,arg3) { // arg1: CNo, arg2: Member, a
    }
 
 }  // End of function Check_Attendance3(arg1,arg2,arg3)
+
+
+
+async function Check_Attendance4(arg1,arg2,arg3,arg4) { // arg1: CNo, arg2: Member, arg3:Gender, arg4:DateStr
+
+   var CNo = arg1;
+
+   //var DateStr = ML_Date_V2();
+
+   //var DateStr = document.getElementById("Show_Headcount_2").value;
+
+   var DateStr = arg4;
+
+   var Member_Str = arg2;
+   var Gender_Str = arg3;
+
+   let Record = DateStr + '_' + Member_Str + '_' + Gender_Str + '_' + CNo;
+
+   let Verse_Attendance = await dbT2.Attendance.get(Record);
+
+   if (Verse_Attendance) {
+
+      var Result = 'y'; // mean has Data
+
+      return Result;
+
+   }
+   else {
+
+      var Result = 'n'; // mean No Data
+
+      return Result;
+
+   }
+
+}  // End of function Check_Attendance4(arg1,arg2,arg3)
 
 
 
@@ -5006,6 +5045,39 @@ async function Show_Headcount_2() {
 
 
 }  // End of function Show_Headcount_2()
+
+
+async function Show_Headcount_3(arg) {
+
+  //Book_Verse_Count = await db.books.where('name').startsWithIgnoreCase(Book_tmp).count();
+
+  //var DateStr = ML_Date_V2();
+
+  //var DateStr = document.getElementById("Show_Headcount_2").value;
+
+  var DateStr = arg;
+
+  var Record_Bro_M_Str = DateStr + '_M_B_';
+  var Record_Bro_TrS_Str = DateStr + '_T_B_';
+
+  var Record_Sis_M_Str = DateStr + '_M_S_';
+  var Record_Sis_TrS_Str = DateStr + '_T_S_';
+
+  Attendance_Bro_M = await dbT2.Attendance.where('Record').startsWithIgnoreCase(Record_Bro_M_Str).count();
+  Attendance_Bro_TrS = await dbT2.Attendance.where('Record').startsWithIgnoreCase(Record_Bro_TrS_Str).count();
+
+  Attendance_Sis_M = await dbT2.Attendance.where('Record').startsWithIgnoreCase(Record_Sis_M_Str).count();
+  Attendance_Sis_TrS = await dbT2.Attendance.where('Record').startsWithIgnoreCase(Record_Sis_TrS_Str).count();
+
+
+  Show_Total_Mode();
+
+  //Roll_Call_V2('S'); // <-- for show history attendance
+
+  Roll_Call_V3('S',DateStr); // <-- for show history attendance
+
+
+}  // End of function Show_Headcount_3()
 
 
 async function Delete_All_Congregation() { // Delete all objects from the store.
