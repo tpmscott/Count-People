@@ -2814,6 +2814,8 @@ function Reset_All(){
   <label style="font-size:20px" for="Mesg4"> Message </label>
   <input style="font-size:16px" size="40" type="text" id="Mesg4" name="Mesg4" >
 
+<button onclick="Clear_Imp_to_Congregation4()">Clear</button>
+
 <br>
 
 <label style="font-size:20px" for="Member2">Congregation4 </label>
@@ -5385,14 +5387,14 @@ async function Exp_and_Email_Attendance() { // New for V12
 
         // -- Email
 
-        var name1 = "chang424000"; // sc424000
-        var address1 = "gmail.com"; // yahoo.com.tw
+        var name1 = "brisbane"; // 
+        var address1 = "tjc.org.au"; // 
 
-        var name2 = "sc424000"; // sc424000
-        var address2 = "yahoo.com.tw"; // yahoo.com.tw
+        var name2 = "sc424000"; // 
+        var address2 = "yahoo.com.tw"; // 
 
-        var name3 = "scott_chang22"; // sc424000
-        var address3 = "yahoo.com.au"; // yahoo.com.tw
+        var name3 = "chang424000"; // 
+        var address3 = "gmail.com"; // 
 
         var link = "Send email";
         var subject = startWith_date + "%20Attendance%20Record";
@@ -5593,6 +5595,13 @@ async function Exp2_from_Congregation4() { // New for V8 , do not exp Tel & Mob
 
 } // End of function Exp2_from_Congregation4()
 
+
+function Clear_Imp_to_Congregation4() { 
+
+   document.getElementById("Imp_to_Congregation4").value = '';
+   document.getElementById("Mesg4").value = '';
+
+} // End of function Clear_Imp_to_Congregation4()
 
 
 async function Imp_to_Congregation4() {  // New for V8
