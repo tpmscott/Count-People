@@ -316,7 +316,7 @@ function clickCounter() {
 
 <tr>
 <td align=center>
-<input style="font-size:13pt" type="button" name="M222" id="Reset_Button" value="Reset" onclick="Reset_All();; return false;">
+<input style="font-size:13pt" type="button" name="M222" id="Reset_Button" value="Reset-Not on the Roll" onclick="Reset_All();; return false;">
 </td>
 
 <td>
@@ -396,6 +396,12 @@ function clickCounter() {
 <tr>
 
 <td>
+<button style="font-size:12pt;" onclick="Show_Subtotal_Not_on_the_Roll()">Subtotal- Not on the Roll</button>
+</td>
+
+<td></td><td></td><td></td><td></td>
+
+<td>
 <input style="font-size:12pt;color:blue;" type="button" id="Bro_Member" name="M222" value="B.M." onclick="Input_BroMember_Mode();; return false;">
 </td>
 
@@ -418,7 +424,7 @@ function clickCounter() {
 
 
 <td>
-<button onclick="Show_Headcount()">Show Headcount</button>
+<button style="font-size:12pt;" onclick="Show_Subtotal_on_the_Roll()">Subtotal- on the Roll</button>
 </td>
 
 
@@ -1569,6 +1575,72 @@ function Input_Sis_Mode(){
 
 }
 
+
+function Show_Subtotal_Not_on_the_Roll() {
+
+   document.getElementById("BroM").innerText= Bro_M;
+   document.getElementById("BroTrs").innerText= Bro_TrS;
+
+   document.getElementById("SisM").innerText= Sis_M;
+   document.getElementById("SisTrs").innerText= Sis_TrS;
+
+   document.getElementById("BroTotal").innerText= Bro_M + Bro_TrS;
+   document.getElementById("SisTotal").innerText= Sis_M + Sis_TrS;
+
+   document.getElementById("MemTotal").innerText= Bro_M + Sis_M;
+   document.getElementById("TrsTotal").innerText= Bro_TrS + Sis_TrS;
+
+   document.getElementById("AllTotal").innerText= Bro_M + Bro_TrS + Sis_M + Sis_TrS;
+
+   document.getElementById("AllTotal").style.backgroundColor='green';
+
+
+} // End of function Show_Subtotal_Not_on_the_Roll()
+
+
+async function Show_Subtotal_on_the_Roll() {
+
+  var DateStr = ML_Date_V2();
+
+  var Record_Bro_M_Str = DateStr + '_M_B_';
+  var Record_Bro_TrS_Str = DateStr + '_T_B_';
+
+  var Record_Sis_M_Str = DateStr + '_M_S_';
+  var Record_Sis_TrS_Str = DateStr + '_T_S_';
+
+  Attendance_Bro_M = await dbT2.Attendance.where('Record').startsWithIgnoreCase(Record_Bro_M_Str).count();
+  Attendance_Bro_TrS = await dbT2.Attendance.where('Record').startsWithIgnoreCase(Record_Bro_TrS_Str).count();
+
+  Attendance_Sis_M = await dbT2.Attendance.where('Record').startsWithIgnoreCase(Record_Sis_M_Str).count();
+  Attendance_Sis_TrS = await dbT2.Attendance.where('Record').startsWithIgnoreCase(Record_Sis_TrS_Str).count();
+
+  Show_Subtotal_on_the_Roll_Mode();
+
+} // End of function Show_Subtotal_on_the_Roll()
+
+
+function Show_Subtotal_on_the_Roll_Mode() {
+
+   document.getElementById("BroM").innerText= Attendance_Bro_M;
+   document.getElementById("BroTrs").innerText= Attendance_Bro_TrS;
+
+   document.getElementById("SisM").innerText= Attendance_Sis_M;
+   document.getElementById("SisTrs").innerText= Attendance_Sis_TrS;
+
+   document.getElementById("BroTotal").innerText= Attendance_Bro_M + Attendance_Bro_TrS;
+   document.getElementById("SisTotal").innerText= Attendance_Sis_M + Attendance_Sis_TrS;
+
+   document.getElementById("MemTotal").innerText= Attendance_Bro_M + Attendance_Sis_M;
+   document.getElementById("TrsTotal").innerText= Attendance_Bro_TrS + Attendance_Sis_TrS;
+
+   document.getElementById("AllTotal").innerText= Attendance_Bro_M + Attendance_Bro_TrS + Attendance_Sis_M + Attendance_Sis_TrS;
+
+   document.getElementById("AllTotal").style.backgroundColor='green';
+
+
+} // End of Show_Subtotal_on_the_Roll_Mode()
+
+
 function Show_Total_Mode(){
 
    document.getElementById("BroM").innerText= Bro_M + Attendance_Bro_M;
@@ -1663,6 +1735,10 @@ function Show_Total(){
    document.getElementById("People_Number").innerText= '';
    document.getElementById("container_Disp").style.visibility='hidden';
    document.getElementById("container_Disp").style.height='0%';
+
+  
+   Show_Headcount();
+
 
 } // End of function Show_Total()
 
