@@ -369,7 +369,7 @@ function clickCounter() {
 
 <tr>
 <td align=center>
-<input style="font-size:13pt" type="button" name="M222" id="Total_Button" value="Total" onclick="Show_Total(); return false;">
+<input style="font-size:13pt" type="button" name="M222" id="Total_Button" value="Total/Close" onclick="Show_Total(); return false;">
 </td>
 
 <td>
@@ -2519,6 +2519,22 @@ function Reset_All(){
 </div>
 
 
+<div id="tool_area_8" style="height:0%;display:none"> 
+
+   <label style="font-size:28px" for="fname2">Topic: </label>
+   <input style="font-size:22px" size="30" type="text" id="Topic" name="Topic">
+   <br>
+   <label style="font-size:28px" for="fname2">Speaker: </label>
+   <input style="font-size:22px" size="15" type="text" id="Speaker" name="Speaker"> 
+   <label style="font-size:28px" for="fname2">Interp: </label>
+   <input style="font-size:22px" size="15" type="text" id="Interp" name="Interp"> 
+   <label style="font-size:28px" for="fname2">Hymn: </label>
+   <input style="font-size:22px" size="15" type="text" id="Hymn" name="Hymn"> 
+
+
+</div>
+
+
 <div id="tool_area_7" style="height:0%;display:none"> 
 
 
@@ -2543,6 +2559,8 @@ function Reset_All(){
   <a href="javascript:Roll_Call_UPC()"> UPC</a>
 
   <button style="font-size:20px" onclick="Input_passWord_1()">Admin Tools</button>
+
+  <button style="font-size:20px" onclick="Open_Service_Record()">Service Record</button>
 
 
 <div id="tool_area_6" style="height:0%;display:none"> 
