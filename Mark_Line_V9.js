@@ -5337,6 +5337,41 @@ function Close_Service_Record() {
 
 } // End of Close_Service_Record()
 
+function Show_Name_List() {
+
+   document.getElementById("tool_area_9").style.display='block';  //inline
+   document.getElementById("tool_area_9").style.height = "50%";
+
+} // End of Show_Name_List()
+
+function Hide_Name_List(){
+
+   document.getElementById("tool_area_9").style.display='none';
+   document.getElementById("tool_area_9").style.height = "0%";
+
+} // End of Hide_Name_List()
+
+function Show_Name(arg){
+ 
+   //localStorage.Note3_Topic = document.ANNO_FORM.B11aa.value;
+
+   //var Topic = document.ANNO_FORM.B11aa.value;
+
+   var Topic_Add = arg;
+
+   //Topic = Topic + '----' + Topic_Add;
+
+   //document.getElementById("IAI_1t").value = ;
+
+   //document.ANNO_FORM.B22aa.value = Topic_Add;
+
+   document.getElementById("Speaker").value = Topic_Add;
+
+   //write_textarea_1();
+
+   Hide_Name_List();
+
+}
 
 
 function Show_Church_Service_Schedule() {
