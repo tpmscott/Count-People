@@ -5351,13 +5351,33 @@ function Hide_Name_List(){
 
 } // End of Hide_Name_List()
 
+
+function Show_Name_List2() {
+
+   document.getElementById("tool_area_10").style.display='block';  //inline
+   document.getElementById("tool_area_10").style.height = "50%";
+
+} // End of Show_Name_List2()
+
+function Hide_Name_List2(){
+
+   document.getElementById("tool_area_10").style.display='none';
+   document.getElementById("tool_area_10").style.height = "0%";
+
+} // End of Hide_Name_List2()
+
+
 function Show_Name(arg){
+
+   var Topic_Add = arg;
+
+   document.getElementById("Speaker").value = Topic_Add;
+
+   Hide_Name_List();
  
    //localStorage.Note3_Topic = document.ANNO_FORM.B11aa.value;
 
    //var Topic = document.ANNO_FORM.B11aa.value;
-
-   var Topic_Add = arg;
 
    //Topic = Topic + '----' + Topic_Add;
 
@@ -5365,12 +5385,18 @@ function Show_Name(arg){
 
    //document.ANNO_FORM.B22aa.value = Topic_Add;
 
-   document.getElementById("Speaker").value = Topic_Add;
-
    //write_textarea_1();
 
-   Hide_Name_List();
+}
 
+function Show_Name2(arg){
+
+   var Topic_Add = arg;
+
+   document.getElementById("Interp").value = Topic_Add;
+
+   Hide_Name_List2();
+ 
 }
 
 
