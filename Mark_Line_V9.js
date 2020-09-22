@@ -5367,6 +5367,21 @@ function Hide_Name_List2(){
 } // End of Hide_Name_List2()
 
 
+function Show_Name_List3() {
+
+   document.getElementById("tool_area_11").style.display='block';  //inline
+   document.getElementById("tool_area_11").style.height = "50%";
+
+} // End of Show_Name_List3()
+
+function Hide_Name_List3(){
+
+   document.getElementById("tool_area_11").style.display='none';
+   document.getElementById("tool_area_11").style.height = "0%";
+
+} // End of Hide_Name_List3()
+
+
 function Show_Name(arg){
 
    var Topic_Add = arg;
@@ -5396,6 +5411,16 @@ function Show_Name2(arg){
    document.getElementById("Interp").value = Topic_Add;
 
    Hide_Name_List2();
+ 
+}
+
+function Show_Name3(arg){
+
+   var Topic_Add = arg;
+
+   document.getElementById("Hymn").value = Topic_Add;
+
+   Hide_Name_List3();
  
 }
 
