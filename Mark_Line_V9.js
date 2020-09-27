@@ -5411,10 +5411,29 @@ function Close_Service_Record() {
 
 } // End of Close_Service_Record()
 
+
+function Show_Service_Note() {
+
+   document.getElementById("tool_area_12").style.display='block';  //inline
+   document.getElementById("tool_area_12").style.height = "30%";
+
+} // End of function Show_Service_Note()
+
+function Hide_Service_Note() {
+
+   document.getElementById("tool_area_12").style.display='none';
+   document.getElementById("tool_area_12").style.height = "0%";
+
+} // End of Hide_Service_Note()
+
+
 function Show_Name_List() {
 
    document.getElementById("tool_area_9").style.display='block';  //inline
-   document.getElementById("tool_area_9").style.height = "50%";
+   document.getElementById("tool_area_9").style.height = "30%";
+   Hide_Name_List2();
+   Hide_Name_List3();
+   Hide_Service_Note();
 
 } // End of Show_Name_List()
 
@@ -5422,6 +5441,7 @@ function Hide_Name_List(){
 
    document.getElementById("tool_area_9").style.display='none';
    document.getElementById("tool_area_9").style.height = "0%";
+   Show_Service_Note();
 
 } // End of Hide_Name_List()
 
@@ -5429,7 +5449,10 @@ function Hide_Name_List(){
 function Show_Name_List2() {
 
    document.getElementById("tool_area_10").style.display='block';  //inline
-   document.getElementById("tool_area_10").style.height = "50%";
+   document.getElementById("tool_area_10").style.height = "30%";
+   Hide_Name_List();
+   Hide_Name_List3();
+   Hide_Service_Note();
 
 } // End of Show_Name_List2()
 
@@ -5437,6 +5460,7 @@ function Hide_Name_List2(){
 
    document.getElementById("tool_area_10").style.display='none';
    document.getElementById("tool_area_10").style.height = "0%";
+   Show_Service_Note();
 
 } // End of Hide_Name_List2()
 
@@ -5444,7 +5468,10 @@ function Hide_Name_List2(){
 function Show_Name_List3() {
 
    document.getElementById("tool_area_11").style.display='block';  //inline
-   document.getElementById("tool_area_11").style.height = "50%";
+   document.getElementById("tool_area_11").style.height = "30%";  // 50
+   Hide_Name_List2();
+   Hide_Name_List();
+   Hide_Service_Note();
 
 } // End of Show_Name_List3()
 
@@ -5452,6 +5479,7 @@ function Hide_Name_List3(){
 
    document.getElementById("tool_area_11").style.display='none';
    document.getElementById("tool_area_11").style.height = "0%";
+   Show_Service_Note();
 
 } // End of Hide_Name_List3()
 
