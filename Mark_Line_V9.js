@@ -2203,6 +2203,73 @@ async function Exp_from_ChapNote_Test2Db_startWith() { // New for V7
 } // End of function Exp_from_ChapNote_Test2Db_startWith()
 
 
+function ML_Date_V3() {  // New for V8
+
+   var d = new Date();
+   var Y = d.getFullYear();
+   var M = d.getMonth() + 1;
+   var D = d.getDate();
+   var h = d.getHours();  // 0-23
+   //var m = d.getMinutes();
+
+   var Day = d.getDay();  // 0-6, Sunday is 0, Monday is 1, and so on.
+
+   if(Day=='0') Day = 'Sunday';
+   if(Day=='1') Day = 'Monday';
+   if(Day=='2') Day = 'Tuesday';
+   if(Day=='3') Day = 'Wednesday';
+   if(Day=='4') Day = 'Thursday';
+   if(Day=='5') Day = 'Friday';
+   if(Day=='6') Day = 'Saturday';
+
+   //var M_Str = M.toString();
+
+   //if(M_Str=='0') M_Str = '00';
+   if(M=='1') M = '01';
+   if(M=='2') M = '02';
+   if(M=='3') M = '03';
+   if(M=='4') M = '04';
+   if(M=='5') M = '05';
+   if(M=='6') M = '06';
+   if(M=='7') M = '07';
+   if(M=='8') M = '08';
+   if(M=='9') M = '09';
+
+
+   //var D_Str = D.toString();
+
+   //if(M_Str=='0') M_Str = '00';
+   if(D=='1') D = '01';
+   if(D=='2') D = '02';
+   if(D=='3') D = '03';
+   if(D=='4') D = '04';
+   if(D=='5') D = '05';
+   if(D=='6') D = '06';
+   if(D=='7') D = '07';
+   if(D=='8') D = '08';
+   if(D=='9') D = '09';
+
+   var Service_Code2;
+
+   if(h>18 && h<23) {
+      Service_Code2 = 'Evening';  // evening
+   }
+
+   if(h>6 && h<12) {
+      Service_Code2 = 'Morning';  // morning
+   }
+
+   if(h>11 && h<18) {
+      Service_Code2 = 'Afternoon';  // afternoon
+   }
+
+   var Date_Str = Y.toString() + '/' + M.toString() + '/' + D.toString() + ' ' + Day + ' ' + Service_Code2 ;
+
+   return Date_Str; // 2020/09/26 Saturday Afternoon
+
+}  // End of function ML_Date_V3()
+
+
 function ML_Date_V2() {  // New for V8
 
    var d = new Date();
@@ -5425,7 +5492,7 @@ function Show_Name3(arg){
 
    var Topic_Add = arg;
 
-   document.getElementById("Hymn").value = Topic_Add;
+   document.getElementById("Hymnal").value = Topic_Add;
 
    Hide_Name_List3();
  

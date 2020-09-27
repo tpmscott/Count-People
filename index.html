@@ -312,14 +312,14 @@ function clickCounter() {
 
 <div id="tool_area_8" style="height:110%;display:block"> 
 
-   <label style="font-size:28px" for="fname2">1. Start --> 2. Save --> 3. Send email</label>
+   <center><label style="font-size:28px" for="fname2">Service Record and Roll Marking</label></center>
    <br>
 
    <td>
    <label style="font-size:28px" for="fname2">Date</label>
    </td>
    <td>
-   <input style="font-size:22px" size="25" type="text" id="Mesg2" name="Mesg2" class="messageBox">
+   <input style="font-size:22px;color:blue" size="25" type="text" id="Service_Date" name="Service_Date" class="messageBox">
    </td>
 
 
@@ -327,7 +327,7 @@ function clickCounter() {
    <label style="font-size:28px" for="fname2"> 1. </label>
    </td>
    <td>
-   <button style="font-size:26px" onclick="Start_Service_Record()">Start</button>
+   <button id="Start_Attendance2" style="font-size:26px" onclick="Start_Service_Record()">Start</button>
    </td>
    <td>
    <label style="font-size:28px" for="fname2"> --> </label>
@@ -336,7 +336,7 @@ function clickCounter() {
    <label style="font-size:28px" for="fname2"> 2. </label>
    </td>
    <td>
-   <button style="font-size:26px" onclick="Exp_and_Email_Attendance2()">Save</button>
+   <button id="Save_Attendance2" style="font-size:26px" onclick="Exp_and_Email_Attendance2()">Save</button>
    </td>
    <td>
    <label style="font-size:28px" for="fname2"> --> </label>
@@ -355,14 +355,16 @@ function clickCounter() {
 
    <label style="font-size:28px" for="fname2">Topic: </label>
    <input style="font-size:22px" size="50" type="text" id="Topic" name="Topic">
+   <label style="font-size:28px" for="fname2">Hymn: </label>
+   <input style="font-size:22px" size="12" type="text" id="Hymn" name="Hymn">
 
    <br>
    <label style="font-size:28px" for="fname2">Speaker: </label>
    <input style="font-size:22px" size="15" type="text" id="Speaker" name="Speaker"> 
    <label style="font-size:28px" for="fname2">Interp: </label>
    <input style="font-size:22px" size="13" type="text" id="Interp" name="Interp"> 
-   <label style="font-size:28px" for="fname2">Hymn: </label>
-   <input style="font-size:22px" size="13" type="text" id="Hymn" name="Hymn"> 
+   <label style="font-size:28px" for="fname2">Hymnal: </label>
+   <input style="font-size:22px" size="13" type="text" id="Hymnal" name="Hymnal"> 
 
    <button style="font-size:16px" onclick="Show_Name_List()">Show Name List</button>
    <button style="font-size:16px" onclick="Hide_Name_List()">Hide Name List</button>
@@ -431,7 +433,7 @@ function clickCounter() {
      <a href="javascript:;" onclick="Show_Name3('Anabella L');">Anabella L</a>
      <a href="javascript:;" onclick="Show_Name3('Angelina S');">Angelina S</a>
      <a href="javascript:;" onclick="Show_Name3('Christine C');">Christine C</a>
-     <a href="javascript:;" onclick="Show_Name3(Crystal Y');">Crystal Y</a>
+     <a href="javascript:;" onclick="Show_Name3('Crystal Y');">Crystal Y</a>
      <a href="javascript:;" onclick="Show_Name3('Daphne L');">Daphne L</a>
      <a href="javascript:;" onclick="Show_Name3('Grace Lee');">Grace Lee</a>
      <a href="javascript:;" onclick="Show_Name3('Helen Y');">Helen Y</a>
@@ -5565,7 +5567,27 @@ function Start_Service_Record() {
 
    document.getElementById("Send email").innerHTML = 'Send email';
 
+   var DateStr = ML_Date_V3(); // --> 2020/09/26 Saturday Afternoon
+
+   document.getElementById("Service_Date").value = DateStr;
+
+   document.getElementById("Save_Attendance2").style.color = "blue";
+
+   document.getElementById("Start_Attendance2").style.color = "blue";
+
+   Clear_Service_Record();
+
 } // End of function Start_Service_Record()
+
+function Clear_Service_Record() {
+
+   document.getElementById("Topic").value = '';
+   document.getElementById("Hymn").value = '';
+   document.getElementById("Speaker").value = '';
+   document.getElementById("Interp").value = '';
+   document.getElementById("Hymnal").value = '';
+
+} // End of function Clear_Service_Record()
 
 
 async function Exp_and_Email_Attendance2() { // New for V12
