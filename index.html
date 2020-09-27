@@ -479,7 +479,7 @@ function clickCounter() {
    </tr>
    <tr>
    <td>
-   <textarea cols="60" rows="7" name="A1" id="Service_Record_Note" style="font-size:20pt" Wrap="Off" onkeyup=";" onmouseup=";" onfocus="Mousetrap.pause();" onBlur="Mousetrap.unpause();"></textarea>
+   <textarea cols="60" rows="8" name="A1" id="Service_Record_Note" style="font-size:20pt" Wrap="Off" onkeyup=";" onmouseup=";" onfocus="Mousetrap.pause();" onBlur="Mousetrap.unpause();"></textarea>
    </td>
    </tr>
    </table>
@@ -5612,11 +5612,17 @@ function Start_Service_Record() {
 
 function Clear_Service_Record() {
 
+   document.getElementById("Service_Start_Time").value = '';
+   document.getElementById("Service_End_Time").value = '';
+   document.getElementById("Usher").value = '';
+
    document.getElementById("Topic").value = '';
    document.getElementById("Hymn").value = '';
    document.getElementById("Speaker").value = '';
    document.getElementById("Interp").value = '';
    document.getElementById("Hymnal").value = '';
+
+   document.getElementById("Service_Record_Note").value = '';
 
 } // End of function Clear_Service_Record()
 
