@@ -5427,6 +5427,39 @@ function Hide_Service_Note() {
 } // End of Hide_Service_Note()
 
 
+function Change_Start_Save_Color_to_black() {
+
+   document.getElementById("Save_Attendance2").style.color = "black";  // blue
+
+   document.getElementById("Start_Attendance2").style.color = "black";
+
+   document.getElementById("Send email").innerHTML = 'Send email';
+
+} // End of function Change_Start_Save_Color_to_black()
+
+
+function Change_Start_Save_Color_to_blue() {
+
+   document.getElementById("Save_Attendance2").style.color = "blue";
+
+   document.getElementById("Start_Attendance2").style.color = "blue";
+
+} // End of function Change_Start_Save_Color_to_blue()
+
+
+function Change_Save_Color_to_blue() {
+
+   // Need to check Status first
+
+   document.getElementById("Save_Attendance2").style.color = "blue";
+
+   //document.getElementById("Start_Attendance2").style.color = "blue";
+
+   document.getElementById("Send email").innerHTML = 'Send email';
+
+} // End of function Change_Save_Color_to_blue()
+
+
 function Show_Name_List() {
 
    document.getElementById("tool_area_9").style.display='block';  //inline
@@ -5491,6 +5524,8 @@ function Show_Name(arg){
    document.getElementById("Speaker").value = Topic_Add;
 
    Hide_Name_List();
+
+   Change_Save_Color_to_blue();
  
    //localStorage.Note3_Topic = document.ANNO_FORM.B11aa.value;
 
@@ -5513,6 +5548,8 @@ function Show_Name2(arg){
    document.getElementById("Interp").value = Topic_Add;
 
    Hide_Name_List2();
+
+   Change_Save_Color_to_blue();
  
 }
 
@@ -5523,6 +5560,8 @@ function Show_Name3(arg){
    document.getElementById("Hymnal").value = Topic_Add;
 
    Hide_Name_List3();
+
+   Change_Save_Color_to_blue();
  
 }
 

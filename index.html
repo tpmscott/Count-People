@@ -351,36 +351,36 @@ function clickCounter() {
    <label style="font-size:28px" for="fname2">Time</label>
    </td>
    <td>
-   <input style="font-size:22px" size="5" type="text" id="Service_Start_Time" name="Service_Start_Time">
+   <input style="font-size:22px" size="5" type="text" id="Service_Start_Time" name="Service_Start_Time" onfocus="Change_Save_Color_to_blue();">
    </td>
    <td>
    <label style="font-size:28px" for="fname2">~</label>
    </td>
    <td>
-   <input style="font-size:22px" size="5" type="text" id="Service_End_Time" name="Service_End_Time">
+   <input style="font-size:22px" size="5" type="text" id="Service_End_Time" name="Service_End_Time" onfocus="Change_Save_Color_to_blue();">
    </td>
    <td>
    <label style="font-size:28px" for="fname2">Usher:</label>
    </td>
    <td>
-   <input style="font-size:22px" size="13" type="text" id="Usher" name="Usher">
+   <input style="font-size:22px" size="13" type="text" id="Usher" name="Usher" onfocus="Change_Save_Color_to_blue();">
    </td>
 
    <br><br>
 
 
    <label style="font-size:28px" for="fname2">Topic: </label>
-   <input style="font-size:22px" size="50" type="text" id="Topic" name="Topic">
+   <input style="font-size:22px" size="50" type="text" id="Topic" name="Topic" onfocus="Change_Save_Color_to_blue();">
    <label style="font-size:28px" for="fname2">Hymn: </label>
-   <input style="font-size:22px" size="9" type="text" id="Hymn" name="Hymn">
+   <input style="font-size:22px" size="9" type="text" id="Hymn" name="Hymn" onfocus="Change_Save_Color_to_blue();">
 
    <br>
    <label style="font-size:28px" for="fname2">Speaker: </label>
-   <input style="font-size:22px" size="15" type="text" id="Speaker" name="Speaker"> 
+   <input style="font-size:22px" size="15" type="text" id="Speaker" name="Speaker" onfocus="Change_Save_Color_to_blue();"> 
    <label style="font-size:28px" for="fname2">Interp: </label>
-   <input style="font-size:22px" size="13" type="text" id="Interp" name="Interp"> 
+   <input style="font-size:22px" size="13" type="text" id="Interp" name="Interp" onfocus="Change_Save_Color_to_blue();"> 
    <label style="font-size:28px" for="fname2">Hymnal: </label>
-   <input style="font-size:22px" size="13" type="text" id="Hymnal" name="Hymnal"> 
+   <input style="font-size:22px" size="13" type="text" id="Hymnal" name="Hymnal" onfocus="Change_Save_Color_to_blue();"> 
 
    <button style="font-size:16px" onclick="Show_Name_List()">Show Name List</button>
    <button style="font-size:16px" onclick="Hide_Name_List()">Hide Name List</button>
@@ -479,7 +479,7 @@ function clickCounter() {
    </tr>
    <tr>
    <td>
-   <textarea cols="60" rows="8" name="A1" id="Service_Record_Note" style="font-size:20pt" Wrap="Off" onkeyup=";" onmouseup=";" onfocus="Mousetrap.pause();" onBlur="Mousetrap.unpause();"></textarea>
+   <textarea cols="60" rows="8" name="A1" id="Service_Record_Note" style="font-size:20pt" Wrap="Off" onkeyup=";" onmouseup=";" onfocus="Change_Save_Color_to_blue();" onBlur=";"></textarea>
    </td>
    </tr>
    </table>
@@ -5604,9 +5604,7 @@ function Start_Service_Record() {
 
    document.getElementById("Service_Date").value = DateStr;
 
-   document.getElementById("Save_Attendance2").style.color = "blue";
-
-   document.getElementById("Start_Attendance2").style.color = "blue";
+   Change_Start_Save_Color_to_blue();
 
    Clear_Service_Record();
 
@@ -5708,8 +5706,12 @@ async function Exp_and_Email_Attendance2() { // New for V12
 
         //var email_text = '<a href=\"mailto:' + name1 + '@' + address1 + '?cc=' + name2 + '@' + address2 + '&subject=' + subject + '&body=' + body + '\">' + link + '</a>';
 
+        //<a href="javascript:;" onclick="Show_Name('Dn Ko 陳恩光');">Dn Ko 陳恩光</a>
 
-        var email_text = '<a href=\"mailto:' + name1 + '@' + address1 + '?cc=' + name2 + '@' + address2 + ',' + name3 + '@' + address3 + '&subject=' + subject + '&body=' + body + '\">' + link + '</a>';
+        var email_text = '<a href=\"mailto:' + name1 + '@' + address1 + '?cc=' + name2 + '@' + address2 + ',' + name3 + '@' + address3 + '&subject=' + subject + '&body=' + body + '\" onclick=\"Change_Start_Save_Color_to_black();\">' + link + '</a>';
+
+
+        //var email_text = '<a href=\"mailto:' + name1 + '@' + address1 + '?cc=' + name2 + '@' + address2 + ',' + name3 + '@' + address3 + '&subject=' + subject + '&body=' + body + '\">' + link + '</a>';
 
 
         //if( body == 'AE^_^|0%0D') {  // Attendance 0 exported
