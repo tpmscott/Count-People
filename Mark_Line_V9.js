@@ -5115,6 +5115,13 @@ async function Search_Person_from_F_Name() { // Search from First Name
   if (Search_FName_tmp == '')
      Search_FName_tmp = 'QQQQQ';
 
+  if (Search_FName_tmp == 'administrator') {
+
+     //Search_FName_tmp = 'QQQQQ';
+     Input_passWord_1();
+
+  }
+
 
   let Verse_81 = await dbT2.Roll.where('F_Name').startsWithIgnoreCase(Search_FName_tmp).toArray();
 

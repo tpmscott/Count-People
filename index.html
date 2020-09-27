@@ -310,6 +310,150 @@ function clickCounter() {
 </div>
 
 
+<div id="tool_area_8" style="height:110%;display:block"> 
+
+   <label style="font-size:28px" for="fname2">1. Start --> 2. Save --> 3. Send email</label>
+   <br>
+
+   <td>
+   <label style="font-size:28px" for="fname2">Date</label>
+   </td>
+   <td>
+   <input style="font-size:22px" size="25" type="text" id="Mesg2" name="Mesg2" class="messageBox">
+   </td>
+
+
+   <td>
+   <label style="font-size:28px" for="fname2"> 1. </label>
+   </td>
+   <td>
+   <button style="font-size:26px" onclick="Start_Service_Record()">Start</button>
+   </td>
+   <td>
+   <label style="font-size:28px" for="fname2"> --> </label>
+   </td>
+   <td>
+   <label style="font-size:28px" for="fname2"> 2. </label>
+   </td>
+   <td>
+   <button style="font-size:26px" onclick="Exp_and_Email_Attendance2()">Save</button>
+   </td>
+   <td>
+   <label style="font-size:28px" for="fname2"> --> </label>
+   </td>
+   <td>
+   <label style="font-size:28px" for="fname2"> 3. </label>
+   </td>
+   <td>
+   <label id="Send email" style="font-size:28px" for="fname2"> Send email </label>
+   </td>
+
+
+
+   <br><br>
+
+
+   <label style="font-size:28px" for="fname2">Topic: </label>
+   <input style="font-size:22px" size="50" type="text" id="Topic" name="Topic">
+
+   <br>
+   <label style="font-size:28px" for="fname2">Speaker: </label>
+   <input style="font-size:22px" size="15" type="text" id="Speaker" name="Speaker"> 
+   <label style="font-size:28px" for="fname2">Interp: </label>
+   <input style="font-size:22px" size="13" type="text" id="Interp" name="Interp"> 
+   <label style="font-size:28px" for="fname2">Hymn: </label>
+   <input style="font-size:22px" size="13" type="text" id="Hymn" name="Hymn"> 
+
+   <button style="font-size:16px" onclick="Show_Name_List()">Show Name List</button>
+   <button style="font-size:16px" onclick="Hide_Name_List()">Hide Name List</button>
+
+   <button style="font-size:16px" onclick="Show_Name_List2()">Show Name List</button>
+   <button style="font-size:16px" onclick="Hide_Name_List2()">Hide Name List</button>
+
+   <button style="font-size:16px" onclick="Show_Name_List3()">Show Name List</button>
+   <button style="font-size:16px" onclick="Hide_Name_List3()">Hide Name List</button>
+
+   <div id="tool_area_9" style="font-size:26px;height:0%;display:none"> 
+
+     <a href="javascript:;" onclick="Show_Name('Dn Ko 陳恩光');">Dn Ko 陳恩光</a>
+     <a href="javascript:;" onclick="Show_Name('Dn Ko 柯恩宏');">Dn Ko 柯恩宏</a>
+     <a href="javascript:;" onclick="Show_Name('Dn James 李雅各');">Dn James 李雅各</a>
+     <a href="javascript:;" onclick="Show_Name('Br Ko 柯獻中');">Br Ko 柯獻中</a>
+     <a href="javascript:;" onclick="Show_Name('Br Ko 柯宇恆');">Br Ko 柯宇恆</a>
+     <a href="javascript:;" onclick="Show_Name('Br Lawrence C');">Br Lawrence C</a>
+
+     <br>
+     <a href="javascript:;" onclick="Show_Name('Br Liu 劉邦光');">Br Liu 劉邦光</a>
+     <a href="javascript:;" onclick="Show_Name('Br Kuo 郭淼義');">Br Kuo 郭淼義</a>
+     <a href="javascript:;" onclick="Show_Name('Br Chuy 許琮瑋');">Br Chuy 許琮瑋</a>
+     <a href="javascript:;" onclick="Show_Name('Br Yang 楊恩加');">Br Yang 楊恩加</a>
+     <a href="javascript:;" onclick="Show_Name('Br Chen 陳效謙');">Br Chen 陳效謙</a>
+
+     <br>
+     <a href="javascript:;" onclick="Show_Name('Br Nugraha S');">Br Nugraha S</a>
+     <a href="javascript:;" onclick="Show_Name('Br Chen 陳展志');">Br Chen 陳展志</a>
+     <a href="javascript:;" onclick="Show_Name('Br Chin 陳頌祈');">Br Chin 陳頌祈</a>
+     <a href="javascript:;" onclick="Show_Name('Br Huang 黃明仁');">Br Huang 黃明仁</a>
+     <a href="javascript:;" onclick="Show_Name('Br Chang 張世光');">Br Chang 張世光</a>
+
+     <br>
+     <a href="javascript:;" onclick="Show_Name('Pr Li 黎傳道');">Pr Li 黎傳道</a>
+     <a href="javascript:;" onclick="Show_Name('Pr Shih 施福安');">Pr Shih 施福安</a>
+     <a href="javascript:;" onclick="Show_Name('Eld Shaw 邵銘恩');">Eld Shaw 邵銘恩</a>
+     <a href="javascript:;" onclick="Show_Name('Br Shaw 邵偉昕');">Br Shaw 邵偉昕</a>
+     <a href="javascript:;" onclick="Show_Name('Br Shaw 邵奕昕');">Br Shaw 邵奕昕</a>
+
+   </div>
+
+   <div id="tool_area_10" style="font-size:26px;height:0%;display:none"> 
+
+     <a href="javascript:;" onclick="Show_Name2('Aaron C');">Aaron C</a>
+     <a href="javascript:;" onclick="Show_Name2('Aaron K');">Aaron K</a>
+     <a href="javascript:;" onclick="Show_Name2('Carnegie S');">Carnegie S</a>
+     <a href="javascript:;" onclick="Show_Name2('Daniel K');">Daniel K</a>
+     <a href="javascript:;" onclick="Show_Name2('Eric S');">Eric S</a>
+     <a href="javascript:;" onclick="Show_Name2('Gloria C');">Gloria C</a>
+     <a href="javascript:;" onclick="Show_Name2('Grace Lee');">Grace Lee</a>
+     <a href="javascript:;" onclick="Show_Name2('Joel C');">Joel C</a>
+
+     <br>
+     <a href="javascript:;" onclick="Show_Name2('John S');">John S</a>
+     <a href="javascript:;" onclick="Show_Name2('Joyce H');">Joyce H</a>
+     <a href="javascript:;" onclick="Show_Name2('Sam Y');">Sam Y</a>
+     <a href="javascript:;" onclick="Show_Name2('Ted T');">Ted T</a>
+     <a href="javascript:;" onclick="Show_Name2('Terie L');">Terie L</a>
+     <a href="javascript:;" onclick="Show_Name2('Wayne S');">Wayne S</a>
+
+   </div>
+
+   <div id="tool_area_11" style="font-size:26px;height:0%;display:none"> 
+
+     <a href="javascript:;" onclick="Show_Name3('Anabella L');">Anabella L</a>
+     <a href="javascript:;" onclick="Show_Name3('Angelina S');">Angelina S</a>
+     <a href="javascript:;" onclick="Show_Name3('Christine C');">Christine C</a>
+     <a href="javascript:;" onclick="Show_Name3(Crystal Y');">Crystal Y</a>
+     <a href="javascript:;" onclick="Show_Name3('Daphne L');">Daphne L</a>
+     <a href="javascript:;" onclick="Show_Name3('Grace Lee');">Grace Lee</a>
+     <a href="javascript:;" onclick="Show_Name3('Helen Y');">Helen Y</a>
+     <a href="javascript:;" onclick="Show_Name3('Joel C');">Joel C</a>
+
+     <br>
+     <a href="javascript:;" onclick="Show_Name3('Joshua C');">Joshua C</a>
+     <a href="javascript:;" onclick="Show_Name3('Joyce C');">Joyce C</a>
+     <a href="javascript:;" onclick="Show_Name3('Luke Y');">Luke Y</a>
+     <a href="javascript:;" onclick="Show_Name3('Malcolm K');">Malcolm K</a>
+     <a href="javascript:;" onclick="Show_Name3('Matias L');">Matias L</a>
+     <a href="javascript:;" onclick="Show_Name3('Melissa P');">Melissa P</a>
+     <a href="javascript:;" onclick="Show_Name3('Mike L');">Mike L</a>
+     <a href="javascript:;" onclick="Show_Name3('Monica S');">Monica S</a>
+     <a href="javascript:;" onclick="Show_Name3('Natasha S');">Natasha S</a>
+
+   </div>
+
+
+</div>
+
+
 <center>
 <table>
 <table border=1 width=100% text=white>
@@ -2519,107 +2663,7 @@ function Reset_All(){
 </div>
 
 
-<div id="tool_area_8" style="height:0%;display:none"> 
 
-   <label style="font-size:28px" for="fname2">Topic: </label>
-   <input style="font-size:22px" size="50" type="text" id="Topic" name="Topic">
-   <button style="font-size:20px" onclick="Close_Service_Record()">Close Service Record</button>
-   <br>
-   <label style="font-size:28px" for="fname2">Speaker: </label>
-   <input style="font-size:22px" size="15" type="text" id="Speaker" name="Speaker"> 
-   <label style="font-size:28px" for="fname2">Interp: </label>
-   <input style="font-size:22px" size="13" type="text" id="Interp" name="Interp"> 
-   <label style="font-size:28px" for="fname2">Hymn: </label>
-   <input style="font-size:22px" size="13" type="text" id="Hymn" name="Hymn"> 
-
-   <button style="font-size:16px" onclick="Show_Name_List()">Show Name List</button>
-   <button style="font-size:16px" onclick="Hide_Name_List()">Hide Name List</button>
-
-   <button style="font-size:16px" onclick="Show_Name_List2()">Show Name List</button>
-   <button style="font-size:16px" onclick="Hide_Name_List2()">Hide Name List</button>
-
-   <button style="font-size:16px" onclick="Show_Name_List3()">Show Name List</button>
-   <button style="font-size:16px" onclick="Hide_Name_List3()">Hide Name List</button>
-
-   <div id="tool_area_9" style="font-size:26px;height:0%;display:none"> 
-
-     <a href="javascript:;" onclick="Show_Name('Dn Ko 陳恩光');">Dn Ko 陳恩光</a>
-     <a href="javascript:;" onclick="Show_Name('Dn Ko 柯恩宏');">Dn Ko 柯恩宏</a>
-     <a href="javascript:;" onclick="Show_Name('Dn James 李雅各');">Dn James 李雅各</a>
-     <a href="javascript:;" onclick="Show_Name('Br Ko 柯獻中');">Br Ko 柯獻中</a>
-     <a href="javascript:;" onclick="Show_Name('Br Ko 柯宇恆');">Br Ko 柯宇恆</a>
-     <a href="javascript:;" onclick="Show_Name('Br Lawrence C');">Br Lawrence C</a>
-
-     <br>
-     <a href="javascript:;" onclick="Show_Name('Br Liu 劉邦光');">Br Liu 劉邦光</a>
-     <a href="javascript:;" onclick="Show_Name('Br Kuo 郭淼義');">Br Kuo 郭淼義</a>
-     <a href="javascript:;" onclick="Show_Name('Br Chuy 許琮瑋');">Br Chuy 許琮瑋</a>
-     <a href="javascript:;" onclick="Show_Name('Br Yang 楊恩加');">Br Yang 楊恩加</a>
-     <a href="javascript:;" onclick="Show_Name('Br Chen 陳效謙');">Br Chen 陳效謙</a>
-
-     <br>
-     <a href="javascript:;" onclick="Show_Name('Br Nugraha S');">Br Nugraha S</a>
-     <a href="javascript:;" onclick="Show_Name('Br Chen 陳展志');">Br Chen 陳展志</a>
-     <a href="javascript:;" onclick="Show_Name('Br Chin 陳頌祈');">Br Chin 陳頌祈</a>
-     <a href="javascript:;" onclick="Show_Name('Br Huang 黃明仁');">Br Huang 黃明仁</a>
-     <a href="javascript:;" onclick="Show_Name('Br Chang 張世光');">Br Chang 張世光</a>
-
-     <br>
-     <a href="javascript:;" onclick="Show_Name('Pr Li 黎傳道');">Pr Li 黎傳道</a>
-     <a href="javascript:;" onclick="Show_Name('Pr Shih 施福安');">Pr Shih 施福安</a>
-     <a href="javascript:;" onclick="Show_Name('Eld Shaw 邵銘恩');">Eld Shaw 邵銘恩</a>
-     <a href="javascript:;" onclick="Show_Name('Br Shaw 邵偉昕');">Br Shaw 邵偉昕</a>
-     <a href="javascript:;" onclick="Show_Name('Br Shaw 邵奕昕');">Br Shaw 邵奕昕</a>
-
-   </div>
-
-   <div id="tool_area_10" style="font-size:26px;height:0%;display:none"> 
-
-     <a href="javascript:;" onclick="Show_Name2('Aaron C');">Aaron C</a>
-     <a href="javascript:;" onclick="Show_Name2('Aaron K');">Aaron K</a>
-     <a href="javascript:;" onclick="Show_Name2('Carnegie S');">Carnegie S</a>
-     <a href="javascript:;" onclick="Show_Name2('Daniel K');">Daniel K</a>
-     <a href="javascript:;" onclick="Show_Name2('Eric S');">Eric S</a>
-     <a href="javascript:;" onclick="Show_Name2('Gloria C');">Gloria C</a>
-     <a href="javascript:;" onclick="Show_Name2('Grace Lee');">Grace Lee</a>
-     <a href="javascript:;" onclick="Show_Name2('Joel C');">Joel C</a>
-
-     <br>
-     <a href="javascript:;" onclick="Show_Name2('John S');">John S</a>
-     <a href="javascript:;" onclick="Show_Name2('Joyce H');">Joyce H</a>
-     <a href="javascript:;" onclick="Show_Name2('Sam Y');">Sam Y</a>
-     <a href="javascript:;" onclick="Show_Name2('Ted T');">Ted T</a>
-     <a href="javascript:;" onclick="Show_Name2('Terie L');">Terie L</a>
-     <a href="javascript:;" onclick="Show_Name2('Wayne S');">Wayne S</a>
-
-   </div>
-
-   <div id="tool_area_11" style="font-size:26px;height:0%;display:none"> 
-
-     <a href="javascript:;" onclick="Show_Name3('Anabella L');">Anabella L</a>
-     <a href="javascript:;" onclick="Show_Name3('Angelina S');">Angelina S</a>
-     <a href="javascript:;" onclick="Show_Name3('Christine C');">Christine C</a>
-     <a href="javascript:;" onclick="Show_Name3(Crystal Y');">Crystal Y</a>
-     <a href="javascript:;" onclick="Show_Name3('Daphne L');">Daphne L</a>
-     <a href="javascript:;" onclick="Show_Name3('Grace Lee');">Grace Lee</a>
-     <a href="javascript:;" onclick="Show_Name3('Helen Y');">Helen Y</a>
-     <a href="javascript:;" onclick="Show_Name3('Joel C');">Joel C</a>
-
-     <br>
-     <a href="javascript:;" onclick="Show_Name3('Joshua C');">Joshua C</a>
-     <a href="javascript:;" onclick="Show_Name3('Joyce C');">Joyce C</a>
-     <a href="javascript:;" onclick="Show_Name3('Luke Y');">Luke Y</a>
-     <a href="javascript:;" onclick="Show_Name3('Malcolm K');">Malcolm K</a>
-     <a href="javascript:;" onclick="Show_Name3('Matias L');">Matias L</a>
-     <a href="javascript:;" onclick="Show_Name3('Melissa P');">Melissa P</a>
-     <a href="javascript:;" onclick="Show_Name3('Mike L');">Mike L</a>
-     <a href="javascript:;" onclick="Show_Name3('Monica S');">Monica S</a>
-     <a href="javascript:;" onclick="Show_Name3('Natasha S');">Natasha S</a>
-
-   </div>
-
-
-</div>
 
 
 <div id="tool_area_7" style="height:0%;display:none"> 
@@ -2644,8 +2688,6 @@ function Reset_All(){
   <a href="javascript:Roll_Call_Kindy()"> Kindy</a>
   <a href="javascript:Roll_Call_LPC()"> LPC</a>
   <a href="javascript:Roll_Call_UPC()"> UPC</a>
-
-  <button style="font-size:20px" onclick="Input_passWord_1()">Admin Tools</button>
 
   <button style="font-size:20px" onclick="Open_Service_Record()">Service Record</button>
 
@@ -5517,6 +5559,139 @@ async function Exp_from_Attendance() { // New for V12
 
 
 } // End of function Exp_from_Attendance()
+
+
+function Start_Service_Record() {
+
+   document.getElementById("Send email").innerHTML = 'Send email';
+
+} // End of function Start_Service_Record()
+
+
+async function Exp_and_Email_Attendance2() { // New for V12
+
+  var Verse_Count = 0;
+
+  //var startWith_date = document.getElementById("Exp_n_Email_start_date").value; // Exp_start_date
+
+  var startWith_date = '20200920E'; // Exp_start_date
+
+
+  if(startWith_date!='') {
+
+     //let Verse = await dbT2.books.where('date').startsWithIgnoreCase(startWith_date).toArray();
+
+     let Verse = await dbT2.Attendance.where('Record').startsWithIgnoreCase(startWith_date).toArray();
+
+     Verse_Count = Verse.length;
+
+     if (Verse) {
+
+        //var text = 'i!^_^,' + Verse_Count.toString() + ',';
+        //var text = 'i!^_^,' + Verse_Count.toString();
+
+        //var text = 'C4^_^,' + Verse_Count.toString();
+
+        //var text = 'Ae^_^,' + Verse_Count.toString(); // Attendance
+
+        var text = 'AE^_^|' + Verse_Count.toString(); // Attendance , use '|' as seperator
+                                                      // AE^_^ for Attendance exp and Email
+
+
+        for (i = 0; i < Verse.length; i++) {
+
+           //let CNo = Verse[i].CNo;
+
+           let Record = Verse[i].Record;
+
+           //text += ',' + Record;
+
+           text += '|' + Record; // use '|' as seperator
+
+        } // End of for (i = 0; i < Verse.length; i++)
+
+        var mesg1 = 'Attendance ' + Verse_Count + ' exported';
+
+        //document.getElementById("Imp_to_Congregation4").value = text;
+
+        //document.getElementById("Mesg4").value = mesg1;
+
+        document.getElementById("Send_Attendance_Message").innerHTML = mesg1;
+
+        // -- Email
+
+        var name1 = "brisbane"; // 
+        var address1 = "tjc.org.au"; // 
+
+        var name2 = "sc424000"; // 
+        var address2 = "yahoo.com.tw"; // 
+
+        var name3 = "chang424000"; // 
+        var address3 = "gmail.com"; // 
+
+        var link = "Send email";
+        var subject = startWith_date + "%20Attendance%20Record";
+
+        var body = text + '%0D';   // carriage return	%0D
+        //var body = 'test';  // for test
+
+        //var email_text = '<a href=mailto:' + name + '@' + address + '?subject=' + subject + '&body=' + body + '>' + link + '</a>';
+
+        // <a href="mailto:name1@mail.com,name2@mail.com">Send mail</a>
+
+        // <a href="mailto:name1@rapidtables.com?cc=name2@rapidtables.com&bcc=name3@rapidtables.com
+        // &subject=The%20subject%20of%20the%20email
+        // &body=The%20body%20of%20the%20email">
+        // Send mail with cc, bcc, subject and body</a>
+
+
+        //var email_text = '<a href=\"mailto:' + name1 + '@' + address1 + '?cc=' + name2 + '@' + address2 + '&subject=' + subject + '&body=' + body + '\">' + link + '</a>';
+
+
+        var email_text = '<a href=\"mailto:' + name1 + '@' + address1 + '?cc=' + name2 + '@' + address2 + ',' + name3 + '@' + address3 + '&subject=' + subject + '&body=' + body + '\">' + link + '</a>';
+
+
+        //if( body == 'AE^_^|0%0D') {  // Attendance 0 exported
+
+        if (mesg1 == 'Attendance 0 exported') {
+
+           //document.getElementById("Send_Attendance2").innerHTML = '';
+
+           document.getElementById("Send email").innerHTML = 'Send email';
+
+        }
+        else {
+
+           //document.getElementById("Send_Attendance2").innerHTML = email_text;
+
+           document.getElementById("Send email").innerHTML = email_text;
+
+        }
+
+
+        //document.getElementById("Send_Attendance").value = email_text;
+
+        // End of -- Email        
+
+     } // End of if (Verse)
+
+  }
+  else {
+
+     //myExp_Db_Display.innerHTML = 'ML 0 exported';
+
+     //document.getElementById("Mesg4").value = 'Attendance 0 exported';
+
+     //document.getElementById("Send_Attendance2").innerHTML = "";
+
+     document.getElementById("Send email").innerHTML = 'Send email';
+
+     //document.getElementById("Send_Attendance_Message").innerHTML = 'Attendance 0 exported';
+
+  } // End of if(startWith_date!='')
+
+
+} // End of function Exp_and_Email_Attendance2()
 
 
 async function Exp_and_Email_Attendance() { // New for V12
