@@ -2251,7 +2251,7 @@ function ML_Date_V3() {  // New for V8
 
    var Service_Code2;
 
-   if(h>18 && h<23) {
+   if(h>17 && h<23) {
       Service_Code2 = 'Evening';  // evening
    }
 
@@ -2308,7 +2308,7 @@ function ML_Date_V2() {  // New for V8
 
    var Service_Code;
 
-   if(h>18 && h<23) {
+   if(h>17 && h<23) {
       Service_Code = 'E';  // evening
    }
 
