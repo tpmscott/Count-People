@@ -328,7 +328,7 @@ function clickCounter() {
    <label style="font-size:28px" for="fname2"> 2. </label>
    </td>
    <td>
-   <button id="Save_Attendance2" style="font-size:26px" onclick="Exp_and_Email_Attendance2()">Save</button>
+   <button id="Save_Attendance2" style="font-size:26px" onclick="update_Service_Record();Exp_and_Email_Attendance2();">Save</button>
    </td>
    <td>
    <label style="font-size:28px" for="fname2"> --> </label>
@@ -339,13 +339,19 @@ function clickCounter() {
    <td>
    <label id="Send email" style="font-size:28px" for="fname2"> Send email </label>
    </td>
+
+  <td>
+  <button style="font-size:16pt" onclick="Search_Service_Record()">Search Service Record=</button> 
+  <INPUT TYPE=TEXT style="font-size:16pt" NAME="Search_Rervice_Record_date" SIZE="12" id="Search_Rervice_Record_date">
+  </td>
+
    <br><br>
 
    <td>
    <label style="font-size:28px" for="fname2">Date</label>
    </td>
    <td>
-   <input style="font-size:22px;color:blue" size="25" type="text" id="Service_Date" name="Service_Date" class="messageBox">
+   <input style="font-size:22px;color:blue;" size="25" type="text" id="Service_Date" name="Service_Date" class="messageBox" readonly>
    </td>
    <td>
    <label style="font-size:28px" for="fname2">Time</label>
@@ -1798,6 +1804,139 @@ async function Show_Subtotal_on_the_Roll() {
   Show_Subtotal_on_the_Roll_Mode();
 
 } // End of function Show_Subtotal_on_the_Roll()
+
+
+async function Show_Service_Record(arg) {
+
+  var ID_2_tmp = arg;
+
+  let Verse = await dbT2.Service_Record.where('ID_2').equals(ID_2_tmp).toArray();
+
+
+  if (Verse) {
+
+     //document.getElementById("Mesg2").style.color = "red";
+
+     Display_ID_1 = Verse[0].ID_1;
+
+     Display_ID_2 = Verse[0].ID_2;
+
+     if (ID_2_tmp == G_ServiceDate2) {
+
+        document.getElementById("Service_Date").style.color = "blue";
+
+     }
+     else {
+
+        document.getElementById("Service_Date").style.color = "black";
+
+     }
+
+     document.getElementById("Service_Date").value = Verse[0].Service_Date;
+
+     document.getElementById("Service_Start_Time").value = Verse[0].Service_Start_Time;
+     document.getElementById("Service_End_Time").value = Verse[0].Service_End_Time;
+     document.getElementById("Usher").value = Verse[0].Usher;
+
+     document.getElementById("Topic").value = Verse[0].Topic;
+     document.getElementById("Hymn").value = Verse[0].Hymn;
+
+     document.getElementById("Speaker").value = Verse[0].Speaker;
+     document.getElementById("Interp").value = Verse[0].Interp;
+     document.getElementById("Hymnal").value = Verse[0].Hymnal;
+
+     document.getElementById("Service_Record_Note").value = Verse[0].Note;
+
+     //let Bro_M_Note = Bro_M;      // for Bro_M not on the Roll
+     //let Sis_M_Note = Sis_M;      // for Sis_M not on the Roll
+     //let Bro_TrS_Note = Bro_TrS;  // for Bro_TrS not on the Roll
+     //let Sis_TrS_Note = Sis_TrS;  // for Sis_TrS not on the Roll
+
+     //localStorage.Bro_M = Verse[0].Bro_M_Note;
+     //localStorage.Sis_M = Verse[0].Sis_M_Note;
+     //localStorage.Bro_Trs = Verse[0].Bro_TrS_Note;
+     //localStorage.Sis_Trs = Verse[0].Sis_TrS_Note;
+
+     Bro_M = Verse[0].Bro_M_Note;
+     Sis_M = Verse[0].Sis_M_Note;
+     Bro_Trs = Verse[0].Bro_TrS_Note;
+     Sis_Trs = Verse[0].Sis_TrS_Note;
+
+     Show_Total();
+
+  }
+
+
+} // End of function Show_Service_Record(arg)
+
+
+
+async function Search_Service_Record() {
+
+  var ID_2_tmp = document.getElementById("Search_Rervice_Record_date").value;
+
+  let Verse = await dbT2.Service_Record.where('ID_2').equals(ID_2_tmp).toArray();
+
+
+  if (Verse) {
+
+     //document.getElementById("Mesg2").style.color = "red";
+
+     Display_ID_1 = Verse[0].ID_1;
+
+     Display_ID_2 = Verse[0].ID_2;
+
+     var ServiceDate2_tmp = ML_Date_V2();
+
+     //if (ID_2_tmp == G_ServiceDate2) { // ML_Date_V2()
+
+     if (ID_2_tmp == ServiceDate2_tmp) { // ML_Date_V2()
+
+        document.getElementById("Service_Date").style.color = "blue";
+
+     }
+     else {
+
+        document.getElementById("Service_Date").style.color = "black";
+
+     }
+
+     document.getElementById("Service_Date").value = Verse[0].Service_Date;
+
+     document.getElementById("Service_Start_Time").value = Verse[0].Service_Start_Time;
+     document.getElementById("Service_End_Time").value = Verse[0].Service_End_Time;
+     document.getElementById("Usher").value = Verse[0].Usher;
+
+     document.getElementById("Topic").value = Verse[0].Topic;
+     document.getElementById("Hymn").value = Verse[0].Hymn;
+
+     document.getElementById("Speaker").value = Verse[0].Speaker;
+     document.getElementById("Interp").value = Verse[0].Interp;
+     document.getElementById("Hymnal").value = Verse[0].Hymnal;
+
+     document.getElementById("Service_Record_Note").value = Verse[0].Note;
+
+     //let Bro_M_Note = Bro_M;      // for Bro_M not on the Roll
+     //let Sis_M_Note = Sis_M;      // for Sis_M not on the Roll
+     //let Bro_TrS_Note = Bro_TrS;  // for Bro_TrS not on the Roll
+     //let Sis_TrS_Note = Sis_TrS;  // for Sis_TrS not on the Roll
+
+     //localStorage.Bro_M = Verse[0].Bro_M_Note;
+     //localStorage.Sis_M = Verse[0].Sis_M_Note;
+     //localStorage.Bro_Trs = Verse[0].Bro_TrS_Note;
+     //localStorage.Sis_Trs = Verse[0].Sis_TrS_Note;
+
+     Bro_M = Verse[0].Bro_M_Note;
+     Sis_M = Verse[0].Sis_M_Note;
+     Bro_Trs = Verse[0].Bro_TrS_Note;
+     Sis_Trs = Verse[0].Sis_TrS_Note;
+
+     Show_Total();
+
+  }
+
+
+} // End of function Search_Service_Record()
 
 
 function Show_Subtotal_on_the_Roll_Mode() {
@@ -4746,6 +4885,120 @@ async function add_people_to_Congregation4_F() {
 
 
 
+async function update_Service_Record() {  // use Display_ID_1
+
+  let ID_1 = Display_ID_1;
+
+  //let ID_1 = G_ServiceDate1;
+
+  //var CNo_tmp = document.getElementById("cNo2").value;
+
+  let Verse = await dbT2.Service_Record.get(ID_1);
+
+  if (Verse) {  // Exist so update
+
+     //var F_Name_tmp = document.getElementById("fname2").value;
+     //var L_Name_tmp = document.getElementById("lname2").value;
+
+     var Service_Start_Time_tmp = document.getElementById("Service_Start_Time").value;
+     var Service_End_Time_tmp = document.getElementById("Service_End_Time").value;
+     var Usher_tmp = document.getElementById("Usher").value;
+
+     var Topic_tmp = document.getElementById("Topic").value;
+     var Hymn_tmp = document.getElementById("Hymn").value;
+
+     var Speaker_tmp = document.getElementById("Speaker").value;
+     var Interp_tmp = document.getElementById("Interp").value;
+     var Hymnal_tmp = document.getElementById("Hymnal").value;
+
+     var Note_tmp = document.getElementById("Service_Record_Note").value;
+
+     var Bro_M_Note_tmp = Bro_M;
+     var Sis_M_Note_tmp = Sis_M;
+     var Bro_TrS_Note_tmp = Bro_TrS;
+     var Sis_TrS_Note_tmp = Sis_TrS;
+
+     dbT2.Service_Record.update(ID_1, { Service_Start_Time: Service_Start_Time_tmp, Service_End_Time: Service_End_Time_tmp, Usher: Usher_tmp, Topic: Topic_tmp, Hymn: Hymn_tmp, Speaker: Speaker_tmp, Interp: Interp_tmp, Hymnal: Hymnal_tmp, Note: Note_tmp, Bro_M_Note: Bro_M_Note_tmp, Sis_M_Note: Sis_M_Note_tmp, Bro_TrS_Note: Bro_TrS_Note_tmp, Sis_TrS_Note: Sis_TrS_Note_tmp });
+
+     //dbT2.Congregation4.update(CNo, { F_Name: F_Name_tmp, L_Name: L_Name_tmp, Member: Member_tmp, Gender: Gender_tmp, H_No: H_No_tmp, C_F_Name: C_F_Name_tmp, C_L_Name: C_L_Name_tmp, F_Order: F_Order_tmp, Tel: Tel_tmp, Mob: Mob_tmp });
+
+  }
+
+
+} // End of function update_Service_Record()
+
+
+
+async function add_Service_Record() {
+
+        // Service_Record: 'ID_1,ID_2'      // ID_1 : 202009261 , 202009262 , 202009253 
+        //                                  // ID_2 : 20200926M , 20200926A , 20200925E 
+
+  let ID_1 = G_ServiceDate1;
+  let ID_2 = G_ServiceDate2;
+
+  let Service_Date = document.getElementById("Service_Date").value;
+  let Service_Start_Time = ''; //document.getElementById("Service_Start_Time").value;
+  let Service_End_Time = '';   //document.getElementById("Service_End_Time").value;
+  let Usher = '';              //document.getElementById("Usher").value;
+
+  let Topic = '';              //document.getElementById("Topic").value;
+  let Hymn = '';               //document.getElementById("Hymn").value;
+
+  let Speaker = '';            //document.getElementById("Speaker").value;
+  let Interp = '';             //document.getElementById("Interp").value;
+  let Hymnal = '';             //document.getElementById("Hymnal").value;
+
+  let Note = '';               //document.getElementById("Service_Record_Note").value;
+
+  let Bro_M_Note = Bro_M;      // for Bro_M not on the Roll
+  let Sis_M_Note = Sis_M;      // for Sis_M not on the Roll
+  let Bro_TrS_Note = Bro_TrS;  // for Bro_TrS not on the Roll
+  let Sis_TrS_Note = Sis_TrS;  // for Sis_TrS not on the Roll
+
+   //Bro_M = 0;
+   //Sis_M = 0;
+   //Bro_TrS = 0;
+   //Sis_TrS = 0;
+
+     let Verse = await dbT2.Service_Record.get(ID_1);
+
+     if (Verse) {
+        // Do nothing
+
+        Show_Service_Record(G_ServiceDate2);
+
+     }
+     else {
+
+        Clear_Service_Record();
+
+        Reset_All();
+
+        try {
+
+          dbT2.Service_Record.add({ID_1, ID_2, Service_Date, Service_Start_Time, Service_End_Time, Usher, Topic, Hymn, Speaker, Interp, Hymnal, Note, Bro_M_Note, Sis_M_Note, Bro_TrS_Note, Sis_TrS_Note });
+
+          //dbT2.Congregation4.add({CNo, F_Name, L_Name, Member, Gender, H_No, C_F_Name, C_L_Name, F_Order, Tel, Mob });
+
+        } catch(err) {
+
+          if (err.name == 'ConstraintError') {
+            alert("Such book exists already");
+             //document.getElementById("Mesg2").value = F_Name + ' ' + L_Name + ' exists already.';
+             //document.getElementById("Mesg2").readOnly = true;
+          } else {
+            throw err;
+          }
+        }
+
+     }  // End of if (Verse)
+
+
+} // End of function add_Service_Record()  
+
+
+
 async function add_people_to_Congregation4() {
 
   let CNo = Number(document.getElementById("cNo2").value);
@@ -5596,17 +5849,42 @@ async function Exp_from_Attendance() { // New for V12
 } // End of function Exp_from_Attendance()
 
 
+var G_ServiceDate1 = '';  // for ID_1 : 202009261 , 202009262 , 202009253 <-- ML_Date_V4()
+var G_ServiceDate2 = '';  // for ID_2 : 20200926M , 20200926A , 20200925E   
+
+var Display_ID_1 = '';
+var Display_ID_2 = '';
+
+
 function Start_Service_Record() {
 
-   document.getElementById("Send email").innerHTML = 'Send email';
+   var ServiceDate = document.getElementById("Service_Date").value;
 
    var DateStr = ML_Date_V3(); // --> 2020/09/26 Saturday Afternoon
 
-   document.getElementById("Service_Date").value = DateStr;
+   if (ServiceDate == '' || ServiceDate != DateStr) {
 
-   Change_Start_Save_Color_to_blue();
+      document.getElementById("Send email").innerHTML = 'Send email';
 
-   Clear_Service_Record();
+      document.getElementById("Service_Date").value = DateStr;
+
+      Change_Start_Save_Color_to_blue();
+
+      //Clear_Service_Record();
+
+      G_ServiceDate1 = ML_Date_V4(); // 202009051, '3'-evening, '1'-morning, '2'-afternoon
+
+      G_ServiceDate2 = ML_Date_V2(); // 20200905M, 'E'-evening, 'M'-morning, 'A'-afternoon
+
+      Display_ID_1 = ML_Date_V4();
+
+      Display_ID_2 = ML_Date_V2();
+
+      Reset_All();
+
+      add_Service_Record();
+
+   }
 
 } // End of function Start_Service_Record()
 

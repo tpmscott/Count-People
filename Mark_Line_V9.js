@@ -235,6 +235,21 @@ async function init_Bible4U_DB() {
          SermonNote: 'Name,Speaker, *MainVerses, *KeyWords',
          Pictures: 'ID, P_Name, *MainVerses'       
      });
+     dbT2.version(22).stores({      // New for V12
+         books: 'name,date',
+         ChapNote: 'name,date',
+         Congregation: 'CNo,F_Name,L_Name,[L_Name+F_Name],H_No,F_Order',
+         Attendance: 'Record',
+         Householder: '++H_Seq,H_No',
+         Congregation2: '++CNo,F_Name,L_Name,[L_Name+F_Name],H_No,F_Order',
+         Congregation3: 'CNo,F_Name,L_Name,[L_Name+F_Name],H_No',
+         Roll: '++Roll_No,CNo,F_Name,L_Name,C_F_Name,H_No,E_F_LName,C_F_FName',
+         Congregation4: 'CNo,F_Name,L_Name,[L_Name+F_Name],H_No,F_Order,Tel,Mob',
+         SermonNote: 'Name,Speaker, *MainVerses, *KeyWords',
+         Pictures: 'ID, P_Name, *MainVerses',
+         Service_Record: 'ID_1,ID_2'      // ID_1 : 202009261 , 202009262 , 202009253 
+                                          // ID_2 : 20200926M , 20200926A , 20200925E   
+     });
 
    // End of Declare Database
 
@@ -2203,6 +2218,71 @@ async function Exp_from_ChapNote_Test2Db_startWith() { // New for V7
 } // End of function Exp_from_ChapNote_Test2Db_startWith()
 
 
+function ML_Date_V4() {  // New for V8
+
+   var d = new Date();
+   var Y = d.getFullYear();
+   var M = d.getMonth() + 1;
+   var D = d.getDate();
+   var h = d.getHours();  // 0-23
+   var m = d.getMinutes();
+
+   //var M_Str = M.toString();
+
+   //if(M_Str=='0') M_Str = '00';
+   if(M=='1') M = '01';
+   if(M=='2') M = '02';
+   if(M=='3') M = '03';
+   if(M=='4') M = '04';
+   if(M=='5') M = '05';
+   if(M=='6') M = '06';
+   if(M=='7') M = '07';
+   if(M=='8') M = '08';
+   if(M=='9') M = '09';
+
+
+   //var D_Str = D.toString();
+
+   //if(M_Str=='0') M_Str = '00';
+   if(D=='1') D = '01';
+   if(D=='2') D = '02';
+   if(D=='3') D = '03';
+   if(D=='4') D = '04';
+   if(D=='5') D = '05';
+   if(D=='6') D = '06';
+   if(D=='7') D = '07';
+   if(D=='8') D = '08';
+   if(D=='9') D = '09';
+
+   var Service_Code;
+
+   if(h>17 && h<23) {
+      //Service_Code = 'E';  // evening
+      Service_Code = '3';  // evening
+   }
+
+   if(h>6 && h<12) {
+      //Service_Code = 'M';  // morning
+      Service_Code = '1';  // morning
+   }
+
+   if(h>11 && h<18) {
+      //Service_Code = 'A';  // afternoon
+      Service_Code = '2';  // afternoon
+   }
+
+   if(h==12 && m<31) {
+      //Service_Code = 'M';  // morning
+      Service_Code = '1';  // morning
+   }
+
+   var Date_Str = Y.toString() + M.toString() + D.toString() + Service_Code ;
+
+   return Date_Str; // 202009051, '3'-evening, '1'-morning, '2'-afternoon
+
+}  // End of function ML_Date_V4()
+
+
 function ML_Date_V3() {  // New for V8
 
    var d = new Date();
@@ -2210,7 +2290,7 @@ function ML_Date_V3() {  // New for V8
    var M = d.getMonth() + 1;
    var D = d.getDate();
    var h = d.getHours();  // 0-23
-   //var m = d.getMinutes();
+   var m = d.getMinutes();
 
    var Day = d.getDay();  // 0-6, Sunday is 0, Monday is 1, and so on.
 
@@ -2263,6 +2343,10 @@ function ML_Date_V3() {  // New for V8
       Service_Code2 = 'Afternoon';  // afternoon
    }
 
+   if(h==12 && m<31) {
+      Service_Code = 'M';  // morning
+   }
+
    var Date_Str = Y.toString() + '/' + M.toString() + '/' + D.toString() + ' ' + Day + ' ' + Service_Code2 ;
 
    return Date_Str; // 2020/09/26 Saturday Afternoon
@@ -2277,7 +2361,7 @@ function ML_Date_V2() {  // New for V8
    var M = d.getMonth() + 1;
    var D = d.getDate();
    var h = d.getHours();  // 0-23
-   //var m = d.getMinutes();
+   var m = d.getMinutes();
 
    //var M_Str = M.toString();
 
@@ -2318,6 +2402,10 @@ function ML_Date_V2() {  // New for V8
 
    if(h>11 && h<18) {
       Service_Code = 'A';  // afternoon
+   }
+
+   if(h==12 && m<31) {
+      Service_Code = 'M';  // morning
    }
 
    var Date_Str = Y.toString() + M.toString() + D.toString() + Service_Code ;
@@ -5451,11 +5539,21 @@ function Change_Save_Color_to_blue() {
 
    // Need to check Status first
 
-   document.getElementById("Save_Attendance2").style.color = "blue";
+   var ServiceDate = document.getElementById("Service_Date").value;
+
+   var DateStr = ML_Date_V3(); // --> 2020/09/26 Saturday Afternoon
+
+   if (ServiceDate != '' && ServiceDate == DateStr) {
+
+      document.getElementById("Save_Attendance2").style.color = "blue";
+
+      document.getElementById("Send email").innerHTML = 'Send email';
+
+   }
+
 
    //document.getElementById("Start_Attendance2").style.color = "blue";
 
-   document.getElementById("Send email").innerHTML = 'Send email';
 
 } // End of function Change_Save_Color_to_blue()
 
