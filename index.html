@@ -341,7 +341,7 @@ function clickCounter() {
    </td>
 
   <td>
-  <button style="font-size:16pt" onclick="Search_Service_Record()">Search Service Record=</button> 
+  <button style="font-size:16pt" onclick="Search_Service_Record();">Search Service Record=</button> 
   <INPUT TYPE=TEXT style="font-size:16pt" NAME="Search_Rervice_Record_date" SIZE="12" id="Search_Rervice_Record_date">
   </td>
 
@@ -1932,6 +1932,8 @@ async function Search_Service_Record() {
      Sis_Trs = Verse[0].Sis_TrS_Note;
 
      Show_Total();
+
+     Show_Headcount_4();
 
   }
 
@@ -5630,6 +5632,44 @@ async function Show_Headcount_3(arg) {
 
 
 }  // End of function Show_Headcount_3()
+
+
+async function Show_Headcount_4() {
+
+  //Book_Verse_Count = await db.books.where('name').startsWithIgnoreCase(Book_tmp).count();
+
+  //var DateStr = ML_Date_V2();
+
+
+  //var DateStr = document.getElementById("Show_Headcount_2").value;
+
+
+  var DateStr = Display_ID_2;
+
+  //var DateStr = '20200929E';
+
+
+  var Record_Bro_M_Str = DateStr + '_M_B_';
+  var Record_Bro_TrS_Str = DateStr + '_T_B_';
+
+  var Record_Sis_M_Str = DateStr + '_M_S_';
+  var Record_Sis_TrS_Str = DateStr + '_T_S_';
+
+  Attendance_Bro_M = await dbT2.Attendance.where('Record').startsWithIgnoreCase(Record_Bro_M_Str).count();
+  Attendance_Bro_TrS = await dbT2.Attendance.where('Record').startsWithIgnoreCase(Record_Bro_TrS_Str).count();
+
+  Attendance_Sis_M = await dbT2.Attendance.where('Record').startsWithIgnoreCase(Record_Sis_M_Str).count();
+  Attendance_Sis_TrS = await dbT2.Attendance.where('Record').startsWithIgnoreCase(Record_Sis_TrS_Str).count();
+
+
+  Show_Total_Mode();
+
+  //Roll_Call_V2('S'); // <-- for show history attendance
+
+  Roll_Call_V3('S',DateStr); // <-- for show history attendance
+
+
+}  // End of function Show_Headcount_4()
 
 
 async function Delete_All_Congregation() { // Delete all objects from the store.
