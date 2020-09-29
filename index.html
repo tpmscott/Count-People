@@ -4148,6 +4148,45 @@ async function Check_Attendance4(arg1,arg2,arg3,arg4) { // arg1: CNo, arg2: Memb
 
 
 
+async function Check_Attendance5(arg1,arg2,arg3) { // arg1: CNo, arg2: Member, arg3:Gender
+
+   var CNo = arg1;
+
+   //var DateStr = ML_Date_V2();
+
+   //var DateStr = document.getElementById("Show_Headcount_2").value;
+
+   //var DateStr = document.getElementById("Download_Attendance_StartWith").value;
+
+   var DateStr = Display_ID_2; // Exp_start_date , '20200920E'
+
+   var Member_Str = arg2;
+   var Gender_Str = arg3;
+
+   let Record = DateStr + '_' + Member_Str + '_' + Gender_Str + '_' + CNo;
+
+   let Verse_Attendance = await dbT2.Attendance.get(Record);
+
+   if (Verse_Attendance) {
+
+      var Result = 'y'; // mean has Data
+
+      return Result;
+
+   }
+   else {
+
+      var Result = 'n'; // mean No Data
+
+      return Result;
+
+   }
+
+}  // End of function Check_Attendance5(arg1,arg2,arg3)
+
+
+
+
 async function Roll_Call() {
 
 
@@ -5911,7 +5950,66 @@ async function Exp_and_Email_Attendance2() { // New for V12
 
   //var startWith_date = document.getElementById("Exp_n_Email_start_date").value; // Exp_start_date
 
-  var startWith_date = '20200920E'; // Exp_start_date
+  var text = '';
+
+  var DateStr = Display_ID_2; // Exp_start_date , '20200920E'
+
+
+  if(DateStr!='') {
+
+     let Verse_3 = await dbT2.Roll.toArray();
+
+     if (Verse_3) { 
+
+        text += 'Name Attendance' + '%0D';  // ',\n"'
+
+        for (var i = 0; i < Verse_3.length ; i++) {
+
+        //for (var i = 0; i < 100 ; i++) {
+
+           // arg1: CNo, arg2: Member, arg3:Gender
+
+           var arg1 = Verse_3[i].CNo;
+
+           var arg2 = Verse_3[i].Member;
+
+           var arg3 = Verse_3[i].Gender;
+
+           var Result = 'n';
+
+           //Result = await Check_Attendance3(arg1,arg2,arg3);
+
+           Result = await Check_Attendance5(arg1,arg2,arg3);
+
+           var Name_Str = Verse_3[i].F_Name + ' ' + Verse_3[i].L_Name;
+
+           if (Result == 'y') {
+
+              text += Name_Str + ' | ';
+
+              //text += Name_Str + '@' + '%0D';
+
+              //text += Name_Str + '%0D';
+
+           }
+           else {
+
+              //text += Name_Str + '%0D';
+
+           }
+
+        } // End of for (var i = 0; i < Verse_3.length ; i++)
+
+        
+        text += '%0D';   // carriage return	%0D
+
+
+     } // End of if (Verse_3)
+
+  } // End of if(DateStr!='')
+
+
+  var startWith_date = Display_ID_2; // Exp_start_date , '20200920E'
 
 
   if(startWith_date!='') {
@@ -5931,7 +6029,13 @@ async function Exp_and_Email_Attendance2() { // New for V12
 
         //var text = 'Ae^_^,' + Verse_Count.toString(); // Attendance
 
-        var text = 'AE^_^|' + Verse_Count.toString(); // Attendance , use '|' as seperator
+        //var text = 'AE^_^|' + Verse_Count.toString(); // Attendance , use '|' as seperator
+        //                                              // AE^_^ for Attendance exp and Email
+
+
+        text += '%0D' + '%0D';   // carriage return	%0D
+
+        text += 'AE^_^|' + Verse_Count.toString(); // Attendance , use '|' as seperator
                                                       // AE^_^ for Attendance exp and Email
 
 
@@ -5943,7 +6047,11 @@ async function Exp_and_Email_Attendance2() { // New for V12
 
            //text += ',' + Record;
 
-           text += '|' + Record; // use '|' as seperator
+
+           text += '|' + Record; // use '|' as seperator  
+
+           //text += '%0D' + Record; // use '|' as seperator  // for test
+
 
         } // End of for (i = 0; i < Verse.length; i++)
 
@@ -5998,7 +6106,9 @@ async function Exp_and_Email_Attendance2() { // New for V12
 
            //document.getElementById("Send_Attendance2").innerHTML = '';
 
-           document.getElementById("Send email").innerHTML = 'Send email';
+           //document.getElementById("Send email").innerHTML = 'Send email'; // Mark on 2020.09.29
+
+           document.getElementById("Send email").innerHTML = email_text;
 
         }
         else {
