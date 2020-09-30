@@ -135,6 +135,8 @@
 
     <script src="html5-qrcode.min.js"></script>
 
+    <script src="aes.js"></script>
+
 
 <SCRIPT LANGUAGE="JavaScript" SRC="Mark_Line_V9.js"></SCRIPT>
 
@@ -5984,7 +5986,7 @@ function Clear_Service_Record() {
 } // End of function Clear_Service_Record()
 
 
-async function Exp_and_Email_Attendance2() { // New for V12
+async function Exp_and_Email_Attendance2() { // exp attendance & service record
 
   var Verse_Count = 0;
 
@@ -5995,7 +5997,7 @@ async function Exp_and_Email_Attendance2() { // New for V12
   var DateStr = Display_ID_2; // Exp_start_date , '20200920E'
 
 
-  if(DateStr!='') {
+  if(DateStr!='') {     // exp attedance for committee
 
      let Verse_3 = await dbT2.Roll.toArray();
 
@@ -6041,7 +6043,7 @@ async function Exp_and_Email_Attendance2() { // New for V12
         } // End of for (var i = 0; i < Verse_3.length ; i++)
 
         
-        text += '%0D';   // carriage return	%0D
+        text += '%0D' + '%0D';   // carriage return	%0D
 
 
      } // End of if (Verse_3)
@@ -6049,10 +6051,78 @@ async function Exp_and_Email_Attendance2() { // New for V12
   } // End of if(DateStr!='')
 
 
+  // -------------------------------------------------------------------------------------------------
+
+
+  var DateStr2 = Display_ID_2; // Exp_start_date , '20200920E'
+
+
+  if(DateStr2!='') {     // exp service record for App
+
+     //let Verse = await dbT2.SermonNote.where('Name').startsWithIgnoreCase(startWith_date).toArray();
+
+     let Verse = await dbT2.Service_Record.where('ID_2').equals(DateStr2).toArray();
+
+     var Verse_Count = 0;
+
+     Verse_Count = Verse.length;
+
+     if (Verse) {
+
+        text += 'sr^_^|' + Verse_Count.toString();  // change seprator to "|" ,  for Service_Record
+
+        for (i = 0; i < Verse.length; i++) {
+
+           let id_1 = Verse[i].ID_1;
+           let id_2 = Verse[i].ID_2; 
+
+           let service_date = Verse[i].Service_Date;
+
+           let service_start_time = Verse[i].Service_Start_Time; 
+           let service_end_time = Verse[i].Service_End_Time; 
+           let usher = Verse[i].Usher; 
+
+           let topic = Verse[i].Topic;
+           let hymn = Verse[i].Hymn; 
+
+           let speaker = Verse[i].Speaker; 
+           let interp = Verse[i].Interp; 
+           let hymnal = Verse[i].Hymnal;
+
+           let note = Verse[i].Note; 
+
+           let bro_m_note = Verse[i].Bro_M_Note; 
+           let sis_m_note = Verse[i].Sis_M_Note; 
+           let bro_trs_note = Verse[i].Bro_TrS_Note;
+           let sis_trs_note = Verse[i].Sis_TrS_Note;
+
+           // Encrypt Content then Exp
+
+           var Key_input = '2020Chapter03Note15'; // for Encrypt and Decrypt Exp & Imp Chap Note
+
+           var encryptedNote = CryptoJS.AES.encrypt(note, Key_input);
+
+           //text += '|' + name + '|' + speaker + '|' + topic + '|' + encryptedContent;  // change seprator to "|"
+
+           text += '|' + id_1 + '|' + id_2 + '|' + topic + '|' + service_date + '|' + service_start_time + '|' + service_end_time + '|' + usher + '|' + topic + '|' + hymn + '|' + speaker + '|' + interp + '|' + hymnal + '|' + encryptedNote + '|' + bro_m_note + '|' + sis_m_note + '|' + bro_trs_note + '|' + sis_trs_note;  // change seprator to "|"
+
+        } // End of for (i = 0; i < Verse.length; i++)
+
+        text += '%0D' + '%0D';   // carriage return	%0D
+
+     } // End of if (Verse)
+
+
+  } // End of if(DateStr2!='')
+
+
+  // ------------------------------------------------------------------------------------------------- 
+ 
+
   var startWith_date = Display_ID_2; // Exp_start_date , '20200920E'
 
 
-  if(startWith_date!='') {
+  if(startWith_date!='') {   // exp attendance for App
 
      //let Verse = await dbT2.books.where('date').startsWithIgnoreCase(startWith_date).toArray();
 
@@ -6180,6 +6250,7 @@ async function Exp_and_Email_Attendance2() { // New for V12
      //document.getElementById("Send_Attendance_Message").innerHTML = 'Attendance 0 exported';
 
   } // End of if(startWith_date!='')
+
 
 
 } // End of function Exp_and_Email_Attendance2()
