@@ -1928,14 +1928,65 @@ async function Search_Service_Record() {
      //localStorage.Bro_Trs = Verse[0].Bro_TrS_Note;
      //localStorage.Sis_Trs = Verse[0].Sis_TrS_Note;
 
-     Bro_M = Verse[0].Bro_M_Note;
-     Sis_M = Verse[0].Sis_M_Note;
-     Bro_Trs = Verse[0].Bro_TrS_Note;
-     Sis_Trs = Verse[0].Sis_TrS_Note;
+     Bro_M = Number(Verse[0].Bro_M_Note);
+     Sis_M = Number(Verse[0].Sis_M_Note);
+     Bro_Trs = Number(Verse[0].Bro_TrS_Note);
+     Sis_Trs = Number(Verse[0].Sis_TrS_Note);
 
-     Show_Total();
+     //Show_Total();
 
-     Show_Headcount_4();
+     //Show_Headcount_4();
+
+     var DateStr = Display_ID_2;
+
+     //var DateStr = '20200929E';
+
+
+     var Record_Bro_M_Str = DateStr + '_M_B_';
+     var Record_Bro_TrS_Str = DateStr + '_T_B_';
+
+     var Record_Sis_M_Str = DateStr + '_M_S_';
+     var Record_Sis_TrS_Str = DateStr + '_T_S_';
+
+     Attendance_Bro_M = await dbT2.Attendance.where('Record').startsWithIgnoreCase(Record_Bro_M_Str).count();
+     Attendance_Bro_TrS = await dbT2.Attendance.where('Record').startsWithIgnoreCase(Record_Bro_TrS_Str).count();
+
+     Attendance_Sis_M = await dbT2.Attendance.where('Record').startsWithIgnoreCase(Record_Sis_M_Str).count();
+     Attendance_Sis_TrS = await dbT2.Attendance.where('Record').startsWithIgnoreCase(Record_Sis_TrS_Str).count();
+
+
+     //Show_Total_Mode();
+
+
+     document.getElementById("BroM").innerText= Number(Bro_M) + Attendance_Bro_M;
+     document.getElementById("BroTrs").innerText= Number(Bro_TrS) + Attendance_Bro_TrS;
+
+     document.getElementById("SisM").innerText= Number(Sis_M) + Attendance_Sis_M;
+     document.getElementById("SisTrs").innerText= Number(Sis_TrS) + Attendance_Sis_TrS;
+
+     document.getElementById("BroTotal").innerText= Number(Bro_M) + Attendance_Bro_M + Number(Bro_TrS) + Attendance_Bro_TrS;
+     document.getElementById("SisTotal").innerText= Number(Sis_M) + Attendance_Sis_M + Number(Sis_TrS) + Attendance_Sis_TrS;
+
+     document.getElementById("MemTotal").innerText= Number(Bro_M) + Attendance_Bro_M + Number(Sis_M) + Attendance_Sis_M;
+     document.getElementById("TrsTotal").innerText= Number(Bro_TrS) + Attendance_Bro_TrS + Number(Sis_TrS) + Attendance_Sis_TrS;
+
+     document.getElementById("AllTotal").innerText= Number(Bro_M) + Attendance_Bro_M + Number(Bro_TrS) + Attendance_Bro_TrS + Number(Sis_M) + Attendance_Sis_M + Number(Sis_TrS) + Attendance_Sis_TrS;
+
+     document.getElementById("AllTotal").style.backgroundColor='green';
+
+     // Start Writing to Local Storage
+
+     localStorage.Bro_M = Number(Bro_M);
+     localStorage.Sis_M = Number(Sis_M);
+     localStorage.Bro_Trs = Number(Bro_TrS);
+     localStorage.Sis_Trs = Number(Sis_TrS);
+
+     // End of Writing to Local Storage
+
+
+     //Roll_Call_V2('S'); // <-- for show history attendance
+
+     Roll_Call_V3('S',DateStr); // <-- for show history attendance
 
   }
 
@@ -5555,6 +5606,9 @@ async function Show_Headcount() {
 
   var DateStr = ML_Date_V2();
 
+  //var DateStr = Display_ID_2;
+
+
   var Record_Bro_M_Str = DateStr + '_M_B_';
   var Record_Bro_TrS_Str = DateStr + '_T_B_';
 
@@ -5664,7 +5718,34 @@ async function Show_Headcount_4() {
   Attendance_Sis_TrS = await dbT2.Attendance.where('Record').startsWithIgnoreCase(Record_Sis_TrS_Str).count();
 
 
-  Show_Total_Mode();
+  //Show_Total_Mode();
+
+
+   document.getElementById("BroM").innerText= Number(Bro_M) + Attendance_Bro_M;
+   document.getElementById("BroTrs").innerText= Number(Bro_TrS) + Attendance_Bro_TrS;
+
+   document.getElementById("SisM").innerText= Number(Sis_M) + Attendance_Sis_M;
+   document.getElementById("SisTrs").innerText= Number(Sis_TrS) + Attendance_Sis_TrS;
+
+   document.getElementById("BroTotal").innerText= Number(Bro_M) + Attendance_Bro_M + Number(Bro_TrS) + Attendance_Bro_TrS;
+   document.getElementById("SisTotal").innerText= Number(Sis_M) + Attendance_Sis_M + Number(Sis_TrS) + Attendance_Sis_TrS;
+
+   document.getElementById("MemTotal").innerText= Number(Bro_M) + Attendance_Bro_M + Number(Sis_M) + Attendance_Sis_M;
+   document.getElementById("TrsTotal").innerText= Number(Bro_TrS) + Attendance_Bro_TrS + Number(Sis_TrS) + Attendance_Sis_TrS;
+
+   document.getElementById("AllTotal").innerText= Number(Bro_M) + Attendance_Bro_M + Number(Bro_TrS) + Attendance_Bro_TrS + Number(Sis_M) + Attendance_Sis_M + Number(Sis_TrS) + Attendance_Sis_TrS;
+
+   document.getElementById("AllTotal").style.backgroundColor='green';
+
+   // Start Writing to Local Storage
+
+   localStorage.Bro_M = Number(Bro_M);
+   localStorage.Sis_M = Number(Sis_M);
+   localStorage.Bro_Trs = Number(Bro_TrS);
+   localStorage.Sis_Trs = Number(Sis_TrS);
+
+   // End of Writing to Local Storage
+
 
   //Roll_Call_V2('S'); // <-- for show history attendance
 
@@ -5672,6 +5753,34 @@ async function Show_Headcount_4() {
 
 
 }  // End of function Show_Headcount_4()
+
+
+async function Show_Headcount_5() {
+
+  //Book_Verse_Count = await db.books.where('name').startsWithIgnoreCase(Book_tmp).count();
+
+  //var DateStr = ML_Date_V2();
+
+  var DateStr = Display_ID_2;
+
+
+  var Record_Bro_M_Str = DateStr + '_M_B_';
+  var Record_Bro_TrS_Str = DateStr + '_T_B_';
+
+  var Record_Sis_M_Str = DateStr + '_M_S_';
+  var Record_Sis_TrS_Str = DateStr + '_T_S_';
+
+  Attendance_Bro_M = await dbT2.Attendance.where('Record').startsWithIgnoreCase(Record_Bro_M_Str).count();
+  Attendance_Bro_TrS = await dbT2.Attendance.where('Record').startsWithIgnoreCase(Record_Bro_TrS_Str).count();
+
+  Attendance_Sis_M = await dbT2.Attendance.where('Record').startsWithIgnoreCase(Record_Sis_M_Str).count();
+  Attendance_Sis_TrS = await dbT2.Attendance.where('Record').startsWithIgnoreCase(Record_Sis_TrS_Str).count();
+
+
+  Show_Total_Mode();
+
+
+}  // End of function Show_Headcount_5()
 
 
 async function Delete_All_Congregation() { // Delete all objects from the store.
