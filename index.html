@@ -1875,12 +1875,14 @@ async function Show_Service_Record(arg) {
 
 async function Search_Service_Record() {
 
+  document.getElementById("Send email").innerHTML = 'Send email';
+
   var ID_2_tmp = document.getElementById("Search_Rervice_Record_date").value;
 
   let Verse = await dbT2.Service_Record.where('ID_2').equals(ID_2_tmp).toArray();
 
 
-  if (Verse) {
+  if (Verse.length>0) {
 
      //document.getElementById("Mesg2").style.color = "red";
 
@@ -1987,6 +1989,52 @@ async function Search_Service_Record() {
      //Roll_Call_V2('S'); // <-- for show history attendance
 
      Roll_Call_V3('S',DateStr); // <-- for show history attendance
+
+  }
+  else {
+
+     Clear_Service_Record2();
+
+     //Reset_All();
+
+     var DateStr = ID_2_tmp;
+
+     //var DateStr = '20200929E';
+
+
+     var Record_Bro_M_Str = DateStr + '_M_B_';
+     var Record_Bro_TrS_Str = DateStr + '_T_B_';
+
+     var Record_Sis_M_Str = DateStr + '_M_S_';
+     var Record_Sis_TrS_Str = DateStr + '_T_S_';
+
+     Attendance_Bro_M = await dbT2.Attendance.where('Record').startsWithIgnoreCase(Record_Bro_M_Str).count();
+     Attendance_Bro_TrS = await dbT2.Attendance.where('Record').startsWithIgnoreCase(Record_Bro_TrS_Str).count();
+
+     Attendance_Sis_M = await dbT2.Attendance.where('Record').startsWithIgnoreCase(Record_Sis_M_Str).count();
+     Attendance_Sis_TrS = await dbT2.Attendance.where('Record').startsWithIgnoreCase(Record_Sis_TrS_Str).count();
+
+
+     //Show_Total_Mode();
+
+
+     document.getElementById("BroM").innerText= Number(Bro_M) + Attendance_Bro_M;
+     document.getElementById("BroTrs").innerText= Number(Bro_TrS) + Attendance_Bro_TrS;
+
+     document.getElementById("SisM").innerText= Number(Sis_M) + Attendance_Sis_M;
+     document.getElementById("SisTrs").innerText= Number(Sis_TrS) + Attendance_Sis_TrS;
+
+     document.getElementById("BroTotal").innerText= Number(Bro_M) + Attendance_Bro_M + Number(Bro_TrS) + Attendance_Bro_TrS;
+     document.getElementById("SisTotal").innerText= Number(Sis_M) + Attendance_Sis_M + Number(Sis_TrS) + Attendance_Sis_TrS;
+
+     document.getElementById("MemTotal").innerText= Number(Bro_M) + Attendance_Bro_M + Number(Sis_M) + Attendance_Sis_M;
+     document.getElementById("TrsTotal").innerText= Number(Bro_TrS) + Attendance_Bro_TrS + Number(Sis_TrS) + Attendance_Sis_TrS;
+
+     document.getElementById("AllTotal").innerText= Number(Bro_M) + Attendance_Bro_M + Number(Bro_TrS) + Attendance_Bro_TrS + Number(Sis_M) + Attendance_Sis_M + Number(Sis_TrS) + Attendance_Sis_TrS;
+
+     document.getElementById("AllTotal").style.backgroundColor='green';
+
+     Roll_Call_V3('S',ID_2_tmp); // <-- for show history attendance
 
   }
 
@@ -2436,6 +2484,16 @@ function E_Pressed() {
    document.getElementById("C").style.backgroundColor='';
 
    document.getElementById("E").style.backgroundColor='yellow';
+
+   document.getElementById("Send email").innerHTML = 'Send email';
+
+   var Now_Date = ML_Date_V2();
+
+   if(Now_Date==G_ServiceDate2 && G_ServiceDate2==Display_ID_2) {
+
+      update_Service_Record();
+
+   }
 
 }
 
@@ -3259,6 +3317,11 @@ function Reset_All(){
 
 <br>
 
+<button onclick="Delete_Service_Record_ID_2()">Delete Service Record ID_2 = </button>
+<input size="2" type="text" id="Delete_Service_Record_ID_2" name="Delete_Service_Record_ID_2">
+
+<br>
+
 <button onclick="Imp_to_Congregation4()">Imp Db</button>
 
 <INPUT TYPE=TEXT NAME="Imp_to_Congregation4" SIZE="12" id="Imp_to_Congregation4">
@@ -4024,6 +4087,7 @@ async function list_all_Householder() {
 
 async function Add_or_Remove_Attendance(arg1,arg2,arg3,arg44) { // arg1: CNo, arg2: Member, arg3:Gender, arg4: position
 
+   document.getElementById("Send email").innerHTML = 'Send email';
 
    var CNo = String(arg1);
 
@@ -5856,6 +5920,16 @@ async function Delete_Congregation4_F_Cno() { // Delete all objects from the sto
 }  // End of function Delete_Congregation4_F_Cno()
 
 
+async function Delete_Service_Record_ID_2() {
+
+  let delete_ID_2_tmp = document.getElementById("Delete_Service_Record_ID_2").value;
+
+  dbT2.Service_Record.where("ID_2").equals(delete_ID_2_tmp).delete();
+
+  
+
+} // End of function Delete_Service_Record_ID_2()
+
 
 async function Delete_Congregation4_Cno() { // Delete all objects from the store.
                                 // Syntax : table.clear()
@@ -6093,6 +6167,24 @@ function Clear_Service_Record() {
    document.getElementById("Service_Record_Note").value = '';
 
 } // End of function Clear_Service_Record()
+
+function Clear_Service_Record2() {  // for Delete & Search with no result
+
+   document.getElementById("Service_Start_Time").value = '';
+   document.getElementById("Service_End_Time").value = '';
+   document.getElementById("Usher").value = '';
+
+   document.getElementById("Topic").value = '';
+   document.getElementById("Hymn").value = '';
+   document.getElementById("Speaker").value = '';
+   document.getElementById("Interp").value = '';
+   document.getElementById("Hymnal").value = '';
+
+   document.getElementById("Service_Record_Note").value = '';
+
+   document.getElementById("Service_Date").value = '';
+
+} // End of function Clear_Service_Record2()
 
 
 async function Exp_and_Email_Attendance2() { // exp attendance & service record
