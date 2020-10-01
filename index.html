@@ -1800,7 +1800,18 @@ function Show_Subtotal_Not_on_the_Roll() {
 
 async function Show_Subtotal_on_the_Roll() {
 
-  var DateStr = ML_Date_V2();
+  //var DateStr = ML_Date_V2();
+
+  if (Display_ID_2 != '') {
+
+     var DateStr = Display_ID_2;
+
+  }
+  else {
+
+     var DateStr = ML_Date_V2();
+
+  }
 
   var Record_Bro_M_Str = DateStr + '_M_B_';
   var Record_Bro_TrS_Str = DateStr + '_T_B_';
