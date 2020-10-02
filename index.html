@@ -606,7 +606,7 @@ function clickCounter() {
 </td>
 
 <td>
-<input style="font-size:12pt;color:blue;" type="button" name="M222" id="Bro_TruSeeker" value="B.Ts." ontouchstart="Input_BroTruSeeker_Mode();; return false;">
+<input style="font-size:12pt;color:blue;" type="button" name="M222" id="Bro_TruSeeker" value="B.Ts." onclick="Input_BroTruSeeker_Mode();; return false;">
 </td>
 
 
@@ -616,7 +616,7 @@ function clickCounter() {
 </td>
 
 <td>
-<input style="font-size:12pt;color:red;" type="button" name="M222" id="Sis_TruSeeker" value="S.Ts." ontouchstart="Input_SisTruSeeker_Mode();; return false;">
+<input style="font-size:12pt;color:red;" type="button" name="M222" id="Sis_TruSeeker" value="S.Ts." onclick="Input_SisTruSeeker_Mode();; return false;">
 </td>
 
 
@@ -1883,8 +1883,11 @@ async function Show_Service_Record(arg) {
 
      Bro_M = Verse[0].Bro_M_Note;
      Sis_M = Verse[0].Sis_M_Note;
-     Bro_Trs = Verse[0].Bro_TrS_Note;
-     Sis_Trs = Verse[0].Sis_TrS_Note;
+     Bro_TrS = Verse[0].Bro_TrS_Note;
+     Sis_TrS = Verse[0].Sis_TrS_Note;
+
+        //Bro_TrS = Verse.Bro_TrS_Note;   // Bro_TrS_Note ,   Bro_Trs -->  Bro_TrS   ***
+        //Sis_TrS = Verse.Sis_TrS_Note;   // Sis_TrS_Note     Sis_Trs -->  Sis_TrS   ***
 
      Show_Total();
 
@@ -1912,7 +1915,7 @@ async function Search_Service_Record() {
 
      Display_ID_2 = Verse[0].ID_2;
 
-     var ServiceDate2_tmp = ML_Date_V2();
+     var ServiceDate2_tmp = ML_Date_V2();   // Now ***
 
      //if (ID_2_tmp == G_ServiceDate2) { // ML_Date_V2()
 
@@ -1954,8 +1957,8 @@ async function Search_Service_Record() {
 
      Bro_M = Number(Verse[0].Bro_M_Note);
      Sis_M = Number(Verse[0].Sis_M_Note);
-     Bro_Trs = Number(Verse[0].Bro_TrS_Note);
-     Sis_Trs = Number(Verse[0].Sis_TrS_Note);
+     Bro_TrS = Number(Verse[0].Bro_TrS_Note);
+     Sis_TrS = Number(Verse[0].Sis_TrS_Note);
 
      //Show_Total();
 
@@ -2000,10 +2003,10 @@ async function Search_Service_Record() {
 
      // Start Writing to Local Storage
 
-     localStorage.Bro_M = Number(Bro_M);
-     localStorage.Sis_M = Number(Sis_M);
-     localStorage.Bro_Trs = Number(Bro_TrS);
-     localStorage.Sis_Trs = Number(Sis_TrS);
+     //localStorage.Bro_M = Number(Bro_M);     // Mark on 2020.10.02
+     //localStorage.Sis_M = Number(Sis_M);
+     //localStorage.Bro_Trs = Number(Bro_TrS);
+     //localStorage.Sis_Trs = Number(Sis_TrS);
 
      // End of Writing to Local Storage
 
@@ -2106,10 +2109,10 @@ function Show_Total_Mode(){
 
    // Start Writing to Local Storage
 
-   localStorage.Bro_M = Bro_M;
-   localStorage.Sis_M = Sis_M;
-   localStorage.Bro_Trs = Bro_TrS;
-   localStorage.Sis_Trs = Sis_TrS;
+   //localStorage.Bro_M = Bro_M;       // Mark on 2020.10.2
+   //localStorage.Sis_M = Sis_M;
+   //localStorage.Bro_Trs = Bro_TrS;
+   //localStorage.Sis_Trs = Sis_TrS;
 
    // End of Writing to Local Storage
 
@@ -2569,10 +2572,17 @@ function Init_Total_Mode(){
       localStorage.Sis_Trs = 0;
    }
 
-   Bro_M = Number(localStorage.Bro_M);
-   Bro_TrS = Number(localStorage.Bro_Trs);
-   Sis_M = Number(localStorage.Sis_M);
-   Sis_TrS = Number(localStorage.Sis_Trs);
+   //Bro_M = Number(localStorage.Bro_M);                  // Mark on 2020.10.02
+   //Bro_TrS = Number(localStorage.Bro_Trs);
+   //Sis_M = Number(localStorage.Sis_M);
+   //Sis_TrS = Number(localStorage.Sis_Trs);
+
+
+   Bro_M = 0;
+   Bro_TrS = 0;
+   Sis_M = 0;
+   Sis_TrS = 0;
+
 
    // End of Reading from Local Storage
 
@@ -2921,7 +2931,7 @@ function Reset_All(){
 
 <td>&nbsp&nbsp</td>
 <td style="font-size:17pt">
-<input style="font-size:17pt" type="button" name="M222" id="Sub" value="¡Ð" ontouchstart="keyFunction2('S');Sub_Pressed(); return false;">
+<input style="font-size:17pt" type="button" name="M222" id="Sub" value="¡Ð" onclick="keyFunction2('S');Sub_Pressed(); return false;">
 </td>
 
 </tr>
@@ -6246,10 +6256,10 @@ async function Start_Service_Record() {
 
         document.getElementById("Service_Record_Note").value = Verse.Note;
 
-        Bro_M = Verse.Bro_M_Note;
+        Bro_M = Verse.Bro_M_Note;       // Bro_M_Note
         Sis_M = Verse.Sis_M_Note;
-        Bro_Trs = Verse.Bro_TrS_Note;
-        Sis_Trs = Verse.Sis_TrS_Note;
+        Bro_TrS = Verse.Bro_TrS_Note;   // Bro_TrS_Note ,   Bro_Trs -->  Bro_TrS
+        Sis_TrS = Verse.Sis_TrS_Note;   // Sis_TrS_Note     Sis_Trs -->  Sis_TrS
 
         Show_Total();
 
