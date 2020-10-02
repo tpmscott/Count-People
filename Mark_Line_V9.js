@@ -3813,7 +3813,7 @@ async function Roll_Call_LPC() {  // Arg: 'R' for Roll Call, 'P' for Phone Dir.
 
   //var kindy_member = new Array(93,102,95); // 93 Hazel Chen
 
-  var LPC_member = new Array(53,147,79,176,73,94,99,175,122,138,252,88,182,29,60,44,186,121,181,166,37); 
+  var LPC_member = new Array(53,147,79,176,73,94,99,175,122,138,252,266,88,182,29,60,44,186,121,181,166,37); 
 
  
   //      table.where(indexOrPrimKey).anyOf(array)
