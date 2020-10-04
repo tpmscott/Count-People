@@ -6420,10 +6420,10 @@ async function Exp_and_Email_Attendance2() { // exp attendance & service record
 
      if (Verse_5) {
 
-           let bro_m_note = Verse_5[0].Bro_M_Note; 
-           let sis_m_note = Verse_5[0].Sis_M_Note; 
-           let bro_trs_note = Verse_5[0].Bro_TrS_Note;
-           let sis_trs_note = Verse_5[0].Sis_TrS_Note;
+           let bro_m_note = Number(Verse_5[0].Bro_M_Note); 
+           let sis_m_note = Number(Verse_5[0].Sis_M_Note); 
+           let bro_trs_note = Number(Verse_5[0].Bro_TrS_Note);
+           let sis_trs_note = Number(Verse_5[0].Sis_TrS_Note);
 
            AT_Count_note = bro_m_note + sis_m_note + bro_trs_note + sis_trs_note;
 
