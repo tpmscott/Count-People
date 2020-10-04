@@ -6410,13 +6410,32 @@ async function Exp_and_Email_Attendance2() { // exp attendance & service record
 
   if(DateStr!='') {     // exp attedance for committee
 
+     var AT_Count = 0;
+  
+     var AT_Count_note = 0;
+
+     text += 'Total' + '%20';  // 'Space'
+
+     let Verse_5 = await dbT2.Service_Record.where('ID_2').equals(DateStr).toArray();
+
+     if (Verse_5) {
+
+           let bro_m_note = Verse_5[0].Bro_M_Note; 
+           let sis_m_note = Verse_5[0].Sis_M_Note; 
+           let bro_trs_note = Verse_5[0].Bro_TrS_Note;
+           let sis_trs_note = Verse_5[0].Sis_TrS_Note;
+
+           AT_Count_note = bro_m_note + sis_m_note + bro_trs_note + sis_trs_note;
+
+     } // End of if (Verse_5)
+
      let Verse_4 = await dbT2.Roll.toArray();
 
      if (Verse_4) {
 
-        text += 'Total' + '%20';  // 'Space'
+        //text += 'Total' + '%20';  // 'Space'
 
-        var AT_Count = 0;
+        //var AT_Count = 0;
 
         for (var i = 0; i < Verse_4.length ; i++) {
 
@@ -6440,10 +6459,13 @@ async function Exp_and_Email_Attendance2() { // exp attendance & service record
         } // End of for (var i = 0; i < Verse_4.length ; i++)
 
 
-        text += AT_Count + '%20';
+        text += AT_Count + AT_Count_note + '%20';
 
 
      } // End of if (Verse_4)
+
+
+
 
      let Verse_3 = await dbT2.Roll.toArray();
 
@@ -6489,7 +6511,7 @@ async function Exp_and_Email_Attendance2() { // exp attendance & service record
         } // End of for (var i = 0; i < Verse_3.length ; i++)
 
         
-        text += '%0D' + '%0D';   // carriage return	%0D
+        //text += '%0D' + '%0D';   // carriage return	%0D
 
 
      } // End of if (Verse_3)
@@ -6514,6 +6536,8 @@ async function Exp_and_Email_Attendance2() { // exp attendance & service record
      Verse_Count = Verse.length;
 
      if (Verse) {
+
+        text += 'Note:' + Verse[0].Note + '|' + '%20' + '%0D';
 
         text += 'sr^_^|' + Verse_Count.toString();  // change seprator to "|" ,  for Service_Record
 
