@@ -6532,7 +6532,11 @@ async function Exp_and_Email_Attendance2() { // exp attendance & service record
            //text += '|' + id_1 + '|' + id_2 + '|' + service_date + '|' + service_start_time + '|' + service_end_time + '|' + usher + '|' + topic + '|' + hymn + '|' + speaker + '|' + interp + '|' + hymnal + '|' + encryptedNote + '|' + bro_m_note + '|' + sis_m_note + '|' + bro_trs_note + '|' + sis_trs_note;  // change seprator to "|"
 
 
-           text += '|' + id_1 + '|' + id_2 + '|' + service_date + '|' + service_start_time + '|' + service_end_time + '|' + encryptedUsher + '|' + encryptedTopic + '|' + encryptedHymn + '|' + encryptedSpeaker + '|' + encryptedInterp + '|' + encryptedHymnal + '|' + encryptedNote + '|' + bro_m_note + '|' + sis_m_note + '|' + bro_trs_note + '|' + sis_trs_note;  // change seprator to "|"
+           //text += '|' + id_1 + '|' + id_2 + '|' + service_date + '|' + service_start_time + '|' + service_end_time + '|' + encryptedUsher + '|' + encryptedTopic + '|' + encryptedHymn + '|' + encryptedSpeaker + '|' + encryptedInterp + '|' + encryptedHymnal + '|' + encryptedNote + '|' + bro_m_note + '|' + sis_m_note + '|' + bro_trs_note + '|' + sis_trs_note;  // change seprator to "|"
+
+
+           text += '|' + id_1 + '|' + id_2 + '|' + service_date + '|' + service_start_time + '|' + service_end_time + '|' + encryptedUsher + '|' + topic + '|' + hymn + '|' + speaker + '|' + interp + '|' + hymnal + '|' + encryptedNote + '|' + bro_m_note + '|' + sis_m_note + '|' + bro_trs_note + '|' + sis_trs_note;  // change seprator to "|"
+
 
 
         } // End of for (i = 0; i < Verse.length; i++)
@@ -7062,7 +7066,10 @@ async function Imp_to_Congregation4() {  // New for V8
            //dbT2.Service_Record.update(ID_1_tmp, { Service_Start_Time: Service_Start_Time_tmp, Service_End_Time: Service_End_Time_tmp, Usher: Usher_tmp, Topic: Topic_tmp, Hymn: Hymn_tmp, Speaker: Speaker_tmp, Interp: Interp_tmp, Hymnal: Hymnal_tmp, Note: decryptedNote_Str, Bro_M_Note: Bro_M_Note_tmp, Sis_M_Note: Sis_M_Note_tmp, Bro_TrS_Note: Bro_TrS_Note_tmp, Sis_TrS_Note: Sis_TrS_Note_tmp });
 
 
-           dbT2.Service_Record.update(ID_1_tmp, { Service_Start_Time: Service_Start_Time_tmp, Service_End_Time: Service_End_Time_tmp, Usher: decryptedUsher_Str, Topic: decryptedTopic_Str, Hymn: decryptedHymn_Str, Speaker: decryptedSpeaker_Str, Interp: decryptedInterp_Str, Hymnal: decryptedHymnal_Str, Note: decryptedNote_Str, Bro_M_Note: Bro_M_Note_tmp, Sis_M_Note: Sis_M_Note_tmp, Bro_TrS_Note: Bro_TrS_Note_tmp, Sis_TrS_Note: Sis_TrS_Note_tmp });
+           //dbT2.Service_Record.update(ID_1_tmp, { Service_Start_Time: Service_Start_Time_tmp, Service_End_Time: Service_End_Time_tmp, Usher: decryptedUsher_Str, Topic: decryptedTopic_Str, Hymn: decryptedHymn_Str, Speaker: decryptedSpeaker_Str, Interp: decryptedInterp_Str, Hymnal: decryptedHymnal_Str, Note: decryptedNote_Str, Bro_M_Note: Bro_M_Note_tmp, Sis_M_Note: Sis_M_Note_tmp, Bro_TrS_Note: Bro_TrS_Note_tmp, Sis_TrS_Note: Sis_TrS_Note_tmp });
+
+
+           //dbT2.Service_Record.update(ID_1_tmp, { Service_Start_Time: Service_Start_Time_tmp, Service_End_Time: Service_End_Time_tmp, Usher: decryptedUsher_Str, Topic: Topic_tmp, Hymn: Hymn_tmp, Speaker: Speaker_tmp, Interp: Interp_tmp, Hymnal: Hymnal_tmp, Note: decryptedNote_Str, Bro_M_Note: Bro_M_Note_tmp, Sis_M_Note: Sis_M_Note_tmp, Bro_TrS_Note: Bro_TrS_Note_tmp, Sis_TrS_Note: Sis_TrS_Note_tmp });
 
 
            update_no = update_no + 1;
@@ -7083,12 +7090,19 @@ async function Imp_to_Congregation4() {  // New for V8
             let Service_End_Time = Service_End_Time_tmp;
             let Usher = decryptedUsher_Str;
 
-            let Topic = decryptedTopic_Str;
-            let Hymn = decryptedHymn_Str;
+            //let Topic = decryptedTopic_Str;
+            //let Hymn = decryptedHymn_Str;
 
-            let Speaker = decryptedSpeaker_Str;
-            let Interp = decryptedInterp_Str;
-            let Hymnal = decryptedHymnal_Str;
+            let Topic = Topic_tmp;
+            let Hymn = Hymn_tmp;
+
+            //let Speaker = decryptedSpeaker_Str;
+            //let Interp = decryptedInterp_Str;
+            //let Hymnal = decryptedHymnal_Str;
+
+            let Speaker = Speaker_tmp;
+            let Interp = Interp_tmp;
+            let Hymnal = Hymnal_tmp;
 
             let Note = decryptedNote_Str;
 
