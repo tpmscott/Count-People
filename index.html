@@ -6511,14 +6511,28 @@ async function Exp_and_Email_Attendance2() { // exp attendance & service record
 
            var Key_input = '2020Chapter03Note15'; // for Encrypt and Decrypt Exp & Imp Chap Note
 
+           var encryptedUsher = CryptoJS.AES.encrypt(usher, Key_input);
+
+           var encryptedTopic = CryptoJS.AES.encrypt(topic, Key_input);
+
+           var encryptedHymn = CryptoJS.AES.encrypt(hymn, Key_input);
+
+           var encryptedSpeaker = CryptoJS.AES.encrypt(speaker, Key_input);
+
+           var encryptedInterp = CryptoJS.AES.encrypt(interp, Key_input);
+
+           var encryptedHymnal = CryptoJS.AES.encrypt(hymnal, Key_input);
+
            var encryptedNote = CryptoJS.AES.encrypt(note, Key_input);
 
            //text += '|' + name + '|' + speaker + '|' + topic + '|' + encryptedContent;  // change seprator to "|"
 
            //text += '|' + id_1 + '|' + id_2 + '|' + topic + '|' + service_date + '|' + service_start_time + '|' + service_end_time + '|' + usher + '|' + topic + '|' + hymn + '|' + speaker + '|' + interp + '|' + hymnal + '|' + encryptedNote + '|' + bro_m_note + '|' + sis_m_note + '|' + bro_trs_note + '|' + sis_trs_note;  // change seprator to "|"
 
+           //text += '|' + id_1 + '|' + id_2 + '|' + service_date + '|' + service_start_time + '|' + service_end_time + '|' + usher + '|' + topic + '|' + hymn + '|' + speaker + '|' + interp + '|' + hymnal + '|' + encryptedNote + '|' + bro_m_note + '|' + sis_m_note + '|' + bro_trs_note + '|' + sis_trs_note;  // change seprator to "|"
 
-           text += '|' + id_1 + '|' + id_2 + '|' + service_date + '|' + service_start_time + '|' + service_end_time + '|' + usher + '|' + topic + '|' + hymn + '|' + speaker + '|' + interp + '|' + hymnal + '|' + encryptedNote + '|' + bro_m_note + '|' + sis_m_note + '|' + bro_trs_note + '|' + sis_trs_note;  // change seprator to "|"
+
+           text += '|' + id_1 + '|' + id_2 + '|' + service_date + '|' + service_start_time + '|' + service_end_time + '|' + encryptedUsher + '|' + encryptedTopic + '|' + encryptedHymn + '|' + encryptedSpeaker + '|' + encryptedInterp + '|' + encryptedHymnal + '|' + encryptedNote + '|' + bro_m_note + '|' + sis_m_note + '|' + bro_trs_note + '|' + sis_trs_note;  // change seprator to "|"
 
 
         } // End of for (i = 0; i < Verse.length; i++)
@@ -6985,11 +6999,48 @@ async function Imp_to_Congregation4() {  // New for V8
 
         var Note_tmp = Imp_Tmp[16*i+12];
 
-        // Decrypt Note
+        // Decrypt Note and other
+
+        var encryptedUsher = Usher_tmp;
+
+        var encryptedTopic = Topic_tmp;
+
+        var encryptedHymn = Hymn_tmp;
+
+        var encryptedSpeaker = Speaker_tmp;
+
+        var encryptedInterp = Interp_tmp;
+
+        var encryptedHymnal = Hymnal_tmp;
 
         var encryptedNote = Note_tmp;
 
         var Key_input = '2020Chapter03Note15'; // for Encrypt and Decrypt Exp & Imp Chap Note
+
+        var decryptedUsher  = CryptoJS.AES.decrypt(encryptedUsher.toString(), Key_input); 
+
+        var decryptedUsher_Str = decryptedUsher.toString(CryptoJS.enc.Utf8); // use this
+
+        var decryptedTopic  = CryptoJS.AES.decrypt(encryptedTopic.toString(), Key_input); 
+
+        var decryptedTopic_Str = decryptedTopic.toString(CryptoJS.enc.Utf8); // use this
+
+        var decryptedHymn  = CryptoJS.AES.decrypt(encryptedHymn.toString(), Key_input); 
+
+        var decryptedHymn_Str = decryptedHymn.toString(CryptoJS.enc.Utf8); // use this
+
+        var decryptedSpeaker  = CryptoJS.AES.decrypt(encryptedSpeaker.toString(), Key_input); 
+
+        var decryptedSpeaker_Str = decryptedSpeaker.toString(CryptoJS.enc.Utf8); // use this
+
+        var decryptedInterp  = CryptoJS.AES.decrypt(encryptedInterp.toString(), Key_input); 
+
+        var decryptedInterp_Str = decryptedInterp.toString(CryptoJS.enc.Utf8); // use this
+
+        var decryptedHymnal  = CryptoJS.AES.decrypt(encryptedHymnal.toString(), Key_input); 
+
+        var decryptedHymnal_Str = decryptedHymnal.toString(CryptoJS.enc.Utf8); // use this
+
 
         var decryptedNote  = CryptoJS.AES.decrypt(encryptedNote.toString(), Key_input); 
 
@@ -7008,7 +7059,11 @@ async function Imp_to_Congregation4() {  // New for V8
 
            //dbT2.Service_Record.update(ID_1_tmp, { ID_1: ID_1_tmp, ID_2: ID_2_tmp, Service_Date: Service_Date_tmp, Service_Start_Time: Service_Start_Time_tmp, Service_End_Time: Service_End_Time_tmp, Usher: Usher_tmp, Topic: Topic_tmp, Hymn: Hymn_tmp, Speaker: Speaker_tmp, Interp: Interp_tmp, Hymnal: Hymnal_tmp, Note: decryptedNote_Str, Bro_M_Note: Bro_M_Note_tmp, Sis_M_Note: Sis_M_Note_tmp, Bro_TrS_Note: Bro_TrS_Note_tmp, Sis_TrS_Note: Sis_TrS_Note_tmp });
 
-           dbT2.Service_Record.update(ID_1_tmp, { Service_Start_Time: Service_Start_Time_tmp, Service_End_Time: Service_End_Time_tmp, Usher: Usher_tmp, Topic: Topic_tmp, Hymn: Hymn_tmp, Speaker: Speaker_tmp, Interp: Interp_tmp, Hymnal: Hymnal_tmp, Note: decryptedNote_Str, Bro_M_Note: Bro_M_Note_tmp, Sis_M_Note: Sis_M_Note_tmp, Bro_TrS_Note: Bro_TrS_Note_tmp, Sis_TrS_Note: Sis_TrS_Note_tmp });
+           //dbT2.Service_Record.update(ID_1_tmp, { Service_Start_Time: Service_Start_Time_tmp, Service_End_Time: Service_End_Time_tmp, Usher: Usher_tmp, Topic: Topic_tmp, Hymn: Hymn_tmp, Speaker: Speaker_tmp, Interp: Interp_tmp, Hymnal: Hymnal_tmp, Note: decryptedNote_Str, Bro_M_Note: Bro_M_Note_tmp, Sis_M_Note: Sis_M_Note_tmp, Bro_TrS_Note: Bro_TrS_Note_tmp, Sis_TrS_Note: Sis_TrS_Note_tmp });
+
+
+           dbT2.Service_Record.update(ID_1_tmp, { Service_Start_Time: Service_Start_Time_tmp, Service_End_Time: Service_End_Time_tmp, Usher: decryptedUsher_Str, Topic: decryptedTopic_Str, Hymn: decryptedHymn_Str, Speaker: decryptedSpeaker_Str, Interp: decryptedInterp_Str, Hymnal: decryptedHymnal_Str, Note: decryptedNote_Str, Bro_M_Note: Bro_M_Note_tmp, Sis_M_Note: Sis_M_Note_tmp, Bro_TrS_Note: Bro_TrS_Note_tmp, Sis_TrS_Note: Sis_TrS_Note_tmp });
+
 
            update_no = update_no + 1;
 
@@ -7026,14 +7081,14 @@ async function Imp_to_Congregation4() {  // New for V8
 
             let Service_Start_Time = Service_Start_Time_tmp;
             let Service_End_Time = Service_End_Time_tmp;
-            let Usher = Usher_tmp;
+            let Usher = decryptedUsher_Str;
 
-            let Topic = Topic_tmp;
-            let Hymn = Hymn_tmp;
+            let Topic = decryptedTopic_Str;
+            let Hymn = decryptedHymn_Str;
 
-            let Speaker = Speaker_tmp;
-            let Interp = Interp_tmp;
-            let Hymnal = Hymnal_tmp;
+            let Speaker = decryptedSpeaker_Str;
+            let Interp = decryptedInterp_Str;
+            let Hymnal = decryptedHymnal_Str;
 
             let Note = decryptedNote_Str;
 
