@@ -6410,11 +6410,46 @@ async function Exp_and_Email_Attendance2() { // exp attendance & service record
 
   if(DateStr!='') {     // exp attedance for committee
 
+     let Verse_4 = await dbT2.Roll.toArray();
+
+     if (Verse_4) {
+
+        text += 'Total' + '%20';  // 'Space'
+
+        var AT_Count = 0;
+
+        for (var i = 0; i < Verse_4.length ; i++) {
+
+           var arg1 = Verse_4[i].CNo;
+
+           var arg2 = Verse_4[i].Member;
+
+           var arg3 = Verse_4[i].Gender;
+
+           var Result = 'n';
+
+           Result = await Check_Attendance5(arg1,arg2,arg3);
+
+           if (Result == 'y') {
+
+              AT_Count = AT_Count + 1;
+
+           }
+
+
+        } // End of for (var i = 0; i < Verse_4.length ; i++)
+
+
+        text += AT_Count + '%20';
+
+
+     } // End of if (Verse_4)
+
      let Verse_3 = await dbT2.Roll.toArray();
 
      if (Verse_3) { 
 
-        text += 'Name Attendance' + '%0D';  // ',\n"'
+        text += 'Name Attendance:' + '%0D';  // ',\n"'
 
         for (var i = 0; i < Verse_3.length ; i++) {
 
