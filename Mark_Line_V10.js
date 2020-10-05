@@ -2819,13 +2819,27 @@ async function Roll_Call_Search_V1(argC,argC2) { // Search from English Family L
         var Name_Str2 =  Verse_32[i].C_F_Name + Verse_32[i].C_L_Name;
 
 
+        //var H_No_tmp = Verse_32[i].H_No;        // 1_2
+        //var H_No_tmp2 = H_No_tmp.split("_");   
+        //var H_No_tmp3 = H_No_tmp2[1];          // 2
+
         var H_No_tmp = Verse_32[i].H_No;        // 1_2
         var H_No_tmp2 = H_No_tmp.split("_");   
         var H_No_tmp3 = H_No_tmp2[1];          // 2
+        var H_No_tmp4 = H_No_tmp2[0];          // 1      , add on 2020.10.03 
+        var H_No_tmp5 = H_No_tmp4 + '_';       // 1_     , add on 2020.10.03
+
+
+
+        var Family_Q_Str = '<button onClick="Search_Family_from_H_No_V2(\'' + H_No_tmp5 + '\',\'' +  Rnum  + '\',\'' + Rvers +  '\',\'' +  CName  + '\')"> F </button>';  // Using \' as an escape character
+
+
 
         if (H_No_tmp3 == '1') {
 
-           Name_Str = '<b><u>' + Name_Str + ' </u></b>';
+           //Name_Str = '<b><u>' + Name_Str + ' </u></b>';  // 原用此
+
+           Name_Str = '<b><u>' + Name_Str + Family_Q_Str + ' </u></b>';  // Add on 2020.10.03
 
            Name_Str2 =  '<b><u>' + Name_Str2 + ' </u></b>';
 
@@ -3024,13 +3038,26 @@ async function Roll_Call_Search_V3(argC,argC2) { // Search from Chinese Family F
         var Name_Str2 =  Verse_42[i].C_F_Name + Verse_42[i].C_L_Name;
 
 
+        //var H_No_tmp = Verse_42[i].H_No;        // 1_2
+        //var H_No_tmp2 = H_No_tmp.split("_");   
+        //var H_No_tmp3 = H_No_tmp2[1];          // 2
+
         var H_No_tmp = Verse_42[i].H_No;        // 1_2
         var H_No_tmp2 = H_No_tmp.split("_");   
         var H_No_tmp3 = H_No_tmp2[1];          // 2
+        var H_No_tmp4 = H_No_tmp2[0];          // 1      , add on 2020.10.03 
+        var H_No_tmp5 = H_No_tmp4 + '_';       // 1_     , add on 2020.10.03
+
+
+        var Family_Q_Str = '<button onClick="Search_Family_from_H_No_V2(\'' + H_No_tmp5 + '\',\'' +  Rnum  + '\',\'' + Rvers +  '\',\'' +  CName  + '\')"> F </button>';  // Using \' as an escape character
+
+
 
         if (H_No_tmp3 == '1') {
 
-           Name_Str = '<b><u>' + Name_Str + ' </u></b>';
+           //Name_Str = '<b><u>' + Name_Str + ' </u></b>';  // 原用此
+
+           Name_Str = '<b><u>' + Name_Str + Family_Q_Str + ' </u></b>';  // Add on 2020.10.03
 
            Name_Str2 =  '<b><u>' + Name_Str2 + ' </u></b>';
 
@@ -3518,13 +3545,26 @@ async function Roll_Call_V2(Arg) {  // Arg: 'R' for Roll Call, 'P' for Phone Dir
         var Name_Str2 =  Verse_3[i].C_F_Name + Verse_3[i].C_L_Name;
 
 
+        //var H_No_tmp = Verse_3[i].H_No;        // 1_2
+        //var H_No_tmp2 = H_No_tmp.split("_");   
+        //var H_No_tmp3 = H_No_tmp2[1];          // 2
+
         var H_No_tmp = Verse_3[i].H_No;        // 1_2
         var H_No_tmp2 = H_No_tmp.split("_");   
         var H_No_tmp3 = H_No_tmp2[1];          // 2
+        var H_No_tmp4 = H_No_tmp2[0];          // 1      , add on 2020.10.03 
+        var H_No_tmp5 = H_No_tmp4 + '_';       // 1_     , add on 2020.10.03
+
+
+        var Family_Q_Str = '<button onClick="Search_Family_from_H_No_V2(\'' + H_No_tmp5 + '\',\'' +  Rnum  + '\',\'' + Rvers +  '\',\'' +  CName  + '\')"> F </button>';  // Using \' as an escape character
+
+
 
         if (H_No_tmp3 == '1') {
 
-           Name_Str = '<b><u>' + Name_Str + ' </u></b>';
+           //Name_Str = '<b><u>' + Name_Str + ' </u></b>';  // 原用此
+
+           Name_Str = '<b><u>' + Name_Str + Family_Q_Str + ' </u></b>';  // Add on 2020.10.03
 
            Name_Str2 =  '<b><u>' + Name_Str2 + ' </u></b>';
 
