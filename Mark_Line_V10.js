@@ -2347,9 +2347,12 @@ function ML_Date_V3() {  // New for V8
       Service_Code = 'M';  // morning
    }
 
-   var Date_Str = Y.toString() + '/' + M.toString() + '/' + D.toString() + ' ' + Day + ' ' + Service_Code2 ;
+   //var Date_Str = Y.toString() + '/' + M.toString() + '/' + D.toString() + ' ' + Day + ' ' + Service_Code2 ;
 
-   return Date_Str; // 2020/09/26 Saturday Afternoon
+   var Date_Str = D.toString() + '/' + M.toString() + '/' + Y.toString() + ' ' + Day + ' ' + Service_Code2 ;
+
+
+   return Date_Str; // 26/09/2020 Saturday Afternoon
 
 }  // End of function ML_Date_V3()
 
