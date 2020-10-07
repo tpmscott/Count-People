@@ -364,36 +364,36 @@ function clickCounter() {
    <label style="font-size:28px" for="fname2">Time</label>
    </td>
    <td>
-   <input style="font-size:22px" size="5" type="text" id="Service_Start_Time" name="Service_Start_Time" onfocus="Change_Save_Color_to_blue();">
+   <input style="font-size:22px" size="5" type="text" oninput="update_Service_Record();" id="Service_Start_Time" name="Service_Start_Time" onfocus="Change_Save_Color_to_blue();">
    </td>
    <td>
    <label style="font-size:28px" for="fname2">~</label>
    </td>
    <td>
-   <input style="font-size:22px" size="5" type="text" id="Service_End_Time" name="Service_End_Time" onfocus="Change_Save_Color_to_blue();">
+   <input style="font-size:22px" size="5" type="text" oninput="update_Service_Record();" id="Service_End_Time" name="Service_End_Time" onfocus="Change_Save_Color_to_blue();">
    </td>
    <td>
    <label style="font-size:28px" for="fname2">Usher:</label>
    </td>
    <td>
-   <input style="font-size:22px" size="13" type="text" id="Usher" name="Usher" onfocus="Change_Save_Color_to_blue();">
+   <input style="font-size:22px" size="13" type="text" oninput="update_Service_Record();" id="Usher" name="Usher" onfocus="Change_Save_Color_to_blue();">
    </td>
 
    <br><br>
 
 
    <label style="font-size:28px" for="fname2">Topic: </label>
-   <input style="font-size:22px" size="50" type="text" id="Topic" name="Topic" onfocus="Change_Save_Color_to_blue();">
+   <input style="font-size:22px" size="50" type="text" oninput="update_Service_Record();" id="Topic" name="Topic" onfocus="Change_Save_Color_to_blue();">
    <label style="font-size:28px" for="fname2">Hymn: </label>
-   <input style="font-size:22px" size="9" type="text" id="Hymn" name="Hymn" onfocus="Change_Save_Color_to_blue();">
+   <input style="font-size:22px" size="9" type="text" oninput="update_Service_Record();" id="Hymn" name="Hymn" onfocus="Change_Save_Color_to_blue();">
 
    <br>
    <label style="font-size:28px" for="fname2">Speaker: </label>
-   <input style="font-size:22px" size="15" type="text" id="Speaker" name="Speaker" onfocus="Change_Save_Color_to_blue();"> 
+   <input style="font-size:22px" size="15" type="text" oninput="update_Service_Record();" id="Speaker" name="Speaker" onfocus="Change_Save_Color_to_blue();"> 
    <label style="font-size:28px" for="fname2">Interp: </label>
-   <input style="font-size:22px" size="13" type="text" id="Interp" name="Interp" onfocus="Change_Save_Color_to_blue();"> 
+   <input style="font-size:22px" size="13" type="text" oninput="update_Service_Record();" id="Interp" name="Interp" onfocus="Change_Save_Color_to_blue();"> 
    <label style="font-size:28px" for="fname2">Hymnal: </label>
-   <input style="font-size:22px" size="13" type="text" id="Hymnal" name="Hymnal" onfocus="Change_Save_Color_to_blue();"> 
+   <input style="font-size:22px" size="13" type="text" oninput="update_Service_Record();" id="Hymnal" name="Hymnal" onfocus="Change_Save_Color_to_blue();"> 
 
    <button style="font-size:16px" onclick="Show_Name_List()">Show Name List</button>
    <button style="font-size:16px" onclick="Hide_Name_List()">Hide Name List</button>
@@ -503,7 +503,7 @@ function clickCounter() {
    </tr>
    <tr>
    <td>
-   <textarea cols="60" rows="8" name="A1" id="Service_Record_Note" style="font-size:20pt" Wrap="Off" onkeyup=";" onmouseup=";" onfocus="Change_Save_Color_to_blue();" onBlur=";"></textarea>
+   <textarea cols="60" rows="8" name="A1" oninput="update_Service_Record();" id="Service_Record_Note" style="font-size:20pt" Wrap="Off" onkeyup=";" onmouseup=";" onfocus="Change_Save_Color_to_blue();" onBlur=";"></textarea>
    </td>
    </tr>
    </table>
@@ -523,7 +523,7 @@ function clickCounter() {
 
 <td align=left>
   <label style="font-size:16pt;color:blue" for="fname2"><b>V</b>isitor <b>B</b>rother <b>M</b>ember: </label>
-  <input style="font-size:16pt" size="3" type="text" id="Search_fname2" name="Search_fname2">
+  <input style="font-size:16pt" size="3" type="text" oninput="update_Service_Record();" id="Visitor_Brother_Member" name="Visitor_Brother_Member">
 </td>
 
 <td align=center>
@@ -548,7 +548,7 @@ function clickCounter() {
 
 <td align=left>
   <label style="font-size:16pt;color:red" for="fname2"><b>V</b>isitor <b>S</b>ister <b>M</b>ember: </label>
-  <input style="font-size:16pt" size="3" type="text" id="Search_fname2" name="Search_fname2">
+  <input style="font-size:16pt" size="3" type="text" oninput="update_Service_Record();" id="Visitor_Sister_Member" name="Visitor_Sister_Member">
 </td>
 
 <td><p align=center style="font-size:16pt;color:blue"><b>B</b>rother</p></td>
@@ -571,7 +571,7 @@ function clickCounter() {
 
 <td align=left>
   <label style="font-size:16pt;color:blue" for="fname2"><b>V</b>isitor <b>B</b>rother <b>T</b>ruth <b>S</b>eeker: </label>
-  <input style="font-size:16pt" size="3" type="text" id="Search_fname2" name="Search_fname2">
+  <input style="font-size:16pt" size="3" type="text" oninput="update_Service_Record();" id="Visitor_Brother_Truth_Seeker" name="Visitor_Brother_Truth_Seeker">
 </td>
 
 <td><p align=center style="font-size:16pt;color:red"><b>S</b>ister</p></td>
@@ -594,7 +594,7 @@ function clickCounter() {
 
 <td align=left>
   <label style="font-size:16pt;color:red" for="fname2"><b>V</b>isitor <b>S</b>ister <b>T</b>ruth <b>S</b>eeker: </label>
-  <input style="font-size:16pt" size="3" type="text" id="Search_fname2" name="Search_fname2">
+  <input style="font-size:16pt" size="3" type="text" oninput="update_Service_Record();" id="Visitor_Sister_Truth_Seeker" name="Visitor_Sister_Truth_Seeker">
 </td>
 
 <td align=center>
@@ -625,10 +625,14 @@ function clickCounter() {
 <tr>
 
 <td>
-<button style="font-size:12pt;" onclick="Show_Subtotal_Not_on_the_Roll()">Subtotal - Names Not on the Roll</button>
+<button style="font-size:12pt;" onclick="Show_Subtotal_Not_on_the_Roll()">Subtotal - Visitors</button>
 </td>
 
 <td></td><td></td><td></td><td></td>
+
+<td></td><td></td><td></td><td></td> <td></td><td></td><td></td><td></td>
+
+<td></td><td></td><td></td><td></td> <td></td><td></td><td></td><td></td>
 
 <td></td><td></td><td></td><td></td> <td></td><td></td><td></td><td></td>
 
@@ -1554,17 +1558,17 @@ function Input_BroMember_Mode(){
    In_SisM_F = 0;
    In_SisTrS_F = 0;
 
-   document.getElementById("Bro_Member").style.color="white"; // black
-   document.getElementById("Bro_Member").style.backgroundColor='blue';
+   //document.getElementById("Bro_Member").style.color="white"; // black
+   //document.getElementById("Bro_Member").style.backgroundColor='blue';
 
-   document.getElementById("Bro_TruSeeker").style.color="blue"; 
-   document.getElementById("Bro_TruSeeker").style.backgroundColor=''; 
+   //document.getElementById("Bro_TruSeeker").style.color="blue"; 
+   //document.getElementById("Bro_TruSeeker").style.backgroundColor=''; 
 
-   document.getElementById("Sis_Member").style.color="red";
-   document.getElementById("Sis_Member").style.backgroundColor='';
+   //document.getElementById("Sis_Member").style.color="red";
+   //document.getElementById("Sis_Member").style.backgroundColor='';
 
-   document.getElementById("Sis_TruSeeker").style.color="red";
-   document.getElementById("Sis_TruSeeker").style.backgroundColor='';
+   //document.getElementById("Sis_TruSeeker").style.color="red";
+   //document.getElementById("Sis_TruSeeker").style.backgroundColor='';
 
    document.getElementById("container_Disp").style.visibility='visible';
    document.getElementById("container_Disp").style.height='70%';
@@ -1598,17 +1602,17 @@ function Input_SisMember_Mode(){
    In_SisM_F = 1;
    In_SisTrS_F = 0;
 
-   document.getElementById("Bro_Member").style.color="blue"; // black
-   document.getElementById("Bro_Member").style.backgroundColor='';
+   //document.getElementById("Bro_Member").style.color="blue"; // black
+   //document.getElementById("Bro_Member").style.backgroundColor='';
 
-   document.getElementById("Bro_TruSeeker").style.color="blue"; 
-   document.getElementById("Bro_TruSeeker").style.backgroundColor=''; 
+   //document.getElementById("Bro_TruSeeker").style.color="blue"; 
+   //document.getElementById("Bro_TruSeeker").style.backgroundColor=''; 
 
-   document.getElementById("Sis_Member").style.color="white";
-   document.getElementById("Sis_Member").style.backgroundColor='red';
+   //document.getElementById("Sis_Member").style.color="white";
+   //document.getElementById("Sis_Member").style.backgroundColor='red';
 
-   document.getElementById("Sis_TruSeeker").style.color="red";
-   document.getElementById("Sis_TruSeeker").style.backgroundColor='';
+   //document.getElementById("Sis_TruSeeker").style.color="red";
+   //document.getElementById("Sis_TruSeeker").style.backgroundColor='';
 
    //document.getElementById("Bro_Member").style.color="white"; 
    //document.getElementById("Bro_TruSeeker").style.color="white"; 
@@ -1654,17 +1658,17 @@ function Input_BroTruSeeker_Mode(){
    In_SisM_F = 0;
    In_SisTrS_F = 0;
 
-   document.getElementById("Bro_Member").style.color="blue"; // black
-   document.getElementById("Bro_Member").style.backgroundColor='';
+   //document.getElementById("Bro_Member").style.color="blue"; // black
+   //document.getElementById("Bro_Member").style.backgroundColor='';
 
-   document.getElementById("Bro_TruSeeker").style.color="white"; 
-   document.getElementById("Bro_TruSeeker").style.backgroundColor='blue'; 
+   //document.getElementById("Bro_TruSeeker").style.color="white"; 
+   //document.getElementById("Bro_TruSeeker").style.backgroundColor='blue'; 
 
-   document.getElementById("Sis_Member").style.color="red";
-   document.getElementById("Sis_Member").style.backgroundColor='';
+   //document.getElementById("Sis_Member").style.color="red";
+   //document.getElementById("Sis_Member").style.backgroundColor='';
 
-   document.getElementById("Sis_TruSeeker").style.color="red";
-   document.getElementById("Sis_TruSeeker").style.backgroundColor='';
+   //document.getElementById("Sis_TruSeeker").style.color="red";
+   //document.getElementById("Sis_TruSeeker").style.backgroundColor='';
 
    //document.getElementById("Bro_Member").style.color="white"; 
    //document.getElementById("Bro_TruSeeker").style.color="black"; 
@@ -1708,17 +1712,17 @@ function Input_SisTruSeeker_Mode(){
    In_SisM_F = 0;
    In_SisTrS_F = 1;
 
-   document.getElementById("Bro_Member").style.color="blue"; // black
-   document.getElementById("Bro_Member").style.backgroundColor='';
+   //document.getElementById("Bro_Member").style.color="blue"; // black
+   //document.getElementById("Bro_Member").style.backgroundColor='';
 
-   document.getElementById("Bro_TruSeeker").style.color="blue"; 
-   document.getElementById("Bro_TruSeeker").style.backgroundColor=''; 
+   //document.getElementById("Bro_TruSeeker").style.color="blue"; 
+   //document.getElementById("Bro_TruSeeker").style.backgroundColor=''; 
 
-   document.getElementById("Sis_Member").style.color="red";
-   document.getElementById("Sis_Member").style.backgroundColor='';
+   //document.getElementById("Sis_Member").style.color="red";
+   //document.getElementById("Sis_Member").style.backgroundColor='';
 
-   document.getElementById("Sis_TruSeeker").style.color="white";
-   document.getElementById("Sis_TruSeeker").style.backgroundColor='red';
+   //document.getElementById("Sis_TruSeeker").style.color="white";
+   //document.getElementById("Sis_TruSeeker").style.backgroundColor='red';
 
    //document.getElementById("Bro_Member").style.color="white"; 
    //document.getElementById("Bro_TruSeeker").style.color="white"; 
@@ -1989,6 +1993,9 @@ async function Search_Next_Service_Record() {
      document.getElementById("AllTotal").style.backgroundColor='green';
 
 
+     Show_Total_Mode(); // Add on 2020.10.07
+
+
      Roll_Call_V3('S',DateStr); // <-- for show history attendance
 
    }
@@ -2070,6 +2077,9 @@ async function Search_Next_Service_Record() {
      document.getElementById("AllTotal").style.backgroundColor='green';
 
 
+     Show_Total_Mode(); // Add on 2020.10.07
+
+
      Roll_Call_V3('S',DateStr); // <-- for show history attendance
 
 
@@ -2148,6 +2158,8 @@ async function Search_Prev_Service_Record() {
      document.getElementById("AllTotal").innerText= Number(Bro_M) + Attendance_Bro_M + Number(Bro_TrS) + Attendance_Bro_TrS + Number(Sis_M) + Attendance_Sis_M + Number(Sis_TrS) + Attendance_Sis_TrS;
 
      document.getElementById("AllTotal").style.backgroundColor='green';
+
+     Show_Total_Mode(); // Add on 2020.10.07
 
 
      Roll_Call_V3('S',DateStr); // <-- for show history attendance
@@ -2231,6 +2243,9 @@ async function Search_Prev_Service_Record() {
      document.getElementById("AllTotal").innerText= Number(Bro_M) + Attendance_Bro_M + Number(Bro_TrS) + Attendance_Bro_TrS + Number(Sis_M) + Attendance_Sis_M + Number(Sis_TrS) + Attendance_Sis_TrS;
 
      document.getElementById("AllTotal").style.backgroundColor='green';
+
+
+     Show_Total_Mode(); // Add on 2020.10.07
 
 
      Roll_Call_V3('S',DateStr); // <-- for show history attendance
@@ -2451,6 +2466,18 @@ function Show_Total_Mode(){
 
    document.getElementById("AllTotal").style.backgroundColor='green';
 
+   // Add on 2020.10.07
+
+   document.getElementById("Visitor_Brother_Member").value= Bro_M;  
+
+   document.getElementById("Visitor_Sister_Member").value= Sis_M;
+
+   document.getElementById("Visitor_Brother_Truth_Seeker").value= Bro_TrS;   
+
+   document.getElementById("Visitor_Sister_Truth_Seeker").value= Sis_TrS;
+
+
+
    // Start Writing to Local Storage
 
    //localStorage.Bro_M = Bro_M;       // Mark on 2020.10.2
@@ -2481,17 +2508,17 @@ function Show_Total_Mode(){
 
 function Show_Total(){
 
-   document.getElementById("Bro_Member").style.color="blue"; // black
-   document.getElementById("Bro_Member").style.backgroundColor='';
+   //document.getElementById("Bro_Member").style.color="blue"; // black
+   //document.getElementById("Bro_Member").style.backgroundColor='';
 
-   document.getElementById("Bro_TruSeeker").style.color="blue"; 
-   document.getElementById("Bro_TruSeeker").style.backgroundColor=''; 
+   //document.getElementById("Bro_TruSeeker").style.color="blue"; 
+   //document.getElementById("Bro_TruSeeker").style.backgroundColor=''; 
 
-   document.getElementById("Sis_Member").style.color="red";
-   document.getElementById("Sis_Member").style.backgroundColor='';
+   //document.getElementById("Sis_Member").style.color="red";
+   //document.getElementById("Sis_Member").style.backgroundColor='';
 
-   document.getElementById("Sis_TruSeeker").style.color="red";
-   document.getElementById("Sis_TruSeeker").style.backgroundColor='';
+   //document.getElementById("Sis_TruSeeker").style.color="red";
+   //document.getElementById("Sis_TruSeeker").style.backgroundColor='';
 
 
    document.getElementById("BroM").style.color="black";
@@ -3034,6 +3061,18 @@ function Reset_All(){
    document.getElementById("TrsTotal").innerText= Bro_TrS + Sis_TrS;
 
    document.getElementById("AllTotal").innerText= Bro_M + Bro_TrS + Sis_M + Sis_TrS;
+
+
+   // Add on 2020.10.07
+
+   document.getElementById("Visitor_Brother_Member").value= Bro_M;  
+
+   document.getElementById("Visitor_Sister_Member").value= Sis_M;
+
+   document.getElementById("Visitor_Brother_Truth_Seeker").value= Bro_TrS;   
+
+   document.getElementById("Visitor_Sister_Truth_Seeker").value= Sis_TrS;
+
 
    // ---
 
@@ -3702,7 +3741,7 @@ function Reset_All(){
 <br>
 
 <button onclick="Delete_Service_Record_ID_2()">Delete Service Record ID_2 = </button>
-<input size="2" type="text" id="Delete_Service_Record_ID_2" name="Delete_Service_Record_ID_2">
+<input size="12" type="text" id="Delete_Service_Record_ID_2" name="Delete_Service_Record_ID_2"> Ex: 20200905M, 20200905A
 
 <br>
 
@@ -5455,10 +5494,21 @@ async function update_Service_Record() {  // use Display_ID_1
 
      var Note_tmp = document.getElementById("Service_Record_Note").value;
 
+
+     Bro_M = Number(document.getElementById("Visitor_Brother_Member").value);    // Add on 2020.10.07
+     Sis_M = Number(document.getElementById("Visitor_Sister_Member").value);
+     Bro_TrS = Number(document.getElementById("Visitor_Brother_Truth_Seeker").value);
+     Sis_TrS = Number(document.getElementById("Visitor_Sister_Truth_Seeker").value);
+
+
      var Bro_M_Note_tmp = Bro_M;
      var Sis_M_Note_tmp = Sis_M;
      var Bro_TrS_Note_tmp = Bro_TrS;
      var Sis_TrS_Note_tmp = Sis_TrS;
+
+
+     Show_Total_Mode();  // Add on 2020.10.07
+
 
      dbT2.Service_Record.update(ID_1, { Service_Start_Time: Service_Start_Time_tmp, Service_End_Time: Service_End_Time_tmp, Usher: Usher_tmp, Topic: Topic_tmp, Hymn: Hymn_tmp, Speaker: Speaker_tmp, Interp: Interp_tmp, Hymnal: Hymnal_tmp, Note: Note_tmp, Bro_M_Note: Bro_M_Note_tmp, Sis_M_Note: Sis_M_Note_tmp, Bro_TrS_Note: Bro_TrS_Note_tmp, Sis_TrS_Note: Sis_TrS_Note_tmp });
 
@@ -6122,9 +6172,21 @@ async function Show_Headcount() {
 
   //Book_Verse_Count = await db.books.where('name').startsWithIgnoreCase(Book_tmp).count();
 
-  var DateStr = ML_Date_V2();
+  //var DateStr = ML_Date_V2();   // Mark on 2020.10.07
 
   //var DateStr = Display_ID_2;
+
+
+  if (Display_ID_2 != '') {
+
+     var DateStr = Display_ID_2;
+
+  }
+  else {
+
+     var DateStr = ML_Date_V2();
+
+  }
 
 
   var Record_Bro_M_Str = DateStr + '_M_B_';
@@ -6618,6 +6680,8 @@ async function NOW_Service_Record() {
 
         Change_Start_Save_Color_to_blue();
 
+        Show_Total_Mode();  // Add on 2020.10.07
+
 
      }
      else {   // Not Exist
@@ -6629,6 +6693,8 @@ async function NOW_Service_Record() {
         Clear_Service_Record();
 
         Reset_All();  
+
+        Show_Total_Mode();  // Add on 2020.10.07
 
 
      } // End of if (Verse)

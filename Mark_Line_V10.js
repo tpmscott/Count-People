@@ -5827,6 +5827,8 @@ function Show_Name(arg){
    Hide_Name_List();
 
    Change_Save_Color_to_blue();
+
+   update_Service_Record();
  
    //localStorage.Note3_Topic = document.ANNO_FORM.B11aa.value;
 
@@ -5851,6 +5853,8 @@ function Show_Name2(arg){
    Hide_Name_List2();
 
    Change_Save_Color_to_blue();
+
+   update_Service_Record();
  
 }
 
@@ -5863,6 +5867,8 @@ function Show_Name3(arg){
    Hide_Name_List3();
 
    Change_Save_Color_to_blue();
+
+   update_Service_Record();
  
 }
 
