@@ -2344,7 +2344,7 @@ function ML_Date_V3() {  // New for V8
    }
 
    if(h==12 && m<31) {
-      Service_Code = 'M';  // morning
+      Service_Code2 = 'Morning';  // morning
    }
 
    //var Date_Str = Y.toString() + '/' + M.toString() + '/' + D.toString() + ' ' + Day + ' ' + Service_Code2 ;
