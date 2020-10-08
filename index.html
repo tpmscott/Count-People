@@ -348,7 +348,7 @@ function clickCounter() {
 
    <td>
    <a href="javascript:;" onclick="Search_Prev_Service_Record();">Prev</a>
-   <a href="javascript:;" onclick="NOW_Service_Record();">Service Record-NOW</a>
+   <button style="font-size:26px;" onclick="NOW_Service_Record();">Service Record-NOW</button>
    <a href="javascript:;" onclick="Search_Next_Service_Record();">Next</a>
    </td>
 
@@ -1933,10 +1933,14 @@ async function Search_Next_Service_Record() {
 
          document.getElementById("Service_Date").style.color = "blue";
 
+         Roll_Call_V2('R');
+
       }
       else {
 
          document.getElementById("Service_Date").style.color = "black";
+
+         Roll_Call_V3('S',Display_ID_2); // <-- for show history attendance
 
       }
 
@@ -1996,7 +2000,7 @@ async function Search_Next_Service_Record() {
      Show_Total_Mode(); // Add on 2020.10.07
 
 
-     Roll_Call_V3('S',DateStr); // <-- for show history attendance
+     //Roll_Call_V3('S',DateStr); // <-- for show history attendance
 
    }
    else {
@@ -2017,10 +2021,14 @@ async function Search_Next_Service_Record() {
 
          document.getElementById("Service_Date").style.color = "blue";
 
+         Roll_Call_V2('R');
+
       }
       else {
 
          document.getElementById("Service_Date").style.color = "black";
+
+         Roll_Call_V3('S',Display_ID_2); // <-- for show history attendance
 
       }
 
@@ -2080,7 +2088,7 @@ async function Search_Next_Service_Record() {
      Show_Total_Mode(); // Add on 2020.10.07
 
 
-     Roll_Call_V3('S',DateStr); // <-- for show history attendance
+     //Roll_Call_V3('S',DateStr); // <-- for show history attendance
 
 
    } // End of if (Display_ID_1 != '')
@@ -2104,7 +2112,26 @@ async function Search_Prev_Service_Record() {
 
       Display_ID_2 = Prev_Verse.ID_2;
 
-      document.getElementById("Service_Date").style.color = "black";
+
+      var ServiceDate2_tmp = ML_Date_V2();   // Now ***
+
+      if (Display_ID_2 == ServiceDate2_tmp) { // ML_Date_V2()
+
+         document.getElementById("Service_Date").style.color = "blue";
+
+         Roll_Call_V2('R');
+
+      }
+      else {
+
+         document.getElementById("Service_Date").style.color = "black";
+
+         Roll_Call_V3('S',Display_ID_2); // <-- for show history attendance
+
+      }
+
+
+      //document.getElementById("Service_Date").style.color = "black";
 
      // -----
 
@@ -2162,7 +2189,7 @@ async function Search_Prev_Service_Record() {
      Show_Total_Mode(); // Add on 2020.10.07
 
 
-     Roll_Call_V3('S',DateStr); // <-- for show history attendance
+     //Roll_Call_V3('S',DateStr); // <-- for show history attendance
 
 
    }
@@ -2184,10 +2211,14 @@ async function Search_Prev_Service_Record() {
 
          document.getElementById("Service_Date").style.color = "blue";
 
+         Roll_Call_V2('R');
+
       }
       else {
 
          document.getElementById("Service_Date").style.color = "black";
+
+         Roll_Call_V3('S',Display_ID_2); // <-- for show history attendance
 
       }
 
@@ -2248,7 +2279,7 @@ async function Search_Prev_Service_Record() {
      Show_Total_Mode(); // Add on 2020.10.07
 
 
-     Roll_Call_V3('S',DateStr); // <-- for show history attendance
+     //Roll_Call_V3('S',DateStr); // <-- for show history attendance
 
 
    } // End of if (Display_ID_1 != '')
@@ -6682,7 +6713,9 @@ async function NOW_Service_Record() {
 
         Show_Total_Mode();  // Add on 2020.10.07
 
-        Roll_Call_V3('S',Display_ID_2); // <-- for show history attendance
+        //Roll_Call_V3('S',Display_ID_2); // <-- for show history attendance
+
+        Roll_Call_V2('R');
 
 
      }
@@ -6698,7 +6731,9 @@ async function NOW_Service_Record() {
 
         Show_Total_Mode();  // Add on 2020.10.07
 
-        Roll_Call_V3('S',DateCheck); // <-- for show history attendance
+        //Roll_Call_V3('S',DateCheck); // <-- for show history attendance
+
+        Roll_Call_V2('R');
 
 
      } // End of if (Verse)
