@@ -250,6 +250,22 @@ async function init_Bible4U_DB() {
          Service_Record: 'ID_1,ID_2'      // ID_1 : 202009261 , 202009262 , 202009253 
                                           // ID_2 : 20200926M , 20200926A , 20200925E   
      });
+     dbT2.version(23).stores({      // New for V12
+         books: 'name,date',
+         ChapNote: 'name,date',
+         Congregation: 'CNo,F_Name,L_Name,[L_Name+F_Name],H_No,F_Order',
+         Attendance: 'Record',
+         Householder: '++H_Seq,H_No',
+         Congregation2: '++CNo,F_Name,L_Name,[L_Name+F_Name],H_No,F_Order',
+         Congregation3: 'CNo,F_Name,L_Name,[L_Name+F_Name],H_No',
+         Roll: '++Roll_No,CNo,F_Name,L_Name,C_F_Name,H_No,E_F_LName,C_F_FName',
+         Congregation4: 'CNo,F_Name,L_Name,[L_Name+F_Name],H_No,F_Order,Tel,Mob',
+         SermonNote: 'Name,Speaker, *MainVerses, *KeyWords',
+         Pictures: 'ID, P_Name, *MainVerses',
+         Service_Record: 'ID_1,ID_2',
+         Comparing_Db_1: 'CNo',
+         Comparing_Db_2: 'CNo'
+     });
 
    // End of Declare Database
 
