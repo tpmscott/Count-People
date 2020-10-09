@@ -3776,6 +3776,12 @@ function Reset_All(){
 
 <br>
 
+<button onclick="Delete_Attendance()">Delete Attendance = </button>
+<input size="12" type="text" id="Delete_Attendance_Record" name="Delete_Attendance_Record"> Ex: 20200905M
+
+<br>
+
+
 <button onclick="Imp_to_Congregation4()">Imp Db</button>
 
 <INPUT TYPE=TEXT NAME="Imp_to_Congregation4" SIZE="12" id="Imp_to_Congregation4">
@@ -6550,6 +6556,17 @@ async function Delete_Congregation4_F_Cno() { // Delete all objects from the sto
 
 
 }  // End of function Delete_Congregation4_F_Cno()
+
+
+
+async function Delete_Attendance() {
+
+  let delete_Record_tmp = document.getElementById("Delete_Attendance_Record").value;
+
+  dbT2.Attendance.where("Record").startsWithIgnoreCase(delete_Record_tmp).delete();
+
+} // End of function Delete_Attendance()
+
 
 
 async function Delete_Service_Record_ID_2() {
