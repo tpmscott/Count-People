@@ -3286,7 +3286,7 @@ async function Roll_Call_V1(Arg) {  // Arg: 'R' for Roll Call, 'P' for Phone Dir
   }
 
    document.getElementById("content2").style.visibility='visible'; // hide
-   document.getElementById("content2").style.height = "98%";
+   document.getElementById("content2").style.height = "50%";  // 98%
 
    document.getElementById("content2_C").style.visibility='hidden'; // hide
    document.getElementById("content2_C").style.height = "0%";
@@ -3371,9 +3371,9 @@ async function Roll_Call_V1(Arg) {  // Arg: 'R' for Roll Call, 'P' for Phone Dir
 
         if (H_No_tmp3 == '1') {
 
-           //Name_Str = '<b><u>' + Name_Str + ' </u></b>';  // 原用此
+           Name_Str = '<b><u>' + Name_Str + ' </u></b>';  // 原用此
 
-           Name_Str = '<b><u>' + Name_Str + Family_Q_Str + ' </u></b>';  // Add on 2020.10.03
+           //Name_Str = '<b><u>' + Name_Str + Family_Q_Str + ' </u></b>';  // Add on 2020.10.03
 
            Name_Str2 =  '<b><u>' + Name_Str2 + ' </u></b>';
 
