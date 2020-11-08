@@ -2501,7 +2501,7 @@ async function Prepare_for_Roll_Call() { // Prepare HTML for filling data for Ro
 
      //document.getElementById("demo").style.font = "italic bold 20px arial,serif";
 
-     document.getElementById("Roll_Call_Content").style.font = "italic bold 10px arial,serif";
+     //document.getElementById("Roll_Call_Content").style.font = "italic bold 10px arial,serif";
 
      document.getElementById("Roll_Call_Content").innerHTML = Roll_Call_Content_Str;
 
@@ -3411,9 +3411,9 @@ async function Roll_Call_V1(Arg) {  // Arg: 'R' for Roll Call, 'P' for Phone Dir
 
         document.getElementById(Rnum++).style.fontSize = "medium";
 
-        document.getElementById(Rvers++).style.fontSize =  "medium";
+        document.getElementById(Rvers++).style.fontSize =  "x-large";
 
-        document.getElementById(CName++).style.fontSize =  "medium";
+        document.getElementById(CName++).style.fontSize =  "x-large";
 
 
         document.getElementById(Rnum).innerHTML = Check_Str;
@@ -3872,11 +3872,26 @@ async function Roll_Call_V2(Arg) {  // Arg: 'R' for Roll Call, 'P' for Phone Dir
 
         //var Check_Str = '<button onClick="Add_or_Remove_Attendance(\'' + arg1 + '\',\'' + arg2 + '\',\'' + arg3 + '\',\'' + Rvers + '\')"> V </button>';  // Using \' as an escape character
 
-        document.getElementById(Rnum++).innerHTML = Check_Str;
 
-        document.getElementById(Rvers++).innerHTML =  Name_Str;
+        document.getElementById(Rnum++).style.fontSize = "medium";
 
-        document.getElementById(CName++).innerHTML =  Name_Str2;
+        document.getElementById(Rvers++).style.fontSize =  "x-large";
+
+        document.getElementById(CName++).style.fontSize =  "x-large";
+
+
+        document.getElementById(Rnum).innerHTML = Check_Str;
+
+        document.getElementById(Rvers).innerHTML =  Name_Str;
+
+        document.getElementById(CName).innerHTML =  Name_Str2;
+
+
+        //document.getElementById(Rnum++).innerHTML = Check_Str;
+
+        //document.getElementById(Rvers++).innerHTML =  Name_Str;
+
+        //document.getElementById(CName++).innerHTML =  Name_Str2;
 
 
      } // End of for (var i = 0; i < Verse_3.length ; i++)
