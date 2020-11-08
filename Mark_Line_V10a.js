@@ -2459,7 +2459,7 @@ async function Prepare_for_Roll_Call() { // Prepare HTML for filling data for Ro
         var H_No_tmp2 = H_No_tmp.split("_");   
         var H_No_tmp3 = H_No_tmp2[1];          // 2
 
-        if (H_No_tmp3 == '1' || j==1) {
+        //if (H_No_tmp3 == '1' || j==1) {
 
            var add_str1 = '</tr><tr>';
 
@@ -2469,18 +2469,18 @@ async function Prepare_for_Roll_Call() { // Prepare HTML for filling data for Ro
 
            j=2;
 
-        }
-        else {
+        //}
+        //else {
 
-           var add_str1 = '<td></td><td></td><td></td><td></td><td></td>';
+        //   var add_str1 = '<td></td><td></td><td></td><td></td><td></td>';
 
-           var add_str2 = '<td valign=\"top\"><div id=\"' + Rnum + '\"></div></td><td><div id=\"' + Rvers + '\"></div></td><td><div id=\"' + CName + '\"></div></td>';
+        //   var add_str2 = '<td valign=\"top\"><div id=\"' + Rnum + '\"></div></td><td><div id=\"' + Rvers + '\"></div></td><td><div id=\"' + CName + '\"></div></td>';
 
-           Roll_Call_Content_Str = Roll_Call_Content_Str + add_str1 + add_str2;
+        //   Roll_Call_Content_Str = Roll_Call_Content_Str + add_str1 + add_str2;
 
-           j=1;
+        //   j=1;
 
-        }
+        //}
 
 
 
@@ -3409,25 +3409,25 @@ async function Roll_Call_V1(Arg) {  // Arg: 'R' for Roll Call, 'P' for Phone Dir
         //document.getElementById(CName++).style.font =  "20px";
 
 
-        document.getElementById(Rnum++).style.fontSize = "medium";
+        //document.getElementById(Rnum++).style.fontSize = "medium";
 
-        document.getElementById(Rvers++).style.fontSize =  "x-large";
+        //document.getElementById(Rvers++).style.fontSize =  "x-large";
 
-        document.getElementById(CName++).style.fontSize =  "x-large";
-
-
-        document.getElementById(Rnum).innerHTML = Check_Str;
-
-        document.getElementById(Rvers).innerHTML =  Name_Str;
-
-        document.getElementById(CName).innerHTML =  Name_Str2;
+        //document.getElementById(CName++).style.fontSize =  "x-large";
 
 
-        //document.getElementById(Rnum++).innerHTML = Check_Str;
+        //document.getElementById(Rnum).innerHTML = Check_Str;
 
-        //document.getElementById(Rvers++).innerHTML =  Name_Str;
+        //document.getElementById(Rvers).innerHTML =  Name_Str;
 
-        //document.getElementById(CName++).innerHTML =  Name_Str2;
+        //document.getElementById(CName).innerHTML =  Name_Str2;
+
+
+        document.getElementById(Rnum++).innerHTML = Check_Str;
+
+        document.getElementById(Rvers++).innerHTML =  Name_Str;
+
+        document.getElementById(CName++).innerHTML =  Name_Str2;
 
 
      } // End of for (var i = 0; i < Verse_3.length ; i++)
