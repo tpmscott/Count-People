@@ -3769,7 +3769,7 @@ async function Roll_Call_V2(Arg) {  // Arg: 'R' for Roll Call, 'P' for Phone Dir
   }
 
    document.getElementById("content2").style.visibility='visible'; // hide
-   document.getElementById("content2").style.height = "98%";
+   document.getElementById("content2").style.height = "50%";
 
    document.getElementById("content2_C").style.visibility='hidden'; // hide
    document.getElementById("content2_C").style.height = "0%";
@@ -3851,12 +3851,14 @@ async function Roll_Call_V2(Arg) {  // Arg: 'R' for Roll Call, 'P' for Phone Dir
         var Family_Q_Str = '<button onClick="Search_Family_from_H_No_V2(\'' + H_No_tmp5 + '\',\'' +  Rnum  + '\',\'' + Rvers +  '\',\'' +  CName  + '\')"> F </button>';  // Using \' as an escape character
 
 
+        Name_Str = '<a href="javascript:;" onclick="Show_People_Phone_V2(\'' + arg1 + '\');">' + Name_Str + '</a>';
+
 
         if (H_No_tmp3 == '1') {
 
-           //Name_Str = '<b><u>' + Name_Str + ' </u></b>';  // 原用此
+           Name_Str = '<b><u>' + Name_Str + ' </u></b>';  // 原用此
 
-           Name_Str = '<b><u>' + Name_Str + Family_Q_Str + ' </u></b>';  // Add on 2020.10.03
+           //Name_Str = '<b><u>' + Name_Str + Family_Q_Str + ' </u></b>';  // Add on 2020.10.03
 
            Name_Str2 =  '<b><u>' + Name_Str2 + ' </u></b>';
 
@@ -3874,7 +3876,9 @@ async function Roll_Call_V2(Arg) {  // Arg: 'R' for Roll Call, 'P' for Phone Dir
 
         if (Arg == 'P') {  // Arg: 'R' for Roll Call, 'P' for Phone Dir.
 
-           var Check_Str = '<button onClick="Show_People_Phone_V2(\'' + arg1 + '\')"> P </button>';  // Using \' as an escape character
+           //var Check_Str = '<button onClick="Show_People_Phone_V2(\'' + arg1 + '\')"> P </button>';  // Using \' as an escape character
+
+           var Check_Str = '';
 
         }
 
@@ -3889,25 +3893,11 @@ async function Roll_Call_V2(Arg) {  // Arg: 'R' for Roll Call, 'P' for Phone Dir
         //var Check_Str = '<button onClick="Add_or_Remove_Attendance(\'' + arg1 + '\',\'' + arg2 + '\',\'' + arg3 + '\',\'' + Rvers + '\')"> V </button>';  // Using \' as an escape character
 
 
-        document.getElementById(Rnum++).style.fontSize = "medium";
+        document.getElementById(Rnum++).innerHTML = Check_Str;
 
-        document.getElementById(Rvers++).style.fontSize =  "x-large";
+        document.getElementById(Rvers++).innerHTML =  Name_Str;
 
-        document.getElementById(CName++).style.fontSize =  "x-large";
-
-
-        document.getElementById(Rnum).innerHTML = Check_Str;
-
-        document.getElementById(Rvers).innerHTML =  Name_Str;
-
-        document.getElementById(CName).innerHTML =  Name_Str2;
-
-
-        //document.getElementById(Rnum++).innerHTML = Check_Str;
-
-        //document.getElementById(Rvers++).innerHTML =  Name_Str;
-
-        //document.getElementById(CName++).innerHTML =  Name_Str2;
+        document.getElementById(CName++).innerHTML =  Name_Str2;
 
 
      } // End of for (var i = 0; i < Verse_3.length ; i++)
@@ -4671,7 +4661,7 @@ async function Search_Phone_from_F_Name() { // Search from First Name
    document.getElementById("content2").style.height = "0%";
 
    document.getElementById("content2_C").style.visibility='visible'; 
-   document.getElementById("content2_C").style.height = "98%";       // 98% , 0%
+   document.getElementById("content2_C").style.height = "50%";       // 98% , 0%
 
 
   var Search_FName_tmp = document.getElementById("Search_fname1").value ; // id="Search_fname1"
@@ -4695,7 +4685,7 @@ async function Search_Phone_from_F_Name() { // Search from First Name
         var H_No_tmp2 = H_No_tmp.split("_");   
         var H_No_tmp3 = H_No_tmp2[1];          // 2
 
-        if (H_No_tmp3 == '1' || j==1) {
+        //if (H_No_tmp3 == '1' || j==1) {
 
            var add_str1 = '</tr><tr>';
 
@@ -4705,18 +4695,18 @@ async function Search_Phone_from_F_Name() { // Search from First Name
 
            j=2;
 
-        }
-        else {
+        //}
+        //else {
 
-           var add_str1 = '<td></td><td></td><td></td><td></td><td></td>';
+        //   var add_str1 = '<td></td><td></td><td></td><td></td><td></td>';
 
-           var add_str2 = '<td valign=\"top\"><div id=\"' + Rnum + '\"></div></td><td><div id=\"' + Rvers + '\"></div></td><td><div id=\"' + CName + '\"></div></td>';
+        //   var add_str2 = '<td valign=\"top\"><div id=\"' + Rnum + '\"></div></td><td><div id=\"' + Rvers + '\"></div></td><td><div id=\"' + CName + '\"></div></td>';
 
-           Roll_Call_Content_Str = Roll_Call_Content_Str + add_str1 + add_str2;
+        //   Roll_Call_Content_Str = Roll_Call_Content_Str + add_str1 + add_str2;
 
-           j=1;
+        //   j=1;
 
-        }
+        //}
 
 
 
@@ -4761,14 +4751,14 @@ async function Search_Phone_from_F_Name() { // Search from First Name
 
         var arg3 = Verse_51[i].Gender;
 
-        var Result = await Check_Attendance(arg1,arg2,arg3);
+        //var Result = await Check_Attendance(arg1,arg2,arg3);
 
-        if (Result == 'y') {
+        //if (Result == 'y') {
 
-           document.getElementById(Rvers).style.color = "blue";
+        //   document.getElementById(Rvers).style.color = "blue";
 
-        }
-        else {
+        //}
+        //else {
 
            document.getElementById(Rvers).style.color = "black";  // mark on 2020.10.03
 
@@ -4778,7 +4768,7 @@ async function Search_Phone_from_F_Name() { // Search from First Name
 
            //document.getElementById(arg4).style.color = "blue";           
 
-        }
+        //}
 
 
         //var Name_Str = Verse_3[i].L_Name + ',' + Verse_3[i].F_Name + ' ';
@@ -4800,9 +4790,26 @@ async function Search_Phone_from_F_Name() { // Search from First Name
         var Name_Str2 =  Verse_51[i].C_F_Name + Verse_51[i].C_L_Name;
 
 
+
+        //var H_No_tmp = Verse_81[i].H_No;        // 1_2
+        //var H_No_tmp2 = H_No_tmp.split("_");   
+        //var H_No_tmp3 = H_No_tmp2[1];          // 2
+        //var H_No_tmp4 = H_No_tmp2[0];          // 1
+        //var H_No_tmp5 = H_No_tmp4 + '_';       // 1_
+
+
         var H_No_tmp = Verse_51[i].H_No;        // 1_2
         var H_No_tmp2 = H_No_tmp.split("_");   
         var H_No_tmp3 = H_No_tmp2[1];          // 2
+        var H_No_tmp4 = H_No_tmp2[0];          // 1
+        var H_No_tmp5 = H_No_tmp4 + '_';       // 1_
+
+
+        var Family_Q_Str = '<button onClick="Search_Family_from_H_No(\'' + H_No_tmp5 + '\')"> F </button>';  // Using \' as an escape character
+
+
+        Name_Str = '<a href="javascript:;" onclick="Show_People_Phone_V2(\'' + arg1 + '\');">' + Name_Str + '</a>';
+
 
         if (H_No_tmp3 == '1') {
 
@@ -4819,8 +4826,11 @@ async function Search_Phone_from_F_Name() { // Search from First Name
 
         //var Check_Str = '<button onClick="Add_or_Remove_Attendance(\'' + arg1 + '\',\'' + arg2 + '\',\'' + arg3 + '\',\'' + Rvers + '\')"> V </button>';  // Using \' as an escape character
 
-        var Check_Str = '<button onClick="Show_People_Phone_V2(\'' + arg1 + '\')"> P </button>';  // Using \' as an escape character
+        //var Check_Str = '<button onClick="Show_People_Phone_V2(\'' + arg1 + '\')"> P </button>';  // Using \' as an escape character
 
+        //var Check_Str = '';
+
+        var Check_Str = Family_Q_Str;
 
 
         document.getElementById(Rnum++).innerHTML = Check_Str;
@@ -5094,7 +5104,7 @@ async function Search_Family_from_H_No(argH) { // Search from H_No , ex: ('4_')
    document.getElementById("content2").style.height = "0%";
 
    document.getElementById("content2_C").style.visibility='visible'; 
-   document.getElementById("content2_C").style.height = "98%";       // 98% , 0%
+   document.getElementById("content2_C").style.height = "50%";       // 98% , 0%
 
   let Verse_331 = await dbT2.Roll.where('H_No').startsWithIgnoreCase(argH).toArray();
 
@@ -5114,7 +5124,7 @@ async function Search_Family_from_H_No(argH) { // Search from H_No , ex: ('4_')
         var H_No_tmp2 = H_No_tmp.split("_");   
         var H_No_tmp3 = H_No_tmp2[1];          // 2
 
-        if (H_No_tmp3 == '1' || j==1) {
+        //if (H_No_tmp3 == '1' || j==1) {
 
            var add_str1 = '</tr><tr>';
 
@@ -5124,18 +5134,18 @@ async function Search_Family_from_H_No(argH) { // Search from H_No , ex: ('4_')
 
            j=2;
 
-        }
-        else {
+        //}
+        //else {
 
-           var add_str1 = '<td></td><td></td><td></td><td></td><td></td>';
+        //   var add_str1 = '<td></td><td></td><td></td><td></td><td></td>';
 
-           var add_str2 = '<td valign=\"top\"><div id=\"' + Rnum + '\"></div></td><td><div id=\"' + Rvers + '\"></div></td><td><div id=\"' + CName + '\"></div></td>';
+        //   var add_str2 = '<td valign=\"top\"><div id=\"' + Rnum + '\"></div></td><td><div id=\"' + Rvers + '\"></div></td><td><div id=\"' + CName + '\"></div></td>';
 
-           Roll_Call_Content_Str = Roll_Call_Content_Str + add_str1 + add_str2;
+        //   Roll_Call_Content_Str = Roll_Call_Content_Str + add_str1 + add_str2;
 
-           j=1;
+        //   j=1;
 
-        }
+        //}
 
 
 
@@ -5178,26 +5188,28 @@ async function Search_Family_from_H_No(argH) { // Search from H_No , ex: ('4_')
 
         var arg3 = Verse_332[i].Gender;
 
-        var Result = await Check_Attendance(arg1,arg2,arg3);
+        //var Result = await Check_Attendance(arg1,arg2,arg3);
 
-        if (Result == 'y') {
+        //if (Result == 'y') {
 
-           document.getElementById(Rvers).style.color = "blue";
+        //   document.getElementById(Rvers).style.color = "blue";
 
-        }
-        else {
+        //}
+        //else {
 
-           //document.getElementById(Rvers).style.color = "black";  // mark on 2020.10.03 for Test for click F then all family been marked
+        //   //document.getElementById(Rvers).style.color = "black";  // mark on 2020.10.03 for Test for click F then all family been marked
 
-           // Test for click F then all family been marked , add on 2020.10.03
+        //   // Test for click F then all family been marked , add on 2020.10.03
 
-           add_record_to_Attendance_V3(arg1);
+        //   add_record_to_Attendance_V3(arg1);
 
-           document.getElementById(Rvers).style.color = "blue"; 
+        //   document.getElementById(Rvers).style.color = "blue"; 
 
-           //End of Test for click F then all family been marked , add on 2020.10.03
+        //   //End of Test for click F then all family been marked , add on 2020.10.03
 
-        }
+        //}
+
+        document.getElementById(Rvers).style.color = "black";
 
 
         //var Name_Str = Verse_3[i].L_Name + ',' + Verse_3[i].F_Name + ' ';
@@ -5223,6 +5235,10 @@ async function Search_Family_from_H_No(argH) { // Search from H_No , ex: ('4_')
         var H_No_tmp2 = H_No_tmp.split("_");   
         var H_No_tmp3 = H_No_tmp2[1];          // 2
 
+
+        Name_Str = '<a href="javascript:;" onclick="Show_People_Phone_V2(\'' + arg1 + '\');">' + Name_Str + '</a>';
+
+
         if (H_No_tmp3 == '1') {
 
            Name_Str = '<b><u>' + Name_Str + ' </u></b>';
@@ -5231,13 +5247,16 @@ async function Search_Family_from_H_No(argH) { // Search from H_No , ex: ('4_')
 
         }
 
+      
+        var Check_Str = '';
+
 
         //var Name_Str2 =  Verse_3[i].C_F_Name + Verse_3[i].C_L_Name;
 
 
         //if (argC2 == 'R') {
 
-           var Check_Str = '<button onClick="Add_or_Remove_Attendance(\'' + arg1 + '\',\'' + arg2 + '\',\'' + arg3 + '\',\'' + Rvers + '\')"> V </button>';  // Using \' as an escape character
+        //   var Check_Str = '<button onClick="Add_or_Remove_Attendance(\'' + arg1 + '\',\'' + arg2 + '\',\'' + arg3 + '\',\'' + Rvers + '\')"> V </button>';  // Using \' as an escape character
 
         //}
 
