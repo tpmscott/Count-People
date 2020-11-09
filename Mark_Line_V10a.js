@@ -3374,7 +3374,13 @@ async function Roll_Call_V1(Arg) {  // Arg: 'R' for Roll Call, 'P' for Phone Dir
 
         // Name_Str = '<button onClick="Show_People_Phone(\'' + arg1 + '\')"> P </button>';
 
-        Name_Str = '<p ondblclick="Show_People_Phone(\'' + arg1 + '\')">' + Name_Str + '</p>';
+    //var tmp111 = '<a href="" ontouchstart="Set_NKJV();Set_One_Chap();Chinese_Mode3();Pre_Set_Mode();Set_Enter();keyFunction2(\'enter\');efocus();return false;">' + 'Chap ' + c_num + '</a>';
+
+        //<a id="a63" href="javascript:;" onclick="Chinese_Mode2();">中</a>
+  
+        Name_Str = '<a href="javascript:;" onclick="Show_People_Phone(\'' + arg1 + '\');">' + Name_Str + '</a>';
+
+        //Name_Str = '<p ondblclick="Show_People_Phone(\'' + arg1 + '\')">' + Name_Str + '</p>';
 
 
         if (H_No_tmp3 == '1') {
