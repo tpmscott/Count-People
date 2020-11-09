@@ -3368,6 +3368,14 @@ async function Roll_Call_V1(Arg) {  // Arg: 'R' for Roll Call, 'P' for Phone Dir
         //var H_No_tmp5 = H_No_tmp4 + '_';       // 1_
 
 
+        // <p ondblclick="myFunction()">Double-click me</p>
+
+        // <element ondblclick="myScript">
+
+        // Name_Str = '<button onClick="Show_People_Phone(\'' + arg1 + '\')"> P </button>';
+
+        Name_Str = '<p ondblclick="Show_People_Phone(\'' + arg1 + '\')">' + Name_Str + '</p>';
+
 
         if (H_No_tmp3 == '1') {
 
@@ -3393,7 +3401,9 @@ async function Roll_Call_V1(Arg) {  // Arg: 'R' for Roll Call, 'P' for Phone Dir
 
         if (Arg == 'P') {
 
-           var Check_Str = '<button onClick="Show_People_Phone(\'' + arg1 + '\')"> P </button>';  // Using \' as an escape character
+           //var Check_Str = '<button onClick="Show_People_Phone(\'' + arg1 + '\')"> P </button>';  // Using \' as an escape character
+
+           var Check_Str = '';
 
         }
 
