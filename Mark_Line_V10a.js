@@ -2927,12 +2927,58 @@ async function Roll_Call_Search_V1(argC,argC2) { // Search from English Family L
 
 
 
+
+function isChina(s){   // 包含中文則返回"true"，不包含中文則返回"false"
+
+   var patrn=/[\u4E00-\u9FA5]|[\uFE30-\uFFA0]/gi; 
+  
+   if(!patrn.exec(s)) { 
+  
+      return 'E';   // false
+
+   }  
+   else{   
+
+      return 'C';   // true
+  
+   }   
+
+}  // End of function isChina(s)
+
+
+
 async function Roll_Call_Search_V1a() { // Search from English Family Last Name
                                                  // argC2: 'R' for Roll Call, 'P' for Phone Dir.
 
   var argC2 = 'P';
 
   var argC = document.getElementById("Search_lname1").value ;
+
+
+  //let Verse_32 = await dbT2.Roll.where('E_F_LName').startsWithIgnoreCase(argC).toArray();  // 英文 Last Name
+
+  //let Verse_32 = await dbT2.Roll.where('C_F_FName').startsWithIgnoreCase(argC).toArray();  // 中文 姓
+
+  var Chinese_or_English = isChina(argC);
+
+  //var Chinese_or_English = 1;
+
+  if ( Chinese_or_English == 'C' ) { // "true" 中文, 
+
+     var Verse_31 = await dbT2.Roll.where('C_F_FName').startsWithIgnoreCase(argC).toArray();  // 中文 姓     
+
+     var Verse_32 = await dbT2.Roll.where('C_F_FName').startsWithIgnoreCase(argC).toArray();  // 中文 姓
+
+  }
+  else {  // "false" 不包含中文
+
+     var Verse_31 = await dbT2.Roll.where('E_F_LName').startsWithIgnoreCase(argC).toArray();  // 英文 Last Name
+
+     var Verse_32 = await dbT2.Roll.where('E_F_LName').startsWithIgnoreCase(argC).toArray();  // 英文 Last Name
+
+  }
+
+
 
   //var total_count = await dbT2.Roll.count();
 
@@ -2947,7 +2993,11 @@ async function Roll_Call_Search_V1a() { // Search from English Family Last Name
    document.getElementById("content2_C").style.height = "50%";       // 98% , 0%
 
 
-  let Verse_31 = await dbT2.Roll.where('E_F_LName').startsWithIgnoreCase(argC).toArray();
+  //let Verse_31 = await dbT2.Roll.where('E_F_LName').startsWithIgnoreCase(argC).toArray();  // 英文 Last Name
+
+  //let Verse_31 = await dbT2.Roll.where('C_F_FName').startsWithIgnoreCase(argC).toArray();  // 中文 姓
+
+
 
   if (Verse_31) {  // Prepare HTML for filling data
 
@@ -3013,7 +3063,10 @@ async function Roll_Call_Search_V1a() { // Search from English Family Last Name
 
   // --------------------------------------------
 
-  let Verse_32 = await dbT2.Roll.where('E_F_LName').startsWithIgnoreCase(argC).toArray();
+  //let Verse_32 = await dbT2.Roll.where('E_F_LName').startsWithIgnoreCase(argC).toArray();  // 英文 Last Name
+
+  //let Verse_32 = await dbT2.Roll.where('C_F_FName').startsWithIgnoreCase(argC).toArray();  // 中文 姓
+
 
   if (Verse_32) {  // Fill data
 
@@ -3047,10 +3100,9 @@ async function Roll_Call_Search_V1a() { // Search from English Family Last Name
 
         //var Name_Str = Verse_3[i].L_Name + ',' + Verse_3[i].F_Name + ' ';
 
-        var Name_Str = Verse_32[i].F_Name + ' ' + Verse_32[i].L_Name + ' ';
+        var Name_Str = Verse_32[i].F_Name + ' ' + Verse_32[i].L_Name + ' ';   
 
-
-       
+    
 
         if (Verse_32[i].Member == 'T') {
 
