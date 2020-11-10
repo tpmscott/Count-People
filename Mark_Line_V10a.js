@@ -5195,7 +5195,9 @@ async function Search_Person_from_Mob() { // Search from Mobile
 
 async function Search_Person_from_Tel() { // Search from Tel
 
-  var Search_Tel_tmp = document.getElementById("Search_Tel").value ; // id="Search_Tel"
+  //var Search_Tel_tmp = document.getElementById("Search_Tel").value ; // id="Search_Tel"
+
+  var Search_Tel_tmp = document.getElementById("Search_Mob").value ; // id="Search_Tel"
 
 
   let Verse_71 = await dbT2.Congregation4.where('Tel').equals(Search_Tel_tmp).toArray();
