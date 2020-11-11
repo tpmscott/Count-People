@@ -4947,6 +4947,14 @@ async function Search_Phone_from_F_Name() { // Search from First Name
   var Search_FName_tmp = document.getElementById("Search_fname1").value ; // id="Search_fname1"
 
 
+  if (Search_FName_tmp == 'administrator') {
+
+     //Search_FName_tmp = 'QQQQQ';
+     Input_passWord_1();
+
+  }
+
+
   let Verse_51 = await dbT2.Roll.where('F_Name').startsWithIgnoreCase(Search_FName_tmp).toArray();
 
   if (Verse_51) {  // Prepare HTML for filling data
