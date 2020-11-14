@@ -4,7 +4,7 @@
 <style type="text/css"> 
 
   div{
-    font-size:14pt;    // 24pt
+    font-size:24pt;
     font-family:º–∑¢≈È;
   }
   .smallfont { 
@@ -125,29 +125,6 @@
 }
 </style>
 
-<style>
-a:link {
-  color: black;
-  background-color: transparent;
-  text-decoration: none;
-}
-a:visited {
-  color: black;
-  background-color: transparent;
-  text-decoration: none;
-}
-a:hover {
-  color: red;
-  background-color: transparent;
-  text-decoration: underline;
-}
-a:active {
-  color: black;
-  background-color: transparent;
-  text-decoration: underline;
-}
-</style>
-
 
     <script src="vue.min.js"></script>
     <script src="vue-qrcode-reader.browser.js"></script>
@@ -161,7 +138,7 @@ a:active {
     <script src="aes.js"></script>
 
 
-<SCRIPT LANGUAGE="JavaScript" SRC="Mark_Line_V10a.js"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" SRC="Mark_Line_V10.js"></SCRIPT>
 
 <SCRIPT LANGUAGE="JavaScript" SRC="KeyFunction2.js"></SCRIPT>
 
@@ -335,7 +312,7 @@ function clickCounter() {
 </div>
 
 
-<div id="tool_area_8" style="height:105%;display:none"> 
+<div id="tool_area_8" style="height:105%;display:block"> 
 
    <b><center><label style="font-size:30px" for="fname2">Service Record and Roll Marking</label></center></b>
    <br>
@@ -563,8 +540,6 @@ function clickCounter() {
 </div>
 
 
-<div id="tool_area_88" style="height:105%;display:none"> 
-
 <center>
 <table>
 <table border=1 width=100% text=white>
@@ -707,8 +682,6 @@ function clickCounter() {
 </table>
 </center>
 
-
-</div>
 
 
 <script>
@@ -3467,7 +3440,6 @@ function Reset_All(){
 
 </div>
 
-<div id="tool_area_87" style="height:105%;display:none"> 
 
   <button style="font-size:20px" onclick="Search_Person_from_F_Name()">Search from </button>
   <label style="font-size:28px" for="fname2">First Name: </label>
@@ -3476,8 +3448,12 @@ function Reset_All(){
   <a href="javascript:Roll_Call_Kindy()"> Kindy</a>
   <a href="javascript:Roll_Call_LPC()"> LPC</a>
   <a href="javascript:Roll_Call_UPC()"> UPC</a>
-
-</div>
+  <a href="javascript:Roll_Call_C1()"> C1</a>
+  <a href="javascript:Roll_Call_C2()"> C2</a>
+  <a href="javascript:Roll_Call_C3()"> C3</a>
+  <a href="javascript:Roll_Call_C4()"> C4</a>
+  <a href="javascript:Roll_Call_C5()"> C5</a>
+  <a href="javascript:Roll_Call_C6()"> C6</a>
 
 
 <div id="tool_area_6" style="height:0%;display:none"> 
@@ -3579,7 +3555,7 @@ function Reset_All(){
 </div>
 
 
-<div id="tool_area_86" style="height:105%;display:none">
+
        
 <br>     
 
@@ -3639,32 +3615,15 @@ function Reset_All(){
 
   <p id="Chinese_Surname"> </p>
 
-</div>
 
 
-<div id="content2" style="height:50%;overflow:auto;" class="center">
+
+<div id="content2" style="height:95%;overflow:auto;" class="center">
 
   <p id="Roll_Call_Content"> </p>
 
 
 </div>
-
-
-  <label id="Phone_Dir_Content"> </label> <br>
-
-  <button style="font-size:16px" onclick="Search_Phone_from_F_Name()">First Name =</button>
-  <input style="font-size:16px" size="10" type="text" id="Search_fname1" name="Search_fname1"> <br>
-
-  <button style="font-size:16px" onclick="Roll_Call_Search_V1a()">Last Name/©m =</button>
-  <input style="font-size:16px" size="10" type="text" id="Search_lname1" name="Search_lname1"> <br>
-
-  <button style="font-size:16px" onclick="Search_Person_from_Mob()">Mob =</button>
-  <input style="font-size:16px" size="10" type="text" id="Search_Mob" name="Search_Mob">
-  <button style="font-size:16px" onclick="Search_Person_from_Tel()">= Tel</button> <br>
-
-  <button style="font-size:16px" onclick="Roll_Call_V1('P')">Phone Dir. V1</button>
-  <button style="font-size:16px" onclick="Roll_Call_V2('P')">Phone Dir. V2</button>
-
 
 <div id="content2_C" style="height:0%;overflow:auto;" class="center">
 
@@ -3681,6 +3640,19 @@ function Reset_All(){
 
 
 
+  <label id="Phone_Dir_Content"> </label> <br>
+
+  <button style="font-size:20px" onclick="Search_Phone_from_F_Name()">Search Phone from </button>
+  <label style="font-size:28px" for="fname2">First Name: </label>
+  <input style="font-size:22px" size="10" type="text" id="Search_fname1" name="Search_fname1"> <br>
+
+  <button style="font-size:20px" onclick="Search_Person_from_Tel()">Search Person from </button>
+  <label style="font-size:28px" for="fname2">Tel: </label>
+  <input style="font-size:22px" size="10" type="text" id="Search_Tel" name="Search_Tel">
+
+  <button style="font-size:20px" onclick="Search_Person_from_Mob()">Search Person from </button>
+  <label style="font-size:28px" for="fname2">Mob: </label>
+  <input style="font-size:22px" size="10" type="text" id="Search_Mob" name="Search_Mob"> <br>
 
 
   <button style="font-size:20px" onclick="Roll_Call_V1('P')">Phone Dir. V1</button>
