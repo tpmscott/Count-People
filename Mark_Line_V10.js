@@ -4058,7 +4058,7 @@ async function Roll_Call_C1() {  // Arg: 'R' for Roll Call, 'P' for Phone Dir.
 
         //if (H_No_tmp3 == '1' || j==1) {
 
-        if (CNo_tmp_Str == 'CIC' || j==1) { 
+        if (CNo_tmp_Str == 'CIC') { 
 
            var add_str1 = '</tr><tr>';
 
@@ -4068,18 +4068,29 @@ async function Roll_Call_C1() {  // Arg: 'R' for Roll Call, 'P' for Phone Dir.
 
            Roll_Call_Content_Str = Roll_Call_Content_Str + add_str1 + add_str2;
 
-           if (j==1) {
+           //if (j==1) {
 
-              j=2;
+           //   j=2;
 
-           }
-           else if (CNo_tmp_Str == 'CIC') {
+           //}
+           //else if (CNo_tmp_Str == 'CIC') {
 
               j=1;
 
-           }
+           //}
 
            //j=2;
+
+        }
+        else if (j==1) {
+
+           var add_str1 = '</tr><tr>';
+
+           var add_str2 = '<td valign=\"top\"><div id=\"' + Rnum + '\"></div></td><td><div id=\"' + Rvers + '\"></div></td><td><div id=\"' + CName + '\"></div></td>';
+
+           Roll_Call_Content_Str = Roll_Call_Content_Str + add_str1 + add_str2;
+
+              j=2;
 
         }
         else {
@@ -4740,7 +4751,9 @@ async function Roll_Call_LPC() {  // Arg: 'R' for Roll Call, 'P' for Phone Dir.
 
         //if (H_No_tmp3 == '1' || j==1) {
 
-        if (CNo_tmp_Str == 'CIC' || j==1) { 
+        //if (CNo_tmp_Str == 'CIC' || j==1) { 
+
+        if (CNo_tmp_Str == 'CIC') { 
 
            var add_str1 = '</tr><tr>';
 
@@ -4750,18 +4763,29 @@ async function Roll_Call_LPC() {  // Arg: 'R' for Roll Call, 'P' for Phone Dir.
 
            Roll_Call_Content_Str = Roll_Call_Content_Str + add_str1 + add_str2;
 
-           if (j==1) {
+           //if (j==1) {
 
-              j=2;
+           //   j=2;
 
-           }
-           else if (CNo_tmp_Str == 'CIC') {
+           //}
+           //else if (CNo_tmp_Str == 'CIC') {
 
               j=1;
 
-           }
+           //}
 
            //j=2;
+
+        }
+        else if (j==1) {
+
+           var add_str1 = '</tr><tr>';
+
+           var add_str2 = '<td valign=\"top\"><div id=\"' + Rnum + '\"></div></td><td><div id=\"' + Rvers + '\"></div></td><td><div id=\"' + CName + '\"></div></td>';
+
+           Roll_Call_Content_Str = Roll_Call_Content_Str + add_str1 + add_str2;
+
+              j=2;
 
         }
         else {
