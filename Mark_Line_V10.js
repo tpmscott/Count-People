@@ -266,6 +266,22 @@ async function init_Bible4U_DB() {
          Comparing_Db_1: 'CNo',
          Comparing_Db_2: 'CNo'
      });
+     dbT2.version(24).stores({      // New for V12
+         books: 'name,date',
+         ChapNote: 'name,date',
+         Congregation: 'CNo,F_Name,L_Name,[L_Name+F_Name],H_No,F_Order',
+         Attendance: 'Record',
+         Householder: '++H_Seq,H_No',
+         Congregation2: '++CNo,F_Name,L_Name,[L_Name+F_Name],H_No,F_Order',
+         Congregation3: 'CNo,F_Name,L_Name,[L_Name+F_Name],H_No',
+         Roll: '++Roll_No,CNo,F_Name,L_Name,C_F_Name,H_No,E_F_LName,C_F_FName,Member',
+         Congregation4: 'CNo,F_Name,L_Name,[L_Name+F_Name],H_No,F_Order,Tel,Mob',
+         SermonNote: 'Name,Speaker, *MainVerses, *KeyWords',
+         Pictures: 'ID, P_Name, *MainVerses',
+         Service_Record: 'ID_1,ID_2',
+         Comparing_Db_1: 'CNo',
+         Comparing_Db_2: 'CNo'
+     });
 
    // End of Declare Database
 
@@ -7521,6 +7537,242 @@ async function Search_Person_from_F_Name_V3() { // Search from First Name
 
 
 }  // End of function Search_Person_from_F_Name_V3()
+
+
+
+async function Search_Truth_Seeker() { // Search Truth Seeker
+
+
+  // --------------------------------------------
+
+
+   document.getElementById("content2").style.visibility='hidden'; // hidden , visible
+   document.getElementById("content2").style.height = "0%";
+
+   document.getElementById("content2_C").style.visibility='visible'; 
+   document.getElementById("content2_C").style.height = "98%";       // 98% , 0%
+
+   //document.getElementById("content2_C").style.fontSize = "10pt";  // 50%
+   //document.getElementById("Roll_Call_Content_C").style.fontSize = "10pt"; 
+
+
+  //var Search_FName_tmp = document.getElementById("Search_fname2").value ; // id="Search_fname2"
+
+
+  //var Search_FName_tmp = arg ; // id="Search_fname2"
+
+
+  let Verse_81 = await dbT2.Roll.where('Member').equals('T').toArray();
+
+  if (Verse_81) {  // Prepare HTML for filling data
+
+     var Rnum = 30001;  // Rnum
+     var Rvers = 40001;  // EName
+     var CName = 50001;  // CName
+
+     var Roll_Call_Content_Str = '<table><tr>';
+
+     //var Roll_Call_Content_Str = '<table style="font-size:60%"><tr>';
+
+     var j=1;
+
+     for (var i = 0; i < Verse_81.length ; i++) {
+
+        var H_No_tmp = Verse_81[i].H_No;        // 1_2
+        var H_No_tmp2 = H_No_tmp.split("_");   
+        var H_No_tmp3 = H_No_tmp2[1];          // 2
+
+        if (H_No_tmp3 == '1' || j==1) {
+
+           var add_str1 = '</tr><tr>';
+
+           //if (Search_FName_tmp == 'ALL') {
+
+           //   var add_str2 = '<td valign=\"top\"><div id=\"' + Rnum + '\"></div></td><td><div style=\"font-size:180%\" id=\"' + Rvers + '\"></div></td><td><div id=\"' + CName + '\"></div></td>';
+
+           //}
+           //else {
+
+              var add_str2 = '<td valign=\"top\"><div id=\"' + Rnum + '\"></div></td><td><div id=\"' + Rvers + '\"></div></td><td><div id=\"' + CName + '\"></div></td>';
+
+           //}
+
+           //var add_str2 = '<td valign=\"top\"><div id=\"' + Rnum + '\"></div></td><td><div id=\"' + Rvers + '\"></div></td><td><div id=\"' + CName + '\"></div></td>';
+
+           //var add_str2 = '<td valign=\"top\"><div id=\"' + Rnum + '\"></div></td><td><div style=\"font-size:180%\" id=\"' + Rvers + '\"></div></td><td><div id=\"' + CName + '\"></div></td>';
+
+
+           Roll_Call_Content_Str = Roll_Call_Content_Str + add_str1 + add_str2;
+
+           j=2;
+
+        }
+        else {
+
+           var add_str1 = '<td></td><td></td><td></td><td></td><td></td>';
+
+           //if (Search_FName_tmp == 'ALL') {
+
+           //   var add_str2 = '<td valign=\"top\"><div id=\"' + Rnum + '\"></div></td><td><div style=\"font-size:180%\" id=\"' + Rvers + '\"></div></td><td><div id=\"' + CName + '\"></div></td>';
+
+           //}
+           //else {
+
+              var add_str2 = '<td valign=\"top\"><div id=\"' + Rnum + '\"></div></td><td><div id=\"' + Rvers + '\"></div></td><td><div id=\"' + CName + '\"></div></td>';
+
+           //}
+
+           //var add_str2 = '<td valign=\"top\"><div id=\"' + Rnum + '\"></div></td><td><div id=\"' + Rvers + '\"></div></td><td><div id=\"' + CName + '\"></div></td>';
+
+           //var add_str2 = '<td valign=\"top\"><div id=\"' + Rnum + '\"></div></td><td><div style=\"font-size:180%\" id=\"' + Rvers + '\"></div></td><td><div id=\"' + CName + '\"></div></td>';
+
+
+           Roll_Call_Content_Str = Roll_Call_Content_Str + add_str1 + add_str2;
+
+           j=1;
+
+        }
+
+
+
+        //var '<tr><td valign=\"top\"><div id=\"' + Rnum + '\"></div></td><td><div id=\"' + Rvers + '\"></div></td><td><div id=\"' + CName + '\"></div></td></tr>';
+
+        //Roll_Call_Content_Str = Roll_Call_Content_Str + 
+
+
+        Rnum++;
+        Rvers++;
+        CName++;
+
+         
+
+     } // End of for (var i = 0; i < Verse_81.length ; i++)
+
+     var Roll_Call_Content_Str = Roll_Call_Content_Str + '</tr></table>';
+
+     document.getElementById("Roll_Call_Content_C").innerHTML = Roll_Call_Content_Str;
+
+  }
+
+
+
+  // --------------------------------------------
+
+  //let Verse_42 = await dbT2.Roll.where('C_F_FName').startsWithIgnoreCase(argC).toArray();
+
+  if (Verse_81) {  // Fill data
+
+     var Rnum = 30001;  // Rnum
+     var Rvers = 40001;  // EName
+     var CName = 50001;  // CName
+
+     for (var i = 0; i < Verse_81.length ; i++) {
+
+        // arg1: CNo, arg2: Member, arg3:Gender
+
+        var arg1 = Verse_81[i].CNo;
+
+        var arg2 = Verse_81[i].Member;
+
+        var arg3 = Verse_81[i].Gender;
+
+        var Result = await Check_Attendance(arg1,arg2,arg3);
+
+        if (Result == 'y') {
+
+           document.getElementById(Rvers).style.color = "blue";
+
+        }
+        else {
+
+           document.getElementById(Rvers).style.color = "black";
+
+        }
+
+
+        //var Name_Str = Verse_3[i].L_Name + ',' + Verse_3[i].F_Name + ' ';
+
+
+        // -----------------------------------------
+
+
+        var H_No_tmp = Verse_81[i].H_No;        // 1_2
+        var H_No_tmp2 = H_No_tmp.split("_");   
+        var H_No_tmp3 = H_No_tmp2[1];          // 2
+        var H_No_tmp4 = H_No_tmp2[0];          // 1
+        var H_No_tmp5 = H_No_tmp4 + '_';       // 1_
+
+
+      //var Check_Str = '<button onClick="Add_or_Remove_Attendance(\'' + arg1 + '\',\'' + arg2 + '\',\'' + arg3 + '\',\'' + Rvers + '\')"> V </button>';  // Using \' as an escape character
+
+        var Family_Q_Str = '<button onClick="Search_Family_from_H_No_V3(\'' + H_No_tmp5 + '\')"> F </button>';  // Using \' as an escape character
+
+        var Name_Str = Verse_81[i].F_Name + ' ' + Verse_81[i].L_Name + Family_Q_Str;
+
+        //var Name_Str = Verse_81[i].F_Name + ' ' + Verse_81[i].L_Name + ' ';  // Old
+
+
+        if (Verse_81[i].Member == 'T') {
+
+           //Name_Str = '*' + Verse_3[i].L_Name + ',' + Verse_3[i].F_Name + ' ';
+
+           //Name_Str = '*' + Verse_81[i].F_Name + ' ' + Verse_81[i].L_Name + ' ';   // Old
+
+           Name_Str = '*' + Verse_81[i].F_Name + ' ' + Verse_81[i].L_Name + Family_Q_Str;
+
+        }
+
+
+        var Name_Str2 =  Verse_81[i].C_F_Name + Verse_81[i].C_L_Name;
+
+
+        //var H_No_tmp = Verse_81[i].H_No;        // 1_2
+        //var H_No_tmp2 = H_No_tmp.split("_");   
+        //var H_No_tmp3 = H_No_tmp2[1];          // 2
+
+        if (H_No_tmp3 == '1') {
+
+           Name_Str = '<b><u>' + Name_Str + ' </u></b>';
+
+           Name_Str2 =  '<b><u>' + Name_Str2 + ' </u></b>';
+
+        }
+
+
+        //var Name_Str2 =  Verse_3[i].C_F_Name + Verse_3[i].C_L_Name;
+
+
+
+        var Check_Str = '<button onClick="Add_or_Remove_Attendance(\'' + arg1 + '\',\'' + arg2 + '\',\'' + arg3 + '\',\'' + Rvers + '\')"> V </button>';  // Using \' as an escape character
+
+        //var Check_Str = '<button onClick="Show_People_Phone_V2(\'' + arg1 + '\')"> P </button>';  // Using \' as an escape character
+
+
+
+        document.getElementById(Rnum++).innerHTML = Check_Str;
+
+        document.getElementById(Rvers++).innerHTML =  Name_Str;
+
+        document.getElementById(CName++).innerHTML =  Name_Str2;
+
+
+        //document.getElementById(Rnum++).style.fontSize = "100%";  // 50%;
+
+        //document.getElementById(Rvers++).style.fontSize = "50%";  // 50%;
+
+        //document.getElementById(CName++).style.fontSize = "98%";  // 50%;
+
+
+     } // End of for (var i = 0; i < Verse_81.length ; i++)
+
+   //document.getElementById("content2_C").style.fontSize = "10pt";  // 50%
+   //document.getElementById("Roll_Call_Content_C").style.fontSize = "10pt"; 
+
+  }
+
+
+}  // End of function Search_Truth_Seeker()
+
 
 
 async function Search_Person_from_F_Name_V2(arg) { // Search from First Name
