@@ -792,6 +792,14 @@ function efocus() {  // do nothing
     document.getElementById("etest").style.display="none"; // "none" 
 };
 
+
+function efocus_v2() {  // do nothing
+
+    document.getElementById("Search_fname2").focus(); 
+
+}
+
+
 //document.getElementById("etest").focus();
 //<td>
 //<input class="topfont2" type="button" name="B11" value="Pause" onclick="Mousetrap.pause(); return false;">
@@ -4629,6 +4637,8 @@ async function Add_or_Remove_Attendance(arg1,arg2,arg3,arg44) { // arg1: CNo, ar
    }
 
    //Show_Headcount();
+
+   efocus_v2(); // Add on 20201205 for testing
 
 
 }  // End of function Add_or_Remove_Attendance(arg1,arg2,arg3)
