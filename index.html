@@ -3454,12 +3454,11 @@ function Reset_All(){
 </div>
 
 
+  <button style="font-size:20px" onclick="Roll_Call_V2('R')">Full List</button>
 
-  <label style="font-size:28px" for="fname2">First Name</label>
-  <input style="font-size:22px" size="4" type="text" oninput="Search_Person_from_F_Name()" id="Search_fname2" name="Search_fname2">
+  <input placeholder="First Name" style="font-size:22px" size="6" type="text" oninput="Search_Person_from_F_Name()" id="Search_fname2" name="Search_fname2">
 
-  <label style="font-size:28px" for="fname2">Last Name</label>
-  <input style="font-size:22px" size="4" type="text" oninput="Roll_Call_Search_V4()" id="Search_lname7" name="Search_lname7">
+  <input placeholder="Last Name" style="font-size:22px" size="6" type="text" oninput="Roll_Call_Search_V4()" id="Search_lname7" name="Search_lname7">
 
   <a href="javascript:Roll_Call_Kindy()"> Kindy</a>
   <a href="javascript:Roll_Call_LPC()"> LPC</a>
@@ -3470,11 +3469,9 @@ function Reset_All(){
   <a href="javascript:Roll_Call_C4()"> C4</a>
   <a href="javascript:Roll_Call_C5()"> C5</a>
   <a href="javascript:Roll_Call_C6()"> C6</a>
-  <a href="javascript:Search_Truth_Seeker()"> T.S.</a>
-  <p onclick='$("#Search_fname2").focus();'>click</p>
+  <a href="javascript:Search_Truth_Seeker()"> TS</a>
   
-
-
+    <p id="Chinese_Surname"> </p>
 
 <div id="tool_area_6" style="height:0%;display:none"> 
 
@@ -3579,7 +3576,7 @@ function Reset_All(){
        
 <br>     
 
-  <p id="Chinese_Surname"> </p>
+
 
 
 
