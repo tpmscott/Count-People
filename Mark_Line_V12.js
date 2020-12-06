@@ -8418,8 +8418,17 @@ async function Search_Person_from_F_Name() { // Search from First Name
         //var Name_Str2 =  Verse_3[i].C_F_Name + Verse_3[i].C_L_Name;
 
 
+        // <input type='text' id='foo'><div onclick='$("#foo").focus();'>click</div>
+
+
+
+        //var Check_Str = '<button onClick="$("#Search_fname2").focus();Add_or_Remove_Attendance(\'' + arg1 + '\',\'' + arg2 + '\',\'' + arg3 + '\',\'' + Rvers + '\')"> V </button>';  // Using \' as an escape character
+
+
 
         var Check_Str = '<button onClick="Add_or_Remove_Attendance(\'' + arg1 + '\',\'' + arg2 + '\',\'' + arg3 + '\',\'' + Rvers + '\')"> V </button>';  // Using \' as an escape character
+
+
 
         //var Check_Str = '<button onClick="Show_People_Phone_V2(\'' + arg1 + '\')"> P </button>';  // Using \' as an escape character
 
@@ -8440,6 +8449,19 @@ async function Search_Person_from_F_Name() { // Search from First Name
 
 
 }  // End of function Search_Person_from_F_Name()
+
+
+$( document ).ready(function() {
+    
+  $('button').on('click', function() {
+      $('input').focus();
+  });
+  
+  $('select').on('change', function() {
+      $('input').focus();
+  });
+  
+});
 
 
 function Open_Admin_Tools_Area() {
