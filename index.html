@@ -132,6 +132,18 @@
 }
 </style>
 
+<style>
+
+#menu {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  width: 8em;
+  margin-top: -2.5em;
+}
+
+</style>
+
 
     <script src="vue.min.js"></script>
     <script src="vue-qrcode-reader.browser.js"></script>
@@ -3457,6 +3469,15 @@ function Reset_All(){
                 <center><b><p id="listElem3"></p></b></center>
 
 
+
+</div>
+
+
+<div id=menu>
+
+  <input placeholder="First Name" style="font-size:22px" size="6" type="text" oninput="Search_Person_from_F_Name()" id="Search_fname2" name="Search_fname2">
+
+  <input placeholder="Last Name" style="font-size:22px" size="6" type="text" oninput="Roll_Call_Search_V4()" id="Search_lname7" name="Search_lname7">
 
 </div>
 
