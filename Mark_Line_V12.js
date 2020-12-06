@@ -8422,11 +8422,15 @@ async function Search_Person_from_F_Name() { // Search from First Name
 
 
 
-        //var Check_Str = '<button onClick="$("#Search_fname2").focus();Add_or_Remove_Attendance(\'' + arg1 + '\',\'' + arg2 + '\',\'' + arg3 + '\',\'' + Rvers + '\')"> V </button>';  // Using \' as an escape character
+        //var Check_Str = '<button onClick="$(\'"#Search_fname2\'").focus();Add_or_Remove_Attendance(\'' + arg1 + '\',\'' + arg2 + '\',\'' + arg3 + '\',\'' + Rvers + '\')"> V </button>';  // Using \' as an escape character
 
 
 
-        var Check_Str = '<button onClick="Add_or_Remove_Attendance(\'' + arg1 + '\',\'' + arg2 + '\',\'' + arg3 + '\',\'' + Rvers + '\')"> V </button>';  // Using \' as an escape character
+        var Check_Str = '<button  type="button" onClick="Add_or_Remove_Attendance(\'' + arg1 + '\',\'' + arg2 + '\',\'' + arg3 + '\',\'' + Rvers + '\')"> V </button>';  // Using \' as an escape character
+
+
+
+        //var Check_Str = '<button onClick="Add_or_Remove_Attendance(\'' + arg1 + '\',\'' + arg2 + '\',\'' + arg3 + '\',\'' + Rvers + '\')"> V </button>';  // Using \' as an escape character
 
 
 
@@ -8451,17 +8455,6 @@ async function Search_Person_from_F_Name() { // Search from First Name
 }  // End of function Search_Person_from_F_Name()
 
 
-$( document ).ready(function() {
-    
-  $('button').on('click', function() {
-      $('input').focus();
-  });
-  
-  $('select').on('change', function() {
-      $('input').focus();
-  });
-  
-});
 
 
 function Open_Admin_Tools_Area() {
