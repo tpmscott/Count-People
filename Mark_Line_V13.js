@@ -8696,17 +8696,23 @@ function Close_QR_Code_Scan_Area() {
 
 } // End of Close_QR_Code_Scan_Area()
 
-function Open_Service_Record() {
+function Open_Service_Record() {   // Open_Service_Record & Close Roll Marking
 
    document.getElementById("tool_area_8").style.display='block';  //inline
    document.getElementById("tool_area_8").style.height = "170%";
 
+   document.getElementById("roll_marking").style.display='none';  //inline
+   document.getElementById("roll_marking").style.height = "0%";
+
 } // End of Open_Service_Record()
 
-function Close_Service_Record() {
+function Close_Service_Record() {  // Close_Service_Record & Open Roll Marking
 
    document.getElementById("tool_area_8").style.display='none';
    document.getElementById("tool_area_8").style.height = "0%";
+
+   document.getElementById("roll_marking").style.display='block';  //inline
+   document.getElementById("roll_marking").style.height = "105%";
 
 } // End of Close_Service_Record()
 
