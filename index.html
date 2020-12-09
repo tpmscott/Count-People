@@ -170,7 +170,7 @@
 
 
 
-<SCRIPT LANGUAGE="JavaScript" SRC="Mark_Line_V13.js"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" SRC="Mark_Line_V14.js"></SCRIPT>
 
 <SCRIPT LANGUAGE="JavaScript" SRC="KeyFunction2.js"></SCRIPT>
 
@@ -348,7 +348,8 @@ function clickCounter() {
 
 <div id="tool_area_8" style="height:170%;display:block"> 
 
-   <b><center><label style="font-size:30px" for="fname2">Service Record and Roll Marking</label></center></b>
+   <center><b><label style="font-size:30px" for="fname2">Service Record & </label></b>
+   <button id="Go_To_Roll_Marking" style="font-size:26px" onclick="Go_To_Roll_Marking()">Roll Marking</button></center>
    <br>
 
    <td>
@@ -3486,7 +3487,7 @@ function Reset_All(){
 </div>
 
 
-<div id=menu>
+<div id=menu style="display:block">
 
   <button id="Close_Service" style="font-size:22px" onclick="Open_Service_Record()">Service</button>
 
@@ -3515,6 +3516,8 @@ function Reset_All(){
   <a href="javascript:Roll_Call_C6()"> C6</a>
   <a href="javascript:Search_Truth_Seeker()"> TS</a>
   <a href="javascript:Roll_Call_GC()"> GC</a>
+
+  <button style="font-size:20px" onclick="Go_To_Roll_Marking()">Search by Name</button>
 
 
 <div class="box">  
