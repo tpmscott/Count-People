@@ -8704,6 +8704,20 @@ function Go_To_Roll_Marking() {
 
    document.getElementById("menu").style.display='block';
 
+   document.getElementById("menu").style.opacity=1;
+
+}
+
+function Menu_Opacity_04() {
+
+   document.getElementById("menu").style.opacity=0.4;
+
+}
+
+function Menu_Opacity_1() {
+
+   document.getElementById("menu").style.opacity=1;
+
 }
 
 
