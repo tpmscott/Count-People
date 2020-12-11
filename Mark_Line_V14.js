@@ -8708,6 +8708,19 @@ function Go_To_Roll_Marking() {
 
 }
 
+function Search_fname2_clear() {
+
+   document.getElementById("Search_fname2").value='';
+
+}
+
+function Search_lname7_clear() {
+
+   document.getElementById("Search_lname7").value='';
+
+}
+
+
 function Menu_Opacity_04() {
 
    document.getElementById("menu").style.opacity=0.4;
