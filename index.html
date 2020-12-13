@@ -126,6 +126,13 @@
 </style>
 
 <style>
+.box{
+    white-space: nowrap;
+    overflow-y:auto;
+}
+</style>
+
+<style>
 
 #menu {
   opacity:0.4;
@@ -157,6 +164,37 @@
 </style>
 
 
+<style>
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  font-size:20px;
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 320px;
+
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+</style>
+
+
+
     <script src="vue.min.js"></script>
     <script src="vue-qrcode-reader.browser.js"></script>
     <link rel="stylesheet" href="vue-qrcode-reader.css">
@@ -168,10 +206,15 @@
 
     <script src="aes.js"></script>
 
+    <script src="jquery-3.5.1.min.js"></script>
 
-<SCRIPT LANGUAGE="JavaScript" SRC="Mark_Line_V11b.js"></SCRIPT>
+
+
+<SCRIPT LANGUAGE="JavaScript" SRC="Mark_Line_V14.js"></SCRIPT>
 
 <SCRIPT LANGUAGE="JavaScript" SRC="KeyFunction2.js"></SCRIPT>
+
+
 
 
 
@@ -322,7 +365,7 @@ function clickCounter() {
 <meta http-equiv="Content-Type" content="text/html; charset=big5">
 
 </head>
-<body onload="Init_Total_Mode();init_Bible4U_DB(); return false;" text="#000000" link="#0000ff" alink="#ffffff" vlink="#0000ff" background="back5.jpg">
+<body onload="Init_Total_Mode();init_Bible4U_DB();Open_Service_Record(); return false;" text="#000000" link="#0000ff" alink="#ffffff" vlink="#0000ff" background="back5.jpg">
 
 
 <div id="Church_Service_Schedule" style="width:100%;height:0%;overflow:auto;" class="center">
@@ -343,9 +386,10 @@ function clickCounter() {
 </div>
 
 
-<div id="tool_area_8" style="height:105%;display:block"> 
+<div id="tool_area_8" style="height:170%;display:block"> 
 
-   <b><center><label style="font-size:30px" for="fname2">Service Record and Roll Marking</label></center></b>
+   <center><b><label style="font-size:30px" for="fname2">Service Record & </label></b>
+   <button id="Go_To_Roll_Marking" style="font-size:26px" onclick="Go_To_Roll_Marking()">Roll Marking</button></center>
    <br>
 
    <td>
@@ -567,10 +611,6 @@ function clickCounter() {
    </div>
 
 
-
-</div>
-
-
 <center>
 <table>
 <table border=1 width=100% text=white>
@@ -715,6 +755,13 @@ function clickCounter() {
 
 
 
+</div>
+
+
+
+
+
+
 <script>
 
 
@@ -822,6 +869,14 @@ function efocus() {  // do nothing
     //document.getElementById("etest").style.visibility='hidden'; // hide 
     document.getElementById("etest").style.display="none"; // "none" 
 };
+
+
+function efocus_v2() {  // do nothing
+
+    document.getElementById("Search_fname2").focus(); 
+
+}
+
 
 //document.getElementById("etest").focus();
 //<td>
@@ -3472,35 +3527,54 @@ function Reset_All(){
 </div>
 
 
-<div id=menu style="display:none">
+<div id=menu style="display:block">
 
-  <button id="Close_Service" style="font-size:22px" onclick="Open_Service_Record()">Hide</button>
+  <button id="Close_Service" style="font-size:22px" onclick="Open_Service_Record()">Service</button>
 
   <input placeholder="First Name" style="font-size:22px" size="6" type="text" oninput="Search_Person_from_F_Name()" onblur="Menu_Opacity_04()" onfocus="Menu_Opacity_1();Search_fname2_clear()" id="Search_fname2" name="Search_fname2">
 
   <input placeholder="Last Name" style="font-size:22px" size="6" type="text" oninput="Roll_Call_Search_V4()" onblur="Menu_Opacity_04()" onfocus="Menu_Opacity_1();Search_lname7_clear()" id="Search_lname7" name="Search_lname7">
 
-  <button id="Close_Service" style="font-size:22px" onclick="Close_Service_Record();Menu_Opacity_04()">Transparent</button>
+  <button id="Close_Service" style="font-size:22px" onclick="Close_Service_Record();Menu_Opacity_04()">Roll</button>
 
 </div>
 
 
+<div id="roll_marking" style="height:105%;display:block"> 
 
-  <button style="font-size:20px" onclick="Search_Person_from_F_Name()">Search from </button>
-  <label style="font-size:28px" for="fname2">First Name</label>
-  <input style="font-size:22px" size="6" type="text" id="Search_fname2" name="Search_fname2">
 
-  <a href="javascript:Roll_Call_Kindy()"> Kindy</a>
-  <a href="javascript:Roll_Call_LPC()"> LPC</a>
-  <a href="javascript:Roll_Call_UPC()"> UPC</a>
-  <a href="javascript:Roll_Call_C1()"> C1</a>
-  <a href="javascript:Roll_Call_C2()"> C2</a>
-  <a href="javascript:Roll_Call_C3()"> C3</a>
-  <a href="javascript:Roll_Call_C4()"> C4</a>
-  <a href="javascript:Roll_Call_C5()"> C5</a>
-  <a href="javascript:Roll_Call_C6()"> C6</a>
-  <a href="javascript:Search_Truth_Seeker()"> TS</a>
-  <a href="javascript:Roll_Call_GC()"> GC</a>
+  <button style="font-size:20px" onclick="Roll_Call_V2('R')">Full List</button>
+
+
+<div class="dropdown">
+  <button style="font-size:20px" class="dropbtn">Filter</button>
+  <div class="dropdown-content">
+    <a href="javascript:Roll_Call_Kindy()">Kindy</a>
+    <a href="javascript:Roll_Call_LPC()">LPC</a>
+    <a href="javascript:Roll_Call_UPC()">UPC</a>
+    <a href="javascript:Roll_Call_C1()">Cooking Group 1 - Steven</a>
+    <a href="javascript:Roll_Call_C2()">Cooking Group 2 - Henry</a>
+    <a href="javascript:Roll_Call_C3()">Cooking Group 3 - Joanne</a>
+    <a href="javascript:Roll_Call_C4()">Cooking Group 4 - Su-Foh</a>
+    <a href="javascript:Roll_Call_C5()">Cooking Group 5 - Daniel</a>
+    <a href="javascript:Roll_Call_C6()">Cooking Group 6 - Elizabeth</a>
+    <a href="javascript:Search_Truth_Seeker()">Truth Seeker</a>
+    <a href="javascript:Roll_Call_GC()">Gold Coast</a>
+  </div>
+</div>
+
+
+  <button style="font-size:20px" onclick="Go_To_Roll_Marking()">Search</button>
+
+  <button style="font-size:20px" onclick="Open_Service_Record()">Service Record</button>
+
+
+
+
+
+<div class="box">  
+    <p id="Chinese_Surname"> </p>
+</div>
 
 
 <div id="tool_area_6" style="height:0%;display:none"> 
@@ -3606,62 +3680,7 @@ function Reset_All(){
        
 <br>     
 
-  <button style="font-size:20px" onclick="Search_Person_from_F_Name_V3()">First Name</button>
-  <a href="javascript:Search_Person_from_F_Name_V2('A')"> A </a>   
-  <a href="javascript:Search_Person_from_F_Name_V2('B')"> B </a> 
-  <a href="javascript:Search_Person_from_F_Name_V2('C')"> C </a>
-  <a href="javascript:Search_Person_from_F_Name_V2('D')"> D </a>
-  <a href="javascript:Search_Person_from_F_Name_V2('E')"> E </a>
-  <a href="javascript:Search_Person_from_F_Name_V2('F')"> F </a>
-  <a href="javascript:Search_Person_from_F_Name_V2('G')"> G </a>
-  <a href="javascript:Search_Person_from_F_Name_V2('H')"> H </a>
-  <a href="javascript:Search_Person_from_F_Name_V2('I')"> I </a>
-  <a href="javascript:Search_Person_from_F_Name_V2('J')"> J </a>
-  <a href="javascript:Search_Person_from_F_Name_V2('K')"> K </a>
-  <a href="javascript:Search_Person_from_F_Name_V2('L')"> L </a>
-  <a href="javascript:Search_Person_from_F_Name_V2('M')"> M </a>
-  <a href="javascript:Search_Person_from_F_Name_V2('N')"> N </a>
-  <a href="javascript:Search_Person_from_F_Name_V2('O')"> O </a>
-  <a href="javascript:Search_Person_from_F_Name_V2('P')"> P </a>
-  <a href="javascript:Search_Person_from_F_Name_V2('R')"> R </a>
-  <a href="javascript:Search_Person_from_F_Name_V2('S')"> S </a>
-  <a href="javascript:Search_Person_from_F_Name_V2('T')"> T </a>
-  <a href="javascript:Search_Person_from_F_Name_V2('V')"> V </a>
-  <a href="javascript:Search_Person_from_F_Name_V2('W')"> W </a>
-  <a href="javascript:Search_Person_from_F_Name_V2('X')"> X </a>
-  <a href="javascript:Search_Person_from_F_Name_V2('Y')"> Y </a>
-  <a href="javascript:Search_Person_from_F_Name_V2('Z')"> Z </a>
 
-<br>  
-       
-                
-  <button style="font-size:20px" onclick="Roll_Call_V1('R')">Last Name V1</button>
-
-
-  <br>
-                 
-  <button style="font-size:20px" onclick="Roll_Call_V2('R')">Last Name V2</button>
-  <a href="javascript:Roll_Call_Search_V1('A','R')"> A </a>
-  <a href="javascript:Roll_Call_Search_V1('B','R')"> B </a>
-  <a href="javascript:Roll_Call_Search_V1('C','R')"> C </a>
-  <a href="javascript:Roll_Call_Search_V1('D','R')"> D </a>
-  <a href="javascript:Roll_Call_Search_V1('H','R')"> H </a>
-  <a href="javascript:Roll_Call_Search_V1('I','R')"> I </a>
-  <a href="javascript:Roll_Call_Search_V1('J','R')"> J </a>
-  <a href="javascript:Roll_Call_Search_V1('K','R')"> K </a>
-  <a href="javascript:Roll_Call_Search_V1('L','R')"> L </a>
-  <a href="javascript:Roll_Call_Search_V1('M','R')"> M </a>
-  <a href="javascript:Roll_Call_Search_V1('N','R')"> N </a>
-  <a href="javascript:Roll_Call_Search_V1('O','R')"> O </a>
-  <a href="javascript:Roll_Call_Search_V1('S','R')"> S </a>
-  <a href="javascript:Roll_Call_Search_V1('T','R')"> T </a>
-  <a href="javascript:Roll_Call_Search_V1('W','R')"> W </a>
-  <a href="javascript:Roll_Call_Search_V1('X','R')"> X </a>
-  <a href="javascript:Roll_Call_Search_V1('Y','R')"> Y </a>
-  <a href="javascript:Roll_Call_Search_V1('Z','R')"> Z </a>
-  <button style="font-size:20px" onclick="Go_To_Roll_Marking()">Search V2</button>
-
-  <p id="Chinese_Surname"> </p>
 
 
 
@@ -3678,6 +3697,10 @@ function Reset_All(){
   <p id="Roll_Call_Content_C"> </p>
 
 </div>
+
+
+</div>
+
 
 <div id="Admin_Tools_Area" style="width:100%;height:0%;overflow:auto;" class="center">
 
@@ -4727,6 +4750,8 @@ async function Add_or_Remove_Attendance(arg1,arg2,arg3,arg44) { // arg1: CNo, ar
    }
 
    //Show_Headcount();
+
+   //efocus_v2(); // Add on 20201205 for testing
 
 
 }  // End of function Add_or_Remove_Attendance(arg1,arg2,arg3)
