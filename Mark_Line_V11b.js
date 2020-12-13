@@ -3728,6 +3728,9 @@ async function Download_Attendance_StartWith_V2() {
 async function Roll_Call_V2(Arg) {  // Arg: 'R' for Roll Call, 'P' for Phone Dir.
 
 
+  document.getElementById("menu").style.display='none'; // add on 2020.12.09
+
+
   let Verse_3 = await dbT2.Roll.toArray();
 
   //let Verse = await dbT2.Attendance.reverse().toArray();
@@ -8242,6 +8245,16 @@ function Menu_Opacity_1() {
 
 }
 
+function Go_To_Roll_Marking() {
+
+   Close_Service_Record();
+
+   document.getElementById("menu").style.display='block';
+
+   document.getElementById("menu").style.opacity=1;
+
+}
+
 
 async function Roll_Call_Search_V4() { // Search from English Family Last Name
                                        // argC2: 'R' for Roll Call, 'P' for Phone Dir.
@@ -8706,6 +8719,8 @@ function Open_Service_Record() {
 
    document.getElementById("tool_area_8").style.display='block';  //inline
    document.getElementById("tool_area_8").style.height = "110%";
+
+   document.getElementById("menu").style.display='none';
 
 } // End of Open_Service_Record()
 

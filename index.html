@@ -3472,9 +3472,9 @@ function Reset_All(){
 </div>
 
 
-<div id=menu style="display:block">
+<div id=menu style="display:none">
 
-  <button id="Close_Service" style="font-size:22px" onclick="Open_Service_Record()">Service</button>
+  <button id="Close_Service" style="font-size:22px" onclick="Open_Service_Record()">Hide</button>
 
   <input placeholder="First Name" style="font-size:22px" size="6" type="text" oninput="Search_Person_from_F_Name()" onblur="Menu_Opacity_04()" onfocus="Menu_Opacity_1();Search_fname2_clear()" id="Search_fname2" name="Search_fname2">
 
@@ -3659,6 +3659,7 @@ function Reset_All(){
   <a href="javascript:Roll_Call_Search_V1('X','R')"> X </a>
   <a href="javascript:Roll_Call_Search_V1('Y','R')"> Y </a>
   <a href="javascript:Roll_Call_Search_V1('Z','R')"> Z </a>
+  <button style="font-size:20px" onclick="Go_To_Roll_Marking()">Search V2</button>
 
   <p id="Chinese_Surname"> </p>
 
