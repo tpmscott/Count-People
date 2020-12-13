@@ -8717,8 +8717,8 @@ function Close_QR_Code_Scan_Area() {
 
 function Open_Service_Record() {
 
-   document.getElementById("tool_area_8").style.display='block';  //inline
-   document.getElementById("tool_area_8").style.height = "110%";
+   //document.getElementById("tool_area_8").style.display='block';  //inline
+   //document.getElementById("tool_area_8").style.height = "110%";
 
    document.getElementById("menu").style.display='none';
 
@@ -8726,8 +8726,8 @@ function Open_Service_Record() {
 
 function Close_Service_Record() {
 
-   document.getElementById("tool_area_8").style.display='none';
-   document.getElementById("tool_area_8").style.height = "0%";
+   //document.getElementById("tool_area_8").style.display='none';
+   //document.getElementById("tool_area_8").style.height = "0%";
 
 } // End of Close_Service_Record()
 
