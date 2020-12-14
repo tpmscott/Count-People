@@ -8748,10 +8748,23 @@ function Open_Service_Record() {   // Open_Service_Record & Close Roll Marking
 
 
 
+function Open_dropdown_menu() {
+
+   // Not in use
+
+   //document.getElementById("dropdown-content").style.display='none';
+   //document.getElementById("dropdown").style.display='none';
+   document.getElementById("dropdown-content").style.display='block';
+
+}
+
 function Close_dropdown_menu() {
 
+   // Not in use
+
    document.getElementById("dropdown-content").style.display='none';
-   document.getElementById("dropdown").style.display='none';
+   //document.getElementById("dropdown").style.display='none';
+   //document.getElementById("dropdown-content").style.display='block';
 
 }
 
