@@ -8747,6 +8747,19 @@ function Open_Service_Record() {   // Open_Service_Record & Close Roll Marking
 } // End of Open_Service_Record()
 
 
+function Hide_Search() {  
+
+   //document.getElementById("tool_area_8").style.display='block';  //inline
+   //document.getElementById("tool_area_8").style.height = "170%";
+
+   //document.getElementById("roll_marking").style.display='none';  //inline
+   //document.getElementById("roll_marking").style.height = "0%";
+
+   document.getElementById("menu").style.display='none';
+
+} // End of Hide_Search()
+
+
 
 function Open_dropdown_menu() {
 
