@@ -8588,7 +8588,7 @@ async function Search_Person_from_F_Name() { // Search from First Name
 
       //var Check_Str = '<button onClick="Add_or_Remove_Attendance(\'' + arg1 + '\',\'' + arg2 + '\',\'' + arg3 + '\',\'' + Rvers + '\')"> V </button>';  // Using \' as an escape character
 
-        var Family_Q_Str = '<button onClick="Search_Family_from_H_No_V3(\'' + H_No_tmp5 + '\')"> F </button>';  // Using \' as an escape character
+        var Family_Q_Str = '<button onClick="Search_Family_from_H_No_V3(\'' + H_No_tmp5 + '\')"> SF </button>';  // Using \' as an escape character
 
         var Name_Str = Verse_81[i].F_Name + ' ' + Verse_81[i].L_Name + Family_Q_Str;
 
@@ -8633,7 +8633,13 @@ async function Search_Person_from_F_Name() { // Search from First Name
 
 
 
-        var Check_Str = '<button  type="button" onClick="Add_or_Remove_Attendance(\'' + arg1 + '\',\'' + arg2 + '\',\'' + arg3 + '\',\'' + Rvers + '\')"> V </button>';  // Using \' as an escape character
+        // // var Check_Str = '<button  type="button" onClick="Add_or_Remove_Attendance(\'' + arg1 + '\',\'' + arg2 + '\',\'' + arg3 + '\',\'' + Rvers + '\')"> V </button>';  // Using \' as an escape character
+
+
+        //var Family_Q_Str_2 = '"Search_Family_from_H_No_V3(\'' + H_No_tmp5 + '\')"> SF </button>';
+
+
+        var Check_Str = '<button  type="button" onClick="Add_or_Remove_Attendance(\'' + arg1 + '\',\'' + arg2 + '\',\'' + arg3 + '\',\'' + Rvers + '\');Search_Family_from_H_No_V3(\'' + H_No_tmp5 + '\')"> V </button>';  // Using \' as an escape character
 
 
 
