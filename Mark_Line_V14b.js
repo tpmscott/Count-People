@@ -294,6 +294,19 @@ async function init_Bible4U_DB() {
 }
 
 
+
+async function Delete_All_Congregation4() { // Delete all objects from the store.
+                                // Syntax : table.clear()
+                                // Compare -- table.delete(primaryKey) -- Delete object from store
+
+  //dbT2.books.delete(arg1);
+
+  dbT2.Congregation4.clear();
+
+
+}  // End of function Delete_All_Congregation4()
+
+
 async function booksDb_to_books_Test2Db() {  // New for V4
 
    let Verse_db = await db.books.toArray();
