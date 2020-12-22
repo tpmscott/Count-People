@@ -5749,7 +5749,7 @@ async function Roll_Call_UPC() {  // Arg: 'R' for Roll Call, 'P' for Phone Dir.
 
   //var kindy_member = new Array(93,102,95); // 93 Hazel Chen
 
-  var UPC_member = new Array(146,106,251,72,168,24,125,16,52,137,98,42,15,'CIC139',109,244,38,76,11,49,51,97); // ,139
+  var UPC_member = new Array(146,106,251,72,168,24,125,16,52,137,98,42,15,278,279,'CIC139',109,244,38,76,11,49,51,97); // ,139
 
  
   //      table.where(indexOrPrimKey).anyOf(array)
