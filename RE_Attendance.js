@@ -1,22 +1,22 @@
 
-var kindy_member = new Array(253,'CIC93',156,145,18,85); 
+var kindy_member = new Array(119,253,'CIC93',156,145,18,85); 
 
 var kindy_teacher = new Array(93,156,145,18,85); // 86 for test
 
-var kindy_student = new Array(253); 
+var kindy_student = new Array(119,253); 
 
 var LPC_member = new Array(95,66,183,176,53,126,147,79,73,252,138,99,266,94,122,175,272,'CIC121',29,102,37,186,181,166); // ,37
 
 var LPC_teacher = new Array(121,29,102,37,186,181,166);
 
-var LPC_student = new Array(95,66,183,176,53,126,147,79,73,252,138,99,266,94,122,175,272);
+var LPC_student = new Array(95,183,176,53,147,79,73,252,138,99,94,122,175);
 
 
 var UPC_member = new Array(182,88,106,251,146,168,24,16,72,265,125,'CIC244',109,27,11,76,139,97); // ,139
 
 var UPC_teacher = new Array(244,109,27,11,76,139,97);
 
-var UPC_student = new Array(182,88,106,251,146,168,24,16,72,265,125);
+var UPC_student = new Array(182,88,106,251,146,168,24,72);
 
 
 var JYC_teacher = new Array(41,49,180,134,30);
@@ -1090,7 +1090,8 @@ async function Roll_Call_SYC_teacher_Attendance_V2() { // for test
 
 
 
-async function Roll_Call_Kindy_student_Attendance() { // for test, only for Kindy student = 1, CNo = 253
+async function Roll_Call_Kindy_student_Attendance_OLD() { // for test, 
+                                                          // only for Kindy student = 1, CNo = 253
 
 
    Read_for_Roll_Call = 'N';  
@@ -1144,10 +1145,92 @@ async function Roll_Call_Kindy_student_Attendance() { // for test, only for Kind
 
 
 
+} // End of function Roll_Call_Kindy_student_Attendance_OLD()
+
+
+async function Roll_Call_Kindy_student_Attendance() { // for test
+
+
+   Read_for_Roll_Call = 'N';  
+
+
+   // -----------------------------------------------------------------------------
+
+   document.getElementById("content2").style.visibility='visible'; // hide
+   document.getElementById("content2").style.height = "98%";
+
+   document.getElementById("content2_C").style.visibility='hidden'; // hide
+   document.getElementById("content2_C").style.height = "0%";
+
+
+   var Rnum = 3001;  // Rnum
+   var Rvers = 4001;  // EName
+   var CName = 5001;  // CName
+
+   var kindy_student_attendance_no = 0;
+
+
+     for (var i = 0; i < kindy_student.length ; i++) {
+
+        var CNo_tmp = kindy_student[i]; // new Array(93,102,95)
+
+        var Verse_3 = await dbT2.Roll.where('CNo').equals(CNo_tmp).toArray();
+
+
+        if (Verse_3.length) {  // Fill data
+
+
+           var arg1 = Verse_3[0].CNo;
+
+           var arg2 = Verse_3[0].Member;
+
+           var arg3 = Verse_3[0].Gender;  
+
+
+           //var Result = await Check_Attendance(arg1,arg2,arg3);
+
+           var Result = await Check_Attendance5(arg1,arg2,arg3);
+
+
+           if (Result == 'y') {
+
+              //document.getElementById(Rvers).style.color = "blue";
+
+              kindy_student_attendance_no = kindy_student_attendance_no + 1;
+
+           }
+
+        } // End of if (Verse_3)
+
+
+     } // End of for (var i = 0; i < kindy_student.length ; i++)
+
+
+
+     // 小數點兩位
+     // Math.round(x * 100) / 100
+
+
+     //var kindy_teacher_attendance_rete = ( (kindy_teacher_attendance_no / kindy_teacher.length) * 100 );
+
+     //kindy_teacher_attendance_rete = Math.round( kindy_teacher_attendance_rete * 100 ) / 100;
+
+
+     var kindy_student_attendance_rete = ( (kindy_student_attendance_no / kindy_student.length) * 100 );
+
+     kindy_student_attendance_rete = Math.round( kindy_student_attendance_rete * 100 ) / 100;
+
+
+     document.getElementById(4002).innerHTML =  'kindy Student=';
+
+     document.getElementById(5002).innerHTML =  kindy_student_attendance_rete + '%';    
+
+
+
 } // End of function Roll_Call_Kindy_student_Attendance()
 
 
-async function Roll_Call_Kindy_student_Attendance_V2() { // for test, only for Kindy student = 1, CNo = 253
+async function Roll_Call_Kindy_student_Attendance_V2_OLD() { // for test, only for Kindy student = 1, CNo = 253
 
 
    Read_for_Roll_Call = 'N';  
@@ -1191,7 +1274,84 @@ async function Roll_Call_Kindy_student_Attendance_V2() { // for test, only for K
 
 
 
+} // End of function Roll_Call_Kindy_student_Attendance_V2_OLD()
+
+
+async function Roll_Call_Kindy_student_Attendance_V2() { // for test
+
+
+   Read_for_Roll_Call = 'N';  
+
+
+   // -----------------------------------------------------------------------------
+
+
+   var kindy_student_attendance_no = 0;
+
+
+     for (var i = 0; i < kindy_student.length ; i++) {
+
+        var CNo_tmp = kindy_student[i]; // new Array(93,102,95)
+
+        var Verse_3 = await dbT2.Roll.where('CNo').equals(CNo_tmp).toArray();
+
+
+        if (Verse_3.length) {  // Fill data
+
+
+           var arg1 = Verse_3[0].CNo;
+
+           var arg2 = Verse_3[0].Member;
+
+           var arg3 = Verse_3[0].Gender;  
+
+
+           //var Result = await Check_Attendance(arg1,arg2,arg3);
+
+           var Result = await Check_Attendance5(arg1,arg2,arg3);
+
+
+           if (Result == 'y') {
+
+              //document.getElementById(Rvers).style.color = "blue";
+
+              kindy_student_attendance_no = kindy_student_attendance_no + 1;
+
+           }
+
+        } // End of if (Verse_3)
+
+
+     } // End of for (var i = 0; i < kindy_student.length ; i++)
+
+
+
+     // 小數點兩位
+     // Math.round(x * 100) / 100
+
+
+     //var kindy_teacher_attendance_rete = ( (kindy_teacher_attendance_no / kindy_teacher.length) * 100 );
+
+     //kindy_teacher_attendance_rete = Math.round( kindy_teacher_attendance_rete * 100 ) / 100;
+
+
+     var kindy_student_attendance_rete = ( (kindy_student_attendance_no / kindy_student.length) * 100 );
+
+     kindy_student_attendance_rete = Math.round( kindy_student_attendance_rete * 100 ) / 100;
+
+     kindy_student_attendance_rete_V2 = kindy_student_attendance_rete;
+
+
+     //document.getElementById(4004).innerHTML =  'LPC Student=';
+
+     //document.getElementById(5004).innerHTML =  LPC_student_attendance_rete + '%';    
+
+
+
 } // End of function Roll_Call_Kindy_student_Attendance_V2()
+
+
+
 
 
 async function Roll_Call_LPC_student_Attendance() { // for test
