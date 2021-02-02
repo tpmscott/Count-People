@@ -136,6 +136,246 @@ async function Roll_Call_RE_Attendance_V2() { // for test, for email
 
 } // End of function Roll_Call_RE_Attendance_V2()
 
+var RE_Attendance_V3_text = '';
+
+async function Roll_Call_RE_Attendance_V3() { // for test, for display
+
+   Open_RE_Attendance_Area();
+
+   var RE_Attendance_V3_text = '<center><a href="" onclick="Close_RE_Attendance_Area();return false;">' + 'All Attendance</a>';
+
+   RE_Attendance_V3_text += ' ' + '<a href="" onclick="Close_RE_Attendance_Area();return false;">' + 'Friday Attendance</a>';
+
+   RE_Attendance_V3_text += ' ' + '<a href="" onclick="Close_RE_Attendance_Area();return false;">' + 'Close Window</a></center>'  + '<br>';
+
+
+   //RE_Attendance_V3_text += 'Kindy ';
+
+
+   //document.getElementById("RE_Attendance_Content").innerHTML = RE_Attendance_V3_text;  
+
+   // --------------------------------------------- 
+
+   var kindy_teacher_attendance_no = 0;
+
+     for (var i = 0; i < kindy_teacher.length ; i++) {
+
+        var CNo_tmp = kindy_teacher[i]; // new Array(93,102,95)
+
+        var Verse_3 = await dbT2.Roll.where('CNo').equals(CNo_tmp).toArray();
+
+        if (Verse_3.length) {  // Fill data
+
+           var arg1 = Verse_3[0].CNo;
+
+           var arg2 = Verse_3[0].Member;
+
+           var arg3 = Verse_3[0].Gender;  
+
+           var Result = await Check_Attendance5(arg1,arg2,arg3);
+
+           if (Result == 'y') {
+
+              kindy_teacher_attendance_no = kindy_teacher_attendance_no + 1;
+
+           }
+
+        } // End of if (Verse_3)
+
+
+     } // End of for (var i = 0; i < kindy_teacher.length ; i++)   
+
+     var kindy_teacher_attendance_rete = ( (kindy_teacher_attendance_no / kindy_teacher.length) * 100 );
+
+     kindy_teacher_attendance_rete = Math.round( kindy_teacher_attendance_rete * 100 ) / 100;
+
+     //RE_Attendance_V3_text += 'Kindy Teacher=' + kindy_teacher_attendance_rete + '%';
+
+
+     //document.getElementById(40001).innerHTML =  'Kindy Teacher=';
+
+     //document.getElementById(50001).innerHTML =  kindy_teacher_attendance_rete + '%';   
+
+   // --------------------------------------------- 
+
+   var LPC_teacher_attendance_no = 0;
+
+     for (var i = 0; i < LPC_teacher.length ; i++) {
+
+        var CNo_tmp = LPC_teacher[i]; // new Array(93,102,95)
+
+        var Verse_3 = await dbT2.Roll.where('CNo').equals(CNo_tmp).toArray();
+
+        if (Verse_3.length) {  // Fill data
+
+           var arg1 = Verse_3[0].CNo;
+
+           var arg2 = Verse_3[0].Member;
+
+           var arg3 = Verse_3[0].Gender;  
+
+           //var Result = await Check_Attendance(arg1,arg2,arg3);
+
+           var Result = await Check_Attendance5(arg1,arg2,arg3);
+
+           if (Result == 'y') {
+
+              //document.getElementById(Rvers).style.color = "blue";
+
+              LPC_teacher_attendance_no = LPC_teacher_attendance_no + 1;
+
+           }
+
+        } // End of if (Verse_3)
+
+
+     } // End of for (var i = 0; i < LPC_teacher.length ; i++)
+
+     var LPC_teacher_attendance_rete = ( (LPC_teacher_attendance_no / LPC_teacher.length) * 100 );
+
+     LPC_teacher_attendance_rete = Math.round( LPC_teacher_attendance_rete * 100 ) / 100;
+
+
+     //RE_Attendance_V3_text += 'LPC Teacher=' + LPC_teacher_attendance_rete + '%';
+
+
+     //document.getElementById(40003).innerHTML =  'LPC Teacher=';
+
+     //document.getElementById(50003).innerHTML =  LPC_teacher_attendance_rete + '%';    
+
+
+   // --------------------------------------------- 
+
+   var kindy_student_attendance_no = 0;
+
+     for (var i = 0; i < kindy_student.length ; i++) {
+
+        var CNo_tmp = kindy_student[i]; // new Array(93,102,95)
+
+        var Verse_3 = await dbT2.Roll.where('CNo').equals(CNo_tmp).toArray();
+
+
+        if (Verse_3.length) {  // Fill data
+
+
+           var arg1 = Verse_3[0].CNo;
+
+           var arg2 = Verse_3[0].Member;
+
+           var arg3 = Verse_3[0].Gender;  
+
+
+           //var Result = await Check_Attendance(arg1,arg2,arg3);
+
+           var Result = await Check_Attendance5(arg1,arg2,arg3);
+
+
+           if (Result == 'y') {
+
+              //document.getElementById(Rvers).style.color = "blue";
+
+              kindy_student_attendance_no = kindy_student_attendance_no + 1;
+
+           }
+
+        } // End of if (Verse_3)
+
+
+     } // End of for (var i = 0; i < kindy_student.length ; i++)
+
+     var kindy_student_attendance_rete = ( (kindy_student_attendance_no / kindy_student.length) * 100 );
+
+     kindy_student_attendance_rete = Math.round( kindy_student_attendance_rete * 100 ) / 100;
+
+     //document.getElementById(40002).innerHTML =  'kindy Student=';
+
+     //document.getElementById(50002).innerHTML =  kindy_student_attendance_rete + '%';  
+
+
+   // --------------------------------------------- 
+
+   var LPC_student_attendance_no = 0;
+
+     for (var i = 0; i < LPC_student.length ; i++) {
+
+        var CNo_tmp = LPC_student[i]; // new Array(93,102,95)
+
+        var Verse_3 = await dbT2.Roll.where('CNo').equals(CNo_tmp).toArray();
+
+
+        if (Verse_3.length) {  // Fill data
+
+
+           var arg1 = Verse_3[0].CNo;
+
+           var arg2 = Verse_3[0].Member;
+
+           var arg3 = Verse_3[0].Gender;  
+
+
+           //var Result = await Check_Attendance(arg1,arg2,arg3);
+
+           var Result = await Check_Attendance5(arg1,arg2,arg3);
+
+
+           if (Result == 'y') {
+
+              //document.getElementById(Rvers).style.color = "blue";
+
+              LPC_student_attendance_no = LPC_student_attendance_no + 1;
+
+           }
+
+        } // End of if (Verse_3)
+
+
+     } // End of for (var i = 0; i < LPC_student.length ; i++)
+
+     var LPC_student_attendance_rete = ( (LPC_student_attendance_no / LPC_student.length) * 100 );
+
+     LPC_student_attendance_rete = Math.round( LPC_student_attendance_rete * 100 ) / 100;
+
+     //document.getElementById(40004).innerHTML =  'LPC Student=';
+
+     //document.getElementById(50004).innerHTML =  LPC_student_attendance_rete + '%';    
+
+
+   // --------------------------------------------- 
+
+     //RE_Attendance_V3_text += 'Kindy Teacher=' + kindy_teacher_attendance_rete + '%';
+
+     //RE_Attendance_V3_text += 'LPC Teacher=' + LPC_teacher_attendance_rete + '%';
+
+     RE_Attendance_V3_text += '<center><table border=1>';
+
+     RE_Attendance_V3_text += '<tr><th colspan="2">Kindy</th><th colspan="2">LPC</th></tr>';
+
+     RE_Attendance_V3_text += '<tr>';
+
+     RE_Attendance_V3_text += '<td>Teacher</td><td>Student</td><td>Teacher</td><td>Student</td>';
+
+     RE_Attendance_V3_text += '</tr>';
+
+     RE_Attendance_V3_text += '<tr>';
+
+     RE_Attendance_V3_text += '<td align=right>' + kindy_teacher_attendance_rete + '%' + '</td>';
+
+     RE_Attendance_V3_text += '<td align=right>' + kindy_student_attendance_rete + '%' + '</td>';
+
+     RE_Attendance_V3_text += '<td align=right>' + LPC_teacher_attendance_rete + '%' + '</td>';
+
+     RE_Attendance_V3_text += '<td align=right>' + LPC_student_attendance_rete + '%' + '</td>';
+
+     RE_Attendance_V3_text += '</tr></table></center>';
+
+
+
+
+     document.getElementById("RE_Attendance_Content").innerHTML = RE_Attendance_V3_text;       
+
+
+} // End of function Roll_Call_RE_Attendance_V3()
+
 
 
 
@@ -2227,3 +2467,17 @@ async function Roll_Call_Kindy_student_Attendance_old() { // for test, ** templa
 
 
 } // End of function Roll_Call_Kindy_student_Attendance_old()
+
+
+function Open_RE_Attendance_Area() {
+
+   document.getElementById("tool_area_18").style.display='block';
+
+} // End of function Open_RE_Attendance_Area()
+
+
+function Close_RE_Attendance_Area() {
+
+   document.getElementById("tool_area_18").style.display='none'; 
+
+} // End of function Close_RE_Attendance_Area()
