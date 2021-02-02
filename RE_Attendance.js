@@ -1,4 +1,6 @@
 
+
+
 var kindy_member = new Array(119,253,'CIC93',156,145,18,85); 
 
 var kindy_teacher = new Array(93,156,145,18,85); // 86 for test
@@ -7,14 +9,14 @@ var kindy_student = new Array(119,253);
 
 var LPC_member = new Array(95,66,183,176,53,126,147,79,73,252,138,99,266,94,122,175,272,'CIC121',29,102,37,186,181,166); // ,37
 
-var LPC_teacher = new Array(121,29,102,37,186,181,166);
+var LPC_teacher = new Array(121,102,37,186,181,166);
 
 var LPC_student = new Array(95,183,176,53,147,79,73,252,138,99,94,122,175);
 
 
 var UPC_member = new Array(182,88,106,251,146,168,24,16,72,265,125,'CIC244',109,27,11,76,139,97); // ,139
 
-var UPC_teacher = new Array(244,109,27,11,76,139,97);
+var UPC_teacher = new Array(244,109,11,76,139,97);
 
 var UPC_student = new Array(182,88,106,251,146,168,24,72);
 
@@ -24,14 +26,14 @@ var JYC_teacher = new Array(41,49,180,134,30);
 var JYC_student = new Array(52,137,98,42,15,279,19,23,167,278);
 
 
-var IYC_teacher = new Array(48,143,38,47,275,1);
+var IYC_teacher = new Array(48,38,47,275,1);
 
 var IYC_student = new Array(4,34,103,277,110);
 
 
 var SYC_teacher = new Array(31,51,82,144);
 
-var SYC_student = new Array(39,3,61,140,102,29,109);
+var SYC_student = new Array(39,3,61,140,102,109);
 
 
 
