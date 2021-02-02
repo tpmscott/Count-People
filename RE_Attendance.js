@@ -682,18 +682,42 @@ async function Roll_Call_RE_Attendance_V3() { // for test, for display
 
      var DateStr = Display_ID_2; // Exp_start_date , '20200920E'
 
-     var Year = DateStr.substring(0,4);
+     var Year_Str = DateStr.substring(0,4);
 
-     var Month = DateStr.substring(4,6);
+     var Month_Str = DateStr.substring(4,6);
 
-     var Date = DateStr.substring(6,8);
+     var Date_Str = DateStr.substring(6,8);
 
-     var New_DateStr = Date + '.' + Month + '.' + Year;
+     var New_DateStr = Date_Str + '.' + Month_Str + '.' + Year_Str;
+
+     var myDate = new Date();
+     myDate.setFullYear(Year_Str);
+     myDate.setMonth(Month_Str);
+     myDate.setDate(Date_Str);
+
+     var myDay = '';
+
+     if(myDate.getDay() == 6)
+        myDay = 'Sat';
+     if(myDate.getDay() == 5)
+        myDay = 'Fri';
+     if(myDate.getDay() == 4)
+        myDay = 'Thu';
+     if(myDate.getDay() == 3)
+        myDay = 'Wed';
+     if(myDate.getDay() == 2)
+        myDay = 'Tue';
+     if(myDate.getDay() == 1)
+        myDay = 'Mon';
+     if(myDate.getDay() == 0)
+        myDay = 'Sun';
 
 
      RE_Attendance_V3_text += '<center><table border=1>';
 
-     RE_Attendance_V3_text += '<tr><th style="font-size:16pt;">Date</th>';
+     RE_Attendance_V3_text += '<tr><th style="font-size:16pt;">Day</th>';
+
+     RE_Attendance_V3_text += '<th style="font-size:16pt;">Date</th>';
 
      RE_Attendance_V3_text += '<th style="font-size:16pt;" colspan="2">Kindy</th><th style="font-size:16pt;" colspan="2">LPC</th>';
 
@@ -703,7 +727,7 @@ async function Roll_Call_RE_Attendance_V3() { // for test, for display
 
      RE_Attendance_V3_text += '<tr>';
 
-     RE_Attendance_V3_text += '<td></td>';
+     RE_Attendance_V3_text += '<td></td><td></td>';
 
      RE_Attendance_V3_text += '<td>Teacher</td><td>Student</td><td>Teacher</td><td>Student</td>';
 
@@ -715,7 +739,7 @@ async function Roll_Call_RE_Attendance_V3() { // for test, for display
 
      RE_Attendance_V3_text += '<tr>';
 
-     //RE_Attendance_V3_text += '<td>02.02.2021</td>';
+     RE_Attendance_V3_text += '<td>' + myDay + '</td>';
 
      RE_Attendance_V3_text += '<td>' + New_DateStr + '</td>';
 
