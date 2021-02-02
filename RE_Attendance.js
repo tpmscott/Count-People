@@ -690,9 +690,26 @@ async function Roll_Call_RE_Attendance_V3() { // for test, for display
 
      var New_DateStr = Date_Str + '.' + Month_Str + '.' + Year_Str;
 
+     
+     var Month_Str_tmp = '';
+
+     if(Month_Str == 01) Month_Str_tmp = 0;
+     if(Month_Str == 02) Month_Str_tmp = 1;
+     if(Month_Str == 03) Month_Str_tmp = 2;
+     if(Month_Str == 04) Month_Str_tmp = 3;
+     if(Month_Str == 05) Month_Str_tmp = 4;
+     if(Month_Str == 06) Month_Str_tmp = 5;
+     if(Month_Str == 07) Month_Str_tmp = 6;
+     if(Month_Str == 08) Month_Str_tmp = 7;
+     if(Month_Str == 09) Month_Str_tmp = 8;
+     if(Month_Str == 10) Month_Str_tmp = 9;
+     if(Month_Str == 11) Month_Str_tmp = 10;
+     if(Month_Str == 12) Month_Str_tmp = 11;
+
+
      var myDate = new Date();
      myDate.setFullYear(Year_Str);
-     myDate.setMonth(Month_Str);
+     myDate.setMonth(Month_Str_tmp); // 0-11
      myDate.setDate(Date_Str);
 
      var myDay = '';
