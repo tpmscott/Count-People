@@ -681,11 +681,11 @@ async function Roll_Call_RE_Attendance_V3() { // for test, for display
 
      RE_Attendance_V3_text += '<center><table border=1>';
 
-     RE_Attendance_V3_text += '<tr><th colspan="2">Kindy</th><th colspan="2">LPC</th>';
+     RE_Attendance_V3_text += '<tr><th style="font-size:16pt;" colspan="2">Kindy</th><th style="font-size:16pt;" colspan="2">LPC</th>';
 
-     RE_Attendance_V3_text += '<th colspan="2">UPC</th><th colspan="2">JYC</th>';
+     RE_Attendance_V3_text += '<th style="font-size:16pt;" colspan="2">UPC</th><th style="font-size:16pt;" colspan="2">JYC</th>';
 
-     RE_Attendance_V3_text += '<th colspan="2">IYC</th><th colspan="2">SYC</th></tr>';
+     RE_Attendance_V3_text += '<th style="font-size:16pt;" colspan="2">IYC</th><th style="font-size:16pt;" colspan="2">SYC</th></tr>';
 
      RE_Attendance_V3_text += '<tr>';
 
@@ -699,29 +699,29 @@ async function Roll_Call_RE_Attendance_V3() { // for test, for display
 
      RE_Attendance_V3_text += '<tr>';
 
-     RE_Attendance_V3_text += '<td align=right>' + kindy_teacher_attendance_rete + '%' + '</td>';
+     RE_Attendance_V3_text += '<td style="font-size:18pt;" align=right>' + kindy_teacher_attendance_rete + '%' + '</td>';
 
-     RE_Attendance_V3_text += '<td align=right>' + kindy_student_attendance_rete + '%' + '</td>';
+     RE_Attendance_V3_text += '<td style="font-size:18pt;" align=right>' + kindy_student_attendance_rete + '%' + '</td>';
 
-     RE_Attendance_V3_text += '<td align=right>' + LPC_teacher_attendance_rete + '%' + '</td>';
+     RE_Attendance_V3_text += '<td style="font-size:18pt;" align=right>' + LPC_teacher_attendance_rete + '%' + '</td>';
 
-     RE_Attendance_V3_text += '<td align=right>' + LPC_student_attendance_rete + '%' + '</td>';
+     RE_Attendance_V3_text += '<td style="font-size:18pt;" align=right>' + LPC_student_attendance_rete + '%' + '</td>';
 
-     RE_Attendance_V3_text += '<td align=right>' + UPC_teacher_attendance_rete + '%' + '</td>';
+     RE_Attendance_V3_text += '<td style="font-size:18pt;" align=right>' + UPC_teacher_attendance_rete + '%' + '</td>';
 
-     RE_Attendance_V3_text += '<td align=right>' + UPC_student_attendance_rete + '%' + '</td>';
+     RE_Attendance_V3_text += '<td style="font-size:18pt;" align=right>' + UPC_student_attendance_rete + '%' + '</td>';
 
-     RE_Attendance_V3_text += '<td align=right>' + JYC_teacher_attendance_rete + '%' + '</td>';
+     RE_Attendance_V3_text += '<td style="font-size:18pt;" align=right>' + JYC_teacher_attendance_rete + '%' + '</td>';
 
-     RE_Attendance_V3_text += '<td align=right>' + JYC_student_attendance_rete + '%' + '</td>';
+     RE_Attendance_V3_text += '<td style="font-size:18pt;" align=right>' + JYC_student_attendance_rete + '%' + '</td>';
 
-     RE_Attendance_V3_text += '<td align=right>' + IYC_teacher_attendance_rete + '%' + '</td>';
+     RE_Attendance_V3_text += '<td style="font-size:18pt;" align=right>' + IYC_teacher_attendance_rete + '%' + '</td>';
 
-     RE_Attendance_V3_text += '<td align=right>' + IYC_student_attendance_rete + '%' + '</td>';
+     RE_Attendance_V3_text += '<td style="font-size:18pt;" align=right>' + IYC_student_attendance_rete + '%' + '</td>';
 
-     RE_Attendance_V3_text += '<td align=right>' + SYC_teacher_attendance_rete + '%' + '</td>';
+     RE_Attendance_V3_text += '<td style="font-size:18pt;" align=right>' + SYC_teacher_attendance_rete + '%' + '</td>';
 
-     RE_Attendance_V3_text += '<td align=right>' + SYC_student_attendance_rete + '%' + '</td>';
+     RE_Attendance_V3_text += '<td style="font-size:18pt;" align=right>' + SYC_student_attendance_rete + '%' + '</td>';
 
      RE_Attendance_V3_text += '</tr></table></center>';
 
