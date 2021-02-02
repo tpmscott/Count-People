@@ -679,15 +679,31 @@ async function Roll_Call_RE_Attendance_V3() { // for test, for display
 
      //RE_Attendance_V3_text += 'LPC Teacher=' + LPC_teacher_attendance_rete + '%';
 
+
+     var DateStr = Display_ID_2; // Exp_start_date , '20200920E'
+
+     var Year = DateStr.substring(0,4);
+
+     var Month = DateStr.substring(4,6);
+
+     var Date = DateStr.substring(6,8);
+
+     var New_DateStr = Date + '.' + Month + '.' + Year;
+
+
      RE_Attendance_V3_text += '<center><table border=1>';
 
-     RE_Attendance_V3_text += '<tr><th style="font-size:16pt;" colspan="2">Kindy</th><th style="font-size:16pt;" colspan="2">LPC</th>';
+     RE_Attendance_V3_text += '<tr><th style="font-size:16pt;">Date</th>';
+
+     RE_Attendance_V3_text += '<th style="font-size:16pt;" colspan="2">Kindy</th><th style="font-size:16pt;" colspan="2">LPC</th>';
 
      RE_Attendance_V3_text += '<th style="font-size:16pt;" colspan="2">UPC</th><th style="font-size:16pt;" colspan="2">JYC</th>';
 
      RE_Attendance_V3_text += '<th style="font-size:16pt;" colspan="2">IYC</th><th style="font-size:16pt;" colspan="2">SYC</th></tr>';
 
      RE_Attendance_V3_text += '<tr>';
+
+     RE_Attendance_V3_text += '<td></td>';
 
      RE_Attendance_V3_text += '<td>Teacher</td><td>Student</td><td>Teacher</td><td>Student</td>';
 
@@ -698,6 +714,10 @@ async function Roll_Call_RE_Attendance_V3() { // for test, for display
      RE_Attendance_V3_text += '</tr>';
 
      RE_Attendance_V3_text += '<tr>';
+
+     //RE_Attendance_V3_text += '<td>02.02.2021</td>';
+
+     RE_Attendance_V3_text += '<td>' + New_DateStr + '</td>';
 
      RE_Attendance_V3_text += '<td style="font-size:18pt;" align=right>' + kindy_teacher_attendance_rete + '%' + '</td>';
 
