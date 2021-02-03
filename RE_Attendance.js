@@ -846,7 +846,7 @@ async function Roll_Call_RE_Attendance_V4() { // for test, for display , for all
 
 
 
-     var RE_Attendance_V3_text = '<center><table border=1>';
+     var RE_Attendance_V3_text = '<center><table border=1 width=100%>';
 
      //RE_Attendance_V3_text += '<tr><th style="font-size:16pt;">Day</th>';
 
