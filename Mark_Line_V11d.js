@@ -3623,7 +3623,7 @@ async function Download_Attendance_StartWith_V2() {
 
         let Verse_4 = await dbT2.Service_Record.where('ID_1').startsWithIgnoreCase(DateStr).toArray(); // 202010
 
-        if (Verse_4) { 
+        if (Verse_4) { // 找出日期
 
            //var text = 'Name,Attendance,\n';  // ',\n"'
 

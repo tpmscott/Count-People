@@ -138,7 +138,7 @@ async function Roll_Call_RE_Attendance_V2() { // for test, for email
 
 var RE_Attendance_V3_text = '';
 
-async function Roll_Call_RE_Attendance_V3() { // for test, for display
+async function Roll_Call_RE_Attendance_V3() { // for test, for display , for single Day
 
    Open_RE_Attendance_Area();
 
@@ -147,6 +147,34 @@ async function Roll_Call_RE_Attendance_V3() { // for test, for display
    RE_Attendance_V3_text += ' ' + '<a href="" onclick="Close_RE_Attendance_Area();return false;">' + 'Friday Attendance</a>';
 
    RE_Attendance_V3_text += ' ' + '<a href="" onclick="Close_RE_Attendance_Area();return false;">' + 'Close Window</a></center>'  + '<br>';
+
+
+
+     RE_Attendance_V3_text += '<center><table border=1>';
+
+     RE_Attendance_V3_text += '<tr><th style="font-size:16pt;">Day</th>';
+
+     RE_Attendance_V3_text += '<th style="font-size:16pt;">Date</th>';
+
+     RE_Attendance_V3_text += '<th style="font-size:16pt;" colspan="2">Kindy</th><th style="font-size:16pt;" colspan="2">LPC</th>';
+
+     RE_Attendance_V3_text += '<th style="font-size:16pt;" colspan="2">UPC</th><th style="font-size:16pt;" colspan="2">JYC</th>';
+
+     RE_Attendance_V3_text += '<th style="font-size:16pt;" colspan="2">IYC</th><th style="font-size:16pt;" colspan="2">SYC</th></tr>';
+
+
+     RE_Attendance_V3_text += '<tr>';
+
+     RE_Attendance_V3_text += '<td></td><td></td>';
+
+     RE_Attendance_V3_text += '<td>Teacher</td><td>Student</td><td>Teacher</td><td>Student</td>';
+
+     RE_Attendance_V3_text += '<td>Teacher</td><td>Student</td><td>Teacher</td><td>Student</td>';
+
+     RE_Attendance_V3_text += '<td>Teacher</td><td>Student</td><td>Teacher</td><td>Student</td>';
+
+     RE_Attendance_V3_text += '</tr>';
+
 
 
    //RE_Attendance_V3_text += 'Kindy ';
@@ -730,29 +758,7 @@ async function Roll_Call_RE_Attendance_V3() { // for test, for display
         myDay = 'Sun';
 
 
-     RE_Attendance_V3_text += '<center><table border=1>';
 
-     RE_Attendance_V3_text += '<tr><th style="font-size:16pt;">Day</th>';
-
-     RE_Attendance_V3_text += '<th style="font-size:16pt;">Date</th>';
-
-     RE_Attendance_V3_text += '<th style="font-size:16pt;" colspan="2">Kindy</th><th style="font-size:16pt;" colspan="2">LPC</th>';
-
-     RE_Attendance_V3_text += '<th style="font-size:16pt;" colspan="2">UPC</th><th style="font-size:16pt;" colspan="2">JYC</th>';
-
-     RE_Attendance_V3_text += '<th style="font-size:16pt;" colspan="2">IYC</th><th style="font-size:16pt;" colspan="2">SYC</th></tr>';
-
-     RE_Attendance_V3_text += '<tr>';
-
-     RE_Attendance_V3_text += '<td></td><td></td>';
-
-     RE_Attendance_V3_text += '<td>Teacher</td><td>Student</td><td>Teacher</td><td>Student</td>';
-
-     RE_Attendance_V3_text += '<td>Teacher</td><td>Student</td><td>Teacher</td><td>Student</td>';
-
-     RE_Attendance_V3_text += '<td>Teacher</td><td>Student</td><td>Teacher</td><td>Student</td>';
-
-     RE_Attendance_V3_text += '</tr>';
 
      RE_Attendance_V3_text += '<tr>';
 
@@ -793,6 +799,720 @@ async function Roll_Call_RE_Attendance_V3() { // for test, for display
 
 
 } // End of function Roll_Call_RE_Attendance_V3()
+
+
+
+async function Roll_Call_RE_Attendance_V4() { // for test, for display , for all Day, since certain Day
+
+   Open_RE_Attendance_Area();
+
+   var RE_Attendance_V3_text = '<center><a href="" onclick="Close_RE_Attendance_Area();return false;">' + 'All Attendance</a>';
+
+   RE_Attendance_V3_text += ' ' + '<a href="" onclick="Close_RE_Attendance_Area();return false;">' + 'Friday Attendance</a>';
+
+   RE_Attendance_V3_text += ' ' + '<a href="" onclick="Close_RE_Attendance_Area();return false;">' + 'Close Window</a></center>'  + '<br>';
+
+
+
+     RE_Attendance_V3_text += '<center><table border=1>';
+
+     RE_Attendance_V3_text += '<tr><th style="font-size:16pt;">Day</th>';
+
+     RE_Attendance_V3_text += '<th style="font-size:16pt;">Date</th>';
+
+     RE_Attendance_V3_text += '<th style="font-size:16pt;" colspan="2">Kindy</th><th style="font-size:16pt;" colspan="2">LPC</th>';
+
+     RE_Attendance_V3_text += '<th style="font-size:16pt;" colspan="2">UPC</th><th style="font-size:16pt;" colspan="2">JYC</th>';
+
+     RE_Attendance_V3_text += '<th style="font-size:16pt;" colspan="2">IYC</th><th style="font-size:16pt;" colspan="2">SYC</th></tr>';
+
+
+     RE_Attendance_V3_text += '<tr>';
+
+     RE_Attendance_V3_text += '<td></td><td></td>';
+
+     RE_Attendance_V3_text += '<td>Teacher</td><td>Student</td><td>Teacher</td><td>Student</td>';
+
+     RE_Attendance_V3_text += '<td>Teacher</td><td>Student</td><td>Teacher</td><td>Student</td>';
+
+     RE_Attendance_V3_text += '<td>Teacher</td><td>Student</td><td>Teacher</td><td>Student</td>';
+
+     RE_Attendance_V3_text += '</tr>';
+
+
+ // Start Loop
+
+     // table.where(indexOrPrimKey).above(lowerBound)
+
+     //let Verse_4 = await dbT2.Service_Record.where('ID_1').startsWithIgnoreCase(DateStr).toArray(); // 202010
+
+     var RE_Attendance_Start_DateStr = '20200930';  // 20210130, mean start from 20210130
+
+     let Verse_4 = await dbT2.Service_Record.where('ID_1').above(RE_Attendance_Start_DateStr).toArray(); // 202010
+
+
+     if (Verse_4) {  //  // 找出日期
+
+        for (var m = 0; m < Verse_4.length ; m++) {
+
+           //var tmp1 = Verse_4[i].ID_2; // 20201010M   ***
+
+           //var tmp2 = tmp1.substr(6); // 10M
+
+           //var DateStr = Display_ID_2; // Exp_start_date , '20200920E'
+
+           //var Year_Str = DateStr.substring(0,4);
+
+           var RE_Attendance_Q_Day = Verse_4[m].ID_2; // 20201010M   ***
+
+           var arg4 = Verse_4[m].ID_2; // 20201010M
+
+           //var Result = 'n';
+
+           //var Result = await Check_Attendance6(arg1,arg2,arg3,arg4);  // 可 考慮用此
+
+ // ------------------Between Loop Content--------------------------------------------------------
+
+   // --------------------------------------------- 
+
+   var kindy_teacher_attendance_no = 0;
+
+     for (var i = 0; i < kindy_teacher.length ; i++) {
+
+        var CNo_tmp = kindy_teacher[i]; // new Array(93,102,95)
+
+        var Verse_3 = await dbT2.Roll.where('CNo').equals(CNo_tmp).toArray();
+
+        if (Verse_3.length) {  // Fill data
+
+           var arg1 = Verse_3[0].CNo;
+
+           var arg2 = Verse_3[0].Member;
+
+           var arg3 = Verse_3[0].Gender;  
+
+           //var Result = await Check_Attendance5(arg1,arg2,arg3);
+
+           var Result = 'n';                                       // 可 考慮用此
+
+           Result = await Check_Attendance6(arg1,arg2,arg3,arg4);  // 可 考慮用此
+
+           if (Result == 'y') {
+
+              kindy_teacher_attendance_no = kindy_teacher_attendance_no + 1;
+
+           }
+
+        } // End of if (Verse_3)
+
+
+     } // End of for (var i = 0; i < kindy_teacher.length ; i++)   
+
+     var kindy_teacher_attendance_rete = ( (kindy_teacher_attendance_no / kindy_teacher.length) * 100 );
+
+     kindy_teacher_attendance_rete = Math.round( kindy_teacher_attendance_rete * 100 ) / 100;
+
+   // --------------------------------------------- 
+
+   var LPC_teacher_attendance_no = 0;
+
+     for (var i = 0; i < LPC_teacher.length ; i++) {
+
+        var CNo_tmp = LPC_teacher[i]; // new Array(93,102,95)
+
+        var Verse_3 = await dbT2.Roll.where('CNo').equals(CNo_tmp).toArray();
+
+        if (Verse_3.length) {  // Fill data
+
+           var arg1 = Verse_3[0].CNo;
+
+           var arg2 = Verse_3[0].Member;
+
+           var arg3 = Verse_3[0].Gender;  
+
+           //var Result = await Check_Attendance5(arg1,arg2,arg3);
+
+           var Result = 'n';                                       // 可 考慮用此
+
+           Result = await Check_Attendance6(arg1,arg2,arg3,arg4);  // 可 考慮用此
+
+           if (Result == 'y') {
+
+              //document.getElementById(Rvers).style.color = "blue";
+
+              LPC_teacher_attendance_no = LPC_teacher_attendance_no + 1;
+
+           }
+
+        } // End of if (Verse_3)
+
+
+     } // End of for (var i = 0; i < LPC_teacher.length ; i++)
+
+     var LPC_teacher_attendance_rete = ( (LPC_teacher_attendance_no / LPC_teacher.length) * 100 );
+
+     LPC_teacher_attendance_rete = Math.round( LPC_teacher_attendance_rete * 100 ) / 100;
+
+
+   // --------------------------------------------- 
+
+   var UPC_teacher_attendance_no = 0;
+
+     for (var i = 0; i < UPC_teacher.length ; i++) {
+
+        var CNo_tmp = UPC_teacher[i]; // new Array(93,102,95)
+
+        var Verse_3 = await dbT2.Roll.where('CNo').equals(CNo_tmp).toArray();
+
+        if (Verse_3.length) {  // Fill data
+
+           var arg1 = Verse_3[0].CNo;
+
+           var arg2 = Verse_3[0].Member;
+
+           var arg3 = Verse_3[0].Gender;  
+
+           //var Result = await Check_Attendance5(arg1,arg2,arg3);
+
+           var Result = 'n';                                       // 可 考慮用此
+
+           Result = await Check_Attendance6(arg1,arg2,arg3,arg4);  // 可 考慮用此
+
+           if (Result == 'y') {
+
+              //document.getElementById(Rvers).style.color = "blue";
+
+              UPC_teacher_attendance_no = UPC_teacher_attendance_no + 1;
+
+           }
+
+        } // End of if (Verse_3)
+
+
+     } // End of for (var i = 0; i < UPC_teacher.length ; i++)
+
+     var UPC_teacher_attendance_rete = ( (UPC_teacher_attendance_no / UPC_teacher.length) * 100 );
+
+     UPC_teacher_attendance_rete = Math.round( UPC_teacher_attendance_rete * 100 ) / 100;
+
+     UPC_teacher_attendance_rete_V2 = UPC_teacher_attendance_rete;
+
+
+   // --------------------------------------------- 
+
+   var JYC_teacher_attendance_no = 0;
+
+     for (var i = 0; i < JYC_teacher.length ; i++) {
+
+        var CNo_tmp = JYC_teacher[i]; // new Array(93,102,95)
+
+        var Verse_3 = await dbT2.Roll.where('CNo').equals(CNo_tmp).toArray();
+
+        if (Verse_3.length) {  // Fill data
+
+           var arg1 = Verse_3[0].CNo;
+
+           var arg2 = Verse_3[0].Member;
+
+           var arg3 = Verse_3[0].Gender;  
+
+           //var Result = await Check_Attendance5(arg1,arg2,arg3);
+
+           var Result = 'n';                                       // 可 考慮用此
+
+           Result = await Check_Attendance6(arg1,arg2,arg3,arg4);  // 可 考慮用此
+
+           if (Result == 'y') {
+
+              //document.getElementById(Rvers).style.color = "blue";
+
+              JYC_teacher_attendance_no = JYC_teacher_attendance_no + 1;
+
+           }
+
+        } // End of if (Verse_3)
+
+
+     } // End of for (var i = 0; i < JYC_teacher.length ; i++)
+
+     var JYC_teacher_attendance_rete = ( (JYC_teacher_attendance_no / JYC_teacher.length) * 100 );
+
+     JYC_teacher_attendance_rete = Math.round( JYC_teacher_attendance_rete * 100 ) / 100;
+
+
+   // --------------------------------------------- 
+
+   var IYC_teacher_attendance_no = 0;
+
+     for (var i = 0; i < IYC_teacher.length ; i++) {
+
+        var CNo_tmp = IYC_teacher[i]; // new Array(93,102,95)
+
+        var Verse_3 = await dbT2.Roll.where('CNo').equals(CNo_tmp).toArray();
+
+        if (Verse_3.length) {  // Fill data
+
+           var arg1 = Verse_3[0].CNo;
+
+           var arg2 = Verse_3[0].Member;
+
+           var arg3 = Verse_3[0].Gender;  
+
+           //var Result = await Check_Attendance5(arg1,arg2,arg3);
+
+           var Result = 'n';                                       // 可 考慮用此
+
+           Result = await Check_Attendance6(arg1,arg2,arg3,arg4);  // 可 考慮用此
+
+           if (Result == 'y') {
+
+              //document.getElementById(Rvers).style.color = "blue";
+
+              IYC_teacher_attendance_no = IYC_teacher_attendance_no + 1;
+
+           }
+
+        } // End of if (Verse_3)
+
+
+     } // End of for (var i = 0; i < IYC_teacher.length ; i++)
+
+     var IYC_teacher_attendance_rete = ( (IYC_teacher_attendance_no / IYC_teacher.length) * 100 );
+
+     IYC_teacher_attendance_rete = Math.round( IYC_teacher_attendance_rete * 100 ) / 100;
+
+
+   // --------------------------------------------- 
+
+   var SYC_teacher_attendance_no = 0;
+
+     for (var i = 0; i < SYC_teacher.length ; i++) {
+
+        var CNo_tmp = SYC_teacher[i]; // new Array(93,102,95)
+
+        var Verse_3 = await dbT2.Roll.where('CNo').equals(CNo_tmp).toArray();
+
+        if (Verse_3.length) {  // Fill data
+
+           var arg1 = Verse_3[0].CNo;
+
+           var arg2 = Verse_3[0].Member;
+
+           var arg3 = Verse_3[0].Gender;  
+
+           //var Result = await Check_Attendance5(arg1,arg2,arg3);
+
+           var Result = 'n';                                       // 可 考慮用此
+
+           Result = await Check_Attendance6(arg1,arg2,arg3,arg4);  // 可 考慮用此
+
+           if (Result == 'y') {
+
+              //document.getElementById(Rvers).style.color = "blue";
+
+              SYC_teacher_attendance_no = SYC_teacher_attendance_no + 1;
+
+           }
+
+        } // End of if (Verse_3)
+
+
+     } // End of for (var i = 0; i < SYC_teacher.length ; i++)
+
+     var SYC_teacher_attendance_rete = ( (SYC_teacher_attendance_no / SYC_teacher.length) * 100 );
+
+     SYC_teacher_attendance_rete = Math.round( SYC_teacher_attendance_rete * 100 ) / 100;
+
+
+   // --------------------------------------------- 
+
+   var kindy_student_attendance_no = 0;
+
+     for (var i = 0; i < kindy_student.length ; i++) {
+
+        var CNo_tmp = kindy_student[i]; // new Array(93,102,95)
+
+        var Verse_3 = await dbT2.Roll.where('CNo').equals(CNo_tmp).toArray();
+
+
+        if (Verse_3.length) {  // Fill data
+
+
+           var arg1 = Verse_3[0].CNo;
+
+           var arg2 = Verse_3[0].Member;
+
+           var arg3 = Verse_3[0].Gender;  
+
+
+           //var Result = await Check_Attendance5(arg1,arg2,arg3);
+
+           var Result = 'n';                                       // 可 考慮用此
+
+           Result = await Check_Attendance6(arg1,arg2,arg3,arg4);  // 可 考慮用此
+
+
+           if (Result == 'y') {
+
+              //document.getElementById(Rvers).style.color = "blue";
+
+              kindy_student_attendance_no = kindy_student_attendance_no + 1;
+
+           }
+
+        } // End of if (Verse_3)
+
+
+     } // End of for (var i = 0; i < kindy_student.length ; i++)
+
+     var kindy_student_attendance_rete = ( (kindy_student_attendance_no / kindy_student.length) * 100 );
+
+     kindy_student_attendance_rete = Math.round( kindy_student_attendance_rete * 100 ) / 100;
+
+
+
+   // --------------------------------------------- 
+
+   var LPC_student_attendance_no = 0;
+
+     for (var i = 0; i < LPC_student.length ; i++) {
+
+        var CNo_tmp = LPC_student[i]; // new Array(93,102,95)
+
+        var Verse_3 = await dbT2.Roll.where('CNo').equals(CNo_tmp).toArray();
+
+
+        if (Verse_3.length) {  // Fill data
+
+
+           var arg1 = Verse_3[0].CNo;
+
+           var arg2 = Verse_3[0].Member;
+
+           var arg3 = Verse_3[0].Gender;  
+
+
+           //var Result = await Check_Attendance5(arg1,arg2,arg3);
+
+           var Result = 'n';                                       // 可 考慮用此
+
+           Result = await Check_Attendance6(arg1,arg2,arg3,arg4);  // 可 考慮用此
+
+
+           if (Result == 'y') {
+
+              //document.getElementById(Rvers).style.color = "blue";
+
+              LPC_student_attendance_no = LPC_student_attendance_no + 1;
+
+           }
+
+        } // End of if (Verse_3)
+
+
+     } // End of for (var i = 0; i < LPC_student.length ; i++)
+
+     var LPC_student_attendance_rete = ( (LPC_student_attendance_no / LPC_student.length) * 100 );
+
+     LPC_student_attendance_rete = Math.round( LPC_student_attendance_rete * 100 ) / 100;
+
+
+   // --------------------------------------------- 
+
+   var UPC_student_attendance_no = 0;
+
+     for (var i = 0; i < UPC_student.length ; i++) {
+
+        var CNo_tmp = UPC_student[i]; // new Array(93,102,95)
+
+        var Verse_3 = await dbT2.Roll.where('CNo').equals(CNo_tmp).toArray();
+
+
+        if (Verse_3.length) {  // Fill data
+
+
+           var arg1 = Verse_3[0].CNo;
+
+           var arg2 = Verse_3[0].Member;
+
+           var arg3 = Verse_3[0].Gender;  
+
+
+           //var Result = await Check_Attendance5(arg1,arg2,arg3);
+
+           var Result = 'n';                                       // 可 考慮用此
+
+           Result = await Check_Attendance6(arg1,arg2,arg3,arg4);  // 可 考慮用此
+
+
+           if (Result == 'y') {
+
+              //document.getElementById(Rvers).style.color = "blue";
+
+              UPC_student_attendance_no = UPC_student_attendance_no + 1;
+
+           }
+
+        } // End of if (Verse_3)
+
+
+     } // End of for (var i = 0; i < UPC_student.length ; i++)
+
+     var UPC_student_attendance_rete = ( (UPC_student_attendance_no / UPC_student.length) * 100 );
+
+     UPC_student_attendance_rete = Math.round( UPC_student_attendance_rete * 100 ) / 100;
+
+
+   // --------------------------------------------- 
+
+   var JYC_student_attendance_no = 0;
+
+     for (var i = 0; i < JYC_student.length ; i++) {
+
+        var CNo_tmp = JYC_student[i]; // new Array(93,102,95)
+
+        var Verse_3 = await dbT2.Roll.where('CNo').equals(CNo_tmp).toArray();
+
+
+        if (Verse_3.length) {  // Fill data
+
+
+           var arg1 = Verse_3[0].CNo;
+
+           var arg2 = Verse_3[0].Member;
+
+           var arg3 = Verse_3[0].Gender;  
+
+
+           //var Result = await Check_Attendance5(arg1,arg2,arg3);
+
+           var Result = 'n';                                       // 可 考慮用此
+
+           Result = await Check_Attendance6(arg1,arg2,arg3,arg4);  // 可 考慮用此
+
+
+           if (Result == 'y') {
+
+              //document.getElementById(Rvers).style.color = "blue";
+
+              JYC_student_attendance_no = JYC_student_attendance_no + 1;
+
+           }
+
+        } // End of if (Verse_3)
+
+
+     } // End of for (var i = 0; i < JYC_student.length ; i++)
+
+     var JYC_student_attendance_rete = ( (JYC_student_attendance_no / JYC_student.length) * 100 );
+
+     JYC_student_attendance_rete = Math.round( JYC_student_attendance_rete * 100 ) / 100;
+
+
+   // --------------------------------------------- 
+
+   var IYC_student_attendance_no = 0;
+
+     for (var i = 0; i < IYC_student.length ; i++) {
+
+        var CNo_tmp = IYC_student[i]; // new Array(93,102,95)
+
+        var Verse_3 = await dbT2.Roll.where('CNo').equals(CNo_tmp).toArray();
+
+
+        if (Verse_3.length) {  // Fill data
+
+
+           var arg1 = Verse_3[0].CNo;
+
+           var arg2 = Verse_3[0].Member;
+
+           var arg3 = Verse_3[0].Gender;  
+
+
+           //var Result = await Check_Attendance5(arg1,arg2,arg3);
+
+           var Result = 'n';                                       // 可 考慮用此
+
+           Result = await Check_Attendance6(arg1,arg2,arg3,arg4);  // 可 考慮用此
+
+
+           if (Result == 'y') {
+
+              //document.getElementById(Rvers).style.color = "blue";
+
+              IYC_student_attendance_no = IYC_student_attendance_no + 1;
+
+           }
+
+        } // End of if (Verse_3)
+
+
+     } // End of for (var i = 0; i < IYC_student.length ; i++)
+
+     var IYC_student_attendance_rete = ( (IYC_student_attendance_no / IYC_student.length) * 100 );
+
+     IYC_student_attendance_rete = Math.round( IYC_student_attendance_rete * 100 ) / 100;
+
+
+   // --------------------------------------------- 
+
+   var SYC_student_attendance_no = 0;
+
+     for (var i = 0; i < SYC_student.length ; i++) {
+
+        var CNo_tmp = SYC_student[i]; // new Array(93,102,95)
+
+        var Verse_3 = await dbT2.Roll.where('CNo').equals(CNo_tmp).toArray();
+
+
+        if (Verse_3.length) {  // Fill data
+
+
+           var arg1 = Verse_3[0].CNo;
+
+           var arg2 = Verse_3[0].Member;
+
+           var arg3 = Verse_3[0].Gender;  
+
+
+           //var Result = await Check_Attendance5(arg1,arg2,arg3);
+
+           var Result = 'n';                                       // 可 考慮用此
+
+           Result = await Check_Attendance6(arg1,arg2,arg3,arg4);  // 可 考慮用此
+
+
+           if (Result == 'y') {
+
+              //document.getElementById(Rvers).style.color = "blue";
+
+              SYC_student_attendance_no = SYC_student_attendance_no + 1;
+
+           }
+
+        } // End of if (Verse_3)
+
+
+     } // End of for (var i = 0; i < SYC_student.length ; i++)
+
+     var SYC_student_attendance_rete = ( (SYC_student_attendance_no / SYC_student.length) * 100 );
+
+     SYC_student_attendance_rete = Math.round( SYC_student_attendance_rete * 100 ) / 100;
+
+
+   // --------------------------------------------- 
+
+     //var arg4 = Verse_4[m].ID_2; // 20201010M
+
+     //var DateStr_tmp = Display_ID_2; // Exp_start_date , '20200920E'
+
+     var DateStr_tmp = arg4; // Exp_start_date , '20200920E'
+
+     var Year_Str = DateStr_tmp.substring(0,4);
+
+     var Month_Str = DateStr_tmp.substring(4,6);
+
+     var Date_Str = DateStr_tmp.substring(6,8);
+
+     var New_DateStr = Date_Str + '.' + Month_Str + '.' + Year_Str;
+
+     
+     var Month_Str_tmp = '';
+
+     if(Month_Str == 01) Month_Str_tmp = 0;
+     if(Month_Str == 02) Month_Str_tmp = 1;
+     if(Month_Str == 03) Month_Str_tmp = 2;
+     if(Month_Str == 04) Month_Str_tmp = 3;
+     if(Month_Str == 05) Month_Str_tmp = 4;
+     if(Month_Str == 06) Month_Str_tmp = 5;
+     if(Month_Str == 07) Month_Str_tmp = 6;
+     if(Month_Str == 08) Month_Str_tmp = 7;
+     if(Month_Str == 09) Month_Str_tmp = 8;
+     if(Month_Str == 10) Month_Str_tmp = 9;
+     if(Month_Str == 11) Month_Str_tmp = 10;
+     if(Month_Str == 12) Month_Str_tmp = 11;
+
+
+     var myDate = new Date();
+     myDate.setFullYear(Year_Str);
+     myDate.setMonth(Month_Str_tmp); // 0-11
+     myDate.setDate(Date_Str);
+
+     var myDay = '';
+
+     if(myDate.getDay() == 6)
+        myDay = 'Sat';
+     if(myDate.getDay() == 5)
+        myDay = 'Fri';
+     if(myDate.getDay() == 4)
+        myDay = 'Thu';
+     if(myDate.getDay() == 3)
+        myDay = 'Wed';
+     if(myDate.getDay() == 2)
+        myDay = 'Tue';
+     if(myDate.getDay() == 1)
+        myDay = 'Mon';
+     if(myDate.getDay() == 0)
+        myDay = 'Sun';
+
+
+     RE_Attendance_V3_text += '<tr>';
+
+     RE_Attendance_V3_text += '<td>' + myDay + '</td>';
+
+     RE_Attendance_V3_text += '<td>' + New_DateStr + '</td>';
+
+     RE_Attendance_V3_text += '<td style="font-size:18pt;" align=right>' + kindy_teacher_attendance_rete + '%' + '</td>';
+
+     RE_Attendance_V3_text += '<td style="font-size:18pt;" align=right>' + kindy_student_attendance_rete + '%' + '</td>';
+
+     RE_Attendance_V3_text += '<td style="font-size:18pt;" align=right>' + LPC_teacher_attendance_rete + '%' + '</td>';
+
+     RE_Attendance_V3_text += '<td style="font-size:18pt;" align=right>' + LPC_student_attendance_rete + '%' + '</td>';
+
+     RE_Attendance_V3_text += '<td style="font-size:18pt;" align=right>' + UPC_teacher_attendance_rete + '%' + '</td>';
+
+     RE_Attendance_V3_text += '<td style="font-size:18pt;" align=right>' + UPC_student_attendance_rete + '%' + '</td>';
+
+     RE_Attendance_V3_text += '<td style="font-size:18pt;" align=right>' + JYC_teacher_attendance_rete + '%' + '</td>';
+
+     RE_Attendance_V3_text += '<td style="font-size:18pt;" align=right>' + JYC_student_attendance_rete + '%' + '</td>';
+
+     RE_Attendance_V3_text += '<td style="font-size:18pt;" align=right>' + IYC_teacher_attendance_rete + '%' + '</td>';
+
+     RE_Attendance_V3_text += '<td style="font-size:18pt;" align=right>' + IYC_student_attendance_rete + '%' + '</td>';
+
+     RE_Attendance_V3_text += '<td style="font-size:18pt;" align=right>' + SYC_teacher_attendance_rete + '%' + '</td>';
+
+     RE_Attendance_V3_text += '<td style="font-size:18pt;" align=right>' + SYC_student_attendance_rete + '%' + '</td>';
+
+     //RE_Attendance_V3_text += '</tr></table></center>';
+
+     RE_Attendance_V3_text += '</tr>';
+
+
+
+ // ------------------Between Loop Content--------------------------------------------------------
+
+
+        } // End of for (var m = 0; m < Verse_4.length ; m++)
+
+     } // End of if (Verse_4) {  //  // 找出日期
+
+ // End Loop
+
+
+   // --------------------------------------------- 
+
+
+     RE_Attendance_V3_text += '</table></center>';
+
+
+     document.getElementById("RE_Attendance_Content").innerHTML = RE_Attendance_V3_text;       
+
+
+} // End of function Roll_Call_RE_Attendance_V4()
 
 
 
