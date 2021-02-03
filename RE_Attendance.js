@@ -806,38 +806,72 @@ async function Roll_Call_RE_Attendance_V4() { // for test, for display , for all
 
    Open_RE_Attendance_Area();
 
-   var RE_Attendance_V3_text = '<center><a href="" onclick="Close_RE_Attendance_Area();return false;">' + 'All Attendance</a>';
+   var RE_Attendance_V3_text_Up = '<center><a href="" onclick="Close_RE_Attendance_Area();return false;">' + 'All Attendance</a>';
 
-   RE_Attendance_V3_text += ' ' + '<a href="" onclick="Close_RE_Attendance_Area();return false;">' + 'Friday Attendance</a>';
+   RE_Attendance_V3_text_Up += ' ' + '<a href="" onclick="Close_RE_Attendance_Area();return false;">' + 'Friday Attendance</a>';
 
-   RE_Attendance_V3_text += ' ' + '<a href="" onclick="Close_RE_Attendance_Area();return false;">' + 'Close Window</a></center>'  + '<br>';
-
-
-
-     RE_Attendance_V3_text += '<center><table border=1>';
-
-     RE_Attendance_V3_text += '<tr><th style="font-size:16pt;">Day</th>';
-
-     RE_Attendance_V3_text += '<th style="font-size:16pt;">Date</th>';
-
-     RE_Attendance_V3_text += '<th style="font-size:16pt;" colspan="2">Kindy</th><th style="font-size:16pt;" colspan="2">LPC</th>';
-
-     RE_Attendance_V3_text += '<th style="font-size:16pt;" colspan="2">UPC</th><th style="font-size:16pt;" colspan="2">JYC</th>';
-
-     RE_Attendance_V3_text += '<th style="font-size:16pt;" colspan="2">IYC</th><th style="font-size:16pt;" colspan="2">SYC</th></tr>';
+   RE_Attendance_V3_text_Up += ' ' + '<a href="" onclick="Close_RE_Attendance_Area();return false;">' + 'Close Window</a></center>'  + '<br>';
 
 
-     RE_Attendance_V3_text += '<tr>';
 
-     RE_Attendance_V3_text += '<td></td><td></td>';
+     RE_Attendance_V3_text_Up += '<center><table border=1 width=100%>';
 
-     RE_Attendance_V3_text += '<td>Teacher</td><td>Student</td><td>Teacher</td><td>Student</td>';
+     RE_Attendance_V3_text_Up += '<tr><th width=3% style="font-size:16pt;">Day</th>';
 
-     RE_Attendance_V3_text += '<td>Teacher</td><td>Student</td><td>Teacher</td><td>Student</td>';
+     RE_Attendance_V3_text_Up += '<th width=9% style="font-size:16pt;">Date</th>';
 
-     RE_Attendance_V3_text += '<td>Teacher</td><td>Student</td><td>Teacher</td><td>Student</td>';
+     RE_Attendance_V3_text_Up += '<th width=14% style="font-size:16pt;" colspan="2">Kindy (%)</th><th width=14% style="font-size:16pt;" colspan="2">LPC (%)</th>';
 
-     RE_Attendance_V3_text += '</tr>';
+     RE_Attendance_V3_text_Up += '<th width=14% style="font-size:16pt;" colspan="2">UPC (%)</th><th width=14% style="font-size:16pt;" colspan="2">JYC (%)</th>';
+
+     RE_Attendance_V3_text_Up += '<th width=14% style="font-size:16pt;" colspan="2">IYC (%)</th><th width=14% style="font-size:16pt;" colspan="2">SYC (%)</th></tr>';
+
+
+     RE_Attendance_V3_text_Up += '<tr>';
+
+     RE_Attendance_V3_text_Up += '<td width=3%></td><td width=9%></td>';
+
+     RE_Attendance_V3_text_Up += '<td>Teacher</td><td>Student</td><td>Teacher</td><td>Student</td>';
+
+     RE_Attendance_V3_text_Up += '<td>Teacher</td><td>Student</td><td>Teacher</td><td>Student</td>';
+
+     RE_Attendance_V3_text_Up += '<td>Teacher</td><td>Student</td><td>Teacher</td><td>Student</td>';
+
+     RE_Attendance_V3_text_Up += '</tr>';
+
+     RE_Attendance_V3_text_Up += '</table></center>';
+
+     document.getElementById("RE_Attendance_Content_Up").innerHTML = RE_Attendance_V3_text_Up;    
+
+
+
+
+     var RE_Attendance_V3_text = '<center><table border=1>';
+
+     //RE_Attendance_V3_text += '<tr><th style="font-size:16pt;">Day</th>';
+
+     //RE_Attendance_V3_text += '<th style="font-size:16pt;">Date</th>';
+
+     //RE_Attendance_V3_text += '<th style="font-size:16pt;" colspan="2">Kindy</th><th style="font-size:16pt;" colspan="2">LPC</th>';
+
+     //RE_Attendance_V3_text += '<th style="font-size:16pt;" colspan="2">UPC</th><th style="font-size:16pt;" colspan="2">JYC</th>';
+
+     //RE_Attendance_V3_text += '<th style="font-size:16pt;" colspan="2">IYC</th><th style="font-size:16pt;" colspan="2">SYC</th></tr>';
+
+
+     //RE_Attendance_V3_text += '<tr>';
+
+     //RE_Attendance_V3_text += '<td></td><td></td>';
+
+     //RE_Attendance_V3_text += '<td>Teacher</td><td>Student</td><td>Teacher</td><td>Student</td>';
+
+     //RE_Attendance_V3_text += '<td>Teacher</td><td>Student</td><td>Teacher</td><td>Student</td>';
+
+     //RE_Attendance_V3_text += '<td>Teacher</td><td>Student</td><td>Teacher</td><td>Student</td>';
+
+     //RE_Attendance_V3_text += '</tr>';
+
+
 
 
  // Start Loop
@@ -1459,33 +1493,33 @@ async function Roll_Call_RE_Attendance_V4() { // for test, for display , for all
 
      RE_Attendance_V3_text += '<tr>';
 
-     RE_Attendance_V3_text += '<td>' + myDay + '</td>';
+     RE_Attendance_V3_text += '<td width=4%>' + myDay + '</td>';
 
-     RE_Attendance_V3_text += '<td>' + New_DateStr + '</td>';
+     RE_Attendance_V3_text += '<td width=9%>' + New_DateStr + '</td>';
 
-     RE_Attendance_V3_text += '<td style="font-size:18pt;" align=right>' + kindy_teacher_attendance_rete + '%' + '</td>';
+     RE_Attendance_V3_text += '<td width=7% style="font-size:17pt;" align=right>' + kindy_teacher_attendance_rete  + '</td>';
 
-     RE_Attendance_V3_text += '<td style="font-size:18pt;" align=right>' + kindy_student_attendance_rete + '%' + '</td>';
+     RE_Attendance_V3_text += '<td width=7% style="font-size:17pt;" align=right>' + kindy_student_attendance_rete  + '</td>';
 
-     RE_Attendance_V3_text += '<td style="font-size:18pt;" align=right>' + LPC_teacher_attendance_rete + '%' + '</td>';
+     RE_Attendance_V3_text += '<td width=7% style="font-size:17pt;" align=right>' + LPC_teacher_attendance_rete  + '</td>';
 
-     RE_Attendance_V3_text += '<td style="font-size:18pt;" align=right>' + LPC_student_attendance_rete + '%' + '</td>';
+     RE_Attendance_V3_text += '<td width=7% style="font-size:17pt;" align=right>' + LPC_student_attendance_rete  + '</td>';
 
-     RE_Attendance_V3_text += '<td style="font-size:18pt;" align=right>' + UPC_teacher_attendance_rete + '%' + '</td>';
+     RE_Attendance_V3_text += '<td width=7% style="font-size:17pt;" align=right>' + UPC_teacher_attendance_rete  + '</td>';
 
-     RE_Attendance_V3_text += '<td style="font-size:18pt;" align=right>' + UPC_student_attendance_rete + '%' + '</td>';
+     RE_Attendance_V3_text += '<td width=7% style="font-size:17pt;" align=right>' + UPC_student_attendance_rete  + '</td>';
 
-     RE_Attendance_V3_text += '<td style="font-size:18pt;" align=right>' + JYC_teacher_attendance_rete + '%' + '</td>';
+     RE_Attendance_V3_text += '<td width=7% style="font-size:17pt;" align=right>' + JYC_teacher_attendance_rete  + '</td>';
 
-     RE_Attendance_V3_text += '<td style="font-size:18pt;" align=right>' + JYC_student_attendance_rete + '%' + '</td>';
+     RE_Attendance_V3_text += '<td width=7% style="font-size:17pt;" align=right>' + JYC_student_attendance_rete  + '</td>';
 
-     RE_Attendance_V3_text += '<td style="font-size:18pt;" align=right>' + IYC_teacher_attendance_rete + '%' + '</td>';
+     RE_Attendance_V3_text += '<td width=7% style="font-size:17pt;" align=right>' + IYC_teacher_attendance_rete  + '</td>';
 
-     RE_Attendance_V3_text += '<td style="font-size:18pt;" align=right>' + IYC_student_attendance_rete + '%' + '</td>';
+     RE_Attendance_V3_text += '<td width=7% style="font-size:17pt;" align=right>' + IYC_student_attendance_rete  + '</td>';
 
-     RE_Attendance_V3_text += '<td style="font-size:18pt;" align=right>' + SYC_teacher_attendance_rete + '%' + '</td>';
+     RE_Attendance_V3_text += '<td width=7% style="font-size:17pt;" align=right>' + SYC_teacher_attendance_rete  + '</td>';
 
-     RE_Attendance_V3_text += '<td style="font-size:18pt;" align=right>' + SYC_student_attendance_rete + '%' + '</td>';
+     RE_Attendance_V3_text += '<td width=7% style="font-size:17pt;" align=right>' + SYC_student_attendance_rete  + '</td>';
 
      //RE_Attendance_V3_text += '</tr></table></center>';
 
@@ -1509,7 +1543,7 @@ async function Roll_Call_RE_Attendance_V4() { // for test, for display , for all
      RE_Attendance_V3_text += '</table></center>';
 
 
-     document.getElementById("RE_Attendance_Content").innerHTML = RE_Attendance_V3_text;       
+     document.getElementById("RE_Attendance_Content_Down").innerHTML = RE_Attendance_V3_text;       
 
 
 } // End of function Roll_Call_RE_Attendance_V4()
@@ -3611,11 +3645,15 @@ function Open_RE_Attendance_Area() {
 
    document.getElementById("tool_area_18").style.display='block';
 
+   document.getElementById("tool_area_19").style.display='block';
+
 } // End of function Open_RE_Attendance_Area()
 
 
 function Close_RE_Attendance_Area() {
 
    document.getElementById("tool_area_18").style.display='none'; 
+
+   document.getElementById("tool_area_19").style.display='none'; 
 
 } // End of function Close_RE_Attendance_Area()
