@@ -158,7 +158,7 @@ async function Roll_Call_RE_Attendance_V3() { // for test, for display , for sin
 
    RE_Attendance_V3_text += ' ' + '<a href="" onclick="Roll_Call_RE_Attendance_V5();return false;">' + 'Fridays-After</a>' + '&nbsp';
 
-   RE_Attendance_V3_text += ' ' + '<a href="" onclick="Roll_Call_RE_Attendance_V3();return false;">' + 'Current-Service</a>' + '&nbsp';
+   RE_Attendance_V3_text += ' ' + '<a href="" onclick="Roll_Call_RE_Attendance_V3();return false;">' + 'Current-Record</a>' + '&nbsp';
 
    RE_Attendance_V3_text += ' ' + '<a href="" onclick="Close_RE_Attendance_Area();return false;">' + 'Close</a></center>'  + '<br>';
 
@@ -830,7 +830,7 @@ async function Roll_Call_RE_Attendance_V4() { // for test, for display , for all
 
    RE_Attendance_V3_text_Up += ' ' + '<a href="" onclick="Roll_Call_RE_Attendance_V5();return false;">' + 'Fridays-After</a>' + '&nbsp';
 
-   RE_Attendance_V3_text_Up += ' ' + '<a href="" onclick="Roll_Call_RE_Attendance_V3();return false;">' + 'Current-Service</a>' + '&nbsp';
+   RE_Attendance_V3_text_Up += ' ' + '<a href="" onclick="Roll_Call_RE_Attendance_V3();return false;">' + 'Current-Record</a>' + '&nbsp';
 
    RE_Attendance_V3_text_Up += ' ' + '<a href="" onclick="Close_RE_Attendance_Area();return false;">' + 'Close</a></center>'  + '<br>';
 
@@ -1742,7 +1742,7 @@ async function Roll_Call_RE_Attendance_V5() { // for test, for display , for all
 
    RE_Attendance_V3_text_Up += ' ' + '<a href="" onclick="Roll_Call_RE_Attendance_V5();return false;">' + 'Fridays-After</a>' + '&nbsp';
 
-   RE_Attendance_V3_text_Up += ' ' + '<a href="" onclick="Roll_Call_RE_Attendance_V3();return false;">' + 'Current-Service</a>' + '&nbsp';
+   RE_Attendance_V3_text_Up += ' ' + '<a href="" onclick="Roll_Call_RE_Attendance_V3();return false;">' + 'Current-Record</a>' + '&nbsp';
 
    RE_Attendance_V3_text_Up += ' ' + '<a href="" onclick="Close_RE_Attendance_Area();return false;">' + 'Close</a></center>'  + '<br>';
 
@@ -2674,7 +2674,7 @@ async function Roll_Call_RE_Attendance_V5B() { // for test, for display , for al
 
    RE_Attendance_V3_text_Up += ' ' + '<a href="" onclick="Roll_Call_RE_Attendance_V5();return false;">' + 'Fridays-After</a>' + '&nbsp';
 
-   RE_Attendance_V3_text_Up += ' ' + '<a href="" onclick="Roll_Call_RE_Attendance_V3();return false;">' + 'Current-Service</a>' + '&nbsp';
+   RE_Attendance_V3_text_Up += ' ' + '<a href="" onclick="Roll_Call_RE_Attendance_V3();return false;">' + 'Current-Record</a>' + '&nbsp';
 
    RE_Attendance_V3_text_Up += ' ' + '<a href="" onclick="Close_RE_Attendance_Area();return false;">' + 'Close</a></center>'  + '<br>';
 
@@ -3608,7 +3608,7 @@ async function Roll_Call_RE_Attendance_V4B() { // for test, for display , for al
 
    RE_Attendance_V3_text_Up += ' ' + '<a href="" onclick="Roll_Call_RE_Attendance_V5();return false;">' + 'Fridays-After</a>' + '&nbsp';
 
-   RE_Attendance_V3_text_Up += ' ' + '<a href="" onclick="Roll_Call_RE_Attendance_V3();return false;">' + 'Current-Service</a>' + '&nbsp';
+   RE_Attendance_V3_text_Up += ' ' + '<a href="" onclick="Roll_Call_RE_Attendance_V3();return false;">' + 'Current-Record</a>' + '&nbsp';
 
    RE_Attendance_V3_text_Up += ' ' + '<a href="" onclick="Close_RE_Attendance_Area();return false;">' + 'Close</a></center>'  + '<br>';
 
