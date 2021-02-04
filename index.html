@@ -218,6 +218,15 @@
   background-color: #99f9f9;
 }
 
+#tool_area_20 {
+  position: fixed;
+  right: 3%;
+  top: 7%;    
+  width: 30em;
+  height: 20em;  
+  background-color: #99f9f9;
+}
+
 </style>
 
 
@@ -420,6 +429,13 @@ function clickCounter() {
 <div id="tool_area_19" style="display:none;overflow:auto;">
 
    <p style="font-size:18pt" id="RE_Attendance_Content_Down"></p>
+
+</div>
+
+
+<div id="tool_area_20" style="display:none;overflow:auto;">
+
+   <p style="font-size:18pt" id="RE_Attendance_Content"></p>
 
 </div>
 
@@ -3577,7 +3593,8 @@ function Reset_All(){
   <div id="dropdown-content" class="dropdown-content">
     <a href="javascript:Roll_Call_RE_Attendance();Close_dropdown_menu();">RE Attendance V1</a>
     <a href="javascript:Roll_Call_RE_Attendance_V3();Close_dropdown_menu();">RE Attendance V3</a>
-    <a href="javascript:Roll_Call_RE_Attendance_V4();Close_dropdown_menu();">RE Attendance V4</a>
+    <a href="javascript:Roll_Call_RE_Attendance_V4();Close_dropdown_menu();">RE Attendance All-After</a>
+    <a href="javascript:Roll_Call_RE_Attendance_V4B();Close_dropdown_menu();">RE Attendance All-Before</a>
     <a href="javascript:Open_RE_Attendance_Area();Close_dropdown_menu();">Open RE Attendance</a>
     <a href="javascript:Close_RE_Attendance_Area();Close_dropdown_menu();">Close RE Attendance</a>
     <a href="javascript:Roll_Call_Kindy();Close_dropdown_menu();">Kindy ¥®¸X¯Z</a>
