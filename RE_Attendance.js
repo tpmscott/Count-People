@@ -140,13 +140,13 @@ var RE_Attendance_V3_text = '';
 
 async function Roll_Call_RE_Attendance_V3() { // for test, for display , for single Day
 
-   Open_RE_Attendance_Area();
+   Open_RE_Attendance_Area_V3();
 
-   var RE_Attendance_V3_text = '<center><a href="" onclick="Close_RE_Attendance_Area();return false;">' + 'All Attendance</a>';
+   var RE_Attendance_V3_text = '<center><a href="" onclick="Close_RE_Attendance_Area_V3();return false;">' + 'All Attendance</a>';
 
-   RE_Attendance_V3_text += ' ' + '<a href="" onclick="Close_RE_Attendance_Area();return false;">' + 'Friday Attendance</a>';
+   RE_Attendance_V3_text += ' ' + '<a href="" onclick="Close_RE_Attendance_Area_V3();return false;">' + 'Friday Attendance</a>';
 
-   RE_Attendance_V3_text += ' ' + '<a href="" onclick="Close_RE_Attendance_Area();return false;">' + 'Close Window</a></center>'  + '<br>';
+   RE_Attendance_V3_text += ' ' + '<a href="" onclick="Close_RE_Attendance_Area_V3();return false;">' + 'Close Window</a></center>'  + '<br>';
 
 
 
@@ -806,11 +806,15 @@ async function Roll_Call_RE_Attendance_V4() { // for test, for display , for all
 
    Open_RE_Attendance_Area();
 
-   var RE_Attendance_V3_text_Up = '<center><a href="" onclick="Close_RE_Attendance_Area();return false;">' + 'All Attendance</a>';
+   var RE_Attendance_V3_text_Up = '<center><a href="" onclick="Close_RE_Attendance_Area();return false;">' + 'All-Before</a>' + '&nbsp';
 
-   RE_Attendance_V3_text_Up += ' ' + '<a href="" onclick="Close_RE_Attendance_Area();return false;">' + 'Friday Attendance</a>';
+   RE_Attendance_V3_text_Up += ' ' + '<a href="" onclick="Close_RE_Attendance_Area();return false;">' + 'All-After</a>' + '&nbsp';
 
-   RE_Attendance_V3_text_Up += ' ' + '<a href="" onclick="Close_RE_Attendance_Area();return false;">' + 'Close Window</a></center>'  + '<br>';
+   RE_Attendance_V3_text_Up += ' ' + '<a href="" onclick="Close_RE_Attendance_Area();return false;">' + 'Fridays-Before</a>' + '&nbsp';
+
+   RE_Attendance_V3_text_Up += ' ' + '<a href="" onclick="Close_RE_Attendance_Area();return false;">' + 'Fridays-After</a>' + '&nbsp';
+
+   RE_Attendance_V3_text_Up += ' ' + '<a href="" onclick="Close_RE_Attendance_Area();return false;">' + 'Close</a></center>'  + '<br>';
 
 
 
@@ -885,7 +889,65 @@ async function Roll_Call_RE_Attendance_V4() { // for test, for display , for all
      let Verse_4 = await dbT2.Service_Record.where('ID_1').above(RE_Attendance_Start_DateStr).toArray(); // 202010
 
 
+     var Total_Days = 0;
+
      if (Verse_4) {  //  // 找出日期
+
+        Total_Days = Verse_4.length;
+
+
+        var kindy_teacher_attendance_rete_sum = 0;
+
+        var LPC_teacher_attendance_rete_sum = 0;
+
+        var UPC_teacher_attendance_rete_sum = 0;
+
+        var JYC_teacher_attendance_rete_sum = 0;
+
+        var IYC_teacher_attendance_rete_sum = 0;
+
+        var SYC_teacher_attendance_rete_sum = 0;
+
+
+        var kindy_student_attendance_rete_sum = 0;
+
+        var LPC_student_attendance_rete_sum = 0;
+
+        var UPC_student_attendance_rete_sum = 0;
+
+        var JYC_student_attendance_rete_sum = 0;
+
+        var IYC_student_attendance_rete_sum = 0;
+
+        var SYC_student_attendance_rete_sum = 0;
+
+
+        var kindy_teacher_attendance_rete_Average = 0;
+
+        var LPC_teacher_attendance_rete_Average = 0;
+
+        var UPC_teacher_attendance_rete_Average = 0;
+
+        var JYC_teacher_attendance_rete_Average = 0;
+
+        var IYC_teacher_attendance_rete_Average = 0;
+
+        var SYC_teacher_attendance_rete_Average = 0;
+
+
+        var kindy_student_attendance_rete_Average = 0;
+
+        var LPC_student_attendance_rete_Average = 0;
+
+        var UPC_student_attendance_rete_Average = 0;
+
+        var JYC_student_attendance_rete_Average = 0;
+
+        var IYC_student_attendance_rete_Average = 0;
+
+        var SYC_student_attendance_rete_Average = 0;
+
+
 
         for (var m = 0; m < Verse_4.length ; m++) {
 
@@ -946,6 +1008,9 @@ async function Roll_Call_RE_Attendance_V4() { // for test, for display , for all
 
      kindy_teacher_attendance_rete = Math.round( kindy_teacher_attendance_rete * 100 ) / 100;
 
+     kindy_teacher_attendance_rete_sum += kindy_teacher_attendance_rete;
+
+
    // --------------------------------------------- 
 
    var LPC_teacher_attendance_no = 0;
@@ -986,6 +1051,8 @@ async function Roll_Call_RE_Attendance_V4() { // for test, for display , for all
      var LPC_teacher_attendance_rete = ( (LPC_teacher_attendance_no / LPC_teacher.length) * 100 );
 
      LPC_teacher_attendance_rete = Math.round( LPC_teacher_attendance_rete * 100 ) / 100;
+
+     LPC_teacher_attendance_rete_sum += LPC_teacher_attendance_rete;
 
 
    // --------------------------------------------- 
@@ -1031,6 +1098,8 @@ async function Roll_Call_RE_Attendance_V4() { // for test, for display , for all
 
      UPC_teacher_attendance_rete_V2 = UPC_teacher_attendance_rete;
 
+     UPC_teacher_attendance_rete_sum += UPC_teacher_attendance_rete;
+
 
    // --------------------------------------------- 
 
@@ -1072,6 +1141,8 @@ async function Roll_Call_RE_Attendance_V4() { // for test, for display , for all
      var JYC_teacher_attendance_rete = ( (JYC_teacher_attendance_no / JYC_teacher.length) * 100 );
 
      JYC_teacher_attendance_rete = Math.round( JYC_teacher_attendance_rete * 100 ) / 100;
+
+     JYC_teacher_attendance_rete_sum += JYC_teacher_attendance_rete;
 
 
    // --------------------------------------------- 
@@ -1115,6 +1186,8 @@ async function Roll_Call_RE_Attendance_V4() { // for test, for display , for all
 
      IYC_teacher_attendance_rete = Math.round( IYC_teacher_attendance_rete * 100 ) / 100;
 
+     IYC_teacher_attendance_rete_sum += IYC_teacher_attendance_rete;
+
 
    // --------------------------------------------- 
 
@@ -1156,6 +1229,8 @@ async function Roll_Call_RE_Attendance_V4() { // for test, for display , for all
      var SYC_teacher_attendance_rete = ( (SYC_teacher_attendance_no / SYC_teacher.length) * 100 );
 
      SYC_teacher_attendance_rete = Math.round( SYC_teacher_attendance_rete * 100 ) / 100;
+
+     SYC_teacher_attendance_rete_sum += SYC_teacher_attendance_rete;
 
 
    // --------------------------------------------- 
@@ -1202,6 +1277,8 @@ async function Roll_Call_RE_Attendance_V4() { // for test, for display , for all
      var kindy_student_attendance_rete = ( (kindy_student_attendance_no / kindy_student.length) * 100 );
 
      kindy_student_attendance_rete = Math.round( kindy_student_attendance_rete * 100 ) / 100;
+
+     kindy_student_attendance_rete_sum += kindy_student_attendance_rete;
 
 
 
@@ -1250,6 +1327,8 @@ async function Roll_Call_RE_Attendance_V4() { // for test, for display , for all
 
      LPC_student_attendance_rete = Math.round( LPC_student_attendance_rete * 100 ) / 100;
 
+     LPC_student_attendance_rete_sum += LPC_student_attendance_rete;
+
 
    // --------------------------------------------- 
 
@@ -1295,6 +1374,8 @@ async function Roll_Call_RE_Attendance_V4() { // for test, for display , for all
      var UPC_student_attendance_rete = ( (UPC_student_attendance_no / UPC_student.length) * 100 );
 
      UPC_student_attendance_rete = Math.round( UPC_student_attendance_rete * 100 ) / 100;
+
+     UPC_student_attendance_rete_sum += UPC_student_attendance_rete;
 
 
    // --------------------------------------------- 
@@ -1342,6 +1423,8 @@ async function Roll_Call_RE_Attendance_V4() { // for test, for display , for all
 
      JYC_student_attendance_rete = Math.round( JYC_student_attendance_rete * 100 ) / 100;
 
+     JYC_student_attendance_rete_sum += JYC_student_attendance_rete;
+
 
    // --------------------------------------------- 
 
@@ -1388,6 +1471,8 @@ async function Roll_Call_RE_Attendance_V4() { // for test, for display , for all
 
      IYC_student_attendance_rete = Math.round( IYC_student_attendance_rete * 100 ) / 100;
 
+     IYC_student_attendance_rete_sum += IYC_student_attendance_rete;
+
 
    // --------------------------------------------- 
 
@@ -1433,6 +1518,8 @@ async function Roll_Call_RE_Attendance_V4() { // for test, for display , for all
      var SYC_student_attendance_rete = ( (SYC_student_attendance_no / SYC_student.length) * 100 );
 
      SYC_student_attendance_rete = Math.round( SYC_student_attendance_rete * 100 ) / 100;
+
+     SYC_student_attendance_rete_sum += SYC_student_attendance_rete;
 
 
    // --------------------------------------------- 
@@ -1538,6 +1625,102 @@ async function Roll_Call_RE_Attendance_V4() { // for test, for display , for all
 
 
    // --------------------------------------------- 
+
+
+
+     kindy_teacher_attendance_rete_Average = ( (kindy_teacher_attendance_rete_sum / Total_Days)  );
+
+     kindy_teacher_attendance_rete_Average = Math.round( kindy_teacher_attendance_rete_Average * 100 ) / 100;    
+
+
+     LPC_teacher_attendance_rete_Average = ( (LPC_teacher_attendance_rete_sum / Total_Days)  );
+
+     LPC_teacher_attendance_rete_Average = Math.round( LPC_teacher_attendance_rete_Average * 100 ) / 100;  
+
+
+     UPC_teacher_attendance_rete_Average = ( (UPC_teacher_attendance_rete_sum / Total_Days)  );
+
+     UPC_teacher_attendance_rete_Average = Math.round( UPC_teacher_attendance_rete_Average * 100 ) / 100;     
+
+
+     JYC_teacher_attendance_rete_Average = ( (JYC_teacher_attendance_rete_sum / Total_Days)  );
+
+     JYC_teacher_attendance_rete_Average = Math.round( JYC_teacher_attendance_rete_Average * 100 ) / 100;     
+
+
+     IYC_teacher_attendance_rete_Average = ( (IYC_teacher_attendance_rete_sum / Total_Days)  );
+
+     IYC_teacher_attendance_rete_Average = Math.round( IYC_teacher_attendance_rete_Average * 100 ) / 100;   
+
+
+     SYC_teacher_attendance_rete_Average = ( (SYC_teacher_attendance_rete_sum / Total_Days)  );
+
+     SYC_teacher_attendance_rete_Average = Math.round( SYC_teacher_attendance_rete_Average * 100 ) / 100;   
+
+
+
+
+     kindy_student_attendance_rete_Average = ( (kindy_student_attendance_rete_sum / Total_Days)  );
+
+     kindy_student_attendance_rete_Average = Math.round( kindy_student_attendance_rete_Average * 100 ) / 100;    
+
+
+     LPC_student_attendance_rete_Average = ( (LPC_student_attendance_rete_sum / Total_Days)  );
+
+     LPC_student_attendance_rete_Average = Math.round( LPC_student_attendance_rete_Average * 100 ) / 100;  
+
+
+     UPC_student_attendance_rete_Average = ( (UPC_student_attendance_rete_sum / Total_Days)  );
+
+     UPC_student_attendance_rete_Average = Math.round( UPC_student_attendance_rete_Average * 100 ) / 100;     
+
+
+     JYC_student_attendance_rete_Average = ( (JYC_student_attendance_rete_sum / Total_Days)  );
+
+     JYC_student_attendance_rete_Average = Math.round( JYC_student_attendance_rete_Average * 100 ) / 100;     
+
+
+     IYC_student_attendance_rete_Average = ( (IYC_student_attendance_rete_sum / Total_Days)  );
+
+     IYC_student_attendance_rete_Average = Math.round( IYC_student_attendance_rete_Average * 100 ) / 100;   
+
+
+     SYC_student_attendance_rete_Average = ( (SYC_student_attendance_rete_sum / Total_Days)  );
+
+     SYC_student_attendance_rete_Average = Math.round( SYC_student_attendance_rete_Average * 100 ) / 100;   
+
+
+
+
+     RE_Attendance_V3_text += '<tr>';
+
+     RE_Attendance_V3_text += '<th width=12% style="font-size:17pt;" colspan="2">Average</th>';
+
+     RE_Attendance_V3_text += '<th width=7% style="font-size:17pt;" >' + kindy_teacher_attendance_rete_Average + '</th>';
+
+     RE_Attendance_V3_text += '<th width=7% style="font-size:17pt;" >' + kindy_student_attendance_rete_Average + '</th>';
+
+     RE_Attendance_V3_text += '<th width=7% style="font-size:17pt;" >' + LPC_teacher_attendance_rete_Average + '</th>';
+
+     RE_Attendance_V3_text += '<th width=7% style="font-size:17pt;" >' + LPC_student_attendance_rete_Average + '</th>';
+
+     RE_Attendance_V3_text += '<th width=7% style="font-size:17pt;" >' + UPC_teacher_attendance_rete_Average + '</th>';
+
+     RE_Attendance_V3_text += '<th width=7% style="font-size:17pt;" >' + UPC_student_attendance_rete_Average + '</th>';
+
+     RE_Attendance_V3_text += '<th width=7% style="font-size:17pt;" >' + JYC_teacher_attendance_rete_Average + '</th>';
+
+     RE_Attendance_V3_text += '<th width=7% style="font-size:17pt;" >' + JYC_student_attendance_rete_Average + '</th>';
+
+     RE_Attendance_V3_text += '<th width=7% style="font-size:17pt;" >' + IYC_teacher_attendance_rete_Average + '</th>';
+
+     RE_Attendance_V3_text += '<th width=7% style="font-size:17pt;" >' + IYC_student_attendance_rete_Average + '</th>';
+
+     RE_Attendance_V3_text += '<th width=7% style="font-size:17pt;" >' + SYC_teacher_attendance_rete_Average + '</th>';
+
+     RE_Attendance_V3_text += '<th width=7% style="font-size:17pt;" >' + SYC_student_attendance_rete_Average + '</th>';
+
+     RE_Attendance_V3_text += '</tr>';
 
 
      RE_Attendance_V3_text += '</table></center>';
@@ -3647,7 +3830,19 @@ function Open_RE_Attendance_Area() {
 
    document.getElementById("tool_area_19").style.display='block';
 
+   document.getElementById("tool_area_20").style.display='none'; 
+
 } // End of function Open_RE_Attendance_Area()
+
+function Open_RE_Attendance_Area_V3() {
+
+   document.getElementById("tool_area_20").style.display='block';
+
+   document.getElementById("tool_area_18").style.display='none'; 
+
+   document.getElementById("tool_area_19").style.display='none'; 
+
+} // End of function Open_RE_Attendance_Area_V3()
 
 
 function Close_RE_Attendance_Area() {
@@ -3657,3 +3852,9 @@ function Close_RE_Attendance_Area() {
    document.getElementById("tool_area_19").style.display='none'; 
 
 } // End of function Close_RE_Attendance_Area()
+
+function Close_RE_Attendance_Area_V3() {
+
+   document.getElementById("tool_area_20").style.display='none'; 
+
+} // End of function Close_RE_Attendance_Area_V3()
