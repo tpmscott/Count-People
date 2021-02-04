@@ -8546,7 +8546,9 @@ async function Search_Person_from_F_Name() { // Search from First Name
 
   if (Search_FName_tmp == 'RE Attendance') {
 
-     Roll_Call_RE_Attendance();
+     //Roll_Call_RE_Attendance();
+
+     Roll_Call_RE_Attendance_V3();
 
   }
 

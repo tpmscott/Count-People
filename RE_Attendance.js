@@ -142,11 +142,26 @@ async function Roll_Call_RE_Attendance_V3() { // for test, for display , for sin
 
    Open_RE_Attendance_Area_V3();
 
-   var RE_Attendance_V3_text = '<center><a href="" onclick="Close_RE_Attendance_Area_V3();return false;">' + 'All Attendance</a>';
+   //var RE_Attendance_V3_text = '<center><a href="" onclick="Close_RE_Attendance_Area_V3();return false;">' + 'All Attendance</a>';
 
-   RE_Attendance_V3_text += ' ' + '<a href="" onclick="Close_RE_Attendance_Area_V3();return false;">' + 'Friday Attendance</a>';
+   //RE_Attendance_V3_text += ' ' + '<a href="" onclick="Close_RE_Attendance_Area_V3();return false;">' + 'Friday Attendance</a>';
 
-   RE_Attendance_V3_text += ' ' + '<a href="" onclick="Close_RE_Attendance_Area_V3();return false;">' + 'Close Window</a></center>'  + '<br>';
+   //RE_Attendance_V3_text += ' ' + '<a href="" onclick="Close_RE_Attendance_Area_V3();return false;">' + 'Close Window</a></center>'  + '<br>';
+
+
+
+   var RE_Attendance_V3_text = '<center><a href="" onclick="Roll_Call_RE_Attendance_V4B();return false;">' + 'All-Before</a>' + '&nbsp';
+
+   RE_Attendance_V3_text += ' ' + '<a href="" onclick="Roll_Call_RE_Attendance_V4();return false;">' + 'All-After</a>' + '&nbsp';
+
+   RE_Attendance_V3_text += ' ' + '<a href="" onclick="Roll_Call_RE_Attendance_V5B();return false;">' + 'Fridays-Before</a>' + '&nbsp';
+
+   RE_Attendance_V3_text += ' ' + '<a href="" onclick="Roll_Call_RE_Attendance_V5();return false;">' + 'Fridays-After</a>' + '&nbsp';
+
+   RE_Attendance_V3_text += ' ' + '<a href="" onclick="Roll_Call_RE_Attendance_V3();return false;">' + 'Current-Service</a>' + '&nbsp';
+
+   RE_Attendance_V3_text += ' ' + '<a href="" onclick="Close_RE_Attendance_Area();return false;">' + 'Close</a></center>'  + '<br>';
+
 
 
 
@@ -814,6 +829,8 @@ async function Roll_Call_RE_Attendance_V4() { // for test, for display , for all
    RE_Attendance_V3_text_Up += ' ' + '<a href="" onclick="Roll_Call_RE_Attendance_V5B();return false;">' + 'Fridays-Before</a>' + '&nbsp';
 
    RE_Attendance_V3_text_Up += ' ' + '<a href="" onclick="Roll_Call_RE_Attendance_V5();return false;">' + 'Fridays-After</a>' + '&nbsp';
+
+   RE_Attendance_V3_text_Up += ' ' + '<a href="" onclick="Roll_Call_RE_Attendance_V3();return false;">' + 'Current-Service</a>' + '&nbsp';
 
    RE_Attendance_V3_text_Up += ' ' + '<a href="" onclick="Close_RE_Attendance_Area();return false;">' + 'Close</a></center>'  + '<br>';
 
@@ -1725,6 +1742,8 @@ async function Roll_Call_RE_Attendance_V5() { // for test, for display , for all
 
    RE_Attendance_V3_text_Up += ' ' + '<a href="" onclick="Roll_Call_RE_Attendance_V5();return false;">' + 'Fridays-After</a>' + '&nbsp';
 
+   RE_Attendance_V3_text_Up += ' ' + '<a href="" onclick="Roll_Call_RE_Attendance_V3();return false;">' + 'Current-Service</a>' + '&nbsp';
+
    RE_Attendance_V3_text_Up += ' ' + '<a href="" onclick="Close_RE_Attendance_Area();return false;">' + 'Close</a></center>'  + '<br>';
 
 
@@ -1772,7 +1791,7 @@ async function Roll_Call_RE_Attendance_V5() { // for test, for display , for all
 
      //let Verse_4 = await dbT2.Service_Record.where('ID_1').startsWithIgnoreCase(DateStr).toArray(); // 202010
 
-     var RE_Attendance_Start_DateStr = '20201026';  // 20210130, mean start from 20210130 , test using 20201026 
+     var RE_Attendance_Start_DateStr = '20210130';  // 20210130, mean start from 20210130 , test using 20201026 
 
      let Verse_4 = await dbT2.Service_Record.where('ID_1').above(RE_Attendance_Start_DateStr).toArray(); // 202010
 
@@ -2655,6 +2674,8 @@ async function Roll_Call_RE_Attendance_V5B() { // for test, for display , for al
 
    RE_Attendance_V3_text_Up += ' ' + '<a href="" onclick="Roll_Call_RE_Attendance_V5();return false;">' + 'Fridays-After</a>' + '&nbsp';
 
+   RE_Attendance_V3_text_Up += ' ' + '<a href="" onclick="Roll_Call_RE_Attendance_V3();return false;">' + 'Current-Service</a>' + '&nbsp';
+
    RE_Attendance_V3_text_Up += ' ' + '<a href="" onclick="Close_RE_Attendance_Area();return false;">' + 'Close</a></center>'  + '<br>';
 
 
@@ -2702,7 +2723,7 @@ async function Roll_Call_RE_Attendance_V5B() { // for test, for display , for al
 
      //let Verse_4 = await dbT2.Service_Record.where('ID_1').startsWithIgnoreCase(DateStr).toArray(); // 202010
 
-     var RE_Attendance_Start_DateStr = '20201026';  // 20210130, mean start from 20210130 , test using 20201026 
+     var RE_Attendance_Start_DateStr = '20210130';  // 20210130, mean start from 20210130 , test using 20201026 
 
      let Verse_4 = await dbT2.Service_Record.where('ID_1').below(RE_Attendance_Start_DateStr).toArray(); // 202010
 
@@ -3586,6 +3607,8 @@ async function Roll_Call_RE_Attendance_V4B() { // for test, for display , for al
    RE_Attendance_V3_text_Up += ' ' + '<a href="" onclick="Roll_Call_RE_Attendance_V5B();return false;">' + 'Fridays-Before</a>' + '&nbsp';
 
    RE_Attendance_V3_text_Up += ' ' + '<a href="" onclick="Roll_Call_RE_Attendance_V5();return false;">' + 'Fridays-After</a>' + '&nbsp';
+
+   RE_Attendance_V3_text_Up += ' ' + '<a href="" onclick="Roll_Call_RE_Attendance_V3();return false;">' + 'Current-Service</a>' + '&nbsp';
 
    RE_Attendance_V3_text_Up += ' ' + '<a href="" onclick="Close_RE_Attendance_Area();return false;">' + 'Close</a></center>'  + '<br>';
 
