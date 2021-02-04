@@ -160,7 +160,7 @@ async function Roll_Call_RE_Attendance_V3() { // for test, for display , for sin
 
    RE_Attendance_V3_text += ' ' + '<a href="" onclick="Roll_Call_RE_Attendance_V3();return false;">' + 'Current-Record</a>' + '&nbsp';
 
-   RE_Attendance_V3_text += ' ' + '<a href="" onclick="Close_RE_Attendance_Area();return false;">' + 'Close</a></center>'  + '<br>';
+   RE_Attendance_V3_text += ' ' + '<a href="" onclick="Close_RE_Attendance_Area_V3();return false;">' + 'Close</a></center>'  + '<br>';
 
 
 
