@@ -25,10 +25,20 @@ var JYC_teacher = new Array(41,49,180,134,30);
 
 var JYC_student = new Array(52,137,98,42,15,279,19,23,167,278);
 
+var JYC_student_B = new Array(52,137,98,42,15,279,19,23,167,278); // for Before RE Opening Day,
+                                                                  // because Frank family just moved back
+                                                                  //  Don't count Ethan (279) and Enya (278)
 
-var IYC_teacher = new Array(48,38,47,275,1);
+
+var IYC_teacher = new Array(48,38,47,275,1); 
+
+var IYC_teacher_B = new Array(48,38,47,1); // for Before RE Opening Day, because Frank family just moved back
+                                           //  Don't count Frank (275)
 
 var IYC_student = new Array(4,34,103,277,110);
+
+var IYC_student_B = new Array(4,34,103,110); // for Before RE Opening Day, because Frank family just moved back
+                                                 //  Don't count Sandra (277)
 
 
 var SYC_teacher = new Array(31,51,82,144);
@@ -2662,7 +2672,7 @@ async function Roll_Call_RE_Attendance_V5() { // for test, for display , for all
 
 
 async function Roll_Call_RE_Attendance_V5B() { // for test, for display , for all Fridays, before certain Day
-                                               // for Fridays-Before
+                                               // for Fridays-Before RE Opening Day
 
    Open_RE_Attendance_Area();
 
@@ -2724,6 +2734,7 @@ async function Roll_Call_RE_Attendance_V5B() { // for test, for display , for al
      //let Verse_4 = await dbT2.Service_Record.where('ID_1').startsWithIgnoreCase(DateStr).toArray(); // 202010
 
      var RE_Attendance_Start_DateStr = '20210130';  // 20210130, mean start from 20210130 , test using 20201026 
+                                                    // RE Opening Day
 
      let Verse_4 = await dbT2.Service_Record.where('ID_1').below(RE_Attendance_Start_DateStr).toArray(); // 202010
 
@@ -3057,9 +3068,15 @@ async function Roll_Call_RE_Attendance_V5B() { // for test, for display , for al
 
    var IYC_teacher_attendance_no = 0;
 
-     for (var i = 0; i < IYC_teacher.length ; i++) {
+     //for (var i = 0; i < IYC_teacher.length ; i++) {
 
-        var CNo_tmp = IYC_teacher[i]; // new Array(93,102,95)
+        //var CNo_tmp = IYC_teacher[i]; // new Array(93,102,95)
+
+
+     for (var i = 0; i < IYC_teacher_B.length ; i++) {
+
+        var CNo_tmp = IYC_teacher_B[i]; // new Array(93,102,95)
+
 
         var Verse_3 = await dbT2.Roll.where('CNo').equals(CNo_tmp).toArray();
 
@@ -3088,7 +3105,7 @@ async function Roll_Call_RE_Attendance_V5B() { // for test, for display , for al
         } // End of if (Verse_3)
 
 
-     } // End of for (var i = 0; i < IYC_teacher.length ; i++)
+     } // End of for (var i = 0; i < IYC_teacher_B.length ; i++)
 
      var IYC_teacher_attendance_rete = ( (IYC_teacher_attendance_no / IYC_teacher.length) * 100 );
 
@@ -3290,9 +3307,9 @@ async function Roll_Call_RE_Attendance_V5B() { // for test, for display , for al
 
    var JYC_student_attendance_no = 0;
 
-     for (var i = 0; i < JYC_student.length ; i++) {
+     for (var i = 0; i < JYC_student_B.length ; i++) {
 
-        var CNo_tmp = JYC_student[i]; // new Array(93,102,95)
+        var CNo_tmp = JYC_student_B[i]; // new Array(93,102,95)
 
         var Verse_3 = await dbT2.Roll.where('CNo').equals(CNo_tmp).toArray();
 
@@ -3325,7 +3342,7 @@ async function Roll_Call_RE_Attendance_V5B() { // for test, for display , for al
         } // End of if (Verse_3)
 
 
-     } // End of for (var i = 0; i < JYC_student.length ; i++)
+     } // End of for (var i = 0; i < JYC_student_B.length ; i++)
 
      var JYC_student_attendance_rete = ( (JYC_student_attendance_no / JYC_student.length) * 100 );
 
@@ -3338,9 +3355,9 @@ async function Roll_Call_RE_Attendance_V5B() { // for test, for display , for al
 
    var IYC_student_attendance_no = 0;
 
-     for (var i = 0; i < IYC_student.length ; i++) {
+     for (var i = 0; i < IYC_student_B.length ; i++) {
 
-        var CNo_tmp = IYC_student[i]; // new Array(93,102,95)
+        var CNo_tmp = IYC_student_B[i]; // new Array(93,102,95)
 
         var Verse_3 = await dbT2.Roll.where('CNo').equals(CNo_tmp).toArray();
 
@@ -3373,7 +3390,7 @@ async function Roll_Call_RE_Attendance_V5B() { // for test, for display , for al
         } // End of if (Verse_3)
 
 
-     } // End of for (var i = 0; i < IYC_student.length ; i++)
+     } // End of for (var i = 0; i < IYC_student_B.length ; i++)
 
      var IYC_student_attendance_rete = ( (IYC_student_attendance_no / IYC_student.length) * 100 );
 
