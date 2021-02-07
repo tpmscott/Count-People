@@ -152,6 +152,21 @@ async function Roll_Call_RE_Attendance_V3() { // for test, for display , for sin
 
    Open_RE_Attendance_Area_V3();
 
+
+     var DateStr_tmp = Display_ID_2; // Exp_start_date , '20200920E'
+
+     //var DateStr_tmp = arg4; // Exp_start_date , '20200920E'
+
+     var Year_Str = DateStr_tmp.substring(0,4);
+
+     var Month_Str = DateStr_tmp.substring(4,6);
+
+     var Date_Str = DateStr_tmp.substring(6,8);
+
+     var New_DateStr = Date_Str + Month_Str + Year_Str;
+
+
+
    //var RE_Attendance_V3_text = '<center><a href="" onclick="Close_RE_Attendance_Area_V3();return false;">' + 'All Attendance</a>';
 
    //RE_Attendance_V3_text += ' ' + '<a href="" onclick="Close_RE_Attendance_Area_V3();return false;">' + 'Friday Attendance</a>';
@@ -381,6 +396,46 @@ async function Roll_Call_RE_Attendance_V3() { // for test, for display , for sin
 
    var IYC_teacher_attendance_no = 0;
 
+   if(New_DateStr<RE_Opening_Day) {
+
+     for (var i = 0; i < IYC_teacher_B.length ; i++) {
+
+        var CNo_tmp = IYC_teacher_B[i]; // new Array(93,102,95)
+
+        var Verse_3 = await dbT2.Roll.where('CNo').equals(CNo_tmp).toArray();
+
+        if (Verse_3.length) {  // Fill data
+
+           var arg1 = Verse_3[0].CNo;
+
+           var arg2 = Verse_3[0].Member;
+
+           var arg3 = Verse_3[0].Gender;  
+
+           //var Result = await Check_Attendance(arg1,arg2,arg3);
+
+           var Result = await Check_Attendance5(arg1,arg2,arg3);
+
+           if (Result == 'y') {
+
+              //document.getElementById(Rvers).style.color = "blue";
+
+              IYC_teacher_attendance_no = IYC_teacher_attendance_no + 1;
+
+           }
+
+        } // End of if (Verse_3)
+
+
+     } // End of for (var i = 0; i < IYC_teacher_B.length ; i++)
+
+     var IYC_teacher_attendance_rete = ( (IYC_teacher_attendance_no / IYC_teacher_B.length) * 100 );
+
+     IYC_teacher_attendance_rete = Math.round( IYC_teacher_attendance_rete * 100 ) / 100;
+
+   }
+   else {
+
      for (var i = 0; i < IYC_teacher.length ; i++) {
 
         var CNo_tmp = IYC_teacher[i]; // new Array(93,102,95)
@@ -416,6 +471,7 @@ async function Roll_Call_RE_Attendance_V3() { // for test, for display , for sin
 
      IYC_teacher_attendance_rete = Math.round( IYC_teacher_attendance_rete * 100 ) / 100;
 
+   } // End of if(New_DateStr<RE_Opening_Day) {
 
    // --------------------------------------------- 
 
@@ -641,6 +697,7 @@ async function Roll_Call_RE_Attendance_V3() { // for test, for display , for sin
    // --------------------------------------------- 
 
    var IYC_student_attendance_no = 0;
+
 
      for (var i = 0; i < IYC_student.length ; i++) {
 
