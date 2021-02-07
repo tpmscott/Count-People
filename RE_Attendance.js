@@ -1,5 +1,5 @@
 
-
+var RE_Opening_Day = '20210130';
 
 var kindy_member = new Array(119,253,'CIC93',156,145,18,85); 
 
@@ -828,7 +828,7 @@ async function Roll_Call_RE_Attendance_V3() { // for test, for display , for sin
 
 
 async function Roll_Call_RE_Attendance_V4() { // for test, for display , for all Day, since certain Day
-                                              // for All-After
+                                              // for All-After RE Opening Day
 
    Open_RE_Attendance_Area();
 
@@ -889,7 +889,7 @@ async function Roll_Call_RE_Attendance_V4() { // for test, for display , for all
 
      //let Verse_4 = await dbT2.Service_Record.where('ID_1').startsWithIgnoreCase(DateStr).toArray(); // 202010
 
-     var RE_Attendance_Start_DateStr = '20210130';  // 20210130, mean start from 20210130
+     var RE_Attendance_Start_DateStr = RE_Opening_Day;  // 20210130, mean start from 20210130
 
      let Verse_4 = await dbT2.Service_Record.where('ID_1').above(RE_Attendance_Start_DateStr).toArray(); // 202010
 
@@ -1740,7 +1740,7 @@ async function Roll_Call_RE_Attendance_V4() { // for test, for display , for all
 
 
 async function Roll_Call_RE_Attendance_V5() { // for test, for display , for all Fridays, since certain Day
-                                              // for Fridays-After
+                                              // for Fridays-After RE Opening Day
 
    Open_RE_Attendance_Area();
 
@@ -1801,7 +1801,7 @@ async function Roll_Call_RE_Attendance_V5() { // for test, for display , for all
 
      //let Verse_4 = await dbT2.Service_Record.where('ID_1').startsWithIgnoreCase(DateStr).toArray(); // 202010
 
-     var RE_Attendance_Start_DateStr = '20210130';  // 20210130, mean start from 20210130 , test using 20201026 
+     var RE_Attendance_Start_DateStr = RE_Opening_Day;  // 20210130, mean start from 20210130 , test using 20201026 
 
      let Verse_4 = await dbT2.Service_Record.where('ID_1').above(RE_Attendance_Start_DateStr).toArray(); // 202010
 
@@ -2733,7 +2733,7 @@ async function Roll_Call_RE_Attendance_V5B() { // for test, for display , for al
 
      //let Verse_4 = await dbT2.Service_Record.where('ID_1').startsWithIgnoreCase(DateStr).toArray(); // 202010
 
-     var RE_Attendance_Start_DateStr = '20210130';  // 20210130, mean start from 20210130 , test using 20201026 
+     var RE_Attendance_Start_DateStr = RE_Opening_Day;  // 20210130, mean start from 20210130 , test using 20201026 
                                                     // RE Opening Day
 
      let Verse_4 = await dbT2.Service_Record.where('ID_1').below(RE_Attendance_Start_DateStr).toArray(); // 202010
@@ -3613,7 +3613,7 @@ async function Roll_Call_RE_Attendance_V5B() { // for test, for display , for al
 
 
 async function Roll_Call_RE_Attendance_V4B() { // for test, for display , for all Day, before certain Day
-                                               // for All-Before
+                                               // for All-Before RE Opening Day
 
    Open_RE_Attendance_Area();
 
@@ -3675,7 +3675,7 @@ async function Roll_Call_RE_Attendance_V4B() { // for test, for display , for al
      //let Verse_4 = await dbT2.Service_Record.where('ID_1').startsWithIgnoreCase(DateStr).toArray(); // 202010
 
 
-     var RE_Attendance_Start_DateStr = '20210130';  // 20210130, mean below 20210130
+     var RE_Attendance_Start_DateStr = RE_Opening_Day;  // 20210130, mean below 20210130
 
      let Verse_4 = await dbT2.Service_Record.where('ID_1').below(RE_Attendance_Start_DateStr).toArray(); // 202010
 
