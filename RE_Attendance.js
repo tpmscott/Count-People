@@ -398,11 +398,11 @@ async function Roll_Call_RE_Attendance_V3() { // for test, for display , for sin
 
    //if(New_DateStr<RE_Opening_Day) {
 
-   //if( Number(New_DateStr) < Number(RE_Opening_Day) ) {   
+   //if( Number(New_DateStr) < Number(RE_Opening_Day) ) {   // 應為此才對
 
    //if( Number(New_DateStr) < Number('20210130') ) { 
 
-   if( Number(New_DateStr) > Number(RE_Opening_Day) ) {     
+   if( Number(New_DateStr) > Number(RE_Opening_Day) ) {     // 但在iPad上 此為對，故用此
 
      for (var i = 0; i < IYC_teacher_B.length ; i++) {
 
@@ -6812,10 +6812,14 @@ function Close_RE_Attendance_Area() {
 
    document.getElementById("tool_area_19").style.display='none'; 
 
+   Search_fname2_clear();
+
 } // End of function Close_RE_Attendance_Area()
 
 function Close_RE_Attendance_Area_V3() {
 
    document.getElementById("tool_area_20").style.display='none'; 
+
+   Search_fname2_clear();
 
 } // End of function Close_RE_Attendance_Area_V3()
