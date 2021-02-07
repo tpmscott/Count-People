@@ -396,7 +396,9 @@ async function Roll_Call_RE_Attendance_V3() { // for test, for display , for sin
 
    var IYC_teacher_attendance_no = 0;
 
-   if(New_DateStr<RE_Opening_Day) {
+   //if(New_DateStr<RE_Opening_Day) {
+
+   if( Number(New_DateStr) < Number(RE_Opening_Day) ) {   
 
      for (var i = 0; i < IYC_teacher_B.length ; i++) {
 
@@ -655,7 +657,9 @@ async function Roll_Call_RE_Attendance_V3() { // for test, for display , for sin
 
    var JYC_student_attendance_no = 0;
 
-   if(New_DateStr<RE_Opening_Day) {
+   //if(New_DateStr<RE_Opening_Day) {
+
+   if( Number(New_DateStr) < Number(RE_Opening_Day) ) {
 
      for (var i = 0; i < JYC_student_B.length ; i++) {
 
@@ -745,7 +749,9 @@ async function Roll_Call_RE_Attendance_V3() { // for test, for display , for sin
 
    var IYC_student_attendance_no = 0;
 
-   if(New_DateStr<RE_Opening_Day) {
+   //if(New_DateStr<RE_Opening_Day) {
+
+   if( Number(New_DateStr) < Number(RE_Opening_Day) ) {
 
      for (var i = 0; i < IYC_student_B.length ; i++) {
 
