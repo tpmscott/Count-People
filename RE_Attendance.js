@@ -3344,7 +3344,7 @@ async function Roll_Call_RE_Attendance_V5B() { // for test, for display , for al
 
      } // End of for (var i = 0; i < JYC_student_B.length ; i++)
 
-     var JYC_student_attendance_rete = ( (JYC_student_attendance_no / JYC_student.length) * 100 );
+     var JYC_student_attendance_rete = ( (JYC_student_attendance_no / JYC_student_B.length) * 100 );
 
      JYC_student_attendance_rete = Math.round( JYC_student_attendance_rete * 100 ) / 100;
 
@@ -3392,7 +3392,7 @@ async function Roll_Call_RE_Attendance_V5B() { // for test, for display , for al
 
      } // End of for (var i = 0; i < IYC_student_B.length ; i++)
 
-     var IYC_student_attendance_rete = ( (IYC_student_attendance_no / IYC_student.length) * 100 );
+     var IYC_student_attendance_rete = ( (IYC_student_attendance_no / IYC_student_B.length) * 100 );
 
      IYC_student_attendance_rete = Math.round( IYC_student_attendance_rete * 100 ) / 100;
 
