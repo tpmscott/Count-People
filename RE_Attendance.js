@@ -655,6 +655,50 @@ async function Roll_Call_RE_Attendance_V3() { // for test, for display , for sin
 
    var JYC_student_attendance_no = 0;
 
+   if(New_DateStr<RE_Opening_Day) {
+
+     for (var i = 0; i < JYC_student_B.length ; i++) {
+
+        var CNo_tmp = JYC_student_B[i]; // new Array(93,102,95)
+
+        var Verse_3 = await dbT2.Roll.where('CNo').equals(CNo_tmp).toArray();
+
+
+        if (Verse_3.length) {  // Fill data
+
+
+           var arg1 = Verse_3[0].CNo;
+
+           var arg2 = Verse_3[0].Member;
+
+           var arg3 = Verse_3[0].Gender;  
+
+
+           //var Result = await Check_Attendance(arg1,arg2,arg3);
+
+           var Result = await Check_Attendance5(arg1,arg2,arg3);
+
+
+           if (Result == 'y') {
+
+              //document.getElementById(Rvers).style.color = "blue";
+
+              JYC_student_attendance_no = JYC_student_attendance_no + 1;
+
+           }
+
+        } // End of if (Verse_3)
+
+
+     } // End of for (var i = 0; i < JYC_student_B.length ; i++)
+
+     var JYC_student_attendance_rete = ( (JYC_student_attendance_no / JYC_student_B.length) * 100 );
+
+     JYC_student_attendance_rete = Math.round( JYC_student_attendance_rete * 100 ) / 100;
+
+   }
+   else {
+
      for (var i = 0; i < JYC_student.length ; i++) {
 
         var CNo_tmp = JYC_student[i]; // new Array(93,102,95)
@@ -694,10 +738,56 @@ async function Roll_Call_RE_Attendance_V3() { // for test, for display , for sin
 
      JYC_student_attendance_rete = Math.round( JYC_student_attendance_rete * 100 ) / 100;
 
+   } // End of if(New_DateStr<RE_Opening_Day) {
+
+
    // --------------------------------------------- 
 
    var IYC_student_attendance_no = 0;
 
+   if(New_DateStr<RE_Opening_Day) {
+
+     for (var i = 0; i < IYC_student_B.length ; i++) {
+
+        var CNo_tmp = IYC_student_B[i]; // new Array(93,102,95)
+
+        var Verse_3 = await dbT2.Roll.where('CNo').equals(CNo_tmp).toArray();
+
+
+        if (Verse_3.length) {  // Fill data
+
+
+           var arg1 = Verse_3[0].CNo;
+
+           var arg2 = Verse_3[0].Member;
+
+           var arg3 = Verse_3[0].Gender;  
+
+
+           //var Result = await Check_Attendance(arg1,arg2,arg3);
+
+           var Result = await Check_Attendance5(arg1,arg2,arg3);
+
+
+           if (Result == 'y') {
+
+              //document.getElementById(Rvers).style.color = "blue";
+
+              IYC_student_attendance_no = IYC_student_attendance_no + 1;
+
+           }
+
+        } // End of if (Verse_3)
+
+
+     } // End of for (var i = 0; i < IYC_student_B.length ; i++)
+
+     var IYC_student_attendance_rete = ( (IYC_student_attendance_no / IYC_student_B.length) * 100 );
+
+     IYC_student_attendance_rete = Math.round( IYC_student_attendance_rete * 100 ) / 100;
+
+   }
+   else {
 
      for (var i = 0; i < IYC_student.length ; i++) {
 
@@ -737,6 +827,8 @@ async function Roll_Call_RE_Attendance_V3() { // for test, for display , for sin
      var IYC_student_attendance_rete = ( (IYC_student_attendance_no / IYC_student.length) * 100 );
 
      IYC_student_attendance_rete = Math.round( IYC_student_attendance_rete * 100 ) / 100;
+
+   } // End of if(New_DateStr<RE_Opening_Day) {
 
 
    // --------------------------------------------- 
