@@ -3107,7 +3107,7 @@ async function Roll_Call_RE_Attendance_V5B() { // for test, for display , for al
 
      } // End of for (var i = 0; i < IYC_teacher_B.length ; i++)
 
-     var IYC_teacher_attendance_rete = ( (IYC_teacher_attendance_no / IYC_teacher.length) * 100 );
+     var IYC_teacher_attendance_rete = ( (IYC_teacher_attendance_no / IYC_teacher_B.length) * 100 );
 
      IYC_teacher_attendance_rete = Math.round( IYC_teacher_attendance_rete * 100 ) / 100;
 
