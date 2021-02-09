@@ -4017,6 +4017,13 @@ function Reset_All(){
 
 <br>
 
+
+<button onclick="Delete_Service_Record()">Delete Service Record = </button>
+<input size="12" type="text" id="Delete_Service_Record" name="Delete_Service_Record"> Ex: 202009, 2021
+
+<br>
+
+
 <button onclick="Delete_Attendance()">Delete Attendance = </button>
 <input size="12" type="text" id="Delete_Attendance_Record" name="Delete_Attendance_Record"> Ex: 20200905M
 
@@ -6983,13 +6990,25 @@ async function Add_Attendance() {
 
 
 
+async function Delete_Service_Record() {
+
+  let delete_ID_2_tmp = document.getElementById("Delete_Service_Record").value;
+
+  dbT2.Service_Record.where("ID_2").startsWithIgnoreCase(delete_ID_2_tmp).delete();
+
+
+  //dbT2.Attendance.where("Record").startsWithIgnoreCase(delete_Record_tmp2).delete();
+
+
+} // End of function Delete_Service_Record()
+
+
 async function Delete_Service_Record_ID_2() {
 
   let delete_ID_2_tmp = document.getElementById("Delete_Service_Record_ID_2").value;
 
   dbT2.Service_Record.where("ID_2").equals(delete_ID_2_tmp).delete();
 
-  
 
 } // End of function Delete_Service_Record_ID_2()
 
