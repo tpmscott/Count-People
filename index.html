@@ -7857,7 +7857,7 @@ async function Exp_and_Email_Service_Record() { // New for V11f
 
      if (Verse) {
 
-        text += 'Note:' + Verse[0].Note + '|' + '%20' + '%0D';
+        //text += 'Note:' + Verse[0].Note + '|' + '%20' + '%0D';
 
         text += 'sr^_^|' + Verse_Count.toString();  // change seprator to "|" ,  for Service_Record
 
@@ -7923,9 +7923,17 @@ async function Exp_and_Email_Service_Record() { // New for V11f
         //text += '%0D' + '%0D';   // carriage return	%0D
 
 
-        var mesg1 = 'Service Record ' + Verse_Count + ' exported';
+        //text += 'for test';
 
-        document.getElementById("Send_Service Record_Message").innerHTML = mesg1;  
+
+        //var mesg1 = 'Service Record ' + Verse_Count + ' exported';  // for test
+
+        //var mesg1 = 'Attendance ' + Verse_Count + ' exported';
+
+
+        //document.getElementById("Send_Service Record_Message").innerHTML = mesg1;  
+
+        //document.getElementById("Send_Attendance_Message").innerHTML = mesg1;
 
 
         // -- Email
@@ -7940,64 +7948,57 @@ async function Exp_and_Email_Service_Record() { // New for V11f
         var address3 = "gmail.com"; // 
 
         var link = "Send email";
-        var subject = startWith_date + "%20Attendance%20Record";
+        var subject = startWith_date + "%20Serivce%20Record";
 
         var body = text + '%0D';   // carriage return	%0D
-        //var body = 'test';  // for test
-
-        //var email_text = '<a href=mailto:' + name + '@' + address + '?subject=' + subject + '&body=' + body + '>' + link + '</a>';
-
-        // <a href="mailto:name1@mail.com,name2@mail.com">Send mail</a>
-
-        // <a href="mailto:name1@rapidtables.com?cc=name2@rapidtables.com&bcc=name3@rapidtables.com
-        // &subject=The%20subject%20of%20the%20email
-        // &body=The%20body%20of%20the%20email">
-        // Send mail with cc, bcc, subject and body</a>
 
 
-        //var email_text = '<a href=\"mailto:' + name1 + '@' + address1 + '?cc=' + name2 + '@' + address2 + '&subject=' + subject + '&body=' + body + '\">' + link + '</a>';
+        //var email_text = '<a href=\"mailto:' + name1 + '@' + address1 + '?cc=' + name2 + '@' + address2 + ',' + name3 + '@' + address3 + '&subject=' + subject + '&body=' + body + '\" onclick=\"Change_Start_Save_Color_to_black();\">' + link + '</a>';
 
-        //<a href="javascript:;" onclick="Show_Name('Dn Ko 陳恩光');">Dn Ko 陳恩光</a>
-
-        var email_text = '<a href=\"mailto:' + name1 + '@' + address1 + '?cc=' + name2 + '@' + address2 + ',' + name3 + '@' + address3 + '&subject=' + subject + '&body=' + body + '\" onclick=\"Change_Start_Save_Color_to_black();\">' + link + '</a>';
 
 
         //var email_text = '<a href=\"mailto:' + name1 + '@' + address1 + '?cc=' + name2 + '@' + address2 + ',' + name3 + '@' + address3 + '&subject=' + subject + '&body=' + body + '\">' + link + '</a>';
 
 
-        //if( body == 'AE^_^|0%0D') {  // Attendance 0 exported
+        //var email_text = '<a href=\"mailto:name1@mail.com,name2@mail.com\">Send mail</a>';
 
-        //if (mesg1 == 'Attendance 0 exported') {
 
-        //   //document.getElementById("Send_Attendance2").innerHTML = '';
+        
+        var email_text = '<a href=\"mailto:' + name2 + '@' + address2 + '?cc=' + name3 + '@' + address3 + '&subject=' + subject + '&body=' + body + '\">' + link + '</a>';
 
-        //   //document.getElementById("Send email").innerHTML = 'Send email'; // Mark on 2020.09.29
 
-        //   document.getElementById("Send email").innerHTML = email_text;
+        //var email_text = '<a href=\"mailto:' + name2 + '@' + address2 + '?cc=' + name2 + '@' + address2 + ',' + name3 + '@' + address3 + '&subject=' + subject + '&body=' + body + '\">' + link + '</a>';
+
+
+
+        //if (mesg1 == 'Service Record 0 exported') {
+
+        //   document.getElementById("Send_Service Record2").innerHTML = '';
 
         //}
         //else {
 
-        //   //document.getElementById("Send_Attendance2").innerHTML = email_text;
-
-        //   document.getElementById("Send email").innerHTML = email_text;
+        //   document.getElementById("Send_Service Record2").innerHTML = email_text;
 
         //}
 
 
-        if (mesg1 == 'Service Record 0 exported') {
-
-           document.getElementById("Send_Service Record2").innerHTML = '';
-
-        }
-        else {
-
-           document.getElementById("Send_Service Record2").innerHTML = email_text;
-
-        }
-
-
         //document.getElementById("Send_Service Record2").value = email_text;
+
+
+        //document.getElementById("Send_Service Record2").value = 'send email';
+
+
+        //document.getElementById("Send_Attendance2").value = email_text;
+
+
+        var mesg1 = 'Service Record ' + Verse_Count + ' exported. ' +  email_text;  // for test
+
+        //var mesg1 = 'Service Record ' + Verse_Count + ' exported';  // for test
+
+
+        document.getElementById("Send_Attendance_Message").innerHTML = mesg1;
+
 
         // End of -- Email        
 
@@ -8098,7 +8099,11 @@ async function Exp_and_Email_Attendance() { // New for V12
         //var email_text = '<a href=\"mailto:' + name1 + '@' + address1 + '?cc=' + name2 + '@' + address2 + '&subject=' + subject + '&body=' + body + '\">' + link + '</a>';
 
 
-        var email_text = '<a href=\"mailto:' + name1 + '@' + address1 + '?cc=' + name2 + '@' + address2 + ',' + name3 + '@' + address3 + '&subject=' + subject + '&body=' + body + '\">' + link + '</a>';
+        //var email_text = '<a href=\"mailto:' + name1 + '@' + address1 + '?cc=' + name2 + '@' + address2 + ',' + name3 + '@' + address3 + '&subject=' + subject + '&body=' + body + '\">' + link + '</a>';
+
+
+        var email_text = '<a href=\"mailto:' + name2 + '@' + address2 + '?cc=' + name3 + '@' + address3 + '&subject=' + subject + '&body=' + body + '\">' + link + '</a>';
+
 
 
         //if( body == 'AE^_^|0%0D') {  // Attendance 0 exported
