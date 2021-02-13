@@ -7004,7 +7004,19 @@ function getOS() {
   return os;
 }
 
+var show_download_RE_Attendance = 0; // 0 means hide, 1 means show
 
+function set_show_download_RE_Attendance() {
+
+   show_download_RE_Attendance = 1;
+
+}
+
+function set_hide_download_RE_Attendance() {
+
+   show_download_RE_Attendance = 0;
+
+}
 
 function Open_RE_Attendance_Area() {
 
@@ -7018,6 +7030,8 @@ function Open_RE_Attendance_Area() {
 
    //if (OS_tmp == 'Windows') {
 
+   if (OS_tmp == 'Windows' || show_download_RE_Attendance == 1) {
+
       document.getElementById("tool_area_21").style.display='block';
 
       var download_text = 'Download ' + '<a href=\"javascript:Roll_Call_RE_Attendance_V5B(\'Download\')\">Fridays-Before</a>';
@@ -7026,7 +7040,7 @@ function Open_RE_Attendance_Area() {
 
       document.getElementById("RE_Attendance_Send_email").innerHTML = download_text;
 
-   //}
+   }
 
 } // End of function Open_RE_Attendance_Area()
 
@@ -7042,6 +7056,8 @@ function Open_RE_Attendance_Area_V3() {
 
    //if (OS_tmp == 'Windows') {
 
+   if (OS_tmp == 'Windows' || show_download_RE_Attendance == 1) {
+
       document.getElementById("tool_area_21").style.display='block';
 
       var download_text = 'Download ' + '<a href=\"javascript:Roll_Call_RE_Attendance_V5B(\'Download\')\">Fridays-Before</a>';
@@ -7050,7 +7066,7 @@ function Open_RE_Attendance_Area_V3() {
 
       document.getElementById("RE_Attendance_Send_email").innerHTML = download_text;
 
-   //}
+   }
 
 } // End of function Open_RE_Attendance_Area_V3()
 
@@ -7065,11 +7081,15 @@ function Close_RE_Attendance_Area() {
 
    //if (OS_tmp == 'Windows') {
 
+   if (OS_tmp == 'Windows' || show_download_RE_Attendance == 1) {
+
       document.getElementById("tool_area_21").style.display='none'; 
 
-   //}
+   }
 
    Search_fname2_clear();
+
+   set_hide_download_RE_Attendance();
 
 } // End of function Close_RE_Attendance_Area()
 
@@ -7081,10 +7101,14 @@ function Close_RE_Attendance_Area_V3() {
 
    //if (OS_tmp == 'Windows') {
 
+   if (OS_tmp == 'Windows' || show_download_RE_Attendance == 1) {
+
       document.getElementById("tool_area_21").style.display='none'; 
 
-   //}
+   }
 
    Search_fname2_clear();
+
+   set_hide_download_RE_Attendance();
 
 } // End of function Close_RE_Attendance_Area_V3()
