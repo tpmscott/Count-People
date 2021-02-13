@@ -126,13 +126,6 @@
 </style>
 
 <style>
-.box{
-    white-space: nowrap;
-    overflow-y:auto;
-}
-</style>
-
-<style>
 
 #menu {
   opacity:0.4;
@@ -162,6 +155,7 @@
 }
 
 </style>
+
 
 
 <style>
@@ -204,6 +198,46 @@
 
 </style>
 
+<style>
+
+#tool_area_18 {
+  position: fixed;
+  right: 3%;
+  top: 7%;    
+  width: 30em;
+  height: 5em;  
+  background-color: #99f9f9;
+}
+
+#tool_area_19 {
+  position: fixed;
+  right: 3%;
+  top: 28%;    
+  width: 30em;
+  height: 15em;  
+  background-color: #99f9f9;
+}
+
+#tool_area_20 {
+  position: fixed;
+  right: 3%;
+  top: 7%;    
+  width: 30em;
+  height: 20em;  
+  background-color: #99f9f9;
+}
+
+#tool_area_21 {
+  position: fixed;
+  right: 3%;
+  top: 1%;    
+  width: 30em;
+  height: 2em;  
+  background-color: #99f9f9;
+}
+
+</style>
+
 
 
     <script src="vue.min.js"></script>
@@ -217,15 +251,12 @@
 
     <script src="aes.js"></script>
 
-    <script src="jquery-3.5.1.min.js"></script>
 
-
-
-<SCRIPT LANGUAGE="JavaScript" SRC="Mark_Line_V14b.js"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" SRC="Mark_Line_V11d.js"></SCRIPT>
 
 <SCRIPT LANGUAGE="JavaScript" SRC="KeyFunction2.js"></SCRIPT>
 
-
+<SCRIPT LANGUAGE="JavaScript" SRC="RE_Attendance_V11g.js"></SCRIPT>
 
 
 
@@ -376,7 +407,7 @@ function clickCounter() {
 <meta http-equiv="Content-Type" content="text/html; charset=big5">
 
 </head>
-<body onload="Init_Total_Mode();init_Bible4U_DB();Open_Service_Record(); return false;" text="#000000" link="#0000ff" alink="#ffffff" vlink="#0000ff" background="back5.jpg">
+<body onload="Init_Total_Mode();init_Bible4U_DB(); return false;" text="#000000" link="#0000ff" alink="#ffffff" vlink="#0000ff" background="back5.jpg">
 
 
 <div id="Church_Service_Schedule" style="width:100%;height:0%;overflow:auto;" class="center">
@@ -397,10 +428,37 @@ function clickCounter() {
 </div>
 
 
-<div id="tool_area_8" style="height:170%;display:block"> 
+<div id="tool_area_18" style="display:none;overflow:auto;">
 
-   <center><b><label style="font-size:30px" for="fname2">Service Record & </label></b>
-   <button id="Go_To_Roll_Marking" style="font-size:26px" onclick="Go_To_Roll_Marking()">Roll Marking</button></center>
+   <p style="font-size:18pt" id="RE_Attendance_Content_Up"></p>
+
+</div>
+
+
+<div id="tool_area_19" style="display:none;overflow:auto;">
+
+   <p style="font-size:18pt" id="RE_Attendance_Content_Down"></p>
+
+</div>
+
+
+<div id="tool_area_20" style="display:none;overflow:auto;">
+
+   <p style="font-size:18pt" id="RE_Attendance_Content"></p>
+
+</div>
+
+<div id="tool_area_21" style="display:none;overflow:auto;">
+
+   <center><p style="font-size:18pt" id="RE_Attendance_Send_email"></p></center>
+
+</div>
+
+
+
+<div id="tool_area_8" style="height:105%;display:block"> 
+
+   <b><center><label style="font-size:30px" for="fname2">Service Record and Roll Marking</label></center></b>
    <br>
 
    <td>
@@ -492,9 +550,9 @@ function clickCounter() {
 
    <div id="tool_area_9" style="font-size:26px;height:0%;display:none"> 
 
-     <a href="javascript:;" onclick="Show_Name('Dn Chen 陳恩光');">Dn Chen 陳恩光</a>
+     <a href="javascript:;" onclick="Show_Name('Dn Ko 陳恩光');">Dn Ko 陳恩光</a>
      <a href="javascript:;" onclick="Show_Name('Dn Ko 柯恩宏');">Dn Ko 柯恩宏</a>
-     <a href="javascript:;" onclick="Show_Name('Dn Lee 李雅各');">Dn Lee 李雅各</a>
+     <a href="javascript:;" onclick="Show_Name('Dn James 李雅各');">Dn James 李雅各</a>
      <a href="javascript:;" onclick="Show_Name('Br Ko 柯獻中');">Br Ko 柯獻中</a>
      <a href="javascript:;" onclick="Show_Name('Br Ko 柯宇恆');">Br Ko 柯宇恆</a>
      <a href="javascript:;" onclick="Show_Name('Br Lawrence C');">Br Lawrence C</a>
@@ -620,6 +678,10 @@ function clickCounter() {
    </table>
 
    </div>
+
+
+
+</div>
 
 
 <center>
@@ -766,13 +828,6 @@ function clickCounter() {
 
 
 
-</div>
-
-
-
-
-
-
 <script>
 
 
@@ -880,14 +935,6 @@ function efocus() {  // do nothing
     //document.getElementById("etest").style.visibility='hidden'; // hide 
     document.getElementById("etest").style.display="none"; // "none" 
 };
-
-
-function efocus_v2() {  // do nothing
-
-    document.getElementById("Search_fname2").focus(); 
-
-}
-
 
 //document.getElementById("etest").focus();
 //<td>
@@ -3538,9 +3585,9 @@ function Reset_All(){
 </div>
 
 
-<div id=menu style="display:block">
+<div id=menu style="display:none">
 
-  <button id="Close_Service" style="font-size:22px" onclick="Hide_Search()">Hide</button>
+  <button id="Close_Service" style="font-size:22px" onclick="Open_Service_Record()">Hide</button>
 
   <input placeholder="First Name" style="font-size:22px" size="6" type="text" oninput="Search_Person_from_F_Name()" onblur="Menu_Opacity_04()" onfocus="Menu_Opacity_1();Search_fname2_clear()" id="Search_fname2" name="Search_fname2">
 
@@ -3551,11 +3598,10 @@ function Reset_All(){
 </div>
 
 
-<div id="roll_marking" style="height:105%;display:block"> 
 
-
-  <button style="font-size:20px" onclick="Roll_Call_V2('R')">Full List</button>
-
+  <button style="font-size:20px" onclick="Search_Person_from_F_Name()">Search from </button>
+  <label style="font-size:28px" for="fname2">First Name</label>
+  <input style="font-size:22px" size="6" type="text" id="Search_fname2" name="Search_fname2">
 
 <div class="dropdown">
   <button onclick="Open_dropdown_menu()" style="font-size:20px" class="dropbtn">Filter</button>
@@ -3575,18 +3621,6 @@ function Reset_All(){
   </div>
 </div>
 
-
-  <button style="font-size:20px" onclick="Go_To_Roll_Marking()">Search</button>
-
-  <button style="font-size:20px" onclick="Open_Service_Record()">Service Record</button>
-
-
-
-
-
-<div class="box">  
-    <p id="Chinese_Surname"> </p>
-</div>
 
 
 <div id="tool_area_6" style="height:0%;display:none"> 
@@ -3651,12 +3685,19 @@ function Reset_All(){
   </td>
   </tr>
 
+
   <tr>
   <td>
-  <button style="font-size:16pt" onclick="Search_Service_Record();">Search Service Record=</button> 
-  <INPUT TYPE=TEXT style="font-size:16pt" NAME="Search_Rervice_Record_date" SIZE="12" id="Search_Rervice_Record_date"> (Ex:20200912M, M/A/E)
+  <button style="font-size:16pt" onclick="Exp_and_Email_Service_Record()">Send Service Record = </button> 
+  <INPUT TYPE=TEXT style="font-size:16pt" NAME="Exp_n_Email_start_date2" SIZE="12" id="Exp_n_Email_start_date2"> (Ex:20200912M, M/A/E)
+  </td>
+
+  <td>
+  <p id="Send_Service_Record2"> </p>  
+  <p id="Send_Service_Record_Message"> </p> 
   </td>
   </tr>
+
 
   <tr>
   <td>  &nbsp;&nbsp;  </td>
@@ -3692,7 +3733,62 @@ function Reset_All(){
        
 <br>     
 
+  <button style="font-size:20px" onclick="Search_Person_from_F_Name_V3()">First Name</button>
+  <a href="javascript:Search_Person_from_F_Name_V2('A')"> A </a>   
+  <a href="javascript:Search_Person_from_F_Name_V2('B')"> B </a> 
+  <a href="javascript:Search_Person_from_F_Name_V2('C')"> C </a>
+  <a href="javascript:Search_Person_from_F_Name_V2('D')"> D </a>
+  <a href="javascript:Search_Person_from_F_Name_V2('E')"> E </a>
+  <a href="javascript:Search_Person_from_F_Name_V2('F')"> F </a>
+  <a href="javascript:Search_Person_from_F_Name_V2('G')"> G </a>
+  <a href="javascript:Search_Person_from_F_Name_V2('H')"> H </a>
+  <a href="javascript:Search_Person_from_F_Name_V2('I')"> I </a>
+  <a href="javascript:Search_Person_from_F_Name_V2('J')"> J </a>
+  <a href="javascript:Search_Person_from_F_Name_V2('K')"> K </a>
+  <a href="javascript:Search_Person_from_F_Name_V2('L')"> L </a>
+  <a href="javascript:Search_Person_from_F_Name_V2('M')"> M </a>
+  <a href="javascript:Search_Person_from_F_Name_V2('N')"> N </a>
+  <a href="javascript:Search_Person_from_F_Name_V2('O')"> O </a>
+  <a href="javascript:Search_Person_from_F_Name_V2('P')"> P </a>
+  <a href="javascript:Search_Person_from_F_Name_V2('R')"> R </a>
+  <a href="javascript:Search_Person_from_F_Name_V2('S')"> S </a>
+  <a href="javascript:Search_Person_from_F_Name_V2('T')"> T </a>
+  <a href="javascript:Search_Person_from_F_Name_V2('V')"> V </a>
+  <a href="javascript:Search_Person_from_F_Name_V2('W')"> W </a>
+  <a href="javascript:Search_Person_from_F_Name_V2('X')"> X </a>
+  <a href="javascript:Search_Person_from_F_Name_V2('Y')"> Y </a>
+  <a href="javascript:Search_Person_from_F_Name_V2('Z')"> Z </a>
 
+<br>  
+       
+                
+  <button style="font-size:20px" onclick="Roll_Call_V1('R')">Last Name V1</button>
+
+
+  <br>
+                 
+  <button style="font-size:20px" onclick="Roll_Call_V2('R')">Last Name V2</button>
+  <a href="javascript:Roll_Call_Search_V1('A','R')"> A </a>
+  <a href="javascript:Roll_Call_Search_V1('B','R')"> B </a>
+  <a href="javascript:Roll_Call_Search_V1('C','R')"> C </a>
+  <a href="javascript:Roll_Call_Search_V1('D','R')"> D </a>
+  <a href="javascript:Roll_Call_Search_V1('H','R')"> H </a>
+  <a href="javascript:Roll_Call_Search_V1('I','R')"> I </a>
+  <a href="javascript:Roll_Call_Search_V1('J','R')"> J </a>
+  <a href="javascript:Roll_Call_Search_V1('K','R')"> K </a>
+  <a href="javascript:Roll_Call_Search_V1('L','R')"> L </a>
+  <a href="javascript:Roll_Call_Search_V1('M','R')"> M </a>
+  <a href="javascript:Roll_Call_Search_V1('N','R')"> N </a>
+  <a href="javascript:Roll_Call_Search_V1('O','R')"> O </a>
+  <a href="javascript:Roll_Call_Search_V1('S','R')"> S </a>
+  <a href="javascript:Roll_Call_Search_V1('T','R')"> T </a>
+  <a href="javascript:Roll_Call_Search_V1('W','R')"> W </a>
+  <a href="javascript:Roll_Call_Search_V1('X','R')"> X </a>
+  <a href="javascript:Roll_Call_Search_V1('Y','R')"> Y </a>
+  <a href="javascript:Roll_Call_Search_V1('Z','R')"> Z </a>
+  <button style="font-size:20px" onclick="Go_To_Roll_Marking()">Search V2</button>
+
+  <p id="Chinese_Surname"> </p>
 
 
 
@@ -3709,10 +3805,6 @@ function Reset_All(){
   <p id="Roll_Call_Content_C"> </p>
 
 </div>
-
-
-</div>
-
 
 <div id="Admin_Tools_Area" style="width:100%;height:0%;overflow:auto;" class="center">
 
@@ -3932,6 +4024,13 @@ function Reset_All(){
 
 <br>
 
+
+<button onclick="Delete_Service_Record()">Delete Service Record = </button>
+<input size="12" type="text" id="Delete_Service_Record" name="Delete_Service_Record"> Ex: 202009, 2021
+
+<br>
+
+
 <button onclick="Delete_Attendance()">Delete Attendance = </button>
 <input size="12" type="text" id="Delete_Attendance_Record" name="Delete_Attendance_Record"> Ex: 20200905M
 
@@ -3995,6 +4094,7 @@ function Reset_All(){
 
   <button style="font-size:20px" onclick="Download_from_Attendance_Test2Db_Time_Between()">Download(.txt) Attendance Time Between </button>
   <INPUT TYPE=TEXT style="font-size:22px" size="10" id="Download_Time_start">-<INPUT TYPE=TEXT style="font-size:22px" size="10" id="Download_Time_end">
+  <button style="font-size:20px" onclick="Download_from_Attendance_Test2Db_Time_Between()">Exp Attendance Time Between by email</button>
   <br>
 
 
@@ -4762,8 +4862,6 @@ async function Add_or_Remove_Attendance(arg1,arg2,arg3,arg44) { // arg1: CNo, ar
    }
 
    //Show_Headcount();
-
-   //efocus_v2(); // Add on 20201205 for testing
 
 
 }  // End of function Add_or_Remove_Attendance(arg1,arg2,arg3)
@@ -6899,13 +6997,25 @@ async function Add_Attendance() {
 
 
 
+async function Delete_Service_Record() {
+
+  let delete_ID_2_tmp = document.getElementById("Delete_Service_Record").value;
+
+  dbT2.Service_Record.where("ID_2").startsWithIgnoreCase(delete_ID_2_tmp).delete();
+
+
+  //dbT2.Attendance.where("Record").startsWithIgnoreCase(delete_Record_tmp2).delete();
+
+
+} // End of function Delete_Service_Record()
+
+
 async function Delete_Service_Record_ID_2() {
 
   let delete_ID_2_tmp = document.getElementById("Delete_Service_Record_ID_2").value;
 
   dbT2.Service_Record.where("ID_2").equals(delete_ID_2_tmp).delete();
 
-  
 
 } // End of function Delete_Service_Record_ID_2()
 
@@ -7248,6 +7358,8 @@ async function Start_Service_Record() {
 
         add_Service_Record();
 
+        Roll_Call_V2('R');
+
      }
 
 
@@ -7366,6 +7478,14 @@ async function Exp_and_Email_Attendance2() { // exp attendance & service record
      var AT_Count = 0;
   
      var AT_Count_note = 0;
+
+
+     // for exp RE Attendance
+
+     await Roll_Call_RE_Attendance_V2();
+
+     // End of exp RE Attendance
+
 
      text += 'Total' + '%20';  // 'Space'
 
@@ -7610,6 +7730,49 @@ async function Exp_and_Email_Attendance2() { // exp attendance & service record
 
         } // End of for (i = 0; i < Verse.length; i++)
 
+
+
+
+
+
+        // for exp RE Attendance
+
+        text += '%0D' + '%0D';   // carriage return	%0D
+
+
+        text += 'Kindy Teacher=' + kindy_teacher_attendance_rete_V2 + '% ' + '%20';
+
+        text += 'Kindy Student=' + kindy_student_attendance_rete_V2 + '% ' + '%20' + '%0D';
+
+
+        text += 'LPC Teacher=' + LPC_teacher_attendance_rete_V2 + '% ' + '%20';
+
+        text += 'LPC Student=' + LPC_student_attendance_rete_V2 + '% ' + '%20' + '%0D';
+
+
+        text += 'UPC Teacher=' + UPC_teacher_attendance_rete_V2 + '% ' + '%20';
+
+        text += 'UPC Student=' + UPC_student_attendance_rete_V2 + '% ' + '%20' + '%0D';
+
+
+        text += 'JYC Teacher=' + JYC_teacher_attendance_rete_V2 + '% ' + '%20';
+
+        text += 'JYC Student=' + JYC_student_attendance_rete_V2 + '% ' + '%20' + '%0D';
+
+
+        text += 'IYC Teacher=' + IYC_teacher_attendance_rete_V2 + '% ' + '%20';
+
+        text += 'IYC Student=' + IYC_student_attendance_rete_V2 + '% ' + '%20' + '%0D';
+
+
+        text += 'SYC Teacher=' + SYC_teacher_attendance_rete_V2 + '% ' + '%20';
+
+        text += 'SYC Student=' + SYC_student_attendance_rete_V2 + '% ' + '%20' + '%0D';
+
+
+        // End of exp RE Attendance
+
+
         var mesg1 = 'Attendance ' + Verse_Count + ' exported';
 
         //document.getElementById("Imp_to_Congregation4").value = text;
@@ -7701,6 +7864,190 @@ async function Exp_and_Email_Attendance2() { // exp attendance & service record
 } // End of function Exp_and_Email_Attendance2()
 
 
+
+async function Exp_and_Email_Service_Record() { // New for V11f
+
+  var text = '';
+
+  //let Verse = await dbT2.Service_Record.where('ID_2').equals(DateStr2).toArray();
+
+  var startWith_date = document.getElementById("Exp_n_Email_start_date2").value; // Exp_start_date
+
+  if(startWith_date!='') {
+
+     let Verse = await dbT2.Service_Record.where('ID_2').startsWithIgnoreCase(startWith_date).toArray();
+
+     var Verse_Count = 0;
+
+     Verse_Count = Verse.length;
+
+     if (Verse) {
+
+        //text += 'Note:' + Verse[0].Note + '|' + '%20' + '%0D';
+
+        text += 'sr^_^|' + Verse_Count.toString();  // change seprator to "|" ,  for Service_Record
+
+        for (i = 0; i < Verse.length; i++) {
+
+           let id_1 = Verse[i].ID_1;
+           let id_2 = Verse[i].ID_2; 
+
+           let service_date = Verse[i].Service_Date;
+
+           let service_start_time = Verse[i].Service_Start_Time; 
+           let service_end_time = Verse[i].Service_End_Time; 
+           let usher = Verse[i].Usher; 
+
+           let topic = Verse[i].Topic;
+           let hymn = Verse[i].Hymn; 
+
+           let speaker = Verse[i].Speaker; 
+           let interp = Verse[i].Interp; 
+           let hymnal = Verse[i].Hymnal;
+
+           let note = Verse[i].Note; 
+
+           let bro_m_note = Verse[i].Bro_M_Note; 
+           let sis_m_note = Verse[i].Sis_M_Note; 
+           let bro_trs_note = Verse[i].Bro_TrS_Note;
+           let sis_trs_note = Verse[i].Sis_TrS_Note;
+
+           // Encrypt Content then Exp
+
+           var Key_input = '2020Chapter03Note15'; // for Encrypt and Decrypt Exp & Imp Chap Note
+
+           var encryptedUsher = CryptoJS.AES.encrypt(usher, Key_input);
+
+           var encryptedTopic = CryptoJS.AES.encrypt(topic, Key_input);
+
+           var encryptedHymn = CryptoJS.AES.encrypt(hymn, Key_input);
+
+           var encryptedSpeaker = CryptoJS.AES.encrypt(speaker, Key_input);
+
+           var encryptedInterp = CryptoJS.AES.encrypt(interp, Key_input);
+
+           var encryptedHymnal = CryptoJS.AES.encrypt(hymnal, Key_input);
+
+           var encryptedNote = CryptoJS.AES.encrypt(note, Key_input);
+
+           //text += '|' + name + '|' + speaker + '|' + topic + '|' + encryptedContent;  // change seprator to "|"
+
+           //text += '|' + id_1 + '|' + id_2 + '|' + topic + '|' + service_date + '|' + service_start_time + '|' + service_end_time + '|' + usher + '|' + topic + '|' + hymn + '|' + speaker + '|' + interp + '|' + hymnal + '|' + encryptedNote + '|' + bro_m_note + '|' + sis_m_note + '|' + bro_trs_note + '|' + sis_trs_note;  // change seprator to "|"
+
+           //text += '|' + id_1 + '|' + id_2 + '|' + service_date + '|' + service_start_time + '|' + service_end_time + '|' + usher + '|' + topic + '|' + hymn + '|' + speaker + '|' + interp + '|' + hymnal + '|' + encryptedNote + '|' + bro_m_note + '|' + sis_m_note + '|' + bro_trs_note + '|' + sis_trs_note;  // change seprator to "|"
+
+
+           //text += '|' + id_1 + '|' + id_2 + '|' + service_date + '|' + service_start_time + '|' + service_end_time + '|' + encryptedUsher + '|' + encryptedTopic + '|' + encryptedHymn + '|' + encryptedSpeaker + '|' + encryptedInterp + '|' + encryptedHymnal + '|' + encryptedNote + '|' + bro_m_note + '|' + sis_m_note + '|' + bro_trs_note + '|' + sis_trs_note;  // change seprator to "|"
+
+
+           text += '|' + id_1 + '|' + id_2 + '|' + service_date + '|' + service_start_time + '|' + service_end_time + '|' + encryptedUsher + '|' + topic + '|' + hymn + '|' + speaker + '|' + interp + '|' + hymnal + '|' + encryptedNote + '|' + bro_m_note + '|' + sis_m_note + '|' + bro_trs_note + '|' + sis_trs_note;  // change seprator to "|"
+
+
+
+        } // End of for (i = 0; i < Verse.length; i++)
+
+        //text += '%0D' + '%0D';   // carriage return	%0D
+
+
+        //text += 'for test';
+
+
+        //var mesg1 = 'Service Record ' + Verse_Count + ' exported';  // for test
+
+        //var mesg1 = 'Attendance ' + Verse_Count + ' exported';
+
+
+        //document.getElementById("Send_Service Record_Message").innerHTML = mesg1;  
+
+        //document.getElementById("Send_Attendance_Message").innerHTML = mesg1;
+
+
+        // -- Email
+
+        var name1 = "brisbane"; // 
+        var address1 = "tjc.org.au"; // 
+
+        var name2 = "sc424000"; // 
+        var address2 = "yahoo.com.tw"; // 
+
+        var name3 = "chang424000"; // 
+        var address3 = "gmail.com"; // 
+
+        var link = "Send email";
+        var subject = startWith_date + "%20Serivce%20Record";
+
+        var body = text + '%0D';   // carriage return	%0D
+
+
+        //var email_text = '<a href=\"mailto:' + name1 + '@' + address1 + '?cc=' + name2 + '@' + address2 + ',' + name3 + '@' + address3 + '&subject=' + subject + '&body=' + body + '\" onclick=\"Change_Start_Save_Color_to_black();\">' + link + '</a>';
+
+
+
+        //var email_text = '<a href=\"mailto:' + name1 + '@' + address1 + '?cc=' + name2 + '@' + address2 + ',' + name3 + '@' + address3 + '&subject=' + subject + '&body=' + body + '\">' + link + '</a>';
+
+
+        //var email_text = '<a href=\"mailto:name1@mail.com,name2@mail.com\">Send mail</a>';
+
+
+        
+        var email_text = '<a href=\"mailto:' + name2 + '@' + address2 + '?cc=' + name3 + '@' + address3 + '&subject=' + subject + '&body=' + body + '\">' + link + '</a>';
+
+
+        //var email_text = '<a href=\"mailto:' + name2 + '@' + address2 + '?cc=' + name2 + '@' + address2 + ',' + name3 + '@' + address3 + '&subject=' + subject + '&body=' + body + '\">' + link + '</a>';
+
+
+
+        //if (mesg1 == 'Service Record 0 exported') {
+
+        //   document.getElementById("Send_Service Record2").innerHTML = '';
+
+        //}
+        //else {
+
+        //   document.getElementById("Send_Service Record2").innerHTML = email_text;
+
+        //}
+
+
+        //document.getElementById("Send_Service Record2").value = email_text;
+
+
+        //document.getElementById("Send_Service Record2").value = 'send email';
+
+
+        //document.getElementById("Send_Attendance2").value = email_text;
+
+
+        var mesg1 = 'Service Record ' + Verse_Count + ' exported. ' +  email_text;  // for test
+
+        //var mesg1 = 'Service Record ' + Verse_Count + ' exported';  // for test
+
+
+        document.getElementById("Send_Attendance_Message").innerHTML = mesg1;
+
+
+        // End of -- Email        
+
+
+     } // End of if (Verse)
+
+  }
+  else {
+
+
+     document.getElementById("Send_Service Record2").innerHTML = "";
+
+     document.getElementById("Send_Service Record_Message").innerHTML = 'Service Record 0 exported';
+
+
+  } // End of if(startWith_date!='') {
+
+
+
+} // End of function Exp_and_Email_Service_Record()
+
+
+
 async function Exp_and_Email_Attendance() { // New for V12
 
   var Verse_Count = 0;
@@ -7778,7 +8125,11 @@ async function Exp_and_Email_Attendance() { // New for V12
         //var email_text = '<a href=\"mailto:' + name1 + '@' + address1 + '?cc=' + name2 + '@' + address2 + '&subject=' + subject + '&body=' + body + '\">' + link + '</a>';
 
 
-        var email_text = '<a href=\"mailto:' + name1 + '@' + address1 + '?cc=' + name2 + '@' + address2 + ',' + name3 + '@' + address3 + '&subject=' + subject + '&body=' + body + '\">' + link + '</a>';
+        //var email_text = '<a href=\"mailto:' + name1 + '@' + address1 + '?cc=' + name2 + '@' + address2 + ',' + name3 + '@' + address3 + '&subject=' + subject + '&body=' + body + '\">' + link + '</a>';
+
+
+        var email_text = '<a href=\"mailto:' + name2 + '@' + address2 + '?cc=' + name3 + '@' + address3 + '&subject=' + subject + '&body=' + body + '\">' + link + '</a>';
+
 
 
         //if( body == 'AE^_^|0%0D') {  // Attendance 0 exported

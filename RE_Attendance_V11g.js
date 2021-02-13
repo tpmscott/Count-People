@@ -1902,8 +1902,8 @@ async function Roll_Call_RE_Attendance_V4() { // for test, for display , for all
 } // End of function Roll_Call_RE_Attendance_V4()
 
 
-async function Roll_Call_RE_Attendance_V5() { // for test, for display , for all Fridays, since certain Day
-                                              // for Fridays-After RE Opening Day
+async function Roll_Call_RE_Attendance_V5(Arg) { // for test, for display , for all Fridays, since certain Day
+                                                 // for Fridays-After RE Opening Day
 
    Open_RE_Attendance_Area();
 
@@ -1954,6 +1954,10 @@ async function Roll_Call_RE_Attendance_V5() { // for test, for display , for all
 
 
      var RE_Attendance_V3_text = '<center><table border=1 width=100%>';
+
+
+     // Add on 20210210
+     var RE_Attendance_Content_for_email = 'Day,Date,Kindy T,Kindy S,LPC T,LPC S,UPC T,UPC S,JYC T,JYC S,IYC T,IYC S,SYC T,SYC S,\n';
 
 
 
@@ -2680,35 +2684,65 @@ async function Roll_Call_RE_Attendance_V5() { // for test, for display , for all
 
      RE_Attendance_V3_text += '<td width=4%>' + myDay + '</td>';
 
+     RE_Attendance_Content_for_email += myDay + ',';   // Add on 20210210
+
      RE_Attendance_V3_text += '<td width=9%>' + New_DateStr + '</td>';
+
+     RE_Attendance_Content_for_email += New_DateStr + ',';
 
      RE_Attendance_V3_text += '<td width=7% style="font-size:17pt;" align=right>' + kindy_teacher_attendance_rete  + '</td>';
 
+     RE_Attendance_Content_for_email += kindy_teacher_attendance_rete + ',';
+
      RE_Attendance_V3_text += '<td width=7% style="font-size:17pt;" align=right>' + kindy_student_attendance_rete  + '</td>';
+
+     RE_Attendance_Content_for_email += kindy_student_attendance_rete + ',';
 
      RE_Attendance_V3_text += '<td width=7% style="font-size:17pt;" align=right>' + LPC_teacher_attendance_rete  + '</td>';
 
+     RE_Attendance_Content_for_email += LPC_teacher_attendance_rete + ',';
+
      RE_Attendance_V3_text += '<td width=7% style="font-size:17pt;" align=right>' + LPC_student_attendance_rete  + '</td>';
+
+     RE_Attendance_Content_for_email += LPC_student_attendance_rete + ',';
 
      RE_Attendance_V3_text += '<td width=7% style="font-size:17pt;" align=right>' + UPC_teacher_attendance_rete  + '</td>';
 
+     RE_Attendance_Content_for_email += UPC_teacher_attendance_rete + ',';
+
      RE_Attendance_V3_text += '<td width=7% style="font-size:17pt;" align=right>' + UPC_student_attendance_rete  + '</td>';
+
+     RE_Attendance_Content_for_email += UPC_student_attendance_rete + ',';
 
      RE_Attendance_V3_text += '<td width=7% style="font-size:17pt;" align=right>' + JYC_teacher_attendance_rete  + '</td>';
 
+     RE_Attendance_Content_for_email += JYC_teacher_attendance_rete + ',';
+
      RE_Attendance_V3_text += '<td width=7% style="font-size:17pt;" align=right>' + JYC_student_attendance_rete  + '</td>';
+
+     RE_Attendance_Content_for_email += JYC_student_attendance_rete + ',';
 
      RE_Attendance_V3_text += '<td width=7% style="font-size:17pt;" align=right>' + IYC_teacher_attendance_rete  + '</td>';
 
+     RE_Attendance_Content_for_email += IYC_teacher_attendance_rete + ',';
+
      RE_Attendance_V3_text += '<td width=7% style="font-size:17pt;" align=right>' + IYC_student_attendance_rete  + '</td>';
+
+     RE_Attendance_Content_for_email += IYC_student_attendance_rete + ',';
 
      RE_Attendance_V3_text += '<td width=7% style="font-size:17pt;" align=right>' + SYC_teacher_attendance_rete  + '</td>';
 
+     RE_Attendance_Content_for_email += SYC_teacher_attendance_rete + ',';
+
      RE_Attendance_V3_text += '<td width=7% style="font-size:17pt;" align=right>' + SYC_student_attendance_rete  + '</td>';
+
+     RE_Attendance_Content_for_email += SYC_student_attendance_rete + ',';
 
      //RE_Attendance_V3_text += '</tr></table></center>';
 
      RE_Attendance_V3_text += '</tr>';
+
+     RE_Attendance_Content_for_email += '\n';
 
 
 
@@ -2797,37 +2831,85 @@ async function Roll_Call_RE_Attendance_V5() { // for test, for display , for all
 
      RE_Attendance_V3_text += '<th width=12% style="font-size:17pt;" colspan="2">Average</th>';
 
+     RE_Attendance_Content_for_email += 'Class,Average,';  // Add on 20210210
+
      RE_Attendance_V3_text += '<th width=7% style="font-size:17pt;" >' + kindy_teacher_attendance_rete_Average + '</th>';
+
+     RE_Attendance_Content_for_email += kindy_teacher_attendance_rete_Average + ',';
 
      RE_Attendance_V3_text += '<th width=7% style="font-size:17pt;" >' + kindy_student_attendance_rete_Average + '</th>';
 
+     RE_Attendance_Content_for_email += kindy_student_attendance_rete_Average + ',';
+
      RE_Attendance_V3_text += '<th width=7% style="font-size:17pt;" >' + LPC_teacher_attendance_rete_Average + '</th>';
+
+     RE_Attendance_Content_for_email += LPC_teacher_attendance_rete_Average + ',';
 
      RE_Attendance_V3_text += '<th width=7% style="font-size:17pt;" >' + LPC_student_attendance_rete_Average + '</th>';
 
+     RE_Attendance_Content_for_email += LPC_student_attendance_rete_Average + ',';
+
      RE_Attendance_V3_text += '<th width=7% style="font-size:17pt;" >' + UPC_teacher_attendance_rete_Average + '</th>';
+
+     RE_Attendance_Content_for_email += UPC_teacher_attendance_rete_Average + ',';
 
      RE_Attendance_V3_text += '<th width=7% style="font-size:17pt;" >' + UPC_student_attendance_rete_Average + '</th>';
 
+     RE_Attendance_Content_for_email += UPC_student_attendance_rete_Average + ',';
+
      RE_Attendance_V3_text += '<th width=7% style="font-size:17pt;" >' + JYC_teacher_attendance_rete_Average + '</th>';
+
+     RE_Attendance_Content_for_email += JYC_teacher_attendance_rete_Average + ',';
 
      RE_Attendance_V3_text += '<th width=7% style="font-size:17pt;" >' + JYC_student_attendance_rete_Average + '</th>';
 
+     RE_Attendance_Content_for_email += JYC_student_attendance_rete_Average + ',';
+
      RE_Attendance_V3_text += '<th width=7% style="font-size:17pt;" >' + IYC_teacher_attendance_rete_Average + '</th>';
+
+     RE_Attendance_Content_for_email += IYC_teacher_attendance_rete_Average + ',';
 
      RE_Attendance_V3_text += '<th width=7% style="font-size:17pt;" >' + IYC_student_attendance_rete_Average + '</th>';
 
+     RE_Attendance_Content_for_email += IYC_student_attendance_rete_Average + ',';
+
      RE_Attendance_V3_text += '<th width=7% style="font-size:17pt;" >' + SYC_teacher_attendance_rete_Average + '</th>';
+
+     RE_Attendance_Content_for_email += SYC_teacher_attendance_rete_Average + ',';
 
      RE_Attendance_V3_text += '<th width=7% style="font-size:17pt;" >' + SYC_student_attendance_rete_Average + '</th>';
 
+     RE_Attendance_Content_for_email += SYC_student_attendance_rete_Average + ',';
+
      RE_Attendance_V3_text += '</tr>';
+
+     RE_Attendance_Content_for_email += '\n';
 
 
      RE_Attendance_V3_text += '</table></center>';
 
 
-     document.getElementById("RE_Attendance_Content_Down").innerHTML = RE_Attendance_V3_text;       
+     document.getElementById("RE_Attendance_Content_Down").innerHTML = RE_Attendance_V3_text;  
+
+
+        // Download as .csv file   
+
+        if(Arg=='Download') {
+
+           //console.log(csv);
+           //console.log(text);
+           console.log(RE_Attendance_Content_for_email);
+           var hiddenElement = document.createElement('a');
+           //hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(text);
+           hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(RE_Attendance_Content_for_email);
+           hiddenElement.target = '_blank';
+           var Download_File_Name = 'Fridays-After_Attendance.csv';
+           hiddenElement.download = Download_File_Name; // 
+           hiddenElement.click();    
+
+        } // End of if(Arg=='Download')
+
+        // End of Download as .csv file         
 
 
 } // End of function Roll_Call_RE_Attendance_V5()
@@ -6934,15 +7016,17 @@ function Open_RE_Attendance_Area() {
 
    var OS_tmp = getOS();
 
-   if (OS_tmp == 'Windows') {
+   //if (OS_tmp == 'Windows') {
 
       document.getElementById("tool_area_21").style.display='block';
 
       var download_text = 'Download ' + '<a href=\"javascript:Roll_Call_RE_Attendance_V5B(\'Download\')\">Fridays-Before</a>';
 
+      download_text += ' ' + '<a href=\"javascript:Roll_Call_RE_Attendance_V5(\'Download\')\">Fridays-After</a>';
+
       document.getElementById("RE_Attendance_Send_email").innerHTML = download_text;
 
-   }
+   //}
 
 } // End of function Open_RE_Attendance_Area()
 
@@ -6956,15 +7040,17 @@ function Open_RE_Attendance_Area_V3() {
 
    var OS_tmp = getOS();
 
-   if (OS_tmp == 'Windows') {
+   //if (OS_tmp == 'Windows') {
 
       document.getElementById("tool_area_21").style.display='block';
 
       var download_text = 'Download ' + '<a href=\"javascript:Roll_Call_RE_Attendance_V5B(\'Download\')\">Fridays-Before</a>';
 
+      download_text += ' ' + '<a href=\"javascript:Roll_Call_RE_Attendance_V5(\'Download\')\">Fridays-After</a>';
+
       document.getElementById("RE_Attendance_Send_email").innerHTML = download_text;
 
-   }
+   //}
 
 } // End of function Open_RE_Attendance_Area_V3()
 
@@ -6977,11 +7063,11 @@ function Close_RE_Attendance_Area() {
 
    var OS_tmp = getOS();
 
-   if (OS_tmp == 'Windows') {
+   //if (OS_tmp == 'Windows') {
 
       document.getElementById("tool_area_21").style.display='none'; 
 
-   }
+   //}
 
    Search_fname2_clear();
 
@@ -6993,11 +7079,11 @@ function Close_RE_Attendance_Area_V3() {
 
    var OS_tmp = getOS();
 
-   if (OS_tmp == 'Windows') {
+   //if (OS_tmp == 'Windows') {
 
       document.getElementById("tool_area_21").style.display='none'; 
 
-   }
+   //}
 
    Search_fname2_clear();
 
