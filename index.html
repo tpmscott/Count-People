@@ -252,7 +252,7 @@
     <script src="aes.js"></script>
 
 
-<SCRIPT LANGUAGE="JavaScript" SRC="Mark_Line_V11d.js"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" SRC="Mark_Line_V11h.js"></SCRIPT>
 
 <SCRIPT LANGUAGE="JavaScript" SRC="KeyFunction2.js"></SCRIPT>
 
@@ -539,14 +539,13 @@ function clickCounter() {
    <label style="font-size:28px" for="fname2">Hymnal Leader:</label>
    <input style="font-size:22px" size="13" type="text" oninput="update_Service_Record();" id="Hymnal" name="Hymnal" onfocus="Change_Save_Color_to_blue();"> 
 
-   <button style="font-size:16px" onclick="Show_Name_List()">Show Name List</button>
-   <button style="font-size:16px" onclick="Hide_Name_List()">Hide Name List</button>
+   <br>
+   <button style="font-size:16px" onclick="Show_Name_List()">Show Speaker Name List</button>
 
-   <button style="font-size:16px" onclick="Show_Name_List2()">Show Name List</button>
-   <button style="font-size:16px" onclick="Hide_Name_List2()">Hide Name List</button>
+   <button style="font-size:16px" onclick="Show_Name_List2()">Show Interpreter Name List</button>
 
-   <button style="font-size:16px" onclick="Show_Name_List3()">Show Name List</button>
-   <button style="font-size:16px" onclick="Hide_Name_List3()">Hide Name List</button>
+   <button style="font-size:16px" onclick="Show_Name_List3()">Show Hymnal Leader Name List</button>
+
 
    <div id="tool_area_9" style="font-size:26px;height:0%;display:none"> 
 
@@ -588,6 +587,7 @@ function clickCounter() {
      <br>
      <a href="javascript:;" onclick="Show_Name('Br Tu §ù³Õ¦t');">Br Tu §ù³Õ¦t</a>
      <a href="javascript:;" onclick="Show_Name('Br Anderson Tan');">Br Anderson Tan</a>
+     <a style="color:red" href="javascript:;" onclick="Hide_Name_List();">Close</a>
 
    </div>
 
@@ -609,6 +609,7 @@ function clickCounter() {
      <a href="javascript:;" onclick="Show_Name2('Ted T');">Ted T</a>
      <a href="javascript:;" onclick="Show_Name2('Terie L');">Terie L</a>
      <a href="javascript:;" onclick="Show_Name2('Wayne S');">Wayne S</a>
+     <a style="color:red" href="javascript:;" onclick="Hide_Name_List2();">Close</a>
 
    </div>
 
@@ -657,7 +658,7 @@ function clickCounter() {
      <a href="javascript:;" onclick="Show_Name3('Vivien W');">Vivien W</a>
      <a href="javascript:;" onclick="Show_Name3('Wendy Y');">Wendy Y</a>
      <a href="javascript:;" onclick="Show_Name3('Yung C');">Yung C</a>
-
+     <a style="color:red" href="javascript:;" onclick="Hide_Name_List3();">Close</a>
 
    </div>
 
