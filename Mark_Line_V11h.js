@@ -8737,6 +8737,228 @@ async function Search_Person_from_F_Name() { // Search from First Name
 }  // End of function Search_Person_from_F_Name()
 
 
+async function Search_Person_from_F_Name2() { // Search from First Name
+
+
+  // --------------------------------------------
+
+
+   document.getElementById("content2").style.visibility='hidden'; // hidden , visible
+   document.getElementById("content2").style.height = "0%";
+
+   document.getElementById("content2_C").style.visibility='visible'; 
+   document.getElementById("content2_C").style.height = "98%";       // 98% , 0%
+
+
+  var Search_FName_tmp = document.getElementById("Search_fname22").value ; // id="Search_fname22"
+
+
+  if (Search_FName_tmp == '')
+     Search_FName_tmp = 'QQQQQ';
+
+  //if (Search_FName_tmp == 'administrator') {
+
+  //   //Search_FName_tmp = 'QQQQQ';
+  //   Input_passWord_1();
+
+  //}
+
+
+  //if (Search_FName_tmp == 'RE Attendance') {
+
+  //   //Roll_Call_RE_Attendance();
+
+  //   Roll_Call_RE_Attendance_V3();
+
+  //}
+
+  //if (Search_FName_tmp == 'Download RE Attendance') {
+
+  //   //Roll_Call_RE_Attendance();
+
+  //   set_show_download_RE_Attendance();
+
+  //   Roll_Call_RE_Attendance_V3();
+
+  //}
+
+
+  let Verse_81 = await dbT2.Roll.where('F_Name').startsWithIgnoreCase(Search_FName_tmp).toArray();
+
+  if (Verse_81) {  // Prepare HTML for filling data
+
+     var Rnum = 30001;  // Rnum
+     var Rvers = 40001;  // EName
+     var CName = 50001;  // CName
+
+     var Roll_Call_Content_Str = '<table><tr>';
+
+     var j=1;
+
+     for (var i = 0; i < Verse_81.length ; i++) {
+
+        var H_No_tmp = Verse_81[i].H_No;        // 1_2
+        var H_No_tmp2 = H_No_tmp.split("_");   
+        var H_No_tmp3 = H_No_tmp2[1];          // 2
+
+        if (H_No_tmp3 == '1' || j==1) {
+
+           var add_str1 = '</tr><tr>';
+
+           var add_str2 = '<td valign=\"top\"><div id=\"' + Rnum + '\"></div></td><td><div id=\"' + Rvers + '\"></div></td><td><div id=\"' + CName + '\"></div></td>';
+
+           Roll_Call_Content_Str = Roll_Call_Content_Str + add_str1 + add_str2;
+
+           j=2;
+
+        }
+        else {
+
+           var add_str1 = '<td></td><td></td><td></td><td></td><td></td>';
+
+           var add_str2 = '<td valign=\"top\"><div id=\"' + Rnum + '\"></div></td><td><div id=\"' + Rvers + '\"></div></td><td><div id=\"' + CName + '\"></div></td>';
+
+           Roll_Call_Content_Str = Roll_Call_Content_Str + add_str1 + add_str2;
+
+           j=1;
+
+        }
+
+
+
+        //var '<tr><td valign=\"top\"><div id=\"' + Rnum + '\"></div></td><td><div id=\"' + Rvers + '\"></div></td><td><div id=\"' + CName + '\"></div></td></tr>';
+
+        //Roll_Call_Content_Str = Roll_Call_Content_Str + 
+
+
+        Rnum++;
+        Rvers++;
+        CName++;
+
+         
+
+     } // End of for (var i = 0; i < Verse_81.length ; i++)
+
+     var Roll_Call_Content_Str = Roll_Call_Content_Str + '</tr></table>';
+
+     document.getElementById("Roll_Call_Content_C").innerHTML = Roll_Call_Content_Str;
+
+  }
+
+
+
+  // --------------------------------------------
+
+  //let Verse_42 = await dbT2.Roll.where('C_F_FName').startsWithIgnoreCase(argC).toArray();
+
+  if (Verse_81) {  // Fill data
+
+     var Rnum = 30001;  // Rnum
+     var Rvers = 40001;  // EName
+     var CName = 50001;  // CName
+
+     for (var i = 0; i < Verse_81.length ; i++) {
+
+        // arg1: CNo, arg2: Member, arg3:Gender
+
+        var arg1 = Verse_81[i].CNo;
+
+        var arg2 = Verse_81[i].Member;
+
+        var arg3 = Verse_81[i].Gender;
+
+        var Result = await Check_Attendance(arg1,arg2,arg3);
+
+        if (Result == 'y') {
+
+           document.getElementById(Rvers).style.color = "blue";
+
+        }
+        else {
+
+           document.getElementById(Rvers).style.color = "black";
+
+        }
+
+
+        //var Name_Str = Verse_3[i].L_Name + ',' + Verse_3[i].F_Name + ' ';
+
+
+        // -----------------------------------------
+
+
+        var H_No_tmp = Verse_81[i].H_No;        // 1_2
+        var H_No_tmp2 = H_No_tmp.split("_");   
+        var H_No_tmp3 = H_No_tmp2[1];          // 2
+        var H_No_tmp4 = H_No_tmp2[0];          // 1
+        var H_No_tmp5 = H_No_tmp4 + '_';       // 1_
+
+
+      //var Check_Str = '<button onClick="Add_or_Remove_Attendance(\'' + arg1 + '\',\'' + arg2 + '\',\'' + arg3 + '\',\'' + Rvers + '\')"> V </button>';  // Using \' as an escape character
+
+        var Family_Q_Str = '<button onClick="Search_Family_from_H_No_V3(\'' + H_No_tmp5 + '\')"> F </button>';  // Using \' as an escape character
+
+        var Name_Str = Verse_81[i].F_Name + ' ' + Verse_81[i].L_Name + Family_Q_Str;
+
+        //var Name_Str = Verse_81[i].F_Name + ' ' + Verse_81[i].L_Name + ' ';  // Old
+
+
+        if (Verse_81[i].Member == 'T') {
+
+           //Name_Str = '*' + Verse_3[i].L_Name + ',' + Verse_3[i].F_Name + ' ';
+
+           //Name_Str = '*' + Verse_81[i].F_Name + ' ' + Verse_81[i].L_Name + ' ';   // Old
+
+           Name_Str = '*' + Verse_81[i].F_Name + ' ' + Verse_81[i].L_Name + Family_Q_Str;
+
+        }
+
+
+        var Name_Str2 =  Verse_81[i].C_F_Name + Verse_81[i].C_L_Name;
+
+
+        //var H_No_tmp = Verse_81[i].H_No;        // 1_2
+        //var H_No_tmp2 = H_No_tmp.split("_");   
+        //var H_No_tmp3 = H_No_tmp2[1];          // 2
+
+        if (H_No_tmp3 == '1') {
+
+           Name_Str = '<b><u>' + Name_Str + ' </u></b>';
+
+           Name_Str2 =  '<b><u>' + Name_Str2 + ' </u></b>';
+
+        }
+
+
+        //var Name_Str2 =  Verse_3[i].C_F_Name + Verse_3[i].C_L_Name;
+
+
+
+        var Check_Str = '<button onClick="Add_or_Remove_Attendance(\'' + arg1 + '\',\'' + arg2 + '\',\'' + arg3 + '\',\'' + Rvers + '\')"> V </button>';  // Using \' as an escape character
+
+        //var Check_Str = '<button onClick="Show_People_Phone_V2(\'' + arg1 + '\')"> P </button>';  // Using \' as an escape character
+
+
+
+        document.getElementById(Rnum++).innerHTML = Check_Str;
+
+        document.getElementById(Rvers++).innerHTML =  Name_Str;
+
+        document.getElementById(CName++).innerHTML =  Name_Str2;
+
+
+     } // End of for (var i = 0; i < Verse_81.length ; i++)
+
+
+
+  }
+
+
+}  // End of function Search_Person_from_F_Name2()
+
+
+
+
 function Open_Admin_Tools_Area() {
 
    document.getElementById("Admin_Tools_Area").style.visibility='visible'; 
