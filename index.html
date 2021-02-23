@@ -8319,6 +8319,101 @@ async function Exp2_from_Congregation4() { // New for V8 , do not exp Tel & Mob
 } // End of function Exp2_from_Congregation4()
 
 
+async function Exp_CNo_Between_by_email_from_Congregation4() { // New for V8 
+
+
+  var start_CNo_tmp = document.getElementById("Exp_CNo_start").value;
+
+  var end_CNo_tmp = document.getElementById("Exp_CNo_end").value;
+
+  
+  var start_CNo = Number(start_CNo_tmp);
+
+  var end_CNo = Number(end_CNo_tmp);
+
+
+  let Verse = await dbT2.Congregation4.where('CNo').between(start_CNo, end_CNo, true, true).toArray();
+
+
+  var Verse_Count = Verse.length;
+
+  if (Verse) {
+
+     var text = 'C4^_^,' + Verse_Count.toString();
+
+     for (i = 0; i < Verse.length; i++) {
+
+        let CNo = Verse[i].CNo;
+        let F_Name = Verse[i].F_Name;
+        let L_Name = Verse[i].L_Name;
+        let Member = Verse[i].Member;
+        let Gender = Verse[i].Gender;
+
+        let H_No = Verse[i].H_No;      // Format : HouseholderNo_BirthOrder Ex: 1_1, 1_2
+
+        let C_F_Name = Verse[i].C_F_Name; // ©m
+        let C_L_Name = Verse[i].C_L_Name; // ¦W¦r
+        let F_Order = Verse[i].F_Order; // 1 for Householder
+
+
+        //let Tel = Verse[i].Tel;  // 
+
+        if (!Verse[i].Tel || Verse[i].Tel==' ') 
+           var Tel = 'no value';
+        else
+           var Tel = Verse[i].Tel;
+
+        //let Mob = Verse[i].Mob;
+
+        if (!Verse[i].Mob || Verse[i].Mob==' ') 
+           var Mob = 'no value';
+        else
+           var Mob = Verse[i].Mob;
+
+
+        text += ',' + CNo + ',' + F_Name + ',' + L_Name + ',' + Member + ',' + Gender + ',' + H_No + ',' + C_F_Name + ',' + C_L_Name + ',' + F_Order + ',' + Tel + ',' + Mob;
+
+     } // End of for (i = 0; i < Verse.length; i++)
+
+
+        // -- Email
+
+        var name1 = "truejesuschurchbrisbane"; // truejesuschurchbrisbane
+        var address1 = "gmail.com"; // gmail.com
+
+        var name2 = "sc424000"; // 
+        var address2 = "yahoo.com.tw"; // 
+
+        var name3 = "chang424000"; // 
+        var address3 = "gmail.com"; // 
+
+        var link = "Send email";
+        var subject = start_CNo_tmp + "%20to%20" + end_CNo + "%20Congregation4%20Exp";
+
+        var body = text + '%0D';   // carriage return	%0D
+
+
+        var email_text = '<a href=\"mailto:' + name2 + '@' + address2 + '?cc=' + name3 + '@' + address3 + ',' + name1 + '@' + address1 + '&subject=' + subject + '&body=' + body + '\">' + link + '</a>';
+
+
+     var mesg1 = 'Congregation4 ' + Verse_Count + ' exported';
+
+
+     document.getElementById("Send_Congregation4_Exp").innerHTML = email_text;
+
+     document.getElementById("Mesg4").value = mesg1;
+
+
+  } // End of if (Verse)
+
+
+
+} End of function Exp_CNo_Between_by_email_from_Congregation4()
+
+
+
+
+
 async function Exp_CNo_Between_by_email_without_Tel_and_Mob_from_Congregation4() { // New for V8 , do not exp Tel & Mob
 
 
