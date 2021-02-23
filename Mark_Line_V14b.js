@@ -5766,7 +5766,7 @@ async function Roll_Call_UPC() {  // Arg: 'R' for Roll Call, 'P' for Phone Dir.
 
   //var kindy_member = new Array(93,102,95); // 93 Hazel Chen
 
-  var UPC_member = new Array(146,106,251,72,168,24,125,16,52,137,98,42,15,279,'CIC139',109,244,38,76,11,49,51,97); // ,139
+  //var UPC_member = new Array(146,106,251,72,168,24,125,16,52,137,98,42,15,279,'CIC139',109,244,38,76,11,49,51,97); // ,139
 
  
   //      table.where(indexOrPrimKey).anyOf(array)
@@ -6224,7 +6224,7 @@ async function Roll_Call_LPC() {  // Arg: 'R' for Roll Call, 'P' for Phone Dir.
 
   //var kindy_member = new Array(93,102,95); // 93 Hazel Chen
 
-  var LPC_member = new Array(53,147,79,176,73,94,99,175,122,138,252,266,88,182,272,'CIC37',29,60,44,186,121,181,166); // ,37
+  //var LPC_member = new Array(53,147,79,176,73,94,99,175,122,138,252,266,88,182,272,'CIC37',29,60,44,186,121,181,166); // ,37
 
  
   //      table.where(indexOrPrimKey).anyOf(array)
@@ -6459,7 +6459,7 @@ async function Roll_Call_Kindy() {  // Arg: 'R' for Roll Call, 'P' for Phone Dir
 
   //var kindy_member = new Array(93,102,95); // 93 Hazel Chen
 
-  var kindy_member = new Array(253,183,95,'CIC93',102,156,145,18,85); 
+  //var kindy_member = new Array(253,183,95,'CIC93',102,156,145,18,85); 
                                            // 93 Hazel Chen
                                            // 95  Chloe Huang
                                            // 102 Anabella Liang
