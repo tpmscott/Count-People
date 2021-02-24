@@ -2826,6 +2826,7 @@ async function Roll_Call_RE_Attendance_V5(Arg) { // for test, for display , for 
 
 
 
+     // for Fridays-After Average
 
      RE_Attendance_V3_text += '<tr>';
 
@@ -2884,6 +2885,70 @@ async function Roll_Call_RE_Attendance_V5(Arg) { // for test, for display , for 
      RE_Attendance_V3_text += '</tr>';
 
      RE_Attendance_Content_for_email += '\n';
+
+
+
+     // for Showing Fridays-Before Average
+
+     RE_Attendance_V3_text += '<tr>';
+
+     RE_Attendance_V3_text += '<th width=12% style="font-size:17pt;color:red;" colspan="2">Before Average</th>';
+
+     RE_Attendance_Content_for_email += 'Before,Average,';  // Add on 20210210
+
+     RE_Attendance_V3_text += '<th width=7% style="font-size:17pt;" >' + '20' + '</th>';
+
+     RE_Attendance_Content_for_email += '20' + ',';
+
+     RE_Attendance_V3_text += '<th width=7% style="font-size:17pt;" >' + '0' + '</th>';
+
+     RE_Attendance_Content_for_email += '0' + ',';
+
+     RE_Attendance_V3_text += '<th width=7% style="font-size:17pt;" >' + '40.74' + '</th>';
+
+     RE_Attendance_Content_for_email += '40.74' + ',';
+
+     RE_Attendance_V3_text += '<th width=7% style="font-size:17pt;" >' + '10.26' + '</th>';
+
+     RE_Attendance_Content_for_email += '10.26' + ',';
+
+     RE_Attendance_V3_text += '<th width=7% style="font-size:17pt;" >' + '60.19' + '</th>';
+
+     RE_Attendance_Content_for_email += '60.19' + ',';
+
+     RE_Attendance_V3_text += '<th width=7% style="font-size:17pt;" >' + '22.92' + '</th>';
+
+     RE_Attendance_Content_for_email += '22.92' + ',';
+
+     RE_Attendance_V3_text += '<th width=7% style="font-size:17pt;" >' + '67.78' + '</th>';
+
+     RE_Attendance_Content_for_email += '67.78' + ',';
+
+     RE_Attendance_V3_text += '<th width=7% style="font-size:17pt;" >' + '34.44' + '</th>';
+
+     RE_Attendance_Content_for_email += '34.44' + ',';
+
+     RE_Attendance_V3_text += '<th width=7% style="font-size:17pt;" >' + '83.33' + '</th>';
+
+     RE_Attendance_Content_for_email += '83.33' + ',';
+
+     RE_Attendance_V3_text += '<th width=7% style="font-size:17pt;" >' + '56.94' + '</th>';
+
+     RE_Attendance_Content_for_email += '56.94' + ',';
+
+     RE_Attendance_V3_text += '<th width=7% style="font-size:17pt;" >' + '56.94' + '</th>';
+
+     RE_Attendance_Content_for_email += '56.94' + ',';
+
+     RE_Attendance_V3_text += '<th width=7% style="font-size:17pt;" >' + '50.93' + '</th>';
+
+     RE_Attendance_Content_for_email += '50.93' + ',';
+
+     RE_Attendance_V3_text += '</tr>';
+
+     RE_Attendance_Content_for_email += '\n';
+
+
 
 
      RE_Attendance_V3_text += '</table></center>';
