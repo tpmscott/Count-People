@@ -402,7 +402,7 @@ function clickCounter() {
 <div id="tool_area_8" style="height:170%;display:block"> 
 
    <center><b><label style="font-size:30px" for="fname2">Service Record & </label></b>
-   <button id="Go_To_Roll_Marking" style="font-size:26px" onclick="Go_To_Roll_Marking()">Roll Marking</button></center>
+   <a href="javascript:;" onclick="Go_To_Roll_Marking();">Roll Marking</a></center>
    <br>
 
    <td>
@@ -3557,33 +3557,32 @@ function Reset_All(){
 <div id="roll_marking" style="height:105%;display:block"> 
 
 
-  <button style="font-size:20px" onclick="Roll_Call_V2('R')">Full List</button>
+  <center><button style="font-size:20px" onclick="Roll_Call_V2('R')">Full List</button>
 
 
 <div class="dropdown">
   <button onclick="Open_dropdown_menu()" style="font-size:20px" class="dropbtn">Filter</button>
   <div id="dropdown-content" class="dropdown-content">
-    <a href="javascript:Roll_Call_Kindy();Close_dropdown_menu();">Kindy 幼稚班</a>
-    <a href="javascript:Roll_Call_LPC();Close_dropdown_menu();">LPC 幼年班</a>
-    <a href="javascript:Roll_Call_UPC();Close_dropdown_menu();">UPC 少年班</a>
-    <a href="javascript:Roll_Call_C1();Close_dropdown_menu();">Cooking Group 1 - Steven 劉邦光組</a>
-    <a href="javascript:Roll_Call_C2();Close_dropdown_menu();">Cooking Group 2 - Henry 郭淼義組</a>
-    <a href="javascript:Roll_Call_C3();Close_dropdown_menu();">Cooking Group 3 - Joanne 柯愛真組</a>
-    <a href="javascript:Roll_Call_C4();Close_dropdown_menu();">Cooking Group 4 - Su-Foh 蔡仕和組</a>
-    <a href="javascript:Roll_Call_C5();Close_dropdown_menu();">Cooking Group 5 - Daniel 柯宇恆組</a>
-    <a href="javascript:Roll_Call_C6();Close_dropdown_menu();">Cooking Group 6 - Elizabeth 陳月桂組</a>
-    <a href="javascript:Search_Truth_Seeker();Close_dropdown_menu();">Truth Seeker 慕道者</a>
-    <a href="javascript:Go_To_TJCBNE_Attendance_Sheet_V2();Close_dropdown_menu();">Truth Seeker - Name Not in App</a>
-    <a href="javascript:Roll_Call_GC();Close_dropdown_menu();">Gold Coast 黃金海岸區</a>
-    <a style="color:white;background-color: #4CAF50" href="javascript:Close_dropdown_menu();">Close Filter</a>
+    <a style="text-align:left;" href="javascript:Roll_Call_Kindy();Close_dropdown_menu();">Kindy 幼稚班</a>
+    <a style="text-align:left;" href="javascript:Roll_Call_LPC();Close_dropdown_menu();">LPC 幼年班</a>
+    <a style="text-align:left;" href="javascript:Roll_Call_UPC();Close_dropdown_menu();">UPC 少年班</a>
+    <a style="text-align:left;" href="javascript:Roll_Call_C1();Close_dropdown_menu();">Cooking Group 1 - Steven 劉邦光組</a>
+    <a style="text-align:left;" href="javascript:Roll_Call_C2();Close_dropdown_menu();">Cooking Group 2 - Henry 郭淼義組</a>
+    <a style="text-align:left;" href="javascript:Roll_Call_C3();Close_dropdown_menu();">Cooking Group 3 - Joanne 柯愛真組</a>
+    <a style="text-align:left;" href="javascript:Roll_Call_C4();Close_dropdown_menu();">Cooking Group 4 - Su-Foh 蔡仕和組</a>
+    <a style="text-align:left;" href="javascript:Roll_Call_C5();Close_dropdown_menu();">Cooking Group 5 - Daniel 柯宇恆組</a>
+    <a style="text-align:left;" href="javascript:Roll_Call_C6();Close_dropdown_menu();">Cooking Group 6 - Elizabeth 陳月桂組</a>
+    <a style="text-align:left;" href="javascript:Search_Truth_Seeker();Close_dropdown_menu();">Truth Seeker 慕道者</a>
+    <a style="text-align:left;" href="javascript:Go_To_TJCBNE_Attendance_Sheet_V2();Close_dropdown_menu();">Truth Seeker - Name Not in App</a>
+    <a style="text-align:left;" href="javascript:Roll_Call_GC();Close_dropdown_menu();">Gold Coast 黃金海岸區</a>
+    <a style="color:white;background-color: #4CAF50;text-align:left;" href="javascript:Close_dropdown_menu();">Close Filter</a>
   </div>
 </div>
 
 
   <button style="font-size:20px" onclick="Go_To_Roll_Marking()">Search</button>
 
-  <button style="font-size:20px" onclick="Open_Service_Record()">Service Record</button>
-
+  <a style="font-size:24px" href="javascript:Open_Service_Record();">Service Record</a></center>
 
 
 
