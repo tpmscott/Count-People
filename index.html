@@ -3605,6 +3605,7 @@ function Reset_All(){
 
 <div class="dropdown">
   <button onclick="Open_dropdown_menu()" style="font-size:20px" class="dropbtn">Filter</button>
+  <button style="font-size:20px" onclick="Go_To_TJCBNE_Attendance_Sheet_V2()">Truth Seeker Not in App</button>
   <div id="dropdown-content" class="dropdown-content">
     <a href="javascript:Roll_Call_Kindy();Close_dropdown_menu();">Kindy ¥®¸X¯Z</a>
     <a href="javascript:Roll_Call_LPC();Close_dropdown_menu();">LPC ¥®¦~¯Z</a>
@@ -3787,7 +3788,6 @@ function Reset_All(){
   <a href="javascript:Roll_Call_Search_V1('Y','R')"> Y </a>
   <a href="javascript:Roll_Call_Search_V1('Z','R')"> Z </a>
   <button style="font-size:20px" onclick="Go_To_Roll_Marking()">Search V2</button>
-  <button style="font-size:20px" onclick="Go_To_TJCBNE_Attendance_Sheet()">Truth Seeker Not in App</button>
 
   <p id="Chinese_Surname"> </p>
 
@@ -9544,12 +9544,16 @@ function chgFrame1( url,h , w ) {
    o.src=url;
    o.height=h; //500px
    o.width=w; //95%
-   // o.contentWindow.location.href=url;
+   //o.contentWindow.location.href=url;
    //frames[1].location.href=url;
 
 }
 
+function Go_To_TJCBNE_Attendance_Sheet_V2(){
 
+   window.open("https://docs.google.com/spreadsheets/d/1jFrIZijz2eVfWS8GvCBJZErtw2PQfbvCaC8CBroRips/edit?usp=sharing");
+
+}
 
 
 
