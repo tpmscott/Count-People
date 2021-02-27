@@ -3787,8 +3787,13 @@ function Reset_All(){
   <a href="javascript:Roll_Call_Search_V1('Y','R')"> Y </a>
   <a href="javascript:Roll_Call_Search_V1('Z','R')"> Z </a>
   <button style="font-size:20px" onclick="Go_To_Roll_Marking()">Search V2</button>
+  <button style="font-size:20px" onclick="Go_To_TJCBNE_Attendance_Sheet()">Truth Seeker Not in App</button>
 
   <p id="Chinese_Surname"> </p>
+
+
+
+<iframe id="iframe1" src="" width="0" height="0"></iframe>
 
 
 
@@ -9517,6 +9522,35 @@ function onScanSuccess(qrCodeMessage) {
 var html5QrcodeScanner = new Html5QrcodeScanner(
 	"reader", { fps: 10, qrbox: 250 });
 html5QrcodeScanner.render(onScanSuccess);
+
+
+
+
+// For get truth seeker info, add on 2021.02.27
+
+function Go_To_TJCBNE_Attendance_Sheet(){
+
+   var vurl= 'https://docs.google.com/spreadsheets/d/1jFrIZijz2eVfWS8GvCBJZErtw2PQfbvCaC8CBroRips/edit?usp=sharing';
+
+   chgFrame1(vurl,'500px','75%');
+
+
+} // End of function Go_To_TJCBNE_Attendance_Sheet()
+
+
+function chgFrame1( url,h , w ) {
+
+   var o=document.getElementById('iframe1');
+   o.src=url;
+   o.height=h; //500px
+   o.width=w; //95%
+   // o.contentWindow.location.href=url;
+   //frames[1].location.href=url;
+
+}
+
+
+
 
 
 </script>
