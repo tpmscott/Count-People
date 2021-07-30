@@ -236,6 +236,24 @@
   background-color: #99f9f9;
 }
 
+#tool_area_38 {
+  position: fixed;
+  right: 1%;
+  top: 1%;    
+  width: 32em;
+  height: 20em;  
+  background-color: #d9f9f9;
+}
+
+#tool_area_39 {
+  position: fixed;
+  right: 1%;
+  top: 1%;    
+  width: 32em;
+  height: 20em;  
+  background-color: #d9f9f9;
+}
+
 </style>
 
 
@@ -257,6 +275,8 @@
 <SCRIPT LANGUAGE="JavaScript" SRC="KeyFunction2.js"></SCRIPT>
 
 <SCRIPT LANGUAGE="JavaScript" SRC="RE_Attendance_V11g.js"></SCRIPT>
+
+<SCRIPT LANGUAGE="JavaScript" SRC="Sync_Upload_Download.js"></SCRIPT>
 
 
 
@@ -407,7 +427,8 @@ function clickCounter() {
 <meta http-equiv="Content-Type" content="text/html; charset=big5">
 
 </head>
-<body onload="Init_Total_Mode();init_Bible4U_DB(); return false;" text="#000000" link="#0000ff" alink="#ffffff" vlink="#0000ff" background="back5.jpg">
+<body onload="Hide_Sync_Attendance_Button();Init_Server_IP_n_Device_Name();Init_Total_Mode();init_Bible4U_DB(); return false;" text="#000000" link="#0000ff" alink="#ffffff" vlink="#0000ff" background="back5.jpg">
+
 
 
 <div id="Church_Service_Schedule" style="width:100%;height:0%;overflow:auto;" class="center">
@@ -465,7 +486,7 @@ function clickCounter() {
    <label style="font-size:28px" for="fname2"> 1. </label>
    </td>
    <td>
-   <button id="Start_Attendance2" style="font-size:26px" onclick="Start_Service_Record()">Start</button>
+   <button id="Start_Attendance2" style="font-size:26px" onclick="Start_Service_Record();displayIframe();doesConnectionExist_4();">Start</button>
    </td>
    <td>
    <label style="font-size:28px" for="fname2"> --> </label>
@@ -474,7 +495,7 @@ function clickCounter() {
    <label style="font-size:28px" for="fname2"> 2. </label>
    </td>
    <td>
-   <button id="Save_Attendance2" style="font-size:26px" onclick="update_Service_Record();Exp_and_Email_Attendance2();">Save</button>
+   <button id="Save_Attendance2" style="font-size:26px" onclick="update_Service_Record();Upload_Service_Record_3();Upload_Attendance_4();Exp_and_Email_Attendance2();">Save</button>
    </td>
    <td>
    <label style="font-size:28px" for="fname2"> --> </label>
@@ -491,9 +512,9 @@ function clickCounter() {
 
 
    <td>
-   <a href="javascript:;" onclick="Search_Prev_Service_Record();">Prev</a>
-   <button style="font-size:25px;" onclick="NOW_Service_Record();">Service Record-NOW</button>
-   <a href="javascript:;" onclick="Search_Next_Service_Record();">Next</a>
+   <a href="javascript:;" onclick="Search_Prev_Service_Record();displayIframe();doesConnectionExist_4();">Prev</a>
+   <button style="font-size:25px;" onclick="NOW_Service_Record();displayIframe();doesConnectionExist_4();">Service Record-NOW</button>
+   <a href="javascript:;" onclick="Search_Next_Service_Record();displayIframe();doesConnectionExist_4();">Next</a>
    </td>
 
    <br><br>
@@ -548,44 +569,47 @@ function clickCounter() {
 
    <div id="tool_area_9" style="font-size:26px;height:0%;display:none"> 
 
-     <a href="javascript:;" onclick="Show_Name('Dn Ko 陳恩光');">Dn Ko 陳恩光</a>
-     <a href="javascript:;" onclick="Show_Name('Dn Ko 柯恩宏');">Dn Ko 柯恩宏</a>
-     <a href="javascript:;" onclick="Show_Name('Dn James 李雅各');">Dn James 李雅各</a>
-     <a href="javascript:;" onclick="Show_Name('Br Ko 柯獻中');">Br Ko 柯獻中</a>
-     <a href="javascript:;" onclick="Show_Name('Br Ko 柯宇恆');">Br Ko 柯宇恆</a>
+     <a href="javascript:;" onclick="Show_Name('Dn Luke C 陳恩光');">Dn Luke C 陳恩光</a>
+     <a href="javascript:;" onclick="Show_Name('Dn John K 柯恩宏');">Dn John K 柯恩宏</a>
+     <a href="javascript:;" onclick="Show_Name('Dn James L 李雅各');">Dn James L 李雅各</a>
+     <a href="javascript:;" onclick="Show_Name('Br Aaron K 柯獻中');">Br Aaron K 柯獻中</a>
+     <a href="javascript:;" onclick="Show_Name('Br Daniel K 柯宇恆');">Br Daniel K 柯宇恆</a>
+
+     <br>
      <a href="javascript:;" onclick="Show_Name('Br Lawrence C');">Br Lawrence C</a>
+     <a href="javascript:;" onclick="Show_Name('Br Steven L 劉邦光');">Br Steven L 劉邦光</a>
+     <a href="javascript:;" onclick="Show_Name('Br Henry K 郭淼義');">Br Henry K 郭淼義</a>
+     <a href="javascript:;" onclick="Show_Name('Br Tzong C 許琮瑋');">Br Tzong C 許琮瑋</a>
+     <a href="javascript:;" onclick="Show_Name('Br Sam Y 楊恩加');">Br Sam Y 楊恩加</a>
 
      <br>
-     <a href="javascript:;" onclick="Show_Name('Br Liu 劉邦光');">Br Liu 劉邦光</a>
-     <a href="javascript:;" onclick="Show_Name('Br Kuo 郭淼義');">Br Kuo 郭淼義</a>
-     <a href="javascript:;" onclick="Show_Name('Br Chuy 許琮瑋');">Br Chuy 許琮瑋</a>
-     <a href="javascript:;" onclick="Show_Name('Br Yang 楊恩加');">Br Yang 楊恩加</a>
-     <a href="javascript:;" onclick="Show_Name('Br Chen 陳效謙');">Br Chen 陳效謙</a>
-
-     <br>
+     <a href="javascript:;" onclick="Show_Name('Br Benjamin C 陳效謙');">Br Benjamin C 陳效謙</a>
      <a href="javascript:;" onclick="Show_Name('Br Nugraha S');">Br Nugraha S</a>
-     <a href="javascript:;" onclick="Show_Name('Br Chen 陳展志');">Br Chen 陳展志</a>
-     <a href="javascript:;" onclick="Show_Name('Br Chin 陳頌祈');">Br Chin 陳頌祈</a>
-     <a href="javascript:;" onclick="Show_Name('Br Huang 黃明仁');">Br Huang 黃明仁</a>
-     <a href="javascript:;" onclick="Show_Name('Br Chang 張世光');">Br Chang 張世光</a>
+     <a href="javascript:;" onclick="Show_Name('Br Aaron C 陳展志');">Br Aaron C 陳展志</a>
+     <a href="javascript:;" onclick="Show_Name('Br Joel C 陳頌祈');">Br Joel C 陳頌祈</a>
+     <a href="javascript:;" onclick="Show_Name('Br David H 黃明仁');">Br David H 黃明仁</a>
+
+     <br>
+     <a href="javascript:;" onclick="Show_Name('Br Scott C 張世光');">Br Scott C 張世光</a>
+     <a href="javascript:;" onclick="Show_Name('Br Frank C 張駿逸');">Br Frank C 張駿逸</a>
+     <a href="javascript:;" onclick="Show_Name('Br Wayne S 邵偉昕');">Br Wayne S 邵偉昕</a>
+     <a href="javascript:;" onclick="Show_Name('Br Eric S 邵奕昕');">Br Eric S 邵奕昕</a>
+     <a href="javascript:;" onclick="Show_Name('Br Ted T 杜博宇');">Br Ted T 杜博宇</a>
+
+     <br>
+     <a href="javascript:;" onclick="Show_Name('Br Wilson L 梁賢聖');">Br Wilson L 梁賢聖</a>
+     <a href="javascript:;" onclick="Show_Name('Br Sherman O 翁秀民');">Br Sherman O 翁秀民</a>
+     <a href="javascript:;" onclick="Show_Name('Br John S 施志恩');">Br John S 施志恩</a>
+     <a href="javascript:;" onclick="Show_Name('Br Anderson Tan');">Br Anderson Tan</a>
 
      <br>
      <a href="javascript:;" onclick="Show_Name('Pr Li 黎傳道');">Pr Li 黎傳道</a>
-     <a href="javascript:;" onclick="Show_Name('Pr Shih 施福安');">Pr Shih 施福安</a>
-     <a href="javascript:;" onclick="Show_Name('Eld Shaw 邵銘恩');">Eld Shaw 邵銘恩</a>
-     <a href="javascript:;" onclick="Show_Name('Br Shaw 邵偉昕');">Br Shaw 邵偉昕</a>
-     <a href="javascript:;" onclick="Show_Name('Br Shaw 邵奕昕');">Br Shaw 邵奕昕</a>
+     <a href="javascript:;" onclick="Show_Name('Pr Fu-An S 施福安');">Pr Fu-An S 施福安</a>
+     <a href="javascript:;" onclick="Show_Name('Eld Ming-En S 邵銘恩');">Eld Ming-En S 邵銘恩</a>
+     <a href="javascript:;" onclick="Show_Name('Dn John Y 楊從真');">Dn John Y 楊從真</a>
+     <a href="javascript:;" onclick="Show_Name('Dn Sean S 邵錫恩');">Dn Sean S 邵錫恩</a>
 
      <br>
-     <a href="javascript:;" onclick="Show_Name('Br Liang 梁賢聖');">Br Liang 梁賢聖</a>
-     <a href="javascript:;" onclick="Show_Name('Br Ong 翁秀民');">Br Ong 翁秀民</a>
-     <a href="javascript:;" onclick="Show_Name('Br Shih 施志恩');">Br Shih 施志恩</a>
-     <a href="javascript:;" onclick="Show_Name('Dn Yang 楊從真');">Dn Yang 楊從真</a>
-     <a href="javascript:;" onclick="Show_Name('Dn Shaw 邵錫恩');">Dn Shaw 邵錫恩</a>
-
-     <br>
-     <a href="javascript:;" onclick="Show_Name('Br Tu 杜博宇');">Br Tu 杜博宇</a>
-     <a href="javascript:;" onclick="Show_Name('Br Anderson Tan');">Br Anderson Tan</a>
      <a style="color:red" href="javascript:;" onclick="Hide_Name_List();">Close</a>
 
    </div>
@@ -3623,6 +3647,117 @@ function Reset_All(){
 </div>
 
 
+  <button style="font-size:20px;background-color:blue;color:white;" id="Sync_Attendance_Button" onclick="doesConnectionExist_2();">Sync Attendance</button>
+
+
+
+<div id="tool_area_38" style="display:none;overflow:auto;">
+
+  <center>
+    Device_Name
+    <input type="text" placeholder="Scott_iPad_Air3, Scott_NB" id="device_name_2" name="device_name_2">
+
+  <a style="font-size:26px" href="javascript:Upload_Attendance();">Upload Attendance-Sync</a> ex:Scott_iPad_Air3, Scott_NB <br>
+
+    Device_Name
+    <input type="text" id="device_name" name="device_name">
+    Service_Name
+    <input type="text" id="service_name" name="service_name">  
+
+  <a style="font-size:26px" href="javascript:Download_Attendance();">Download Attendance-Sync</a> <br><br>
+
+
+    Device_Name
+    <input type="text" id="device_name_6" name="device_name_6">
+
+  <a style="font-size:26px" href="javascript:Upload_Attendance_V2();">Upload Attendance-Sync-V2*</a> <br>
+
+  <a style="font-size:26px" href="javascript:doesConnectionExist_3();">Download Attendance-Sync-All-V2*</a> 
+
+  <br><br>
+
+
+  <a style="font-size:26px" href="javascript:Upload_Service_Record();">Upload Service Record-Single</a> <br>
+
+    Service_Name
+    <input type="text" id="service_name_4" name="service_name_4">  
+
+  <a style="font-size:26px" href="javascript:Upload_Service_Record_2();">Upload Service Record-Multi</a> ex:202106 <br>
+
+    Service_Name
+    <input type="text" id="service_name_2" name="service_name_2">  
+
+  <a style="font-size:26px" href="javascript:Download_Service_Record();">Download Service Record</a> ex:20210605A 202106 <br><br>
+
+  <a style="font-size:26px" href="javascript:Upload_Attendance_2();">Upload Attendance-Single</a> <br>
+
+    Service_Name
+    <input type="text" id="service_name_5" name="service_name_5">  
+
+  <a style="font-size:26px" href="javascript:Upload_Attendance_3();">Upload Attendance-Multi</a> ex:202106 <br>
+
+    Service_Name
+    <input type="text" id="service_name_3" name="service_name_3">  
+
+  <a style="font-size:26px" href="javascript:Download_Attendance_2();">Download Attendance</a> ex:20210605A 202106 <br><br>
+
+    Server IP:
+    <input type="text" id="Server_IP" name="Server_IP"> 
+    <input style="font-size:18pt; " type="button" value="Set" onclick="Set_Server_IP()">
+    ex:192.168.1.18:8080 <br><br> 
+
+    Device Name:
+    <input type="text" id="device_name_7" name="device_name_7">
+    <input style="font-size:18pt; " type="button" value="Set" onclick="Set_Device_Name()">
+
+    <br><br>
+
+    Must press "Prev" before you press "Upload Congregation4 with Tel & Mob"
+    <input style="font-size:18pt; " type="button" value="Upload Congregation4 with Tel & Mob" onclick="Upload_Congregation4_V1()"><br><br>
+    Must press "Prev" before you press "Upload Congregation4 without Tel & Mob"
+    <input style="font-size:18pt; " type="button" value="Upload Congregation4 without Tel & Mob" onclick="Upload_Congregation4_V2();"><br><br>
+
+    <input style="font-size:18pt; " type="button" value="Query Server Congregation4-V2 Version & Download" onclick="Query_Sever_Congregation4_V2_Version()"><br><br>
+
+    <input style="font-size:18pt; " type="button" value="Download Congregation4 without Tel & Mob -> Householder -> Roll" onclick="Download_Congregation4_V2();">
+
+    <br><br>
+
+
+  <input style="font-size:18pt; color:blue" type="button" value="Check connection!" onclick="doesConnectionExist()">
+
+  <input style="font-size:18pt; color:red" type="button" value="Close" onclick="Close_Sync_Function_Area()">
+
+  <p id="Download_Attendance_Mesg4"> </p> 
+
+  </center>
+
+  <div id="iframeDisplay"></div>  
+
+</div>
+
+
+<div id="tool_area_39" style="display:none;overflow:auto;">
+
+  <center>
+
+    <u><b>Sync Attendance Data To BNE Church's iPad</b></u><br><br>
+
+    <a style="font-size:26px" href="javascript:Upload_Attendance_V2();">Upload Attendance</a> <br><br>
+
+    <u><b>Sync Attendance Data From Other Usher's Devices</b></u><br>
+
+    <p id="Deivce_Name_and_RecordNumber"> </p>
+
+
+    <input style="font-size:18pt; color:red" type="button" value="Close" onclick="Close_Sync_Function_Area_2()"> 
+
+  </center>
+
+
+</div>
+
+
 
 <div id="tool_area_6" style="height:0%;display:none"> 
 
@@ -3789,6 +3924,7 @@ function Reset_All(){
   <a href="javascript:Roll_Call_Search_V1('Z','R')"> Z </a>
   <button style="font-size:20px" onclick="Go_To_Roll_Marking()">Search V2</button>
 
+
   <p id="Chinese_Surname"> </p>
 
 
@@ -3812,6 +3948,10 @@ function Reset_All(){
 </div>
 
 <div id="Admin_Tools_Area" style="width:100%;height:0%;overflow:auto;" class="center">
+
+  <center> 
+    <button style="font-size:20px;background-color: red;color: white;" onclick="Open_Sync_Function_Area();">All Sync Function</button>
+  </center>
 
   <button style="font-size:20px" onclick="Show_Headcount_2()">Show Headcount = </button>
   <input style="font-size:22px" size="10" type="text" id="Show_Headcount_2" name="Show_Headcount_2">
@@ -4220,10 +4360,13 @@ async function Congregation4_to_Householder() {
      for (i = 0; i < Verse_3.length; i++) {
 
         var H_No = Verse_3[i].H_No;   
+        var H_Seq = i + 1;           // ***
 
         try { 
 
-           dbT2.Householder.add({ H_No }); 
+           //dbT2.Householder.add({ H_No });   // ***
+
+           dbT2.Householder.add({ H_Seq, H_No });   // ***
 
         } catch(err) {
           if (err.name == 'ConstraintError') {
@@ -5391,6 +5534,8 @@ async function Householder_to_Roll() {
 
      dbT2.Roll.clear();  // delete all in Roll
 
+     var k = 1; // add on 20210707
+
      // 
 
      for (i = 0; i < Verse_3.length; i++) {
@@ -5419,6 +5564,8 @@ async function Householder_to_Roll() {
 
            for (j = 0; j < Verse.length; j++) {
 
+              var Roll_No = k; // add on 20210707
+
               var CNo = Verse[j].CNo;
 
               var F_Name = Verse[j].F_Name;
@@ -5436,12 +5583,16 @@ async function Householder_to_Roll() {
 
               try { 
 
-                 dbT2.Roll.add({ CNo, F_Name, L_Name, Member, Gender, C_F_Name, C_L_Name, H_No, E_F_LName, C_F_FName });
+                 dbT2.Roll.add({ Roll_No, CNo, F_Name, L_Name, Member, Gender, C_F_Name, C_L_Name, H_No, E_F_LName, C_F_FName }); // Modify on 20210707
+
+                 //dbT2.Roll.add({ CNo, F_Name, L_Name, Member, Gender, C_F_Name, C_L_Name, H_No, E_F_LName, C_F_FName });
                  // E_F_LName : English Family Last Name
                  // C_F_FName : Chinese Family First Name 姓
 
                  //dbT2.Roll.add({ CNo, F_Name, L_Name, Member, Gender, C_F_Name, C_L_Name, H_No }); // E_F_LName : English Family Last Name
                  //                                                                                  // C_F_LName : Chinese Family Last Name
+
+                 k++;   // add on 20210707 
 
               } catch(err) {   
 
@@ -7624,7 +7775,16 @@ async function Exp_and_Email_Attendance2() { // exp attendance & service record
 
      if (Verse) {
 
-        text += 'Note:' + Verse[0].Note + '|' + '%20' + '%0D';
+        //var str = document.getElementById("demo").innerHTML; 
+        //var res = str.replace("Microsoft", "W3Schools");
+
+        var Note_str = Verse[0].Note;
+
+        var Note_res = Note_str.replace("&", "and");
+
+        text += 'Note:' + Note_res + '|' + '%20' + '%0D';
+
+        //text += 'Note:' + Verse[0].Note + '|' + '%20' + '%0D';
 
         text += 'sr^_^|' + Verse_Count.toString();  // change seprator to "|" ,  for Service_Record
 
@@ -7635,16 +7795,60 @@ async function Exp_and_Email_Attendance2() { // exp attendance & service record
 
            let service_date = Verse[i].Service_Date;
 
-           let service_start_time = Verse[i].Service_Start_Time; 
-           let service_end_time = Verse[i].Service_End_Time; 
+
+           var service_start_time_str = Verse[i].Service_Start_Time;
+           var service_start_time_res = service_start_time_str.replace("&", "and");
+
+           let service_start_time = service_start_time_res; //
+
+
+           var service_end_time_str = Verse[i].Service_End_Time;
+           var service_end_time_res = service_end_time_str.replace("&", "and");
+
+           let service_end_time = service_end_time_res;     //
+
            let usher = Verse[i].Usher; 
 
-           let topic = Verse[i].Topic;
-           let hymn = Verse[i].Hymn; 
+           //var Note_str = Verse[0].Note;
+           //var Note_res = Note_str.replace("&", "and");
 
-           let speaker = Verse[i].Speaker; 
-           let interp = Verse[i].Interp; 
-           let hymnal = Verse[i].Hymnal;
+           var topic_str = Verse[i].Topic;
+           var topic_res = topic_str.replace("&", "and");
+
+           let topic = topic_res;      //
+
+
+           var hymn_str = Verse[i].Hymn;
+           var hymn_res = hymn_str.replace("&", "and");
+
+           let hymn = hymn_res;        //
+
+
+           var speaker_str = Verse[i].Speaker;
+           var speaker_res = speaker_str.replace("&", "and");
+
+           let speaker = speaker_res;  //
+
+
+           var interp_str = Verse[i].Interp;
+           var interp_res = interp_str.replace("&", "and");
+
+           let interp = interp_res;    //
+
+
+           var hymnal_str = Verse[i].Hymnal;
+           var hymnal_res = hymnal_str.replace("&", "and");
+
+           let hymnal = hymnal_res;    //
+
+
+
+           //let topic = Verse[i].Topic;      //
+           //let hymn = Verse[i].Hymn;        //
+
+           //let speaker = Verse[i].Speaker;  //
+           //let interp = Verse[i].Interp;    //
+           //let hymnal = Verse[i].Hymnal;    //
 
            let note = Verse[i].Note; 
 
@@ -7795,6 +7999,22 @@ async function Exp_and_Email_Attendance2() { // exp attendance & service record
 
         document.getElementById("Send_Attendance_Message").innerHTML = mesg1;
 
+
+
+        if( wUpload_Service_Record_Str != '' ) {
+
+           text += '%0D' + wUpload_Service_Record_Str + '%0D';
+
+        }
+
+        if( wUpload_His_Attendance_Str != '' ) {
+
+           text += '%0D' + wUpload_His_Attendance_Str + '%0D';
+
+        }
+
+
+
         // -- Email
 
         var name1 = "brisbane"; // 
@@ -7840,7 +8060,69 @@ async function Exp_and_Email_Attendance2() { // exp attendance & service record
 
            //document.getElementById("Send email").innerHTML = 'Send email'; // Mark on 2020.09.29
 
-           document.getElementById("Send email").innerHTML = email_text;
+           // check any field is empty
+
+           var SST = document.getElementById("Service_Start_Time").value;
+
+           var SET = document.getElementById("Service_End_Time").value;
+
+           var Ush = document.getElementById("Usher").value;
+
+           var Top = document.getElementById("Topic").value;
+
+           var Hymn = document.getElementById("Hymn").value;
+
+           var Speaker = document.getElementById("Speaker").value;
+
+           var Interp = document.getElementById("Interp").value;
+
+           var Hymnal = document.getElementById("Hymnal").value;
+
+           if ( SST == '' ) {
+
+              alert('Please fill in Service Start Time');
+
+           }
+           else if ( SET == '' ) {
+
+              alert('Please fill in Service End Time');
+
+           }
+           else if ( Ush == '' ) {
+
+              alert('Please fill in Usher');
+
+           }
+           else if ( Top == '' ) {
+
+              alert('Please fill in Topic');
+
+           }
+           else if ( Hymn == '' ) {
+
+              alert('Please fill in Hymn');
+
+           }
+           else if ( Speaker == '' ) {
+
+              alert('Please fill in Speaker');
+
+           }
+           else if ( Interp == '' ) {
+
+              alert('Please fill in Interpreter');
+
+           }
+           else if ( Hymnal == '' ) {
+
+              alert('Please fill in Hymnal Leader');
+
+           }
+           else {
+
+              document.getElementById("Send email").innerHTML = email_text;
+
+           }
 
         }
         else {
@@ -7873,6 +8155,10 @@ async function Exp_and_Email_Attendance2() { // exp attendance & service record
 
   } // End of if(startWith_date!='')
 
+
+  wUpload_Service_Record_Str = ''; // reset it.
+
+  wUpload_His_Attendance_Str = ''; // reset it.
 
 
 } // End of function Exp_and_Email_Attendance2()
@@ -9554,6 +9840,630 @@ function Go_To_TJCBNE_Attendance_Sheet_V2(){
    window.open("https://docs.google.com/spreadsheets/d/1jFrIZijz2eVfWS8GvCBJZErtw2PQfbvCaC8CBroRips/edit?usp=sharing");
 
 }
+
+
+
+
+async function Imp_to_Service_Record_1() { // for Download Service Record  
+                                           // and then imp to Service_Record, Del and Add to
+
+   //Download_n_Imp_Attendance_Records_Add_Str = event_tmp3; // attendance records for imp
+
+   //Download_n_Imp_Service_Records_Del_Add_Str = event_SR_Del_Add_tmp3; // service records for imp
+
+   var Imp_Word = Download_n_Imp_Service_Records_Del_Add_Str;
+
+
+
+   if(Imp_Word!='' && Imp_Word.length>5 && Imp_Word.substr(0, 5)=='sr^_^') { // For Service_Record by Email import
+                                                                             // Do pre-check
+      //Split String "str" into Array "res"
+      //var str = "i!^_^,2,18,18,2,20200302,65,4,9,20200304";  // <-- test Data
+      //var str = "i!^_^,3,18,18,2,20200302,65,4,9,20200304,18,18,4,20200304";  // <-- test Data
+      //var str = "i!^_^,4,18,18,2,20200302,65,4,9,20200304,18,18,4,20200304,65,4,10,20200305";  // <-- test Data
+      //var res = str.split(",");
+
+      var Imp_Word_Real_Str = Imp_Word.substr(6, Imp_Word.length);
+
+      var Imp_Tmp = Imp_Word_Real_Str.split("|");  // Imp_Tmp is an Array 
+
+      var imp_records_no = Imp_Tmp[0];
+
+      var update_no = 0;
+
+      var add_no = 0;
+
+      for (i = 0; i < imp_records_no; i++) {
+
+        //var CNo = Number(Imp_Tmp[11*i+1]);
+
+        var ID_1_tmp = Imp_Tmp[16*i+1];
+        var ID_2_tmp = Imp_Tmp[16*i+2];
+
+        var Service_Date_tmp = Imp_Tmp[16*i+3];
+
+        var Service_Start_Time_tmp = Imp_Tmp[16*i+4];
+        var Service_End_Time_tmp = Imp_Tmp[16*i+5];
+        var Usher_tmp = Imp_Tmp[16*i+6];
+
+        var Topic_tmp = Imp_Tmp[16*i+7];
+        var Hymn_tmp = Imp_Tmp[16*i+8];
+
+        var Speaker_tmp = Imp_Tmp[16*i+9];
+        var Interp_tmp = Imp_Tmp[16*i+10];
+        var Hymnal_tmp = Imp_Tmp[16*i+11];
+
+        var Note_tmp = Imp_Tmp[16*i+12];
+
+        // Decrypt Note and other
+
+        // Decide Note and others
+
+
+        var encodedService_start_time = Service_Start_Time_tmp;
+
+        var encodedService_end_time = Service_End_Time_tmp;
+
+        var encodedUsher = Usher_tmp;
+
+        var encodedTopic = Topic_tmp;
+
+        var encodedHymn = Hymn_tmp;
+
+        var encodedSpeaker = Speaker_tmp;
+
+        var encodedInterp = Interp_tmp;
+
+        var encodedHymnal = Hymnal_tmp;
+
+        var encodedNote = Note_tmp;
+
+        //var Key_input = '2020Chapter03Note15'; // for Encrypt and Decrypt Exp & Imp Chap Note
+
+        //var decryptedUsher  = CryptoJS.AES.decrypt(encryptedUsher.toString(), Key_input); 
+
+        //var decryptedUsher_Str = decryptedUsher.toString(CryptoJS.enc.Utf8); // use this
+
+        //var decryptedTopic  = CryptoJS.AES.decrypt(encryptedTopic.toString(), Key_input); 
+
+        //var decryptedTopic_Str = decryptedTopic.toString(CryptoJS.enc.Utf8); // use this
+
+        //var decryptedHymn  = CryptoJS.AES.decrypt(encryptedHymn.toString(), Key_input); 
+
+        //var decryptedHymn_Str = decryptedHymn.toString(CryptoJS.enc.Utf8); // use this
+
+        //var decryptedSpeaker  = CryptoJS.AES.decrypt(encryptedSpeaker.toString(), Key_input); 
+
+        //var decryptedSpeaker_Str = decryptedSpeaker.toString(CryptoJS.enc.Utf8); // use this
+
+        //var decryptedInterp  = CryptoJS.AES.decrypt(encryptedInterp.toString(), Key_input); 
+
+        //var decryptedInterp_Str = decryptedInterp.toString(CryptoJS.enc.Utf8); // use this
+
+        //var decryptedHymnal  = CryptoJS.AES.decrypt(encryptedHymnal.toString(), Key_input); 
+
+        //var decryptedHymnal_Str = decryptedHymnal.toString(CryptoJS.enc.Utf8); // use this
+
+
+        //var decryptedNote  = CryptoJS.AES.decrypt(encryptedNote.toString(), Key_input); 
+
+        //var decryptedNote_Str = decryptedNote.toString(CryptoJS.enc.Utf8); // use this
+
+
+        //var decryptedNote_Str = atob(encryptedNote); // for test , 但 中文不行
+
+
+        var decodedService_start_time = unescape(decodeURIComponent(atob( encodedService_start_time ))); //    
+
+        var decodedService_end_time = unescape(decodeURIComponent(atob( encodedService_end_time ))); //    
+
+        var decodedUsher = unescape(decodeURIComponent(atob( encodedUsher ))); //    
+
+        var decodedTopic = unescape(decodeURIComponent(atob( encodedTopic ))); //    
+
+        var decodedHymn = unescape(decodeURIComponent(atob( encodedHymn ))); //    
+
+        var decodedSpeaker = unescape(decodeURIComponent(atob( encodedSpeaker ))); //    
+
+        var decodedInterp = unescape(decodeURIComponent(atob( encodedInterp ))); //    
+
+        var decodedHymnal = unescape(decodeURIComponent(atob( encodedHymnal ))); //    
+
+        var decodedNote = unescape(decodeURIComponent(atob( encodedNote ))); //      
+
+        //unescape(decodeURIComponent(window.atob( str )))
+
+
+
+        // Define the string
+        // var encodedStringAtoB = 'SGVsbG8gV29ybGQh';
+
+        // Decode the String
+        // var decodedStringAtoB = atob(encodedStringAtoB);
+
+
+        var Bro_M_Note_tmp = Number(Imp_Tmp[16*i+13]);
+        var Sis_M_Note_tmp = Number(Imp_Tmp[16*i+14]);
+        var Bro_TrS_Note_tmp = Number(Imp_Tmp[16*i+15]);
+        var Sis_TrS_Note_tmp = Number(Imp_Tmp[16*i+16]);
+
+
+        let Verse = await dbT2.Service_Record.get(ID_1_tmp);  // Check if data exist already
+
+        if (Verse) { // data exist already, so update
+
+
+           dbT2.Service_Record.update(ID_1_tmp, { Service_Start_Time: decodedService_start_time, Service_End_Time: decodedService_end_time, Usher: decodedUsher, Topic: decodedTopic, Hymn: decodedHymn, Speaker: decodedSpeaker, Interp: decodedInterp, Hymnal: decodedHymnal, Note: decodedNote, Bro_M_Note: Bro_M_Note_tmp, Sis_M_Note: Sis_M_Note_tmp, Bro_TrS_Note: Bro_TrS_Note_tmp, Sis_TrS_Note: Sis_TrS_Note_tmp });
+
+
+
+
+           //dbT2.Service_Record.update(ID_1_tmp, { Service_Start_Time: Service_Start_Time_tmp, Service_End_Time: Service_End_Time_tmp, Usher: Usher_tmp, Topic: Topic_tmp, Hymn: Hymn_tmp, Speaker: Speaker_tmp, Interp: Interp_tmp, Hymnal: Hymnal_tmp, Note: decryptedNote_Str, Bro_M_Note: Bro_M_Note_tmp, Sis_M_Note: Sis_M_Note_tmp, Bro_TrS_Note: Bro_TrS_Note_tmp, Sis_TrS_Note: Sis_TrS_Note_tmp });
+
+
+
+           //dbT2.Service_Record.update(ID_1_tmp, { ID_1: ID_1_tmp, ID_2: ID_2_tmp, Service_Date: Service_Date_tmp, Service_Start_Time: Service_Start_Time_tmp, Service_End_Time: Service_End_Time_tmp, Usher: Usher_tmp, Topic: Topic_tmp, Hymn: Hymn_tmp, Speaker: Speaker_tmp, Interp: Interp_tmp, Hymnal: Hymnal_tmp, Note: decryptedNote_Str, Bro_M_Note: Bro_M_Note_tmp, Sis_M_Note: Sis_M_Note_tmp, Bro_TrS_Note: Bro_TrS_Note_tmp, Sis_TrS_Note: Sis_TrS_Note_tmp });
+
+           //dbT2.Service_Record.update(ID_1_tmp, { Service_Start_Time: Service_Start_Time_tmp, Service_End_Time: Service_End_Time_tmp, Usher: Usher_tmp, Topic: Topic_tmp, Hymn: Hymn_tmp, Speaker: Speaker_tmp, Interp: Interp_tmp, Hymnal: Hymnal_tmp, Note: decryptedNote_Str, Bro_M_Note: Bro_M_Note_tmp, Sis_M_Note: Sis_M_Note_tmp, Bro_TrS_Note: Bro_TrS_Note_tmp, Sis_TrS_Note: Sis_TrS_Note_tmp });
+
+
+           //dbT2.Service_Record.update(ID_1_tmp, { Service_Start_Time: Service_Start_Time_tmp, Service_End_Time: Service_End_Time_tmp, Usher: decryptedUsher_Str, Topic: decryptedTopic_Str, Hymn: decryptedHymn_Str, Speaker: decryptedSpeaker_Str, Interp: decryptedInterp_Str, Hymnal: decryptedHymnal_Str, Note: decryptedNote_Str, Bro_M_Note: Bro_M_Note_tmp, Sis_M_Note: Sis_M_Note_tmp, Bro_TrS_Note: Bro_TrS_Note_tmp, Sis_TrS_Note: Sis_TrS_Note_tmp });
+
+
+           //dbT2.Service_Record.update(ID_1_tmp, { Service_Start_Time: Service_Start_Time_tmp, Service_End_Time: Service_End_Time_tmp, Usher: decryptedUsher_Str, Topic: Topic_tmp, Hymn: Hymn_tmp, Speaker: Speaker_tmp, Interp: Interp_tmp, Hymnal: Hymnal_tmp, Note: decryptedNote_Str, Bro_M_Note: Bro_M_Note_tmp, Sis_M_Note: Sis_M_Note_tmp, Bro_TrS_Note: Bro_TrS_Note_tmp, Sis_TrS_Note: Sis_TrS_Note_tmp });
+
+
+           update_no = update_no + 1;
+
+           // Do Nothing
+
+        }
+        else {  // add 
+
+            // Add new
+
+            let ID_1 = ID_1_tmp;
+            let ID_2 = ID_2_tmp;
+
+            let Service_Date = Service_Date_tmp;
+
+            let Service_Start_Time = decodedService_start_time;  // Service_Start_Time_tmp
+            let Service_End_Time = decodedService_end_time;  // Service_End_Time_tmp
+
+
+            //let Usher = decryptedUsher_Str;
+            //let Usher = decryptedUsher; // for test
+
+            let Usher = decodedUsher;  // Usher_tmp
+
+
+            //let Topic = decryptedTopic_Str;
+            //let Hymn = decryptedHymn_Str;
+
+            let Topic = decodedTopic;  // Topic_tmp
+            let Hymn = decodedHymn;  // Hymn_tmp
+
+            //let Speaker = decryptedSpeaker_Str;
+            //let Interp = decryptedInterp_Str;
+            //let Hymnal = decryptedHymnal_Str;
+
+            let Speaker = decodedSpeaker;  // Speaker_tmp
+            let Interp = decodedInterp;  // Interp_tmp
+            let Hymnal = decodedHymnal;  // Hymnal_tmp
+
+
+            let Note = decodedNote;  // decryptedNote_Str
+
+            //let Note = Note_tmp;
+
+
+            let Bro_M_Note = Bro_M_Note_tmp;
+            let Sis_M_Note = Sis_M_Note_tmp;
+            let Bro_TrS_Note = Bro_TrS_Note_tmp;
+            let Sis_TrS_Note = Sis_TrS_Note_tmp;
+
+
+           try {
+
+             //dbT2.Congregation4.add({CNo, F_Name, L_Name, Member, Gender, H_No, C_F_Name, C_L_Name, F_Order, Tel, Mob });
+
+
+             dbT2.Service_Record.add({ID_1, ID_2, Service_Date, Service_Start_Time, Service_End_Time, Usher, Topic, Hymn, Speaker, Interp, Hymnal, Note, Bro_M_Note, Sis_M_Note, Bro_TrS_Note, Sis_TrS_Note });
+
+             add_no = add_no + 1;
+
+
+             //imp_successed_no = imp_successed_no + 1;
+
+           } catch(err) {
+
+             if (err.name == 'ConstraintError') {
+               alert("Such book exists already");
+                //document.getElementById("Mesg2").value = F_Name + ' ' + L_Name + ' exists already.';
+                //document.getElementById("Mesg2").readOnly = true;
+             } else {
+               throw err;
+             }
+           }
+
+        }  // End of if (Verse)
+
+
+      }  // End of for (i = 0; i < imp_records_no; i++)
+
+
+      var imp_mesg = ID_2_tmp + ' Service Record ' + update_no + ' updated, ' + add_no + ' added.';
+
+      //document.getElementById("Mesg4").value = imp_mesg;
+
+      alert(imp_mesg);
+
+
+   }  // End of if(Imp_Word!=''...// For Service_Record by Email import
+
+
+
+} // End of function Imp_to_Service_Record_1()
+
+
+
+
+async function Imp_to_Attendance_1() { // for Download Attendance from other device 
+                                     // and then imp to Attendance, Add to
+
+   //Download_n_Imp_Attendance_Records_Add_Str = event_tmp3; // attendance records for imp
+
+   var Imp_Word = Download_n_Imp_Attendance_Records_Add_Str;
+
+   if(Imp_Word!='' && Imp_Word.length>5 && Imp_Word.substr(0, 5)=='AE^_^') {    
+
+      //Split String "str" into Array "res"
+      // AE^_^|12|20210503E_M_B_275|20210503E_M_B_279|20210503E_M_B_45
+      //var str = "i!^_^,4,18,18,2,20200302,65,4,9,20200304,18,18,4,20200304,65,4,10,20200305";  // <-- test Data
+      //var res = str.split(",");
+
+      var Imp_Word_Real_Str = Imp_Word.substr(6, Imp_Word.length);
+
+      var Imp_Tmp = Imp_Word_Real_Str.split("|");  // Imp_Tmp is an Array 
+
+      var imp_records_no = Imp_Tmp[0];
+
+      var update_no = 0;
+
+      var add_no = 0;
+
+      for (i = 0; i < imp_records_no; i++) {
+
+        var Record = Imp_Tmp[1*i+1];
+
+        let Verse = await dbT2.Attendance.get(Record);  // Check if data exist already
+
+        if (Verse) { // data exist already, so update
+
+           //dbT2.Congregation4.update(CNo, { F_Name: F_Name_tmp, L_Name: L_Name_tmp, Member: Member_tmp, Gender: Gender_tmp, H_No: H_No_tmp, C_F_Name: C_F_Name_tmp, C_L_Name: C_L_Name_tmp, F_Order: F_Order_tmp, Tel: Tel_tmp, Mob: Mob_tmp });
+
+           //dbT2.Attendance.update(CNo, { F_Name: F_Name, L_Name: L_Name, Member: Member, Gender: Gender, H_No: H_No, C_F_Name: C_F_Name, C_L_Name: C_L_Name, F_Order: F_Order, Tel: Tel, Mob: Mob });
+
+           //update_no = update_no + 1;
+
+           // Do Nothing
+
+        }
+        else {  // add 
+
+           try {
+
+             //dbT2.Congregation4.add({CNo, F_Name, L_Name, Member, Gender, H_No, C_F_Name, C_L_Name, F_Order, Tel, Mob });
+
+             //dbT2.Attendance.add({CNo, F_Name, L_Name, Member, Gender, H_No, C_F_Name, C_L_Name, F_Order, Tel, Mob });
+
+             dbT2.Attendance.add({Record });  // <--- *** // 20200905E_M_S_83
+
+             add_no = add_no + 1;
+
+             //imp_successed_no = imp_successed_no + 1;
+
+           } catch(err) {
+
+             if (err.name == 'ConstraintError') {
+               alert("Such book exists already");
+                //document.getElementById("Mesg2").value = F_Name + ' ' + L_Name + ' exists already.';
+                //document.getElementById("Mesg2").readOnly = true;
+             } else {
+               throw err;
+             }
+           }
+
+        }  // End of if (Verse)
+
+
+      }  // End of for (i = 0; i < imp_records_no; i++)
+
+
+      var imp_mesg = 'Download Attendance Succeed. Attendance ' + update_no + ' updated, ' + add_no + ' added.';
+
+      //document.getElementById("Download_Attendance_Mesg4").innerHTML = imp_mesg;
+
+      alert(imp_mesg);
+
+      Show_Total();
+      Roll_Call_V2('R');
+
+
+   }  // End of if(Imp_Word!=''...// For Attendance download by other device
+
+
+
+} // End of function Imp_to_Attendance_1()
+
+
+
+function show_Name_and_Number() { // for display Name and Number can be downloaded
+
+   var Imp_Word = Query_For_Attendance_Name_Number_Str; // QFA^_^|2|Scott_NB2|4|Scott_NB|7
+
+   if(Imp_Word!='' && Imp_Word.length>5 && Imp_Word.substr(0, 6)=='QFA^_^') { 
+
+      var Deivce_Name_and_RecordNumber_Str_tmp = '<b>Data can be downloaded from below</b> <br><br>';   
+
+      var Imp_Word_Real_Str = Imp_Word.substr(7, Imp_Word.length);  // 2|Scott_NB2|4|Scott_NB|7
+
+      var Imp_Tmp = Imp_Word_Real_Str.split("|");  // Imp_Tmp is an Array 
+
+      var imp_records_no = Imp_Tmp[0];
+
+      for (i = 0; i < imp_records_no; i++) {
+
+        var Name = Imp_Tmp[2*i+1];
+
+        var Record_Number = Imp_Tmp[2*i+2];
+
+        Deivce_Name_and_RecordNumber_Str_tmp += Name + '(' + Record_Number + ') ' + '<br>';
+
+
+      } // End of for (i = 0; i < imp_records_no; i++)
+
+
+      //Deivce_Name_and_RecordNumber_Str_tmp += '<br><a style="font-size:26px" href="javascript:Download_Attendance_V2();">Download Attendance-Sync-All-V2</a> <br><br>';
+
+      Deivce_Name_and_RecordNumber_Str_tmp += '<br><a style="font-size:26px" href="javascript:doesConnectionExist_3();">Download Attendance and Sync</a> <br>'; // Download Attendance-Sync-All-V2
+
+
+      document.getElementById("Deivce_Name_and_RecordNumber").innerHTML = Deivce_Name_and_RecordNumber_Str_tmp;
+
+
+   }
+   else if(Imp_Word!='' && Imp_Word.length>5 && Imp_Word.substr(0, 6)=='NODATA') {
+
+      document.getElementById("Deivce_Name_and_RecordNumber").innerHTML = '<b>No One Upload Data, Please Check With Them.</b><br>'
+
+   } // End of if(Imp_Word!='' && Imp_Word.length>5 && Imp_Word.substr(0, 6)=='QFA^_^')
+
+
+} // End of function show_Name_and_Number()
+
+
+async function Imp_to_Attendance_V2() { // for Download Attendance from other device V2
+                                        // and then imp to Attendance, Add to
+
+   //Download_n_Imp_Attendance_Records_Add_Str = event_tmp3; // attendance records for imp
+
+   //V2_Download_n_Imp_Attendance_Records_Add_Str = eventV2_tmp3; 
+
+   var Imp_Word = V2_Download_n_Imp_Attendance_Records_Add_Str;
+
+   if(Imp_Word!='' && Imp_Word.length>5 && Imp_Word.substr(0, 5)=='AE^_^') {    
+
+      //Split String "str" into Array "res"
+      // AE^_^|12|20210503E_M_B_275|20210503E_M_B_279|20210503E_M_B_45
+      //var str = "i!^_^,4,18,18,2,20200302,65,4,9,20200304,18,18,4,20200304,65,4,10,20200305";  // <-- test Data
+      //var res = str.split(",");
+
+      var Imp_Word_Real_Str = Imp_Word.substr(6, Imp_Word.length);
+
+      var Imp_Tmp = Imp_Word_Real_Str.split("|");  // Imp_Tmp is an Array 
+
+      var imp_records_no = Imp_Tmp[0];
+
+      var update_no = 0;
+
+      var add_no = 0;
+
+      for (i = 0; i < imp_records_no; i++) {
+
+        var Record = Imp_Tmp[1*i+1];
+
+        let Verse = await dbT2.Attendance.get(Record);  // Check if data exist already
+
+        if (Verse) { // data exist already, so update
+
+           //dbT2.Congregation4.update(CNo, { F_Name: F_Name_tmp, L_Name: L_Name_tmp, Member: Member_tmp, Gender: Gender_tmp, H_No: H_No_tmp, C_F_Name: C_F_Name_tmp, C_L_Name: C_L_Name_tmp, F_Order: F_Order_tmp, Tel: Tel_tmp, Mob: Mob_tmp });
+
+           //dbT2.Attendance.update(CNo, { F_Name: F_Name, L_Name: L_Name, Member: Member, Gender: Gender, H_No: H_No, C_F_Name: C_F_Name, C_L_Name: C_L_Name, F_Order: F_Order, Tel: Tel, Mob: Mob });
+
+           //update_no = update_no + 1;
+
+           // Do Nothing
+
+        }
+        else {  // add 
+
+           try {
+
+             //dbT2.Congregation4.add({CNo, F_Name, L_Name, Member, Gender, H_No, C_F_Name, C_L_Name, F_Order, Tel, Mob });
+
+             //dbT2.Attendance.add({CNo, F_Name, L_Name, Member, Gender, H_No, C_F_Name, C_L_Name, F_Order, Tel, Mob });
+
+             dbT2.Attendance.add({Record });  // <--- *** // 20200905E_M_S_83
+
+             add_no = add_no + 1;
+
+             //imp_successed_no = imp_successed_no + 1;
+
+           } catch(err) {
+
+             if (err.name == 'ConstraintError') {
+               alert("Such book exists already");
+                //document.getElementById("Mesg2").value = F_Name + ' ' + L_Name + ' exists already.';
+                //document.getElementById("Mesg2").readOnly = true;
+             } else {
+               throw err;
+             }
+           }
+
+        }  // End of if (Verse)
+
+
+      }  // End of for (i = 0; i < imp_records_no; i++)
+
+
+      var imp_mesg = 'Download Attendance Succeed. Attendance ' + update_no + ' updated, ' + add_no + ' added.';
+
+      //document.getElementById("Download_Attendance_Mesg4").innerHTML = imp_mesg;
+
+      alert(imp_mesg);
+
+      Show_Total();
+      Roll_Call_V2('R');
+
+
+   }  // End of if(Imp_Word!=''...// For Attendance download by other device
+
+
+
+} // End of function Imp_to_Attendance_V2()
+
+
+
+
+async function Imp_to_Attendance_2() { // for Download Attendance from DB History Attendance Record 
+                                     // and then imp to Attendance, Del then Add
+
+   //Download_n_Imp_Attendance_Records_Add_Str = event_tmp3; // attendance records for imp
+
+   //Download_n_Imp_Attendance_Records_Del_Add_Str = eventDA_tmp3;
+
+
+   //var Imp_Tmp5 = EVENT_Download_AttendanceH_tmp2.split("!");  // Imp_Tmp5 is an Array 
+
+   //var Download_Name_tmp = Imp_Tmp2[0]; // Scott_iPad_Air3
+
+
+   var Imp_Tmp5 = Download_n_Imp_Attendance_Records_Del_Add_Str.split("!");
+
+   var Imp_Service_Tmp = Imp_Tmp5[0]; // 20210605A
+
+   var Imp_Word = Imp_Tmp5[1];   // AE^_^|184|20210605A_M_B_1|20210605A_M_B_100...
+
+
+
+   //let delete_Record_tmp = document.getElementById("Delete_Attendance_Record").value;
+
+   //dbT2.Attendance.where("Record").startsWithIgnoreCase(delete_Record_tmp).delete();
+
+
+   let Verse999 = await dbT2.Attendance.where("Record").startsWithIgnoreCase(Imp_Service_Tmp);
+
+   if (Verse999) { // data exist , so delete all of them
+
+      dbT2.Attendance.where("Record").startsWithIgnoreCase(Imp_Service_Tmp).delete();
+
+   }
+
+
+
+   //var Imp_Word = Download_n_Imp_Attendance_Records_Del_Add_Str;
+
+   //var Imp_Word = Download_n_Imp_Attendance_Records_Add_Str;
+
+
+   if(Imp_Word!='' && Imp_Word.length>5 && Imp_Word.substr(0, 5)=='AE^_^') {    
+
+      //Split String "str" into Array "res"
+      // AE^_^|12|20210503E_M_B_275|20210503E_M_B_279|20210503E_M_B_45
+      //var str = "i!^_^,4,18,18,2,20200302,65,4,9,20200304,18,18,4,20200304,65,4,10,20200305";  // <-- test Data
+      //var res = str.split(",");
+
+
+      var Imp_Word_Real_Str = Imp_Word.substr(6, Imp_Word.length);
+
+      var Imp_Tmp = Imp_Word_Real_Str.split("|");  // Imp_Tmp is an Array 
+
+      var imp_records_no = Imp_Tmp[0];
+
+      var update_no = 0;
+
+      var add_no = 0;
+
+      for (i = 0; i < imp_records_no; i++) {
+
+        var Record = Imp_Tmp[1*i+1];
+
+        let Verse = await dbT2.Attendance.get(Record);  // Check if data exist already
+
+        if (Verse) { // data exist already
+
+           //dbT2.Congregation4.update(CNo, { F_Name: F_Name_tmp, L_Name: L_Name_tmp, Member: Member_tmp, Gender: Gender_tmp, H_No: H_No_tmp, C_F_Name: C_F_Name_tmp, C_L_Name: C_L_Name_tmp, F_Order: F_Order_tmp, Tel: Tel_tmp, Mob: Mob_tmp });
+
+           //dbT2.Attendance.update(CNo, { F_Name: F_Name, L_Name: L_Name, Member: Member, Gender: Gender, H_No: H_No, C_F_Name: C_F_Name, C_L_Name: C_L_Name, F_Order: F_Order, Tel: Tel, Mob: Mob });
+
+           //update_no = update_no + 1;
+
+           // Do Nothing
+
+
+           //let delete_Record_tmp = document.getElementById("Delete_Attendance_Record").value;
+
+           //dbT2.Attendance.where("Record").startsWithIgnoreCase(delete_Record_tmp).delete();
+
+
+        }
+        else {  // add 
+
+           try {
+
+             //dbT2.Congregation4.add({CNo, F_Name, L_Name, Member, Gender, H_No, C_F_Name, C_L_Name, F_Order, Tel, Mob });
+
+             //dbT2.Attendance.add({CNo, F_Name, L_Name, Member, Gender, H_No, C_F_Name, C_L_Name, F_Order, Tel, Mob });
+
+             dbT2.Attendance.add({Record });  // <--- *** // 20200905E_M_S_83
+
+             add_no = add_no + 1;
+
+             //imp_successed_no = imp_successed_no + 1;
+
+           } catch(err) {
+
+             if (err.name == 'ConstraintError') {
+               alert("Such book exists already");
+                //document.getElementById("Mesg2").value = F_Name + ' ' + L_Name + ' exists already.';
+                //document.getElementById("Mesg2").readOnly = true;
+             } else {
+               throw err;
+             }
+           }
+
+        }  // End of if (Verse)
+
+
+      }  // End of for (i = 0; i < imp_records_no; i++)
+
+
+      var imp_mesg = 'Download Attendance Succeed. Attendance ' + update_no + ' updated, ' + add_no + ' added.';
+
+      //document.getElementById("Download_Attendance_Mesg4").innerHTML = imp_mesg;
+
+      alert(imp_mesg);
+
+      Show_Total();
+      Roll_Call_V2('R');
+
+
+   }  // End of if(Imp_Word!=''...// For Attendance download from DB History Attendance Record
+
+
+
+} // End of function Imp_to_Attendance_2()
 
 
 
